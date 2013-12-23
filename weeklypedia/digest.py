@@ -117,7 +117,8 @@ def create_app():
     routes = [('/', fetch_rc, render_json),
               ('/meta', MetaApplication),
               ('/_dump_environ', lambda request: request.environ, render_json_dev),
-              ('/<lang>', fetch_rc, 'template.html')]
+              ('/fetch/', fetch_rc, 'template.html'),
+              ('/fetch/<lang>', fetch_rc, 'template.html')]
     ashes_render = AshesRenderFactory(_CUR_PATH)
     return Application(routes, [], ashes_render)
 
