@@ -1,5 +1,3 @@
-# -*- coding: utf-8 -*-
-from __future__ import unicode_literals
 import oursql
 import os
 from flup.server.fcgi import WSGIServer
@@ -27,8 +25,7 @@ class RecentChanges(object):
         self.db = oursql.connect(db=db_title,
                                  host=db_host,
                                  read_default_file=DB_PATH,
-                                 charset='utf-8',
-                                 use_unicode=True)
+                                 charset=None)
         self.earliest = predate(datetime.now(), days)
         self.main_limit = 25
         self.talk_limit = 5
@@ -85,11 +82,11 @@ class RecentChanges(object):
         stats = self.stats()
         mainspace = self.mainspace()
         talkspace = self.talkspace()
-        #titles = [i[0].decode('utf-8') for i in mainspace]
+        titles = [i[0].decode('utf-8') for i in mainspace]
         return {
             'stats': stats,
             'articles': mainspace,
-            #'extracts': extracts(self.lang, titles, 3),
+            'extracts': extracts(self.lang, titles, 3),
             'talks': talkspace
         }
 
