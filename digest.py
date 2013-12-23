@@ -1,11 +1,14 @@
-import oursql
+
 import os
-from flup.server.fcgi import WSGIServer
+from datetime import datetime, timedelta
+
+import oursql
+
 from clastic import Application, render_json, render_json_dev
 from clastic.render import AshesRenderFactory
 from clastic.meta import MetaApplication
 from wapiti import WapitiClient
-from datetime import datetime, timedelta
+
 
 DB_PATH = os.path.expanduser('~/replica.my.cnf')
 DATE_FORMAT = '%Y%m%d%H%M%S'
@@ -109,12 +112,18 @@ def fetch_rc(lang='en'):
     changes = RecentChanges(lang=lang)
     return changes.all()
 
-if __name__ == '__main__':
+
+def create_app():
     routes = [('/', fetch_rc, render_json),
               ('/meta', MetaApplication),
               ('/_dump_environ', lambda request: request.environ, render_json_dev),
               ('/<lang>', fetch_rc, 'template.html')]
     ashes_render = AshesRenderFactory(_CUR_PATH)
-    app = Application(routes, [], ashes_render)
-    WSGIServer(app).run()
+    return Application(routes, [], ashes_render)
 
+
+wsgi_app = create_app()
+
+
+if __name__ == '__main__':
+    import pdb;pdb.set_trace()  # do your debugging here
