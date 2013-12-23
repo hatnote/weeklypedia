@@ -1,3 +1,5 @@
+# -*- coding: utf-8 -*-
+from __future__ import unicode_literals
 import oursql
 import os
 from flup.server.fcgi import WSGIServer
@@ -28,44 +30,68 @@ class RecentChanges(object):
                                  charset=None,
                                  use_unicode=False)
         self.earliest = predate(datetime.now(), days)
+        self.main_limit = 25
+        self.talk_limit = 5
 
-    def weekly(self):
+    def mainspace(self):
         cursor = self.db.cursor(oursql.DictCursor)
         cursor.execute('''
             SELECT rc_title, COUNT(*), COUNT(DISTINCT rc_user)
             FROM recentchanges
-            WHERE rc_namespace = 0
+            WHERE rc_namespace = 1
             AND rc_type = 0
             AND rc_timestamp > ?
             GROUP BY rc_title
             ORDER BY COUNT(*)
             DESC
-            LIMIT 25
-        ''', (self.earliest,))
-        return cursor.fetchall()
+            LIMIT ?
+        ''', (self.earliest, self.main_limit))
+        ret = cursor.fetchall()
+        return [(i['rc_title'], i['COUNT(*)'], i['COUNT(DISTINCT rc_user)']) for i in ret]
+
+    def talkspace(self):
+        cursor = self.db.cursor(oursql.DictCursor)
+        cursor.execute('''
+            SELECT rc_title, COUNT(*), COUNT(DISTINCT rc_user)
+            FROM recentchanges
+            WHERE rc_namespace = 1
+            AND rc_type = 0
+            AND rc_timestamp > ?
+            GROUP BY rc_title
+            ORDER BY COUNT(*)
+            DESC
+            LIMIT ?
+        ''', (self.earliest, self.talk_limit))
+        ret = cursor.fetchall()
+        return [(i['rc_title'], i['COUNT(*)'], i['COUNT(DISTINCT rc_user)']) for i in ret]
 
     def stats(self):
         cursor = self.db.cursor(oursql.DictCursor)
         cursor.execute('''
-            SELECT COUNT(*), COUNT(DISTINCT rc_title)
+            SELECT COUNT(*), COUNT(DISTINCT rc_title), COUNT(DISTINCT rc_user)
             FROM recentchanges
             WHERE rc_namespace = 0
             AND rc_type = 0
             AND rc_timestamp > ?;
         ''', (self.earliest,))
-        return cursor.fetchall()
+        ret = cursor.fetchall()[0]
+        return {
+            'edits': ret['COUNT(*)'], 
+            'titles': ret['COUNT(DISTINCT rc_title)'], 
+            'users': ret['COUNT(DISTINCT rc_user)']
+        }
 
     def all(self):
-        total_edits = self.stats()
-        top_mainspace = self.weekly()
-        titles = [i['rc_title'].decode('utf-8') for i in top_mainspace]
-        ret = {
-            'edits': total_edits[0]['COUNT(*)'], 
-            'titles': total_edits[0]['COUNT(DISTINCT rc_title)'], 
-            'top': [(i['rc_title'], i['COUNT(*)'], i['COUNT(DISTINCT rc_user)']) for i in top_mainspace],
-            'extracts': extracts(self.lang, titles, 3)
+        stats = self.stats()
+        mainspace = self.mainspace()
+        talkspace = self.talkspace()
+        titles = [i[0].decode('utf-8') for i in mainspace]
+        return {
+            'stats': stats,
+            'articles': mainspace,
+            #'extracts': extracts(self.lang, titles, 3),
+            'talks': talkspace
         }
-        return ret
 
 def extracts(lang, titles, limit):
     wc = WapitiClient('stephen.laporte@gmail.com',
