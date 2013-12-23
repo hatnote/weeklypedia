@@ -1,6 +1,6 @@
 
 from flup.server.fcgi import WSGIServer
-from digest import wsgi_app
+from weeklypedia import wsgi_app
 
 
 wsgi_server = WSGIServer(wsgi_app)
