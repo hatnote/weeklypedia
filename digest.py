@@ -2,12 +2,14 @@ import oursql
 import os
 from flup.server.fcgi import WSGIServer
 from clastic import Application, render_json, render_json_dev
+from clastic.render import AshesRenderFactory
 from clastic.meta import MetaApplication
 from wapiti import WapitiClient
 from datetime import datetime, timedelta
 
 DB_PATH = os.path.expanduser('~/replica.my.cnf')
 DATE_FORMAT = '%Y%m%d%H%M%S'
+_CUR_PATH = os.path.dirname(os.path.abspath(__file__))
 
 def parse_date_str(date_str):
     return datetime.strptime(date_str, DATE_FORMAT)
@@ -27,7 +29,7 @@ class RecentChanges(object):
                                  read_default_file=DB_PATH,
                                  charset=None)
         self.earliest = predate(datetime.now(), days)
-        self.main_limit = 25
+        self.main_limit = 20
         self.talk_limit = 5
 
     def mainspace(self):
@@ -44,7 +46,7 @@ class RecentChanges(object):
             LIMIT ?
         ''', (self.earliest, self.main_limit))
         ret = cursor.fetchall()
-        return [(i['rc_title'], i['COUNT(*)'], i['COUNT(DISTINCT rc_user)']) for i in ret]
+        return [{'title': i['rc_title'].decode('utf-8'), 'edits': i['COUNT(*)'], 'users': i['COUNT(DISTINCT rc_user)']} for i in ret]
 
     def talkspace(self):
         cursor = self.db.cursor(oursql.DictCursor)
@@ -60,7 +62,7 @@ class RecentChanges(object):
             LIMIT ?
         ''', (self.earliest, self.talk_limit))
         ret = cursor.fetchall()
-        return [(i['rc_title'], i['COUNT(*)'], i['COUNT(DISTINCT rc_user)']) for i in ret]
+        return [{'title': i['rc_title'].decode('utf-8'), 'edits': i['COUNT(*)'], 'users': i['COUNT(DISTINCT rc_user)']} for i in ret]
 
     def stats(self):
         cursor = self.db.cursor(oursql.DictCursor)
@@ -82,12 +84,13 @@ class RecentChanges(object):
         stats = self.stats()
         mainspace = self.mainspace()
         talkspace = self.talkspace()
-        titles = [i[0].decode('utf-8') for i in mainspace]
+        titles = [i['title'] for i in mainspace]
         return {
             'stats': stats,
             'articles': mainspace,
             'extracts': extracts(self.lang, titles, 3),
-            'talks': talkspace
+            'talks': talkspace,
+            'lang': self.lang
         }
 
 def extracts(lang, titles, limit):
@@ -96,10 +99,10 @@ def extracts(lang, titles, limit):
     if limit > len(titles):
         limit = len(titles)
     ret = []
-    for i in range(limit - 1):
+    for i in range(limit):
         title = titles[i]
         res = wc.get_page_extract(title)
-        ret.append((title, res[0].extract))
+        ret.append({'title': title, 'extract': res[0].extract})
     return ret
 
 def fetch_rc(lang='en'):
@@ -110,7 +113,8 @@ if __name__ == '__main__':
     routes = [('/', fetch_rc, render_json),
               ('/meta', MetaApplication),
               ('/_dump_environ', lambda request: request.environ, render_json_dev),
-              ('/<lang>', fetch_rc, render_json)]
-    app = Application(routes)
+              ('/<lang>', fetch_rc, 'template.html')]
+    ashes_render = AshesRenderFactory(_CUR_PATH)
+    app = Application(routes, [], ashes_render)
     WSGIServer(app).run()
 

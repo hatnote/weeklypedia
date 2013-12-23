@@ -121,7 +121,7 @@ h1 span {
         font: 400 14px/21px;
         position:relative;
         top: -28px;
-        background: #f6f6f6;
+        background: #fff;
         padding: 0 20px;
 
 }
@@ -178,7 +178,7 @@ ol li, ul li {
 <table class="body-wrap">
         <tr>
                 <td></td>
-                <td class="container" bgcolor="#f6f6f6">
+                <td class="container" bgcolor="#fff">
 
                         <!-- content -->
                         <div class="content">
@@ -186,20 +186,20 @@ ol li, ul li {
                                 <tr>
                                         <td>
                                                 <h1><span><em>the</em> WEEKLYPEDIA</span></h1>
-                                                <p><em>Volume 1, Issue 1 (2014) (English Wikipedia)</em></p>
+                                                <p><em>Volume 1, Issue 1 ({lang} Wikipedia)</em></p>
                                                 <p>Hello there, welcome to our weekly digest on the progress of our free encyclopedia.</p>
                                                 <h2>Articles</h2>
                                                 <p>This week, {stats.users} authors made {stats.edits} contributions to {stats.titles} different articles. The top 25 articles for the week:</p>
                                                 <ol>
                                                         {#articles}
-                                                        <li>{1} ({2} edits, {3} users)</li>
+                                                        <li><a href="https://{lang}.wikipedia.org/wiki/{title}" target="_blank">{title}</a> ({edits} contributions by {users} authors)</li>
                                                         {/articles}
                                                 </ol>
                                                 <h2>Discussions</h2>
                                                 <p>The most active 5 discussions:</p>
                                                 <ol>
                                                         {#talks}
-                                                        <li>{1} ({2} edits, {3} users)</li>
+                                                        <li><a href="https://{lang}.wikipedia.org/wiki/{title}" target="_blank">{title}</a> ({users} authors)</li>
                                                         {/talks}
                                                 </ol>
                                                 <p>Learn more about the <a href="#">Weeklypedia Digest</a>
