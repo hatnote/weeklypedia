@@ -53,10 +53,9 @@ class RecentChanges(object):
         return cursor.fetchall()
 
 def fetch_rc(lang='en'):
-    ko = RecentChanges(lang=lang)
-    import pdb;pdb.set_trace()
-    total_edits = ko.stats()
-    top_mainspace = ko.weekly()
+    changes = RecentChanges(lang=lang)
+    total_edits = changes.stats()
+    top_mainspace = changes.weekly()
     ret = {
         'edits': total_edits[0]['COUNT(*)'], 
         'titles': total_edits[0]['COUNT(DISTINCT rc_title)'], 
