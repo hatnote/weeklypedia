@@ -3,6 +3,7 @@ import os
 from flup.server.fcgi import WSGIServer
 from clastic import Application, render_json, render_json_dev
 from clastic.meta import MetaApplication
+from wapiti import WapitiClient
 from datetime import datetime, timedelta
 
 DB_PATH = os.path.expanduser('~/replica.my.cnf')
@@ -15,10 +16,12 @@ def predate(date, days):
     pdate = date - timedelta(days)
     return pdate.strftime(DATE_FORMAT)
 
+
 class RecentChanges(object):
     def __init__(self, lang='en', days=7):
         db_title = lang + 'wiki_p'
         db_host = lang + 'wiki.labsdb'
+        self.lang = lang
         self.db = oursql.connect(db=db_title,
                                  host=db_host,
                                  read_default_file=DB_PATH,
@@ -52,16 +55,33 @@ class RecentChanges(object):
         ''', (self.earliest,))
         return cursor.fetchall()
 
+    def all(self):
+        total_edits = self.stats()
+        top_mainspace = self.weekly()
+        titles = [i['rc_title'].decode('utf-8') for i in top_mainspace]
+        ret = {
+            'edits': total_edits[0]['COUNT(*)'], 
+            'titles': total_edits[0]['COUNT(DISTINCT rc_title)'], 
+            'top': [(i['rc_title'], i['COUNT(*)'], i['COUNT(DISTINCT rc_user)']) for i in top_mainspace],
+            'extracts': extracts(self.lang, titles, 3)
+        }
+        return ret
+
+def extracts(lang, titles, limit):
+    wc = WapitiClient('stephen.laporte@gmail.com',
+                      api_url='https://' + lang + '.wikipedia.org/w/api.php')
+    if limit > len(titles):
+        limit = len(titles)
+    ret = []
+    for i in range(limit - 1):
+        title = titles[i]
+        res = wc.get_page_extract(title)
+        ret.append((title, res.extract))
+    return ret
+
 def fetch_rc(lang='en'):
     changes = RecentChanges(lang=lang)
-    total_edits = changes.stats()
-    top_mainspace = changes.weekly()
-    ret = {
-        'edits': total_edits[0]['COUNT(*)'], 
-        'titles': total_edits[0]['COUNT(DISTINCT rc_title)'], 
-        'top': [(i['rc_title'], i['COUNT(*)'], i['COUNT(DISTINCT rc_user)']) for i in top_mainspace],
-        }
-    return ret
+    return changes.all()
 
 if __name__ == '__main__':
     routes = [('/', fetch_rc, render_json),
