@@ -76,7 +76,7 @@ def extracts(lang, titles, limit):
     for i in range(limit - 1):
         title = titles[i]
         res = wc.get_page_extract(title)
-        ret.append((title, res.extract))
+        ret.append((title, res[0].extract))
     return ret
 
 def fetch_rc(lang='en'):
