@@ -91,7 +91,7 @@ class RecentChanges(object):
         return {
             'stats': stats,
             'articles': mainspace,
-            'extracts': extracts(self.lang, titles, 3),
+            #'extracts': extracts(self.lang, titles, 3),
             'talks': talkspace,
             'lang': self.lang
         }
@@ -101,11 +101,12 @@ def extracts(lang, titles, limit):
                       api_url='https://' + lang + '.wikipedia.org/w/api.php')
     if limit > len(titles):
         limit = len(titles)
-    ret = []
+    ret = {}
     for i in range(limit):
         title = titles[i]
         res = wc.get_page_extract(title)
-        ret.append({'title': title, 'extract': res[0].extract})
+        if res:
+            ret[title] = {'title': title, 'extract': res[0].extract}
     return ret
 
 def fetch_rc(lang='en'):
