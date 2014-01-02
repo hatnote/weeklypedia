@@ -1,11 +1,14 @@
-import oursql
+
 import os
-from flup.server.fcgi import WSGIServer
+from datetime import datetime, timedelta
+
+import oursql
+
 from clastic import Application, render_json, render_json_dev
 from clastic.render import AshesRenderFactory
 from clastic.meta import MetaApplication
 from wapiti import WapitiClient
-from datetime import datetime, timedelta
+
 
 DB_PATH = os.path.expanduser('~/replica.my.cnf')
 DATE_FORMAT = '%Y%m%d%H%M%S'
@@ -88,7 +91,7 @@ class RecentChanges(object):
         return {
             'stats': stats,
             'articles': mainspace,
-            'extracts': extracts(self.lang, titles, 3),
+            #'extracts': extracts(self.lang, titles, 3),
             'talks': talkspace,
             'lang': self.lang
         }
@@ -98,23 +101,31 @@ def extracts(lang, titles, limit):
                       api_url='https://' + lang + '.wikipedia.org/w/api.php')
     if limit > len(titles):
         limit = len(titles)
-    ret = []
+    ret = {}
     for i in range(limit):
         title = titles[i]
         res = wc.get_page_extract(title)
-        ret.append({'title': title, 'extract': res[0].extract})
+        if res:
+            ret[title] = {'title': title, 'extract': res[0].extract}
     return ret
 
 def fetch_rc(lang='en'):
     changes = RecentChanges(lang=lang)
     return changes.all()
 
-if __name__ == '__main__':
+
+def create_app():
     routes = [('/', fetch_rc, render_json),
               ('/meta', MetaApplication),
               ('/_dump_environ', lambda request: request.environ, render_json_dev),
-              ('/<lang>', fetch_rc, 'template.html')]
+              ('/fetch/', fetch_rc, 'template.html'),
+              ('/fetch/<lang>', fetch_rc, 'template.html')]
     ashes_render = AshesRenderFactory(_CUR_PATH)
-    app = Application(routes, [], ashes_render)
-    WSGIServer(app).run()
+    return Application(routes, [], ashes_render)
 
+
+wsgi_app = create_app()
+
+
+if __name__ == '__main__':
+    import pdb;pdb.set_trace()  # do your debugging here
