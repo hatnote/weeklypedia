@@ -44,10 +44,13 @@ def load_history():
     with open(os.path.join(_CUR_PATH, HISTORY_FILE)) as infile:
         history = json.load(infile)
     return history
+    
+def main_page():
+    return ':-|'
 
 def create_app():
     sendkey = GetParamMiddleware('sendkey')
-    routes = [('/', fetch_rc, render_json),
+    routes = [('/', main_page, render_basic),
               ('/meta', MetaApplication),
               ('/send', send, render_basic),
               ('/_dump_environ', lambda request: request.environ, render_json_dev),
