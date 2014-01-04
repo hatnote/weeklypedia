@@ -1,10 +1,9 @@
-
 Generate a weekly email digest for edit and discussion activity on wikipedia.
 
 Todo
 ----
 
- - signup page / form
- - figure out how to schedule on wmflabs
- - setup mailchimp defaults (eg unsubscribe in the footer footer)
-
+ - in the template, make the "intro" section configurable
+ - add date range for each issue
+ - configure mailchimp pages (?), set up weeklypedia@ email, make signup page, about page
+ - what about non-EN lists/languages?
