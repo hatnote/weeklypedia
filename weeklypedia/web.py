@@ -1,5 +1,6 @@
 import os
 import json
+from time import strftime, gmtime
 from clastic import Application, render_json, render_json_dev, render_basic
 from clastic.render import AshesRenderFactory
 from clastic.render import ashes
@@ -18,12 +19,14 @@ def send(sendkey, lang='en'):
     changes_html = ashes_env.render('template.html', changes_json)
     changes_text = ashes_env.render('template.text', changes_json)
     mailinglist = Mailinglist(sendkey + KEY)
-    mailinglist.new_campaign('Wikipedia digest (Issue 1)', 
+    mailinglist.new_campaign('Wikipedia digest', 
                              changes_html, 
                              changes_text)
     mailinglist.send_next_campaign()
     history = load_history()
-    history.get(lang, []).append(changes_json)
+    if not history[lang]:
+        history[lang] = []
+    history[lang].append(changes_json)
     with open(os.path.join(_CUR_PATH, HISTORY_FILE), 'w') as outfile:
         json.dump(history, outfile)
     return 'mail sent'
@@ -33,7 +36,8 @@ def fetch_rc(lang='en'):
     history = load_history()
     changes = RecentChanges(lang=lang)
     ret = changes.all()
-    ret['issue'] = len(history.get(lang, []))
+    ret['stats']['issue'] = len(history.get(lang, [])) + 1
+    ret['stats']['date'] = strftime("%b %d, %Y", gmtime())
     return changes.all()
 
 def load_history():
