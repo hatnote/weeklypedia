@@ -128,8 +128,19 @@ def create_app():
               ('/_dump_environ', lambda request: request.environ, render_json_dev),
               ('/fetch/', fetch_rc, 'template.html'),
               ('/fetch/<lang>', fetch_rc, 'template.html')]
-    ashes_render = AshesRenderFactory(_CUR_PATH)
+
+    #ae.register_source('ci_tmpl', 'comma inted: {thing|ci}')
+    #print(ae.render('ci_tmpl', {'thing': 21000}))
+
+    ashes_render = AshesRenderFactory(_CUR_PATH, filters={'ci': comma_int})
     return Application(routes, [], ashes_render)
+
+
+def comma_int(val):                                                                                      
+    try:                                                                                                 
+        return '{0:,}'.format(val)                                                                       
+    except ValueError:                                                                                   
+        return val
 
 
 wsgi_app = create_app()
