@@ -24,12 +24,12 @@ def send(sendkey, lang='en'):
                              changes_text)
     mailinglist.send_next_campaign()
     history = load_history()
-    if not history[lang]:
+    if not history.get(lang):
         history[lang] = []
     history[lang].append(changes_json)
     with open(os.path.join(_CUR_PATH, HISTORY_FILE), 'w') as outfile:
         json.dump(history, outfile)
-    return 'mail sent'
+    return 'sent issue', changes_json['stats']['issue'] 
 
 
 def fetch_rc(lang='en'):
@@ -38,7 +38,7 @@ def fetch_rc(lang='en'):
     ret = changes.all()
     ret['stats']['issue'] = len(history.get(lang, [])) + 1
     ret['stats']['date'] = strftime("%b %d, %Y", gmtime())
-    return changes.all()
+    return ret
 
 def load_history():
     with open(os.path.join(_CUR_PATH, HISTORY_FILE)) as infile:
