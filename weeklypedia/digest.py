@@ -38,7 +38,9 @@ class RecentChanges(object):
     def mainspace(self):
         cursor = self.db.cursor(oursql.DictCursor)
         cursor.execute('''
-            SELECT rc_title, COUNT(*), COUNT(DISTINCT rc_user)
+            SELECT rc_title AS title, 
+                   COUNT(*) AS edits, 
+                   COUNT(DISTINCT rc_user) AS users
             FROM recentchanges
             WHERE rc_namespace = 1
             AND rc_type = 0
@@ -49,12 +51,16 @@ class RecentChanges(object):
             LIMIT ?
         ''', (self.earliest, self.main_limit))
         ret = cursor.fetchall()
-        return [{'title': i['rc_title'].decode('utf-8'), 'edits': i['COUNT(*)'], 'users': i['COUNT(DISTINCT rc_user)']} for i in ret]
+        for edit in ret:
+            edit['title_s'] = edit['title'].replace('_', ' ')
+        return ret
 
     def talkspace(self):
         cursor = self.db.cursor(oursql.DictCursor)
         cursor.execute('''
-            SELECT rc_title, COUNT(*), COUNT(DISTINCT rc_user)
+            SELECT rc_title AS title, 
+                   COUNT(*) AS edits, 
+                   COUNT(DISTINCT rc_user) AS users
             FROM recentchanges
             WHERE rc_namespace = 1
             AND rc_type = 0
@@ -65,12 +71,16 @@ class RecentChanges(object):
             LIMIT ?
         ''', (self.earliest, self.talk_limit))
         ret = cursor.fetchall()
-        return [{'title': i['rc_title'].decode('utf-8'), 'edits': i['COUNT(*)'], 'users': i['COUNT(DISTINCT rc_user)']} for i in ret]
+        for edit in ret:
+            edit['title_s'] = edit['title'].replace('_', ' ')
+        return ret
 
     def stats(self):
         cursor = self.db.cursor(oursql.DictCursor)
         cursor.execute('''
-            SELECT COUNT(*), COUNT(DISTINCT rc_title), COUNT(DISTINCT rc_user)
+            SELECT COUNT(*) AS edits, 
+                   COUNT(DISTINCT rc_title) AS titles, 
+                   COUNT(DISTINCT rc_user) AS users
             FROM recentchanges
             WHERE rc_namespace = 0
             AND rc_type = 0
