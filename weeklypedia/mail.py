@@ -15,7 +15,11 @@ class Mailinglist(object):
         self.next_campaign = self.get_next_campaign()
         print self.client.helper.ping()
 
-    def new_campaign(self, subject, html_content, text_content, list_id=DEFAULT_LIST):
+    def new_campaign(self, 
+                     subject, 
+                     html_content, 
+                     text_content, 
+                     list_id=DEFAULT_LIST):
         opts = {
             'list_id': list_id,
             'subject': subject,

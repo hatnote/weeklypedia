@@ -36,7 +36,7 @@ class RecentChanges(object):
                    COUNT(*) AS edits, 
                    COUNT(DISTINCT rc_user) AS users
             FROM recentchanges
-            WHERE rc_namespace = 1
+            WHERE rc_namespace = 0
             AND rc_type = 0
             AND rc_timestamp > ?
             GROUP BY rc_title
