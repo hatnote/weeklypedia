@@ -1,15 +1,18 @@
 import mailchimp
-from secrets import KEY
+from JSON import load
 
-ENWP_LIST = 'f811608f69'
+KEY = load(open('secrets.json')).get('mc')
 
+
+DEFAULT_LIST = 'a5ecbc7404'
+#              'f811608f69'
 class Mailinglist(object):
     def __init__(self, key):
         self.client = mailchimp.Mailchimp(key)
         self.next_campaign = self.get_next_campaign()
         print self.client.helper.ping()
 
-    def new_campaign(self, subject, content, list_id=ENWP_LIST):
+    def new_campaign(self, subject, html_content, text_content, list_id=DEFAULT_LIST):
         opts = {
             'list_id': list_id,
             'subject': subject,
@@ -18,10 +21,10 @@ class Mailinglist(object):
             'to_name': 'Weeklypedia Digest'
         }
         cont = {
-            'html': content,
-            'text': content,
+            'html': html_content,
+            'text': text_content,
         }
-        resp = self.client.campaigns.create(type='plaintext',
+        resp = self.client.campaigns.create(type='html',
                                             options=opts,
                                             content=cont)
         self.next_campaign = resp.get('id')
@@ -31,7 +34,7 @@ class Mailinglist(object):
         resp = self.client.campaigns.send(self.next_campaign)
         print resp
 
-    def new_subscriber(self, email, list_id=ENWP_LIST):
+    def new_subscriber(self, email, list_id=DEFAULT_LIST):
         resp = self.client.lists.subscribe(list_id, {'email': email})
         print resp
 

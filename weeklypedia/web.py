@@ -1,30 +1,48 @@
 import os
+import json
 from clastic import Application, render_json, render_json_dev, render_basic
 from clastic.render import AshesRenderFactory
 from clastic.render import ashes
 from clastic.meta import MetaApplication
+from clastic.middleware import GetParamMiddleware
 
 from dal import RecentChanges
 from mail import Mailinglist, KEY
 
+HISTORY_FILE = 'history.json'
 _CUR_PATH = os.path.dirname(os.path.abspath(__file__))
 
-def send(lang='en'):
-	changes = RecentChanges(lang=lang)
-	env = ashes.AshesEnv([_CUR_PATH])
-	mail = env.render('template.html', changes.all())
-	mailinglist = Mailinglist(KEY)
-	mailinglist.new_campaign('Wikipedia digest (Issue 1)', mail)
-	mailinglist.send_next_campaign()
-	return 'mail sent'
+def send(sendkey, lang='en'):
+    changes_json = fetch_rc(lang=lang)
+    ashes_env = ashes.AshesEnv([_CUR_PATH])
+    changes_html = ashes_env.render('template.html', changes_json)
+    changes_text = ashes_env.render('template.text', changes_json)
+    mailinglist = Mailinglist(sendkey + KEY)
+    mailinglist.new_campaign('Wikipedia digest (Issue 1)', 
+                             changes_html, 
+                             changes_text)
+    mailinglist.send_next_campaign()
+    history = load_history()
+    history.get(lang, []).append(changes_json)
+    with open('history.json', 'w') as outfile:
+        json.dump(history, outfile)
+    return 'mail sent'
 
 
 def fetch_rc(lang='en'):
+    history = load_history()
     changes = RecentChanges(lang=lang)
+    ret = changes.all()
+    ret['issue'] = len(history.get(lang, []))
     return changes.all()
 
+def load_history():
+    with open('history.json') as infile:
+        history = json.load(infile)
+    return history
 
 def create_app():
+    sendkey = GetParamMiddleware('sendkey')
     routes = [('/', fetch_rc, render_json),
               ('/meta', MetaApplication),
               ('/send', send, render_basic),
@@ -32,7 +50,7 @@ def create_app():
               ('/fetch/', fetch_rc, 'template.html'),
               ('/fetch/<lang>', fetch_rc, 'template.html')]
     ashes_render = AshesRenderFactory(_CUR_PATH, filters={'ci': comma_int})
-    return Application(routes, [], ashes_render)
+    return Application(routes, [sendkey], ashes_render)
 
 
 def comma_int(val):                                                                                      
