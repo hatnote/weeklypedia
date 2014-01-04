@@ -29,7 +29,7 @@ def send(sendkey, lang='en'):
     history[lang].append(changes_json)
     with open(os.path.join(_CUR_PATH, HISTORY_FILE), 'w') as outfile:
         json.dump(history, outfile)
-    return 'sent issue', changes_json['stats']['issue'] 
+    return 'Success: sent issue %s' % changes_json['stats']['issue'] 
 
 
 def fetch_rc(lang='en'):
