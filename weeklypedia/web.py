@@ -1,7 +1,7 @@
 import os
 from clastic import Application, render_json, render_json_dev, render_basic
 from clastic.render import AshesRenderFactory
-from clastic.render.ashes import AshesEnv
+from clastic.render import ashes
 from clastic.meta import MetaApplication
 
 from dal import RecentChanges
@@ -11,7 +11,7 @@ _CUR_PATH = os.path.dirname(os.path.abspath(__file__))
 
 def send(lang='en'):
 	changes = RecentChanges(lang=lang)
-	env = AshesEnv([_CUR_PATH])
+	env = ashes.AshesEnv([_CUR_PATH])
 	mail = env.render('template.html', changes.all())
 	mailinglist = Mailinglist(KEY)
 	mailinglist.new_campaign('Wikipedia digest (Issue 1)', mail)

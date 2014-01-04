@@ -19,6 +19,7 @@ class Mailinglist(object):
         }
         cont = {
             'html': content,
+            'text': content,
         }
         resp = self.client.campaigns.create(type='plaintext',
                                             options=opts,
