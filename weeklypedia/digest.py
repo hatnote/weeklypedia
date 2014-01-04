@@ -52,6 +52,7 @@ class RecentChanges(object):
         ''', (self.earliest, self.main_limit))
         ret = cursor.fetchall()
         for edit in ret:
+            edit['title'] = edit['title'].decode('utf-8')
             edit['title_s'] = edit['title'].replace('_', ' ')
         return ret
 
@@ -72,6 +73,7 @@ class RecentChanges(object):
         ''', (self.earliest, self.talk_limit))
         ret = cursor.fetchall()
         for edit in ret:
+            edit['title'] = edit['title'].decode('utf-8')
             edit['title_s'] = edit['title'].replace('_', ' ')
         return ret
 
@@ -87,11 +89,7 @@ class RecentChanges(object):
             AND rc_timestamp > ?;
         ''', (self.earliest,))
         ret = cursor.fetchall()[0]
-        return {
-            'edits': ret['COUNT(*)'], 
-            'titles': ret['COUNT(DISTINCT rc_title)'], 
-            'users': ret['COUNT(DISTINCT rc_user)']
-        }
+        return ret
 
     def all(self):
         stats = self.stats()
