@@ -1,7 +1,10 @@
-import mailchimp
-from JSON import load
+import os
+from json import load
 
-KEY = load(open('secrets.json')).get('mc')
+import mailchimp
+
+_CUR_PATH = os.path.dirname(os.path.abspath(__file__))
+KEY = load(open(os.path.join(_CUR_PATH, 'secrets.json'))).get('mc')
 
 
 DEFAULT_LIST = 'a5ecbc7404'
@@ -24,7 +27,7 @@ class Mailinglist(object):
             'html': html_content,
             'text': text_content,
         }
-        resp = self.client.campaigns.create(type='html',
+        resp = self.client.campaigns.create(type='regular',
                                             options=opts,
                                             content=cont)
         self.next_campaign = resp.get('id')

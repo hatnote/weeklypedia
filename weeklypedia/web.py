@@ -24,7 +24,7 @@ def send(sendkey, lang='en'):
     mailinglist.send_next_campaign()
     history = load_history()
     history.get(lang, []).append(changes_json)
-    with open('history.json', 'w') as outfile:
+    with open(os.path.join(_CUR_PATH, HISTORY_FILE), 'w') as outfile:
         json.dump(history, outfile)
     return 'mail sent'
 
@@ -37,7 +37,7 @@ def fetch_rc(lang='en'):
     return changes.all()
 
 def load_history():
-    with open('history.json') as infile:
+    with open(os.path.join(_CUR_PATH, HISTORY_FILE)) as infile:
         history = json.load(infile)
     return history
 
@@ -50,8 +50,7 @@ def create_app():
               ('/fetch/', fetch_rc, 'template.html'),
               ('/fetch/<lang>', fetch_rc, 'template.html')]
     ashes_render = AshesRenderFactory(_CUR_PATH, filters={'ci': comma_int})
-    return Application(routes, [sendkey], ashes_render)
-
+    return Application(routes, [], ashes_render, middlewares=[sendkey])
 
 def comma_int(val):                                                                                      
     try:                                                                                                 
