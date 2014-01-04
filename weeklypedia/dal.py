@@ -1,18 +1,12 @@
-
 import os
 from datetime import datetime, timedelta
-
 import oursql
 
-from clastic import Application, render_json, render_json_dev
-from clastic.render import AshesRenderFactory
-from clastic.meta import MetaApplication
 from wapiti import WapitiClient
 
 
 DB_PATH = os.path.expanduser('~/replica.my.cnf')
 DATE_FORMAT = '%Y%m%d%H%M%S'
-_CUR_PATH = os.path.dirname(os.path.abspath(__file__))
 
 def parse_date_str(date_str):
     return datetime.strptime(date_str, DATE_FORMAT)
@@ -116,24 +110,6 @@ def extracts(lang, titles, limit):
         if res:
             ret[title] = {'title': title, 'extract': res[0].extract}
     return ret
-
-def fetch_rc(lang='en'):
-    changes = RecentChanges(lang=lang)
-    return changes.all()
-
-
-def create_app():
-    routes = [('/', fetch_rc, render_json),
-              ('/meta', MetaApplication),
-              ('/_dump_environ', lambda request: request.environ, render_json_dev),
-              ('/fetch/', fetch_rc, 'template.html'),
-              ('/fetch/<lang>', fetch_rc, 'template.html')]
-    ashes_render = AshesRenderFactory(_CUR_PATH)
-    return Application(routes, [], ashes_render)
-
-
-wsgi_app = create_app()
-
 
 if __name__ == '__main__':
     import pdb;pdb.set_trace()  # do your debugging here

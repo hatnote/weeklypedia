@@ -1,1 +1,1 @@
-from digest import wsgi_app
+from web import wsgi_app
