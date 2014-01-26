@@ -87,6 +87,19 @@ class RecentChanges(object):
         ret = cursor.fetchall()[0]
         return ret
 
+    def get_bounding_rev_ids(self, title):
+        '''SELECT rc_title as title,
+                  min(rc_last_oldid) as earliest_rev_id,
+                  max(rc_this_oldid) as newest_rev_id
+           FROM (SELECT rc_title,
+                        rc_this_oldid,
+                        rc_last_oldid
+                 FROM recentchanges
+                 WHERE rc_namespace = 0
+                   AND rc_title = :title
+                   AND rc_timestamp > 20140118132135) PageRevs;'''
+        pass
+
     def all(self, with_extracts=False):
         ret = {}
         ret['stats'] = self.stats()
