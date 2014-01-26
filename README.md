@@ -1,9 +1,18 @@
-Generate a weekly email digest for edit and discussion activity on wikipedia.
+Weeklypedia
+===========
 
-Todo
+Generate a weekly email digest for edit and discussion activity on Wikipedia.
+
+TODO
 ----
 
  - in the template, make the "intro" section configurable
  - add date range for each issue
- - configure mailchimp pages (?), set up weeklypedia@ email, make signup page, about page
- - what about non-EN lists/languages?
+ - set up weeklypedia@hatnote.com email
+ - Increase number of top discussions (from 5 to 10?)
+ - Pages for previous issues
+ - Integrate traffic information
+ - Commas for the numbers
+ - List of (active) new articles
+ - Links to cumulative diffs for mentioned articles (from starting revision of week to the last)
+
