@@ -1,0 +1,64 @@
+body {
+  margin: 5em 0;
+  background-color: rgb(237, 224, 206);
+}
+article, header {
+  background-color: #fff;
+  color: #222222;
+  margin: auto;
+  padding: 1.5em;
+  width: 600px;
+}
+header {
+  background-color: #fff;
+  text-align: center;
+}
+header h1 {
+  border-top: 1px solid #222222;
+  color: #222;
+  margin: 1em 0 0 0;
+}
+header h1 span {
+  background: #fff;
+  padding: 0 20px;
+  position: relative;
+  top: -20px;
+}
+header p {
+  font-style: italic;
+  margin-top: -10px;
+}
+section.announce {
+  width: 600px;
+  padding: 0.1em 1.5em;
+  margin: 0 auto;
+  background: rgb(245, 245, 245);
+}
+section.announce p {
+  padding: 0.5em;
+  font: 800 12pt serif;
+}
+section.announce .date {
+  font: 300 12pt serif;
+}
+p {
+  color: #666;
+  line-height: 1.5em;
+  font: 400 12pt serif;
+}
+h2 {
+  margin: 0;
+}
+a {
+  color: #348eda;
+}
+a:hover {
+  color: red;
+}
+.buttons li {
+  font: 400 12pt serif;
+  line-height: 1.5em;
+}
+.button {
+  width: 20em;
+}

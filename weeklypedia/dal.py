@@ -5,15 +5,35 @@ import oursql
 from wapiti import WapitiClient
 
 
-DB_PATH = os.path.expanduser('~/replica.my.cnf')
+DB_CONFIG_PATH = os.path.expanduser('~/replica.my.cnf')
 DATE_FORMAT = '%Y%m%d%H%M%S'
+
 
 def parse_date_str(date_str):
     return datetime.strptime(date_str, DATE_FORMAT)
 
+
 def predate(date, days):
     pdate = date - timedelta(days)
     return pdate.strftime(DATE_FORMAT)
+
+
+class RecentChangesSummarizer(object):
+    def __init__(self, lang='en'):
+        self.lang = lang
+        self.db_title = lang + 'wiki_p'
+        self.db_host = lang + 'wiki.labsdb'
+        self.connection = oursql.connect(db=self.db_title,
+                                         host=self.db_host,
+                                         read_default_file=DB_CONFIG_PATH,
+                                         charset=None)
+
+    def get_ranked_activity(self, limit=20, interval=None, namespace=None):
+        if interval is None:
+            interval = timedelta(days=7)
+
+    def get_ranked_activity_new_pages(self):
+        '''SELECT rc_title as title, COUNT(*) as edits, COUNT(DISTINCT rc_user) as users FROM recentchanges WHERE rc_title = ANY(SELECT rc_title FROM recentchanges WHERE rc_timestamp > 20140118132135 AND rc_namespace=0 AND rc_new=1) AND rc_namespace = 0 and rc_type = 0 and rc_timestamp > 20140118132135 GROUP BY rc_title ORDER BY edits DESC LIMIT 20;'''
 
 
 class RecentChanges(object):
@@ -23,7 +43,7 @@ class RecentChanges(object):
         self.lang = lang
         self.db = oursql.connect(db=db_title,
                                  host=db_host,
-                                 read_default_file=DB_PATH,
+                                 read_default_file=DB_CONFIG_PATH,
                                  charset=None)
         self.earliest = predate(datetime.now(), days)
         self.main_limit = 20
@@ -32,8 +52,8 @@ class RecentChanges(object):
     def mainspace(self):
         cursor = self.db.cursor(oursql.DictCursor)
         cursor.execute('''
-            SELECT rc_title AS title, 
-                   COUNT(*) AS edits, 
+            SELECT rc_title AS title,
+                   COUNT(*) AS edits,
                    COUNT(DISTINCT rc_user) AS users
             FROM recentchanges
             WHERE rc_namespace = 0
@@ -53,8 +73,8 @@ class RecentChanges(object):
     def talkspace(self):
         cursor = self.db.cursor(oursql.DictCursor)
         cursor.execute('''
-            SELECT rc_title AS title, 
-                   COUNT(*) AS edits, 
+            SELECT rc_title AS title,
+                   COUNT(*) AS edits,
                    COUNT(DISTINCT rc_user) AS users
             FROM recentchanges
             WHERE rc_namespace = 1
@@ -74,8 +94,8 @@ class RecentChanges(object):
     def stats(self):
         cursor = self.db.cursor(oursql.DictCursor)
         cursor.execute('''
-            SELECT COUNT(*) AS edits, 
-                   COUNT(DISTINCT rc_title) AS titles, 
+            SELECT COUNT(*) AS edits,
+                   COUNT(DISTINCT rc_title) AS titles,
                    COUNT(DISTINCT rc_user) AS users
             FROM recentchanges
             WHERE rc_namespace = 0
@@ -85,18 +105,29 @@ class RecentChanges(object):
         ret = cursor.fetchall()[0]
         return ret
 
-    def all(self):
-        stats = self.stats()
-        mainspace = self.mainspace()
-        talkspace = self.talkspace()
-        titles = [i['title'] for i in mainspace]
-        return {
-            'stats': stats,
-            'articles': mainspace,
-            #'extracts': extracts(self.lang, titles, 3),
-            'talks': talkspace,
-            'lang': self.lang
-        }
+    def get_bounding_rev_ids(self, title):
+        '''SELECT rc_title as title,
+                  min(rc_last_oldid) as earliest_rev_id,
+                  max(rc_this_oldid) as newest_rev_id
+           FROM (SELECT rc_title,
+                        rc_this_oldid,
+                        rc_last_oldid
+                 FROM recentchanges
+                 WHERE rc_namespace = 0
+                   AND rc_title = :title
+                   AND rc_timestamp > 20140118132135) PageRevs;'''
+        pass
+
+    def all(self, with_extracts=False):
+        ret = {}
+        ret['stats'] = self.stats()
+        ret['mainspace'] = self.mainspace()
+        ret['talkspace'] = self.talkspace()
+        if with_extracts:
+            titles = [i['title'] for i in ret['mainspace']]
+            ret['extracts'] = extracts(self.lang, titles, 3)
+        return ret
+
 
 def extracts(lang, titles, limit):
     wc = WapitiClient('stephen.laporte@gmail.com',
@@ -110,6 +141,7 @@ def extracts(lang, titles, limit):
         if res:
             ret[title] = {'title': title, 'extract': res[0].extract}
     return ret
+
 
 if __name__ == '__main__':
     import pdb;pdb.set_trace()  # do your debugging here
