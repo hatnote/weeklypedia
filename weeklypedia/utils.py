@@ -12,7 +12,7 @@ def translate_named_param_query(query, param_dict):
     arg_list = []
     prev_end = 0
     for match in match_iter:
-        start, end = match.start(), match.end()
+        start, end = match.span()
         if prev_end < start:
             new_query_parts.append(query[prev_end:start])
         prev_end = end

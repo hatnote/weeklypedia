@@ -27,13 +27,13 @@ class RecentChangesSummarizer(object):
                    COUNT(*) AS edits,
                    COUNT(DISTINCT rc_user) AS users
             FROM recentchanges
-            WHERE rc_namespace = ?
+            WHERE rc_namespace = :namespace
             AND rc_type = 0
-            AND rc_timestamp > ?
+            AND rc_timestamp > :start_date
             GROUP BY page_id
             ORDER BY edits
             DESC
-            LIMIT ?'''
+            LIMIT :limit'''
 
     _ranked_activity_new_pages_query = '''
             SELECT rc_cur_id AS page_id,
@@ -41,18 +41,18 @@ class RecentChangesSummarizer(object):
                    COUNT(*) AS edits,
                    COUNT(DISTINCT rc_user) AS users
             FROM recentchanges
-            WHERE rc_namespace = ?
+            WHERE rc_namespace = :namespace
             AND rc_type = 0
-            AND rc_timestamp > ?
+            AND rc_timestamp > :start_date
             AND page_id IN (SELECT rc_cur_id
                             FROM recentchanges
-                            WHERE rc_timestamp > ?
-                            AND rc_namespace=?
-                            AND rc_new=?)
+                            WHERE rc_timestamp > :start_date
+                            AND rc_namespace=:namespace
+                            AND rc_new=:is_new)
             GROUP BY page_id
             ORDER BY edits
             DESC
-            LIMIT ?'''
+            LIMIT :limit'''
 
     _bounding_revids_query = '''
            SELECT rc_title as title,
@@ -62,18 +62,18 @@ class RecentChangesSummarizer(object):
                         rc_this_oldid,
                         rc_last_oldid
                  FROM recentchanges
-                 WHERE rc_namespace = 0
-                   AND rc_title = :title
-                   AND rc_timestamp > 20140118132135) PageRevs;'''
+                 WHERE rc_namespace = :namespace
+                   AND rc_cur_id = :page_id
+                   AND rc_timestamp > :start_date) PageRevs;'''
 
     _activity_query = '''
            SELECT COUNT(*) AS edits,
                   COUNT(DISTINCT rc_title) AS titles,
                   COUNT(DISTINCT rc_user) AS users
            FROM recentchanges
-           WHERE rc_namespace = ?
+           WHERE rc_namespace = :namespace
            AND rc_type = 0
-           AND rc_timestamp > ?;'''
+           AND rc_timestamp > :start_date;'''
 
     def __init__(self, lang='en'):
         self.lang = lang
@@ -87,7 +87,12 @@ class RecentChangesSummarizer(object):
     def _get_cursor(self):
         return self.connection.cursor(oursql.DictCursor)
 
-    def _select(self, query, params=()):
+    def _select(self, query, params=None):
+        if params is None:
+            params = []
+        elif isinstance(params, dict):
+            old_query, old_params = query, params
+            query, params = translate_named_param_query(query, params)
         cursor = self._get_cursor()
         cursor.execute(query, params)
         return cursor.fetchall()
@@ -100,7 +105,7 @@ class RecentChangesSummarizer(object):
         end_date = end_date or datetime.now()
         start_date = end_date - interval
         start_date_str = start_date.strftime(DATE_FORMAT)
-        params = (namespace, start_date_str)
+        params = {'namespace': namespace, 'start_date': start_date_str}
         results = self._select(self._activity_query, params)
         return results
 
@@ -113,7 +118,9 @@ class RecentChangesSummarizer(object):
         end_date = end_date or datetime.now()
         start_date = end_date - interval
         start_date_str = start_date.strftime(DATE_FORMAT)
-        params = (namespace, start_date_str, limit)
+        params = {'namespace': namespace,
+                  'start_date': start_date_str,
+                  'limit': limit}
         results = self._select(self._ranked_activity_query, params)
         for edit in results:
             edit['title'] = edit['title'].decode('utf-8')
