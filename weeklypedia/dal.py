@@ -4,6 +4,8 @@ import oursql
 
 from wapiti import WapitiClient
 
+from utils import translate_named_param_query
+
 
 DB_CONFIG_PATH = os.path.expanduser('~/replica.my.cnf')
 DATE_FORMAT = '%Y%m%d%H%M%S'
@@ -29,7 +31,7 @@ class RecentChangesSummarizer(object):
             AND rc_type = 0
             AND rc_timestamp > ?
             GROUP BY page_id
-            ORDER BY COUNT(*)
+            ORDER BY edits
             DESC
             LIMIT ?'''
 
@@ -48,7 +50,7 @@ class RecentChangesSummarizer(object):
                             AND rc_namespace=?
                             AND rc_new=?)
             GROUP BY page_id
-            ORDER BY COUNT(*)
+            ORDER BY edits
             DESC
             LIMIT ?'''
 
@@ -64,13 +66,14 @@ class RecentChangesSummarizer(object):
                    AND rc_title = :title
                    AND rc_timestamp > 20140118132135) PageRevs;'''
 
-    _activity_query = '''SELECT COUNT(*) AS edits,
-                                COUNT(DISTINCT rc_title) AS titles,
-                                COUNT(DISTINCT rc_user) AS users
-                         FROM recentchanges
-                         WHERE rc_namespace = ?
-                         AND rc_type = 0
-                         AND rc_timestamp > ?;'''
+    _activity_query = '''
+           SELECT COUNT(*) AS edits,
+                  COUNT(DISTINCT rc_title) AS titles,
+                  COUNT(DISTINCT rc_user) AS users
+           FROM recentchanges
+           WHERE rc_namespace = ?
+           AND rc_type = 0
+           AND rc_timestamp > ?;'''
 
     def __init__(self, lang='en'):
         self.lang = lang
