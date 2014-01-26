@@ -8,8 +8,10 @@ from wapiti import WapitiClient
 DB_PATH = os.path.expanduser('~/replica.my.cnf')
 DATE_FORMAT = '%Y%m%d%H%M%S'
 
+
 def parse_date_str(date_str):
     return datetime.strptime(date_str, DATE_FORMAT)
+
 
 def predate(date, days):
     pdate = date - timedelta(days)
@@ -32,8 +34,8 @@ class RecentChanges(object):
     def mainspace(self):
         cursor = self.db.cursor(oursql.DictCursor)
         cursor.execute('''
-            SELECT rc_title AS title, 
-                   COUNT(*) AS edits, 
+            SELECT rc_title AS title,
+                   COUNT(*) AS edits,
                    COUNT(DISTINCT rc_user) AS users
             FROM recentchanges
             WHERE rc_namespace = 0
@@ -53,8 +55,8 @@ class RecentChanges(object):
     def talkspace(self):
         cursor = self.db.cursor(oursql.DictCursor)
         cursor.execute('''
-            SELECT rc_title AS title, 
-                   COUNT(*) AS edits, 
+            SELECT rc_title AS title,
+                   COUNT(*) AS edits,
                    COUNT(DISTINCT rc_user) AS users
             FROM recentchanges
             WHERE rc_namespace = 1
@@ -74,8 +76,8 @@ class RecentChanges(object):
     def stats(self):
         cursor = self.db.cursor(oursql.DictCursor)
         cursor.execute('''
-            SELECT COUNT(*) AS edits, 
-                   COUNT(DISTINCT rc_title) AS titles, 
+            SELECT COUNT(*) AS edits,
+                   COUNT(DISTINCT rc_title) AS titles,
                    COUNT(DISTINCT rc_user) AS users
             FROM recentchanges
             WHERE rc_namespace = 0
@@ -85,18 +87,16 @@ class RecentChanges(object):
         ret = cursor.fetchall()[0]
         return ret
 
-    def all(self):
-        stats = self.stats()
-        mainspace = self.mainspace()
-        talkspace = self.talkspace()
-        titles = [i['title'] for i in mainspace]
-        return {
-            'stats': stats,
-            'articles': mainspace,
-            #'extracts': extracts(self.lang, titles, 3),
-            'talks': talkspace,
-            'lang': self.lang
-        }
+    def all(self, with_extracts=False):
+        ret = {}
+        ret['stats'] = self.stats()
+        ret['mainspace'] = self.mainspace()
+        ret['talkspace'] = self.talkspace()
+        if with_extracts:
+            titles = [i['title'] for i in ret['mainspace']]
+            ret['extracts'] = extracts(self.lang, titles, 3)
+        return ret
+
 
 def extracts(lang, titles, limit):
     wc = WapitiClient('stephen.laporte@gmail.com',
@@ -110,6 +110,7 @@ def extracts(lang, titles, limit):
         if res:
             ret[title] = {'title': title, 'extract': res[0].extract}
     return ret
+
 
 if __name__ == '__main__':
     import pdb;pdb.set_trace()  # do your debugging here
