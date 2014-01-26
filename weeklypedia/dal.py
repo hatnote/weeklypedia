@@ -5,7 +5,7 @@ import oursql
 from wapiti import WapitiClient
 
 
-DB_PATH = os.path.expanduser('~/replica.my.cnf')
+DB_CONFIG_PATH = os.path.expanduser('~/replica.my.cnf')
 DATE_FORMAT = '%Y%m%d%H%M%S'
 
 
@@ -18,6 +18,24 @@ def predate(date, days):
     return pdate.strftime(DATE_FORMAT)
 
 
+class RecentChangesSummarizer(object):
+    def __init__(self, lang='en'):
+        self.lang = lang
+        self.db_title = lang + 'wiki_p'
+        self.db_host = lang + 'wiki.labsdb'
+        self.connection = oursql.connect(db=self.db_title,
+                                         host=self.db_host,
+                                         read_default_file=DB_CONFIG_PATH,
+                                         charset=None)
+
+    def get_ranked_activity(self, limit=20, interval=None, namespace=None):
+        if interval is None:
+            interval = timedelta(days=7)
+
+    def get_ranked_activity_new_pages(self):
+        '''SELECT rc_title as title, COUNT(*) as edits, COUNT(DISTINCT rc_user) as users FROM recentchanges WHERE rc_title = ANY(SELECT rc_title FROM recentchanges WHERE rc_timestamp > 20140118132135 AND rc_namespace=0 AND rc_new=1) AND rc_namespace = 0 and rc_type = 0 and rc_timestamp > 20140118132135 GROUP BY rc_title ORDER BY edits DESC LIMIT 20;'''
+
+
 class RecentChanges(object):
     def __init__(self, lang='en', days=7):
         db_title = lang + 'wiki_p'
@@ -25,7 +43,7 @@ class RecentChanges(object):
         self.lang = lang
         self.db = oursql.connect(db=db_title,
                                  host=db_host,
-                                 read_default_file=DB_PATH,
+                                 read_default_file=DB_CONFIG_PATH,
                                  charset=None)
         self.earliest = predate(datetime.now(), days)
         self.main_limit = 20
