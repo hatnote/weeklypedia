@@ -151,8 +151,8 @@ class RecentChangesSummarizer(object):
         params = {'page_id': page_id,
                   'namespace': namespace,
                   'start_date': start_date_str}
-        results = self._select(self._bounding_revids_query, params)
-        return (results['earliest_rev_id'], results['newest_rev_id'])
+        res = self._select(self._bounding_revids_query, params)[0]
+        return (res['earliest_rev_id'], res['newest_rev_id'])
 
 
 class RecentChanges(object):
