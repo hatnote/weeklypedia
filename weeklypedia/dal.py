@@ -97,11 +97,12 @@ class RecentChangesSummarizer(object):
         cursor.execute(query, params)
         return cursor.fetchall()
 
-    def get_activity_summary(self, interval=None, namespace=None,
+    def get_activity_summary(self, namespace=None, interval=None,
                              end_date=None):
+        namespace = namespace or 0
         if interval is None:
             interval = timedelta(days=7)
-        namespace = namespace or 0
+
         end_date = end_date or datetime.now()
         start_date = end_date - interval
         start_date_str = start_date.strftime(DATE_FORMAT)
@@ -109,11 +110,11 @@ class RecentChangesSummarizer(object):
         results = self._select(self._activity_query, params)
         return results
 
-    def get_ranked_activity(self, limit=20, interval=None, namespace=None,
+    def get_ranked_activity(self, limit=20, namespace=None, interval=None,
                             end_date=None):
+        namespace = namespace or 0  # support multiple? (for talk pages)
         if interval is None:
             interval = timedelta(days=7)
-        namespace = namespace or 0  # support multiple? (for talk pages)
 
         end_date = end_date or datetime.now()
         start_date = end_date - interval
