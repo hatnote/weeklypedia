@@ -55,10 +55,12 @@ class RecentChangesSummarizer(object):
             LIMIT :limit'''
 
     _bounding_revids_query = '''
-           SELECT rc_title as title,
+           SELECT rc_cur_id as page_id,
+                  rc_title as title,
                   min(rc_last_oldid) as earliest_rev_id,
                   max(rc_this_oldid) as newest_rev_id
-           FROM (SELECT rc_title,
+           FROM (SELECT rc_cur_id,
+                        rc_title,
                         rc_this_oldid,
                         rc_last_oldid
                  FROM recentchanges
@@ -110,8 +112,9 @@ class RecentChangesSummarizer(object):
         results = self._select(self._activity_query, params)
         return results
 
-    def get_ranked_activity(self, limit=20, namespace=None, interval=None,
+    def get_ranked_activity(self, limit=None, namespace=None, interval=None,
                             end_date=None):
+        limit = limit or 20
         namespace = namespace or 0  # support multiple? (for talk pages)
         if interval is None:
             interval = timedelta(days=7)
@@ -123,9 +126,12 @@ class RecentChangesSummarizer(object):
                   'start_date': start_date_str,
                   'limit': limit}
         results = self._select(self._ranked_activity_query, params)
-        for edit in results:
-            edit['title'] = edit['title'].decode('utf-8')
-            edit['title_s'] = edit['title'].replace('_', ' ')
+        for page in results:
+            page['title'] = page['title'].decode('utf-8')
+            page['title_s'] = page['title'].replace('_', ' ')
+            page['rev_ids'] = self.get_bounding_rev_ids(page['page_id'],
+                                                        namespace,
+                                                        start_date_str)
         return results
 
     def get_ranked_activity_new_pages(self):
@@ -141,8 +147,12 @@ class RecentChangesSummarizer(object):
                                         interval=interval,
                                         namespace=1)
 
-    def get_bounding_rev_ids(self, page_id):
-        query = self._bounding_revids_query
+    def get_bounding_rev_ids(self, page_id, namespace, start_date_str):
+        params = {'page_id': page_id,
+                  'namespace': namespace,
+                  'start_date': start_date_str}
+        results = self._select(self._bounding_revids_query, params)
+        return (results['earliest_rev_id'], results['newest_rev_id'])
 
 
 class RecentChanges(object):
