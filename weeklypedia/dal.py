@@ -4,6 +4,8 @@ import oursql
 
 from wapiti import WapitiClient
 
+from utils import translate_named_param_query
+
 
 DB_CONFIG_PATH = os.path.expanduser('~/replica.my.cnf')
 DATE_FORMAT = '%Y%m%d%H%M%S'
@@ -19,6 +21,62 @@ def predate(date, days):
 
 
 class RecentChangesSummarizer(object):
+    _ranked_activity_query = '''
+            SELECT rc_cur_id AS page_id,
+                   rc_title AS title,
+                   COUNT(*) AS edits,
+                   COUNT(DISTINCT rc_user) AS users
+            FROM recentchanges
+            WHERE rc_namespace = :namespace
+            AND rc_type = 0
+            AND rc_timestamp > :start_date
+            GROUP BY page_id
+            ORDER BY edits
+            DESC
+            LIMIT :limit'''
+
+    _ranked_activity_new_pages_query = '''
+            SELECT rc_cur_id AS page_id,
+                   rc_title AS title,
+                   COUNT(*) AS edits,
+                   COUNT(DISTINCT rc_user) AS users
+            FROM recentchanges
+            WHERE rc_namespace = :namespace
+            AND rc_type = 0
+            AND rc_timestamp > :start_date
+            AND page_id IN (SELECT rc_cur_id
+                            FROM recentchanges
+                            WHERE rc_timestamp > :start_date
+                            AND rc_namespace=:namespace
+                            AND rc_new=:is_new)
+            GROUP BY page_id
+            ORDER BY edits
+            DESC
+            LIMIT :limit'''
+
+    _bounding_revids_query = '''
+           SELECT rc_cur_id as page_id,
+                  rc_title as title,
+                  min(rc_last_oldid) as earliest_rev_id,
+                  max(rc_this_oldid) as newest_rev_id
+           FROM (SELECT rc_cur_id,
+                        rc_title,
+                        rc_this_oldid,
+                        rc_last_oldid
+                 FROM recentchanges
+                 WHERE rc_namespace = :namespace
+                   AND rc_cur_id = :page_id
+                   AND rc_timestamp > :start_date) PageRevs;'''
+
+    _activity_query = '''
+           SELECT COUNT(*) AS edits,
+                  COUNT(DISTINCT rc_title) AS titles,
+                  COUNT(DISTINCT rc_user) AS users
+           FROM recentchanges
+           WHERE rc_namespace = :namespace
+           AND rc_type = 0
+           AND rc_timestamp > :start_date;'''
+
     def __init__(self, lang='en'):
         self.lang = lang
         self.db_title = lang + 'wiki_p'
@@ -28,12 +86,73 @@ class RecentChangesSummarizer(object):
                                          read_default_file=DB_CONFIG_PATH,
                                          charset=None)
 
-    def get_ranked_activity(self, limit=20, interval=None, namespace=None):
+    def _get_cursor(self):
+        return self.connection.cursor(oursql.DictCursor)
+
+    def _select(self, query, params=None):
+        if params is None:
+            params = []
+        elif isinstance(params, dict):
+            old_query, old_params = query, params
+            query, params = translate_named_param_query(query, params)
+        cursor = self._get_cursor()
+        cursor.execute(query, params)
+        return cursor.fetchall()
+
+    def get_activity_summary(self, namespace=None, interval=None,
+                             end_date=None):
+        namespace = namespace or 0
         if interval is None:
             interval = timedelta(days=7)
 
+        end_date = end_date or datetime.now()
+        start_date = end_date - interval
+        start_date_str = start_date.strftime(DATE_FORMAT)
+        params = {'namespace': namespace, 'start_date': start_date_str}
+        results = self._select(self._activity_query, params)
+        return results
+
+    def get_ranked_activity(self, limit=None, namespace=None, interval=None,
+                            end_date=None):
+        limit = limit or 20
+        namespace = namespace or 0  # support multiple? (for talk pages)
+        if interval is None:
+            interval = timedelta(days=7)
+
+        end_date = end_date or datetime.now()
+        start_date = end_date - interval
+        start_date_str = start_date.strftime(DATE_FORMAT)
+        params = {'namespace': namespace,
+                  'start_date': start_date_str,
+                  'limit': limit}
+        results = self._select(self._ranked_activity_query, params)
+        for page in results:
+            page['title'] = page['title'].decode('utf-8')
+            page['title_s'] = page['title'].replace('_', ' ')
+            page['rev_ids'] = self.get_bounding_rev_ids(page['page_id'],
+                                                        namespace,
+                                                        start_date_str)
+        return results
+
     def get_ranked_activity_new_pages(self):
-        '''SELECT rc_title as title, COUNT(*) as edits, COUNT(DISTINCT rc_user) as users FROM recentchanges WHERE rc_title = ANY(SELECT rc_title FROM recentchanges WHERE rc_timestamp > 20140118132135 AND rc_namespace=0 AND rc_new=1) AND rc_namespace = 0 and rc_type = 0 and rc_timestamp > 20140118132135 GROUP BY rc_title ORDER BY edits DESC LIMIT 20;'''
+        query = self._ranked_activity_new_pages_query
+
+    def get_mainspace_activity(self, limit=None, interval=None):
+        return self.get_ranked_activity(limit=limit,
+                                        interval=interval,
+                                        namespace=0)
+
+    def get_talkspace_activity(self, limit=None, interval=None):
+        return self.get_ranked_activity(limit=limit,
+                                        interval=interval,
+                                        namespace=1)
+
+    def get_bounding_rev_ids(self, page_id, namespace, start_date_str):
+        params = {'page_id': page_id,
+                  'namespace': namespace,
+                  'start_date': start_date_str}
+        res = self._select(self._bounding_revids_query, params)[0]
+        return (res['earliest_rev_id'], res['newest_rev_id'])
 
 
 class RecentChanges(object):
@@ -104,19 +223,6 @@ class RecentChanges(object):
         ''', (self.earliest,))
         ret = cursor.fetchall()[0]
         return ret
-
-    def get_bounding_rev_ids(self, title):
-        '''SELECT rc_title as title,
-                  min(rc_last_oldid) as earliest_rev_id,
-                  max(rc_this_oldid) as newest_rev_id
-           FROM (SELECT rc_title,
-                        rc_this_oldid,
-                        rc_last_oldid
-                 FROM recentchanges
-                 WHERE rc_namespace = 0
-                   AND rc_title = :title
-                   AND rc_timestamp > 20140118132135) PageRevs;'''
-        pass
 
     def all(self, with_extracts=False):
         ret = {}

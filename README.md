@@ -15,4 +15,4 @@ TODO
  - Commas for the numbers
  - List of (active) new articles
  - Links to cumulative diffs for mentioned articles (from starting revision of week to the last)
-
+ - Articles with the greatest size change? (vulnerable to blanking)
