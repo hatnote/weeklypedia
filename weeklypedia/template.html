@@ -20,24 +20,24 @@
                         <table style="margin: 0;padding: 0;font: 'serif';font-size: 100%;line-height: 1.6;width: 100%;">
                                 <tr style="margin: 0;padding: 0;font: 'serif';font-size: 100%;line-height: 1.6;">
                                         <td style="margin: 0;padding: 0;font: 'serif';font-size: 100%;line-height: 1.6;">
-                                                <h1 style="margin: 40px 0 10px;padding: 0;font: 800 'serif';font-size: 36px;line-height: 1.2;text-transform: uppercase;margin-bottom: 15px;color: #000;font-weight: 200;text-align: center;border-top: 1px solid #222222;margin-top: 58px;"><span style="margin: 0;padding: 0 20px;font: 400 14px/21px;font-size: 100%;line-height: 1.6;text-transform: none;position: relative;top: -28px;background: #fff;"><em style="margin: 0;padding: 0;font: 'serif';font-size: 100%;line-height: 1.6;display: inline-block;padding-right: 20px;">the</em>WEEKLYPEDIA</span></h1>
-                                                <p style="margin: 0;padding: 0;font: 'serif';font-size: 14px;line-height: 1.6;margin-bottom: 10px;font-weight: normal;"><em style="margin: 0;padding: 0;font: 'serif';font-size: 100%;line-height: 1.6;">Issue {stats.issue}, {stats.date} (English Wikipedia)</em></p>
-                                                <p style="margin: 0;padding: 0;font: 'serif';font-size: 14px;line-height: 1.6;margin-bottom: 10px;font-weight: normal;">Hello there, welcome to our first weekly digest of Wikipedia activity.</p>
+                                                <h1 style="margin: 40px 0 10px;padding: 0;font: 800 'serif';font-size: 36px;line-height: 1.2;text-transform: uppercase;margin-bottom: 15px;color: #000;font-weight: 200;text-align: center;border-top: 1px solid #222222;margin-top: 58px;"><span style="margin: 0;padding: 0 20px;font: 400 14px/21px;font-size: 100%;line-height: 1.6;text-transform: none;position: relative;top: -28px;background: #fff;"><em style="margin: 0;padding: 0;font: 'serif';font-size: 100%;line-height: 1.6;display: inline-block;padding-right: 20px;">the</em> WEEKLYPEDIA</span></h1>
+                                                <p style="margin: 0;padding: 0;font: 'serif';font-size: 14px;line-height: 1.6;margin-bottom: 10px;font-weight: normal;"><em style="margin: 0;padding: 0;font: 'serif';font-size: 100%;line-height: 1.6;">Issue {stats.issue}, {stats.date} (Estonian Wikipedia Edition)</em></p>
+                                                <p style="margin: 0;padding: 0;font: 'serif';font-size: 14px;line-height: 1.6;margin-bottom: 10px;font-weight: normal;">Hello there, welcome to our  weekly digest of Wikipedia activity. (This is a second attempt to send the issue, this time with correct links)</p>
                                                 <h2 style="margin: 40px 0 10px;padding: 0;font: 800 'serif';font-size: 28px;line-height: 1.2;text-transform: uppercase;margin-bottom: 15px;color: #000;font-weight: 200;">Articles</h2>
                                                 <p style="margin: 0;padding: 0;font: 'serif';font-size: 14px;line-height: 1.6;margin-bottom: 10px;font-weight: normal;">This week, {stats.users|ci} authors made {stats.edits|ci} contributions to {stats.titles|ci} different articles. The top 20 articles for the week:</p>
                                                 <ol style="margin: 0;padding: 0;font: 'serif';font-size: 14px;line-height: 1.6;margin-bottom: 10px;font-weight: normal;">
-                                                        {#articles}
+                                                        {#mainspace}
                                                         <li style="margin: 0;padding: 0;font: 'serif';font-size: 100%;line-height: 1.6;margin-left: 5px;list-style-position: inside;"><a href="https://{lang}.wikipedia.org/wiki/{title}" target="_blank" style="margin: 0;padding: 0;font: 'serif';font-size: 100%;line-height: 1.6;color: #348eda;">{title_s}</a> ({edits|ci} contributions by {users} authors)</li>
-                                                        {/articles}
+                                                        {/mainspace}
                                                 </ol>
                                                 <h2 style="margin: 40px 0 10px;padding: 0;font: 800 'serif';font-size: 28px;line-height: 1.2;text-transform: uppercase;margin-bottom: 15px;color: #000;font-weight: 200;">Discussions</h2>
                                                 <p style="margin: 0;padding: 0;font: 'serif';font-size: 14px;line-height: 1.6;margin-bottom: 10px;font-weight: normal;">The most active discussions:</p>
                                                 <ol style="margin: 0;padding: 0;font: 'serif';font-size: 14px;line-height: 1.6;margin-bottom: 10px;font-weight: normal;">
-                                                        {#talks}
+                                                        {#talkspace}
                                                         <li style="margin: 0;padding: 0;font: 'serif';font-size: 100%;line-height: 1.6;margin-left: 5px;list-style-position: inside;"><a href="https://{lang}.wikipedia.org/wiki/Talk:{title}" target="_blank" style="margin: 0;padding: 0;font: 'serif';font-size: 100%;line-height: 1.6;color: #348eda;">{title_s}</a></li>
-                                                        {/talks}
+                                                        {/talkspace}
                                                 </ol>
-                                                <p style="margin: 0;padding: 0;font: 'serif';font-size: 14px;line-height: 1.6;margin-bottom: 10px;font-weight: normal;">Learn more about the <a href="#" style="margin: 0;padding: 0;font: 'serif';font-size: 100%;line-height: 1.6;color: #348eda;">Weeklypedia Digest</a>
+                                                <p style="margin: 0;padding: 0;font: 'serif';font-size: 14px;line-height: 1.6;margin-bottom: 10px;font-weight: normal;">Learn more about the <a href="http://weekly.hatnote.com" style="margin: 0;padding: 0;font: 'serif';font-size: 100%;line-height: 1.6;color: #348eda;">Weeklypedia Digest</a>
                                         </p></td>
                                 </tr>
                         </table>

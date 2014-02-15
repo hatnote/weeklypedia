@@ -23,7 +23,7 @@ class Mailinglist(object):
         opts = {
             'list_id': list_id,
             'subject': subject,
-            'from_email': 'stephenlaporte@gmail.com',
+            'from_email': 'weeklypedia@hatnote.com',
             'from_name': 'Weeklypedia Digest',
             'to_name': 'Weeklypedia Digest'
         }
