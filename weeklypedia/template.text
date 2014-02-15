@@ -1,20 +1,20 @@
-The WEEKLYPEDIA: Issue {stats.issue}, {stats.date} (English Wikipedia Edition)
+The WEEKLYPEDIA: Issue {stats.issue}, {stats.date}
 
 Hello there, welcome to our first weekly digest of Wikipedia activity.
                                                 
 === Articles ===
 This week, {stats.users|ci} authors made {stats.edits|ci} contributions to {stats.titles|ci} different articles. The top 20 articles for the week:
 
-{#articles}
+{#articlespace}
 {@idx_1}{.}{/idx_1}. {title_s} ({edits|ci} contributions by {users} authors) https://{lang}.wikipedia.org/wiki/{title}
-{/articles}
+{/articlespace}
 
 === Discussions ===
 The most active discussions:
 
-{#talks}
+{#talkspace}
 {@idx}{.}{/idx}. {title_s} https://{lang}.wikipedia.org/wiki/Talk:{title}
-{/talks}
+{/talkspace}
 
 Learn more about the Weeklypedia Digest: #
 

@@ -172,14 +172,15 @@ class RecentChanges(object):
         cursor = self.db.cursor(oursql.DictCursor)
         cursor.execute('''
             SELECT rc_title AS title,
+	    	   rc_cur_id AS page_id,
                    COUNT(*) AS edits,
                    COUNT(DISTINCT rc_user) AS users
             FROM recentchanges
             WHERE rc_namespace = 0
             AND rc_type = 0
             AND rc_timestamp > ?
-            GROUP BY rc_title
-            ORDER BY COUNT(*)
+            GROUP BY page_id
+	    ORDER BY COUNT(*)
             DESC
             LIMIT ?
         ''', (self.earliest, self.main_limit))
@@ -193,13 +194,14 @@ class RecentChanges(object):
         cursor = self.db.cursor(oursql.DictCursor)
         cursor.execute('''
             SELECT rc_title AS title,
+	    	   rc_cur_id as page_id,
                    COUNT(*) AS edits,
                    COUNT(DISTINCT rc_user) AS users
             FROM recentchanges
             WHERE rc_namespace = 1
             AND rc_type = 0
             AND rc_timestamp > ?
-            GROUP BY rc_title
+            GROUP BY page_id
             ORDER BY COUNT(*)
             DESC
             LIMIT ?
@@ -214,7 +216,7 @@ class RecentChanges(object):
         cursor = self.db.cursor(oursql.DictCursor)
         cursor.execute('''
             SELECT COUNT(*) AS edits,
-                   COUNT(DISTINCT rc_title) AS titles,
+                   COUNT(DISTINCT rc_cur_id) AS titles,
                    COUNT(DISTINCT rc_user) AS users
             FROM recentchanges
             WHERE rc_namespace = 0
@@ -229,6 +231,7 @@ class RecentChanges(object):
         ret['stats'] = self.stats()
         ret['mainspace'] = self.mainspace()
         ret['talkspace'] = self.talkspace()
+	ret['lang'] = self.lang
         if with_extracts:
             titles = [i['title'] for i in ret['mainspace']]
             ret['extracts'] = extracts(self.lang, titles, 3)
