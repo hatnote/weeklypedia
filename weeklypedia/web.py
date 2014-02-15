@@ -13,14 +13,15 @@ from mail import Mailinglist, KEY
 HISTORY_FILE = 'history.json'
 _CUR_PATH = os.path.dirname(os.path.abspath(__file__))
 
+
 def send(sendkey, lang='en'):
     changes_json = fetch_rc(lang=lang)
     ashes_env = ashes.AshesEnv([_CUR_PATH])
     changes_html = ashes_env.render('template.html', changes_json)
     changes_text = ashes_env.render('template.text', changes_json)
     mailinglist = Mailinglist(sendkey + KEY)
-    mailinglist.new_campaign('Wikipedia digest', 
-                             changes_html, 
+    mailinglist.new_campaign('Wikipedia digest',
+                             changes_html,
                              changes_text)
     mailinglist.send_next_campaign()
     history = load_history()
@@ -29,7 +30,7 @@ def send(sendkey, lang='en'):
     history[lang].append(changes_json)
     with open(os.path.join(_CUR_PATH, HISTORY_FILE), 'w') as outfile:
         json.dump(history, outfile)
-    return 'Success: sent issue %s' % changes_json['stats']['issue'] 
+    return 'Success: sent issue %s' % changes_json['stats']['issue']
 
 
 def fetch_rc(lang='en'):
@@ -40,13 +41,16 @@ def fetch_rc(lang='en'):
     ret['stats']['date'] = strftime("%b %d, %Y", gmtime())
     return ret
 
+
 def load_history():
     with open(os.path.join(_CUR_PATH, HISTORY_FILE)) as infile:
         history = json.load(infile)
     return history
-    
+
+
 def main_page():
     return ':-|'
+
 
 def create_app():
     sendkey = GetParamMiddleware('sendkey')
@@ -59,10 +63,11 @@ def create_app():
     ashes_render = AshesRenderFactory(_CUR_PATH, filters={'ci': comma_int})
     return Application(routes, [], ashes_render, middlewares=[sendkey])
 
-def comma_int(val):                                                                                      
-    try:                                                                                                 
-        return '{0:,}'.format(val)                                                                       
-    except ValueError:                                                                                   
+
+def comma_int(val):
+    try:
+        return '{0:,}'.format(val)
+    except ValueError:
         return val
 
 
