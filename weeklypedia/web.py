@@ -7,8 +7,8 @@ from clastic.render import AshesRenderFactory
 from clastic.meta import MetaApplication
 from clastic.middleware import GetParamMiddleware
 
-from dal import RecentChangesSummarizer
 from mail import Mailinglist, KEY
+from labs_api import fetch_rc  # TODO: decouple
 
 HISTORY_FILE = 'history.json'
 _CUR_PATH = os.path.dirname(os.path.abspath(__file__))
@@ -34,13 +34,6 @@ def send(sendkey, ashes_env, lang='et', list_id=''):
     return 'Success: sent issue %s' % changes_json['stats']['issue']
 
 
-def fetch_rc(lang='en'):
-    rcs = RecentChangesSummarizer(lang=lang)
-    ret = rcs.get_full_summary()
-    #ret['stats']['issue'] = 2
-    return ret
-
-
 def load_history():
     with open(os.path.join(_CUR_PATH, HISTORY_FILE)) as infile:
         history = json.load(infile)
@@ -52,7 +45,7 @@ def main_page():
 
 
 def create_app():
-    sendkey = GetParamMiddleware(['sendkey', 'list_id'])
+    gpm = GetParamMiddleware(['sendkey', 'list_id'])
     routes = [('/', main_page, render_basic),
               ('/meta', MetaApplication),
               ('/send', send, render_basic),
@@ -61,7 +54,7 @@ def create_app():
               ('/fetch/<lang>', fetch_rc, render_json)]
     ashes_render = AshesRenderFactory(_CUR_PATH, filters={'ci': comma_int})
     resources = {'ashes_env': ashes_render.env}
-    return Application(routes, resources, middlewares=[sendkey])
+    return Application(routes, resources, middlewares=[gpm])
 
 
 def comma_int(val):
