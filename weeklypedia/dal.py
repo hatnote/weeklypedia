@@ -110,7 +110,7 @@ class RecentChangesSummarizer(object):
         namespace = namespace or 0
         interval = self._interval2timedelta(interval)
 
-        end_date = end_date or datetime.now()
+        end_date = end_date or datetime.utcnow()
         start_date = end_date - interval
         start_date_str = start_date.strftime(DATE_FORMAT)
         params = {'namespace': namespace, 'start_date': start_date_str}
@@ -122,7 +122,7 @@ class RecentChangesSummarizer(object):
         limit = limit or 20
         namespace = namespace or 0  # support multiple? (for talk pages)
         interval = self._interval2timedelta(interval)
-        end_date = end_date or datetime.now()
+        end_date = end_date or datetime.utcnow()
         start_date = end_date - interval
         start_date_str = start_date.strftime(DATE_FORMAT)
         params = {'namespace': namespace,
@@ -143,7 +143,7 @@ class RecentChangesSummarizer(object):
         limit = limit or 20
         namespace = namespace or 0
         interval = self._interval2timedelta(interval)
-        end_date = end_date or datetime.now()
+        end_date = end_date or datetime.utcnow()
         start_date = end_date - interval
         start_date_str = start_date.strftime(DATE_FORMAT)
         params = {'namespace': namespace,
@@ -192,7 +192,7 @@ class RecentChangesSummarizer(object):
         granp = self.get_ranked_activity_new_pages
         ret['new_articles'] = granp(interval=interval, limit=new_limit)
         fi['lang'] = self.lang
-        fi['timestamp'] = datetime.datetime.utcnow().isoformat()
+        fi['timestamp'] = datetime.utcnow().isoformat()
         fi['duration'] = time.time() - start_time
         #if with_extracts:
         #    titles = [i['title'] for i in ret['mainspace']]
