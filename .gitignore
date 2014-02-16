@@ -4,6 +4,10 @@ venv/*
 logs/*
 *.py[cod]
 
+weeklypedia*-dev.json
+weeklypedia*-dev.html
+weeklypedia*-dev.txt
+
 # emacs
 *~
 ._*
