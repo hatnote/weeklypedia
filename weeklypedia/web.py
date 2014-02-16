@@ -2,19 +2,30 @@
 
 import os
 import json
+import urllib2
+
 from clastic import Application, render_json, render_json_dev, render_basic
 from clastic.render import AshesRenderFactory
 from clastic.meta import MetaApplication
 from clastic.middleware import GetParamMiddleware
 
 from mail import Mailinglist, KEY
-from labs_api import fetch_rc  # TODO: decouple
+
+API_BASE_URL = 'http://tools.wmflabs.org/weeklypedia/fetch/'
+DEFAULT_LANGUAGE = 'en'
 
 HISTORY_FILE = 'history.json'
 _CUR_PATH = os.path.dirname(os.path.abspath(__file__))
 
 
-def send(sendkey, ashes_env, lang='et', list_id=''):
+def fetch_rc(lang=DEFAULT_LANGUAGE):
+    response = urllib2.urlopen(API_BASE_URL + lang)
+    content = response.read()
+    data = json.loads(content)
+    return data
+
+
+def send(sendkey, ashes_env, lang=DEFAULT_LANGUAGE, list_id=''):
     changes_json = fetch_rc(lang=lang)
     changes_html = ashes_env.render('template.html', changes_json)
     changes_text = ashes_env.render('template.text', changes_json)
