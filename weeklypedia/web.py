@@ -2,23 +2,20 @@
 
 import os
 import json
-from time import strftime, gmtime
 from clastic import Application, render_json, render_json_dev, render_basic
 from clastic.render import AshesRenderFactory
-from clastic.render import ashes
 from clastic.meta import MetaApplication
 from clastic.middleware import GetParamMiddleware
 
-from dal import RecentChanges
+from dal import RecentChangesSummarizer
 from mail import Mailinglist, KEY
 
 HISTORY_FILE = 'history.json'
 _CUR_PATH = os.path.dirname(os.path.abspath(__file__))
 
 
-def send(sendkey, lang='et', list_id=''):
+def send(sendkey, ashes_env, lang='et', list_id=''):
     changes_json = fetch_rc(lang=lang)
-    ashes_env = ashes.AshesEnv([_CUR_PATH])
     changes_html = ashes_env.render('template.html', changes_json)
     changes_text = ashes_env.render('template.text', changes_json)
     mailinglist = Mailinglist(sendkey + KEY)
@@ -38,11 +35,9 @@ def send(sendkey, lang='et', list_id=''):
 
 
 def fetch_rc(lang='en'):
-    changes = RecentChanges(lang=lang)
-    ret = changes.all()
-    ret['stats']['issue'] = 2
-    # len(history.get(lang, []))
-    ret['stats']['date'] = strftime("%b %d, %Y", gmtime())
+    rcs = RecentChangesSummarizer(lang=lang)
+    ret = rcs.get_full_summary()
+    #ret['stats']['issue'] = 2
     return ret
 
 
@@ -57,7 +52,7 @@ def main_page():
 
 
 def create_app():
-    sendkey = GetParamMiddleware(['sendkey', 'lang', 'list_id'])
+    sendkey = GetParamMiddleware(['sendkey', 'list_id'])
     routes = [('/', main_page, render_basic),
               ('/meta', MetaApplication),
               ('/send', send, render_basic),
@@ -65,7 +60,8 @@ def create_app():
               ('/fetch/', fetch_rc, render_json),
               ('/fetch/<lang>', fetch_rc, render_json)]
     ashes_render = AshesRenderFactory(_CUR_PATH, filters={'ci': comma_int})
-    return Application(routes, [], ashes_render, middlewares=[sendkey])
+    resources = {'ashes_env': ashes_render.env}
+    return Application(routes, resources, middlewares=[sendkey])
 
 
 def comma_int(val):
@@ -76,3 +72,7 @@ def comma_int(val):
 
 
 wsgi_app = create_app()
+
+
+if __name__ == '__main__':
+    wsgi_app.serve()

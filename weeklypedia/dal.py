@@ -1,4 +1,7 @@
+# -*- coding: utf-8 -*-
+
 import os
+from time import strftime, gmtime
 from datetime import datetime, timedelta
 import oursql
 
@@ -136,6 +139,7 @@ class RecentChangesSummarizer(object):
 
     def get_ranked_activity_new_pages(self):
         query = self._ranked_activity_new_pages_query
+        # TODO
 
     def get_mainspace_activity(self, limit=None, interval=None):
         return self.get_ranked_activity(limit=limit,
@@ -153,6 +157,21 @@ class RecentChangesSummarizer(object):
                   'start_date': start_date_str}
         res = self._select(self._bounding_revids_query, params)[0]
         return (res['earliest_rev_id'], res['newest_rev_id'])
+
+    def get_full_summary(self, interval=7, main_limit=20, talk_limit=5,
+                         with_extracts=False):
+        ret = {}
+        ret['stats'] = self.get_activity_summary(interval=interval)
+        ret['mainspace'] = self.get_mainspace_activity(interval=interval,
+                                                       limit=main_limit)
+        ret['talkspace'] = self.get_talkspace_activity(interval=interval,
+                                                       limit=talk_limit)
+        ret['lang'] = self.lang
+        ret['date'] = strftime("%b %d, %Y", gmtime())
+        #if with_extracts:
+        #    titles = [i['title'] for i in ret['mainspace']]
+        #    ret['extracts'] = extracts(self.lang, titles, 3)
+        return ret
 
 
 class RecentChanges(object):
@@ -172,7 +191,7 @@ class RecentChanges(object):
         cursor = self.db.cursor(oursql.DictCursor)
         cursor.execute('''
             SELECT rc_title AS title,
-	    	   rc_cur_id AS page_id,
+                   rc_cur_id AS page_id,
                    COUNT(*) AS edits,
                    COUNT(DISTINCT rc_user) AS users
             FROM recentchanges
@@ -231,7 +250,7 @@ class RecentChanges(object):
         ret['stats'] = self.stats()
         ret['mainspace'] = self.mainspace()
         ret['talkspace'] = self.talkspace()
-	ret['lang'] = self.lang
+        ret['lang'] = self.lang
         if with_extracts:
             titles = [i['title'] for i in ret['mainspace']]
             ret['extracts'] = extracts(self.lang, titles, 3)
