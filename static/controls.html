@@ -1,0 +1,53 @@
+<html>
+<head>
+  <title>Weeklypedia controls</title>
+  <meta name="description" content="A weekly email digest with the most active Wikipedia articles">
+  <meta name="keywords" content="Wikipedia,email,digest,top,weeklypedia,hatnote">
+  <meta charset="utf-8" />
+  <link href="css/style.css" rel="stylesheet" media="all">
+
+</head>
+<body>
+  <header>
+  <h1><span>Weeklypedia control</span> </h1>
+  </header>
+  <article>
+    <section>
+      <h2>Send an email</h2>
+      <form action="/send" method="post">
+        <p>
+          <label for="list-id">List id</label>
+          <input id="list-id" name="id" type="text" value="a5ecbc7404">
+        </p>
+        <p>
+          <label for="language">Language code</label>
+          <input id="language" name="language" type="text" maxlength="3" width="3">
+        </p>
+        <p>
+          <label for="subject">Subject</label>
+          <input id="subject" name="subject" type="text" value="Weeklypedia: test">
+        </p>
+        <p>
+          <label for="source">Source</label>
+          <select id="source" name="source">
+            <option>From new query</option>
+          </select>
+        </p>
+        <p>
+          <label for="code">Last four digits of sendkey</label>
+          <input id="subject" name="subject" type="password" maxlength="4">
+        </p>
+        <button type="submit">Submit</button>
+      </form>
+    </section>
+  </article>
+  <script>
+    (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+    (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+    m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+    })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+    ga('create', 'UA-40320359-1', 'hatnote.com');
+    ga('send', 'pageview');
+  </script>
+</body>
+</html> 
