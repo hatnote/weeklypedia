@@ -38,11 +38,11 @@ class RecentChangesSummarizer(object):
             WHERE rc_namespace = :namespace
             AND rc_type = 0
             AND rc_timestamp > :start_date
-            AND page_id IN (SELECT rc_cur_id
-                            FROM recentchanges
-                            WHERE rc_timestamp > :start_date
-                            AND rc_namespace=:namespace
-                            AND rc_new=:is_new)
+            AND rc_cur_id IN (SELECT rc_cur_id
+                              FROM recentchanges
+                              WHERE rc_timestamp > :start_date
+                              AND rc_namespace=:namespace
+                              AND rc_new=:is_new)
             GROUP BY page_id
             ORDER BY edits
             DESC
