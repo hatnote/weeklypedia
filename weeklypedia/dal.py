@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 
 import os
-from time import strftime, gmtime
+import time
 from datetime import datetime, timedelta
 import oursql
 
@@ -38,11 +38,11 @@ class RecentChangesSummarizer(object):
             WHERE rc_namespace = :namespace
             AND rc_type = 0
             AND rc_timestamp > :start_date
-            AND page_id IN (SELECT rc_cur_id
-                            FROM recentchanges
-                            WHERE rc_timestamp > :start_date
-                            AND rc_namespace=:namespace
-                            AND rc_new=:is_new)
+            AND rc_cur_id IN (SELECT rc_cur_id
+                              FROM recentchanges
+                              WHERE rc_timestamp > :start_date
+                              AND rc_namespace=:namespace
+                              AND rc_new=:is_new)
             GROUP BY page_id
             ORDER BY edits
             DESC
@@ -110,7 +110,7 @@ class RecentChangesSummarizer(object):
         namespace = namespace or 0
         interval = self._interval2timedelta(interval)
 
-        end_date = end_date or datetime.now()
+        end_date = end_date or datetime.utcnow()
         start_date = end_date - interval
         start_date_str = start_date.strftime(DATE_FORMAT)
         params = {'namespace': namespace, 'start_date': start_date_str}
@@ -122,13 +122,13 @@ class RecentChangesSummarizer(object):
         limit = limit or 20
         namespace = namespace or 0  # support multiple? (for talk pages)
         interval = self._interval2timedelta(interval)
-
-        end_date = end_date or datetime.now()
+        end_date = end_date or datetime.utcnow()
         start_date = end_date - interval
         start_date_str = start_date.strftime(DATE_FORMAT)
         params = {'namespace': namespace,
                   'start_date': start_date_str,
                   'limit': limit}
+
         results = self._select(self._ranked_activity_query, params)
         for page in results:
             page['title'] = page['title'].decode('utf-8')
@@ -138,9 +138,29 @@ class RecentChangesSummarizer(object):
                                                         start_date_str)
         return results
 
-    def get_ranked_activity_new_pages(self):
-        query = self._ranked_activity_new_pages_query
-        # TODO
+    def get_ranked_activity_new_pages(self, limit=None, namespace=None,
+                                      interval=None, end_date=None):
+        limit = limit or 20
+        namespace = namespace or 0
+        interval = self._interval2timedelta(interval)
+        end_date = end_date or datetime.utcnow()
+        start_date = end_date - interval
+        start_date_str = start_date.strftime(DATE_FORMAT)
+        params = {'namespace': namespace,
+                  'start_date': start_date_str,
+                  'limit': limit,
+                  'is_new': True}  # is_new hmmm
+
+        results = self._select(self._ranked_activity_new_pages_query, params)
+        # TODO: can eliminate the rev_ids part by getting newest
+        # rev_id in the query
+        for page in results:
+            page['title'] = page['title'].decode('utf-8')
+            page['title_s'] = page['title'].replace('_', ' ')
+            page['rev_ids'] = self.get_bounding_rev_ids(page['page_id'],
+                                                        namespace,
+                                                        start_date_str)
+        return results
 
     def get_mainspace_activity(self, limit=None, interval=None):
         return self.get_ranked_activity(limit=limit,
@@ -160,15 +180,20 @@ class RecentChangesSummarizer(object):
         return (res['earliest_rev_id'], res['newest_rev_id'])
 
     def get_full_summary(self, interval=None, main_limit=20, talk_limit=5,
-                         with_extracts=False):
+                         new_limit=10, with_extracts=False):
         ret = {}
+        fi = ret['fetch_info'] = {}
+        start_time = time.time()
         ret['stats'] = self.get_activity_summary(interval=interval)
         ret['mainspace'] = self.get_mainspace_activity(interval=interval,
                                                        limit=main_limit)
         ret['talkspace'] = self.get_talkspace_activity(interval=interval,
                                                        limit=talk_limit)
-        ret['lang'] = self.lang
-        ret['date'] = strftime("%b %d, %Y", gmtime())
+        granp = self.get_ranked_activity_new_pages
+        ret['new_articles'] = granp(interval=interval, limit=new_limit)
+        fi['lang'] = self.lang
+        fi['timestamp'] = datetime.utcnow().isoformat()
+        fi['duration'] = time.time() - start_time
         #if with_extracts:
         #    titles = [i['title'] for i in ret['mainspace']]
         #    ret['extracts'] = extracts(self.lang, titles, 3)
