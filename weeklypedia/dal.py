@@ -14,15 +14,6 @@ DB_CONFIG_PATH = os.path.expanduser('~/replica.my.cnf')
 DATE_FORMAT = '%Y%m%d%H%M%S'
 
 
-def parse_date_str(date_str):
-    return datetime.strptime(date_str, DATE_FORMAT)
-
-
-def predate(date, days):
-    pdate = date - timedelta(days)
-    return pdate.strftime(DATE_FORMAT)
-
-
 class RecentChangesSummarizer(object):
     _ranked_activity_query = '''
             SELECT rc_cur_id AS page_id,
@@ -181,89 +172,6 @@ class RecentChangesSummarizer(object):
         #if with_extracts:
         #    titles = [i['title'] for i in ret['mainspace']]
         #    ret['extracts'] = extracts(self.lang, titles, 3)
-        return ret
-
-
-class RecentChanges(object):
-    def __init__(self, lang='en', days=7):
-        db_title = lang + 'wiki_p'
-        db_host = lang + 'wiki.labsdb'
-        self.lang = lang
-        self.db = oursql.connect(db=db_title,
-                                 host=db_host,
-                                 read_default_file=DB_CONFIG_PATH,
-                                 charset=None)
-        self.earliest = predate(datetime.now(), days)
-        self.main_limit = 20
-        self.talk_limit = 5
-
-    def mainspace(self):
-        cursor = self.db.cursor(oursql.DictCursor)
-        cursor.execute('''
-            SELECT rc_title AS title,
-                   rc_cur_id AS page_id,
-                   COUNT(*) AS edits,
-                   COUNT(DISTINCT rc_user) AS users
-            FROM recentchanges
-            WHERE rc_namespace = 0
-            AND rc_type = 0
-            AND rc_timestamp > ?
-            GROUP BY page_id
-	    ORDER BY COUNT(*)
-            DESC
-            LIMIT ?
-        ''', (self.earliest, self.main_limit))
-        ret = cursor.fetchall()
-        for edit in ret:
-            edit['title'] = edit['title'].decode('utf-8')
-            edit['title_s'] = edit['title'].replace('_', ' ')
-        return ret
-
-    def talkspace(self):
-        cursor = self.db.cursor(oursql.DictCursor)
-        cursor.execute('''
-            SELECT rc_title AS title,
-	    	   rc_cur_id as page_id,
-                   COUNT(*) AS edits,
-                   COUNT(DISTINCT rc_user) AS users
-            FROM recentchanges
-            WHERE rc_namespace = 1
-            AND rc_type = 0
-            AND rc_timestamp > ?
-            GROUP BY page_id
-            ORDER BY COUNT(*)
-            DESC
-            LIMIT ?
-        ''', (self.earliest, self.talk_limit))
-        ret = cursor.fetchall()
-        for edit in ret:
-            edit['title'] = edit['title'].decode('utf-8')
-            edit['title_s'] = edit['title'].replace('_', ' ')
-        return ret
-
-    def stats(self):
-        cursor = self.db.cursor(oursql.DictCursor)
-        cursor.execute('''
-            SELECT COUNT(*) AS edits,
-                   COUNT(DISTINCT rc_cur_id) AS titles,
-                   COUNT(DISTINCT rc_user) AS users
-            FROM recentchanges
-            WHERE rc_namespace = 0
-            AND rc_type = 0
-            AND rc_timestamp > ?;
-        ''', (self.earliest,))
-        ret = cursor.fetchall()[0]
-        return ret
-
-    def all(self, with_extracts=False):
-        ret = {}
-        ret['stats'] = self.stats()
-        ret['mainspace'] = self.mainspace()
-        ret['talkspace'] = self.talkspace()
-        ret['lang'] = self.lang
-        if with_extracts:
-            titles = [i['title'] for i in ret['mainspace']]
-            ret['extracts'] = extracts(self.lang, titles, 3)
         return ret
 
 
