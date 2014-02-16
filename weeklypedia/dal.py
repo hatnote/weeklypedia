@@ -102,11 +102,22 @@ class RecentChangesSummarizer(object):
         cursor.execute(query, params)
         return cursor.fetchall()
 
+    def _interval2timedelta(arg, default=None):
+        default = default or timedelta(days=7)
+        if arg is None:
+            ret = default
+        elif isinstance(arg, (int, float)):
+            ret = timedelta(days=arg)
+        elif isinstance(arg, timedelta):
+            ret = arg
+        else:
+            ret = default
+        return ret
+
     def get_activity_summary(self, namespace=None, interval=None,
                              end_date=None):
         namespace = namespace or 0
-        if interval is None:
-            interval = timedelta(days=7)
+        interval = self._interval2timedelta(interval)
 
         end_date = end_date or datetime.now()
         start_date = end_date - interval
@@ -119,8 +130,7 @@ class RecentChangesSummarizer(object):
                             end_date=None):
         limit = limit or 20
         namespace = namespace or 0  # support multiple? (for talk pages)
-        if interval is None:
-            interval = timedelta(days=7)
+        interval = self._interval2timedelta(interval)
 
         end_date = end_date or datetime.now()
         start_date = end_date - interval
@@ -158,7 +168,7 @@ class RecentChangesSummarizer(object):
         res = self._select(self._bounding_revids_query, params)[0]
         return (res['earliest_rev_id'], res['newest_rev_id'])
 
-    def get_full_summary(self, interval=7, main_limit=20, talk_limit=5,
+    def get_full_summary(self, interval=None, main_limit=20, talk_limit=5,
                          with_extracts=False):
         ret = {}
         ret['stats'] = self.get_activity_summary(interval=interval)
