@@ -18,7 +18,7 @@ def create_app():
     routes = [('/', fetch_rc, render_json),
               ('/fetch/', fetch_rc, render_json),
               ('/fetch/<lang>', fetch_rc, render_json),
-              ('/meta', MetaApplication),
+              ('/meta', MetaApplication()),
               ('/_dump_environ', lambda request: request.environ, render_json_dev)]
     return Application(routes)
 
