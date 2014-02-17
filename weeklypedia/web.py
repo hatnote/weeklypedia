@@ -13,6 +13,8 @@ from clastic.middleware import GetParamMiddleware
 
 from mail import Mailinglist, KEY
 
+ENABLE_FAKE = False
+
 _CUR_PATH = dirname(os.path.abspath(__file__))
 LANG_MAP = json.load(open(pjoin(_CUR_PATH, 'language_codes.json')))
 
@@ -33,6 +35,11 @@ def fetch_rc(lang=DEFAULT_LANGUAGE):
     content = response.read()
     data = json.loads(content)
     return data
+
+
+if ENABLE_FAKE:
+    import fake
+    fetch_rc = fake.fake_fetch_rc
 
 
 def get_language_list():
@@ -80,9 +87,9 @@ def _render_issue(render_ctx, ashes_env, format=None):
     if format == 'json':
         ret = json.dumps(render_ctx, indent=2, sort_keys=True)
     elif format == 'html':
-        ret = ashes_env.render('template.html', render_ctx)
+        ret = ashes_env.render('template.html', render_ctx).encode('utf-8')
     else:
-        ret = ashes_env.render('template.txt', render_ctx)
+        ret = ashes_env.render('template.txt', render_ctx).encode('utf-8')
     return ret
 
 
