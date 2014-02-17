@@ -95,7 +95,7 @@ def render_and_save_all_formats(ashes_env, lang=DEFAULT_LANGUAGE, is_dev=True):
                  'lang_shortcode': lang,
                  'dev_flag': ''}
         if is_dev:
-            fargs['dev_flag'] = '-dev'
+            fargs['dev_flag'] = '_dev'
         out_path = ARCHIVE_PATH_TMPL.format(**fargs)
         try:
             out_file = open(out_path, 'w')
