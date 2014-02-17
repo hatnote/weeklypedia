@@ -14,6 +14,23 @@ DB_CONFIG_PATH = os.path.expanduser('~/replica.my.cnf')
 DATE_FORMAT = '%Y%m%d%H%M%S'
 
 
+"""
+TODO: something with protections?
+   here's a query:
+    select rc_cur_id, rc_title, rc_user_text, rc_params
+    from recentchanges where
+    rc_timestamp > 20140210215640
+    and rc_namespace=0
+    and rc_type=3
+    and rc_log_type='protect'
+    and rc_log_action='protect'
+    and rc_cur_id > 0
+    and rc_params LIKE "%indefinite%";
+
+TODO: # of bots and anon edits
+"""
+
+
 class RecentChangesSummarizer(object):
     _ranked_activity_query = '''
             SELECT rc_cur_id AS page_id,
