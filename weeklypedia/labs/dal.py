@@ -60,6 +60,7 @@ class RecentChangesSummarizer(object):
                  FROM recentchanges
                  WHERE rc_namespace = :namespace
                    AND rc_cur_id = :page_id
+                   AND rc_type = 0
                    AND rc_timestamp > :start_date) PageRevs;'''
 
     _activity_query = '''
