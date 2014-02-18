@@ -133,7 +133,7 @@ class RecentChangesSummarizer(object):
         start_date_str = start_date.strftime(DATE_FORMAT)
         params = {'namespace': namespace, 'start_date': start_date_str}
         results = self._select(self._activity_query, params)
-        return results
+        return results[0]
 
     def get_ranked_activity(self, limit=None, namespace=None, interval=None,
                             end_date=None):
