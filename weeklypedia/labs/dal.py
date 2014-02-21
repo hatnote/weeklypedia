@@ -82,15 +82,17 @@ class RecentChangesSummarizer(object):
 
     _activity_query = '''
            SELECT COUNT(*) AS edits,
-                  COUNT(DISTINCT rc_title) AS titles,
-                  COUNT(DISTINCT rc_user) AS users
+                  COUNT(DISTINCT rc_user) AS users,
+                  COUNT(DISTINCT rc_cur_id) AS titles
            FROM recentchanges
            WHERE rc_namespace = :namespace
            AND rc_type = 0
            AND rc_timestamp > :start_date;'''
 
     _anon_activity_query = '''
-           SELECT COUNT(*) AS anon_edits
+           SELECT COUNT(*) AS anon_edits,
+                  COUNT(DISTINCT rc_user_text) AS anon_ip_count,
+                  COUNT(DISTINCT rc_cur_id) AS anon_titles
            FROM recentchanges
            WHERE rc_namespace = :namespace
            AND rc_type = 0
@@ -98,7 +100,9 @@ class RecentChangesSummarizer(object):
            AND rc_user=0;'''
 
     _bot_activity_query = '''
-           SELECT COUNT(*) AS bot_edits
+           SELECT COUNT(*) AS bot_edits,
+                  COUNT(DISTINCT rc_user) AS bot_count,
+                  COUNT(DISTINCT rc_cur_id) AS bot_titles
            FROM recentchanges
            WHERE rc_namespace = :namespace
            AND rc_type = 0
