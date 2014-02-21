@@ -27,7 +27,13 @@ TODO: something with protections?
     and rc_cur_id > 0
     and rc_params LIKE "%indefinite%";
 
-TODO: # of bots and anon edits
+NOTES:
+
+User counts generally don't include anonymous editors, but DO include
+bot editors, due to the `COUNT(DISTINCT rc_user)`. `rc_user` is user
+id, which is always 0 for unregistered users.
+
+All counts are for the main namespace unless otherwise specified.
 """
 
 
