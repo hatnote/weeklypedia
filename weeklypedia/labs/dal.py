@@ -89,6 +89,23 @@ class RecentChangesSummarizer(object):
            AND rc_type = 0
            AND rc_timestamp > :start_date;'''
 
+    _anon_activity_query = '''
+           SELECT COUNT(*) AS anon_edits,
+           FROM recentchanges
+           WHERE rc_namespace = :namespace
+           AND rc_type = 0
+           AND rc_timestamp > :start_date
+           AND rc_user=0;'''
+
+    _bot_activity_query = '''
+           SELECT COUNT(*) AS bot_edits,
+           FROM recentchanges
+           WHERE rc_namespace = :namespace
+           AND rc_type = 0
+           AND rc_timestamp > :start_date
+           AND rc_bot=1;'''
+
+
     def __init__(self, lang='en'):
         self.lang = lang
         self.db_title = lang + 'wiki_p'
@@ -133,6 +150,11 @@ class RecentChangesSummarizer(object):
         start_date_str = start_date.strftime(DATE_FORMAT)
         params = {'namespace': namespace, 'start_date': start_date_str}
         results = self._select(self._activity_query, params)
+        anon_result = self._select(self._anon_activity_query, params)[0]
+        bot_result = self._select(self._bot_activity_query, params)[0]
+
+        results.update(anon_result)
+        results.update(bot_result)
         return results[0]
 
     def get_ranked_activity(self, limit=None, namespace=None, interval=None,
