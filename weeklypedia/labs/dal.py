@@ -90,7 +90,7 @@ class RecentChangesSummarizer(object):
            AND rc_timestamp > :start_date;'''
 
     _anon_activity_query = '''
-           SELECT COUNT(*) AS anon_edits,
+           SELECT COUNT(*) AS anon_edits
            FROM recentchanges
            WHERE rc_namespace = :namespace
            AND rc_type = 0
@@ -98,7 +98,7 @@ class RecentChangesSummarizer(object):
            AND rc_user=0;'''
 
     _bot_activity_query = '''
-           SELECT COUNT(*) AS bot_edits,
+           SELECT COUNT(*) AS bot_edits
            FROM recentchanges
            WHERE rc_namespace = :namespace
            AND rc_type = 0
@@ -149,13 +149,13 @@ class RecentChangesSummarizer(object):
         start_date = end_date - interval
         start_date_str = start_date.strftime(DATE_FORMAT)
         params = {'namespace': namespace, 'start_date': start_date_str}
-        results = self._select(self._activity_query, params)
+        ret = self._select(self._activity_query, params)[0]
         anon_result = self._select(self._anon_activity_query, params)[0]
         bot_result = self._select(self._bot_activity_query, params)[0]
 
-        results.update(anon_result)
-        results.update(bot_result)
-        return results[0]
+        ret.update(anon_result)
+        ret.update(bot_result)
+        return ret
 
     def get_ranked_activity(self, limit=None, namespace=None, interval=None,
                             end_date=None):
