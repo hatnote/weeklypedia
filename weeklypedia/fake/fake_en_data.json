@@ -1,115 +1,115 @@
 {
   "fetch_info": {
-    "duration": 31.66755199432373, 
+    "duration": 77.69843792915344, 
     "lang": "en", 
-    "timestamp": "2014-02-17T21:50:53.801489"
+    "timestamp": "2014-02-18T02:17:56.920025"
   }, 
   "mainspace": [
     {
-      "edits": 667, 
+      "edits": 606, 
       "page_id": 41900635, 
       "rev_ids": [
-        594887036, 
+        594918558, 
         595868737
       ], 
       "title": "UK_storms_of_January-February_2014", 
       "title_s": "UK storms of January-February 2014", 
-      "users": 35
+      "users": 33
     }, 
     {
-      "edits": 516, 
+      "edits": 537, 
       "page_id": 41894390, 
       "rev_ids": [
-        594866131, 
-        595889791
+        594904818, 
+        595946555
       ], 
       "title": "Marius_(giraffe)", 
       "title_s": "Marius (giraffe)", 
-      "users": 31
+      "users": 32
     }, 
     {
-      "edits": 443, 
+      "edits": 449, 
       "page_id": 202682, 
       "rev_ids": [
         592566586, 
-        595894109
+        595963581
       ], 
       "title": "Sid_Caesar", 
       "title_s": "Sid Caesar", 
-      "users": 41
+      "users": 43
     }, 
     {
-      "edits": 386, 
-      "page_id": 41480750, 
-      "rev_ids": [
-        594887188, 
-        595895199
-      ], 
-      "title": "Deaths_in_2014", 
-      "title_s": "Deaths in 2014", 
-      "users": 83
-    }, 
-    {
-      "edits": 382, 
+      "edits": 400, 
       "page_id": 38480222, 
       "rev_ids": [
         594868614, 
-        595896554
+        595965677
       ], 
       "title": "Ice_hockey_at_the_2014_Winter_Olympics_\u2013_Men's_tournament", 
       "title_s": "Ice hockey at the 2014 Winter Olympics \u2013 Men's tournament", 
-      "users": 45
+      "users": 48
     }, 
     {
-      "edits": 342, 
-      "page_id": 390504, 
-      "rev_ids": [
-        591974734, 
-        595849104
-      ], 
-      "title": "St._Mary's_City,_Maryland", 
-      "title_s": "St. Mary's City, Maryland", 
-      "users": 4
-    }, 
-    {
-      "edits": 340, 
+      "edits": 392, 
       "page_id": 41656418, 
       "rev_ids": [
-        594865467, 
-        595892490
+        594918618, 
+        595952450
       ], 
       "title": "Japanese_resistance_to_the_Empire_of_Japan_in_World_War_II", 
       "title_s": "Japanese resistance to the Empire of Japan in World War II", 
       "users": 7
     }, 
     {
-      "edits": 332, 
-      "page_id": 38490807, 
+      "edits": 382, 
+      "page_id": 41480750, 
       "rev_ids": [
-        594886870, 
-        595896699
+        594912545, 
+        595965865
       ], 
-      "title": "Canada_at_the_2014_Winter_Olympics", 
-      "title_s": "Canada at the 2014 Winter Olympics", 
-      "users": 26
+      "title": "Deaths_in_2014", 
+      "title_s": "Deaths in 2014", 
+      "users": 84
     }, 
     {
-      "edits": 280, 
+      "edits": 358, 
       "page_id": 564099, 
       "rev_ids": [
-        594884464, 
-        595897613
+        594915279, 
+        595942528
       ], 
       "title": "Philip_Seymour_Hoffman", 
       "title_s": "Philip Seymour Hoffman", 
-      "users": 31
+      "users": 33
     }, 
     {
-      "edits": 276, 
+      "edits": 354, 
+      "page_id": 390504, 
+      "rev_ids": [
+        591974734, 
+        595947204
+      ], 
+      "title": "St._Mary's_City,_Maryland", 
+      "title_s": "St. Mary's City, Maryland", 
+      "users": 4
+    }, 
+    {
+      "edits": 351, 
+      "page_id": 38490807, 
+      "rev_ids": [
+        594899314, 
+        595953410
+      ], 
+      "title": "Canada_at_the_2014_Winter_Olympics", 
+      "title_s": "Canada at the 2014 Winter Olympics", 
+      "users": 27
+    }, 
+    {
+      "edits": 299, 
       "page_id": 38490834, 
       "rev_ids": [
-        594871092, 
-        595897045
+        594903973, 
+        595926069
       ], 
       "title": "United_States_at_the_2014_Winter_Olympics", 
       "title_s": "United States at the 2014 Winter Olympics", 
@@ -127,26 +127,37 @@
       "users": 3
     }, 
     {
-      "edits": 255, 
+      "edits": 257, 
       "page_id": 804602, 
       "rev_ids": [
         594394533, 
-        595829631
+        595943212
       ], 
       "title": "Shirley_Temple", 
       "title_s": "Shirley Temple", 
-      "users": 85
+      "users": 87
     }, 
     {
-      "edits": 227, 
+      "edits": 233, 
       "page_id": 1718119, 
       "rev_ids": [
-        594886941, 
-        595866486
+        594917941, 
+        595955224
       ], 
       "title": "Lizabeth_Scott", 
       "title_s": "Lizabeth Scott", 
-      "users": 5
+      "users": 4
+    }, 
+    {
+      "edits": 227, 
+      "page_id": 41927607, 
+      "rev_ids": [
+        595248004, 
+        595966565
+      ], 
+      "title": "2014_Venezuela_Protests", 
+      "title_s": "2014 Venezuela Protests", 
+      "users": 24
     }, 
     {
       "edits": 227, 
@@ -171,26 +182,37 @@
       "users": 16
     }, 
     {
-      "edits": 224, 
+      "edits": 225, 
       "page_id": 39630259, 
       "rev_ids": [
-        594881985, 
-        595885795
+        594918829, 
+        595937365
       ], 
       "title": "Just_Dance_2014", 
       "title_s": "Just Dance 2014", 
-      "users": 13
+      "users": 14
     }, 
     {
-      "edits": 210, 
+      "edits": 224, 
       "page_id": 26481991, 
       "rev_ids": [
         594876190, 
-        595897352
+        595953201
       ], 
       "title": "2014_Winter_Olympics_medal_table", 
       "title_s": "2014 Winter Olympics medal table", 
-      "users": 46
+      "users": 49
+    }, 
+    {
+      "edits": 212, 
+      "page_id": 39193505, 
+      "rev_ids": [
+        594777752, 
+        595964497
+      ], 
+      "title": "House_of_Cards_(season_2)", 
+      "title_s": "House of Cards (season 2)", 
+      "users": 25
     }, 
     {
       "edits": 208, 
@@ -202,52 +224,30 @@
       "title": "2013\u201314_Kitchee_SC_season", 
       "title_s": "2013\u201314 Kitchee SC season", 
       "users": 3
-    }, 
-    {
-      "edits": 206, 
-      "page_id": 58005, 
-      "rev_ids": [
-        594840672, 
-        595793240
-      ], 
-      "title": "Airship", 
-      "title_s": "Airship", 
-      "users": 8
-    }, 
-    {
-      "edits": 202, 
-      "page_id": 39193505, 
-      "rev_ids": [
-        594777752, 
-        595888599
-      ], 
-      "title": "House_of_Cards_(season_2)", 
-      "title_s": "House of Cards (season 2)", 
-      "users": 23
     }
   ], 
   "new_articles": [
     {
-      "edits": 167, 
+      "edits": 227, 
+      "page_id": 41927607, 
+      "rev_ids": [
+        595248004, 
+        595966565
+      ], 
+      "title": "2014_Venezuela_Protests", 
+      "title_s": "2014 Venezuela Protests", 
+      "users": 24
+    }, 
+    {
+      "edits": 170, 
       "page_id": 41926660, 
       "rev_ids": [
         595228926, 
-        595881608
+        595933064
       ], 
       "title": "LeRoy_Prinz", 
       "title_s": "LeRoy Prinz", 
       "users": 8
-    }, 
-    {
-      "edits": 167, 
-      "page_id": 41927607, 
-      "rev_ids": [
-        595248004, 
-        595898688
-      ], 
-      "title": "2014_Venezuelan_protests", 
-      "title_s": "2014 Venezuelan protests", 
-      "users": 24
     }, 
     {
       "edits": 160, 
@@ -272,134 +272,132 @@
       "users": 7
     }, 
     {
-      "edits": 127, 
+      "edits": 128, 
       "page_id": 41909770, 
       "rev_ids": [
         594973832, 
-        595713696
+        595903698
       ], 
       "title": "2014_Algeria_Lockheed_C-130_Hercules_crash", 
       "title_s": "2014 Algeria Lockheed C-130 Hercules crash", 
-      "users": 40
+      "users": 41
     }, 
     {
-      "edits": 121, 
+      "edits": 123, 
       "page_id": 41942566, 
       "rev_ids": [
         595458638, 
-        595898801
+        595926426
       ], 
       "title": "2014_Dubai_Tennis_Championships_\u2013_Women's_Singles", 
       "title_s": "2014 Dubai Tennis Championships \u2013 Women's Singles", 
       "users": 4
     }, 
     {
-      "edits": 111, 
-      "page_id": 41928653, 
-      "rev_ids": [
-        595266574, 
-        595820221
-      ], 
-      "title": "Dennis_Lewin", 
-      "title_s": "Dennis Lewin", 
-      "users": 9
-    }, 
-    {
-      "edits": 108, 
+      "edits": 119, 
       "page_id": 41921260, 
       "rev_ids": [
         595145549, 
-        595848454
+        595951568
       ], 
       "title": "Austrian_Walled_Towns", 
       "title_s": "Austrian Walled Towns", 
       "users": 11
     }, 
     {
-      "edits": 100, 
-      "page_id": 41940819, 
+      "edits": 112, 
+      "page_id": 41928653, 
       "rev_ids": [
-        595428073, 
-        595456135
+        595266574, 
+        595918368
       ], 
-      "title": "List_of_public_house_topics", 
-      "title_s": "List of public house topics", 
-      "users": 2
+      "title": "Dennis_Lewin", 
+      "title_s": "Dennis Lewin", 
+      "users": 9
     }, 
     {
-      "edits": 100, 
+      "edits": 112, 
+      "page_id": 41960610, 
+      "rev_ids": [
+        595757021, 
+        595957565
+      ], 
+      "title": "List_of_coal_mines_in_Japan", 
+      "title_s": "List of coal mines in Japan", 
+      "users": 4
+    }, 
+    {
+      "edits": 103, 
       "page_id": 41943933, 
       "rev_ids": [
         595477503, 
-        595859569
+        595944027
       ], 
       "title": "Ras_ir-Ra\u0127eb", 
       "title_s": "Ras ir-Ra\u0127eb", 
-      "users": 2
+      "users": 3
     }
   ], 
-  "stats": [
-    {
-      "edits": 662918, 
-      "titles": 270452, 
-      "users": 35928
-    }
-  ], 
+  "stats": {
+    "edits": 692167, 
+    "titles": 280806, 
+    "users": 37117
+  }, 
   "talkspace": [
     {
-      "edits": 420, 
+      "edits": 451, 
       "page_id": 65717, 
       "rev_ids": [
-        594856566, 
-        595858654
+        594914571, 
+        595966705
       ], 
       "title": "Nanking_Massacre", 
       "title_s": "Nanking Massacre", 
       "users": 13
     }, 
     {
-      "edits": 411, 
+      "edits": 424, 
       "page_id": 31946, 
       "rev_ids": [
         594554551, 
-        595874360
+        595940371
       ], 
       "title": "List_of_metro_systems", 
       "title_s": "List of metro systems", 
       "users": 8
     }, 
     {
-      "edits": 274, 
+      "edits": 312, 
       "page_id": 42390, 
       "rev_ids": [
         590272842, 
-        595898741
+        595962504
       ], 
       "title": "Qigong", 
       "title_s": "Qigong", 
       "users": 16
     }, 
     {
-      "edits": 207, 
+      "edits": 229, 
       "page_id": 59005, 
       "rev_ids": [
         594807353, 
-        595854279
+        595966272
       ], 
       "title": "Jehovah's_Witnesses", 
       "title_s": "Jehovah's Witnesses", 
       "users": 7
     }, 
     {
-      "edits": 198, 
-      "page_id": 197022, 
+      "edits": 219, 
+      "page_id": 1019313, 
       "rev_ids": [
-        594851400, 
-        595801461
+        594918535, 
+        595965678
       ], 
-      "title": "Chiropractic", 
-      "title_s": "Chiropractic", 
-      "users": 17
+      "title": "Gospel_of_Matthew", 
+      "title_s": "Gospel of Matthew", 
+      "users": 9
     }
   ]
 }
