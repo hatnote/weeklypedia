@@ -1,399 +1,401 @@
 {
   "fetch_info": {
-    "duration": 77.69843792915344, 
+    "duration": 52.006680965423584, 
     "lang": "en", 
-    "timestamp": "2014-02-18T02:17:56.920025"
+    "timestamp": "2014-02-21T10:54:04.708131"
   }, 
   "mainspace": [
     {
-      "edits": 606, 
-      "page_id": 41900635, 
+      "edits": 579, 
+      "page_id": 41927607, 
       "rev_ids": [
-        594918558, 
-        595868737
+        595427206, 
+        596444367
       ], 
-      "title": "UK_storms_of_January-February_2014", 
-      "title_s": "UK storms of January-February 2014", 
+      "title": "2014_Venezuela_Protests", 
+      "title_s": "2014 Venezuela Protests", 
       "users": 33
     }, 
     {
-      "edits": 537, 
+      "edits": 546, 
       "page_id": 41894390, 
       "rev_ids": [
-        594904818, 
-        595946555
+        595400375, 
+        596471566
       ], 
       "title": "Marius_(giraffe)", 
       "title_s": "Marius (giraffe)", 
       "users": 32
     }, 
     {
-      "edits": 449, 
-      "page_id": 202682, 
-      "rev_ids": [
-        592566586, 
-        595963581
-      ], 
-      "title": "Sid_Caesar", 
-      "title_s": "Sid Caesar", 
-      "users": 43
-    }, 
-    {
-      "edits": 400, 
+      "edits": 539, 
       "page_id": 38480222, 
       "rev_ids": [
-        594868614, 
-        595965677
+        595429798, 
+        596454344
       ], 
       "title": "Ice_hockey_at_the_2014_Winter_Olympics_\u2013_Men's_tournament", 
       "title_s": "Ice hockey at the 2014 Winter Olympics \u2013 Men's tournament", 
-      "users": 48
+      "users": 64
     }, 
     {
-      "edits": 392, 
-      "page_id": 41656418, 
+      "edits": 412, 
+      "page_id": 39401170, 
       "rev_ids": [
-        594918618, 
-        595952450
+        595429392, 
+        596462211
       ], 
-      "title": "Japanese_resistance_to_the_Empire_of_Japan_in_World_War_II", 
-      "title_s": "Japanese resistance to the Empire of Japan in World War II", 
-      "users": 7
+      "title": "American_Idol_(season_13)", 
+      "title_s": "American Idol (season 13)", 
+      "users": 29
     }, 
     {
-      "edits": 382, 
+      "edits": 374, 
       "page_id": 41480750, 
       "rev_ids": [
-        594912545, 
-        595965865
+        595423041, 
+        596449936
       ], 
       "title": "Deaths_in_2014", 
       "title_s": "Deaths in 2014", 
-      "users": 84
+      "users": 69
     }, 
     {
-      "edits": 358, 
+      "edits": 362, 
       "page_id": 564099, 
       "rev_ids": [
-        594915279, 
-        595942528
+        595406672, 
+        596405420
       ], 
       "title": "Philip_Seymour_Hoffman", 
       "title_s": "Philip Seymour Hoffman", 
-      "users": 33
+      "users": 27
     }, 
     {
-      "edits": 354, 
+      "edits": 345, 
       "page_id": 390504, 
       "rev_ids": [
-        591974734, 
-        595947204
+        595431945, 
+        596467455
       ], 
       "title": "St._Mary's_City,_Maryland", 
       "title_s": "St. Mary's City, Maryland", 
       "users": 4
     }, 
     {
-      "edits": 351, 
+      "edits": 319, 
       "page_id": 38490807, 
       "rev_ids": [
-        594899314, 
-        595953410
+        595420287, 
+        596470725
       ], 
       "title": "Canada_at_the_2014_Winter_Olympics", 
       "title_s": "Canada at the 2014 Winter Olympics", 
-      "users": 27
-    }, 
-    {
-      "edits": 299, 
-      "page_id": 38490834, 
-      "rev_ids": [
-        594903973, 
-        595926069
-      ], 
-      "title": "United_States_at_the_2014_Winter_Olympics", 
-      "title_s": "United States at the 2014 Winter Olympics", 
-      "users": 21
-    }, 
-    {
-      "edits": 267, 
-      "page_id": 21339404, 
-      "rev_ids": [
-        591974217, 
-        595845661
-      ], 
-      "title": "St._Inigoes_Shores,_Maryland", 
-      "title_s": "St. Inigoes Shores, Maryland", 
-      "users": 3
-    }, 
-    {
-      "edits": 257, 
-      "page_id": 804602, 
-      "rev_ids": [
-        594394533, 
-        595943212
-      ], 
-      "title": "Shirley_Temple", 
-      "title_s": "Shirley Temple", 
-      "users": 87
-    }, 
-    {
-      "edits": 233, 
-      "page_id": 1718119, 
-      "rev_ids": [
-        594917941, 
-        595955224
-      ], 
-      "title": "Lizabeth_Scott", 
-      "title_s": "Lizabeth Scott", 
-      "users": 4
-    }, 
-    {
-      "edits": 227, 
-      "page_id": 41927607, 
-      "rev_ids": [
-        595248004, 
-        595966565
-      ], 
-      "title": "2014_Venezuela_Protests", 
-      "title_s": "2014 Venezuela Protests", 
-      "users": 24
-    }, 
-    {
-      "edits": 227, 
-      "page_id": 40928287, 
-      "rev_ids": [
-        591910730, 
-        595824582
-      ], 
-      "title": "2014_NRL_Auckland_Nines", 
-      "title_s": "2014 NRL Auckland Nines", 
-      "users": 7
-    }, 
-    {
-      "edits": 227, 
-      "page_id": 41313889, 
-      "rev_ids": [
-        594696720, 
-        595735588
-      ], 
-      "title": "Figure_skating_at_the_2014_Winter_Olympics_\u2013_Men's_singles", 
-      "title_s": "Figure skating at the 2014 Winter Olympics \u2013 Men's singles", 
-      "users": 16
-    }, 
-    {
-      "edits": 225, 
-      "page_id": 39630259, 
-      "rev_ids": [
-        594918829, 
-        595937365
-      ], 
-      "title": "Just_Dance_2014", 
-      "title_s": "Just Dance 2014", 
-      "users": 14
-    }, 
-    {
-      "edits": 224, 
-      "page_id": 26481991, 
-      "rev_ids": [
-        594876190, 
-        595953201
-      ], 
-      "title": "2014_Winter_Olympics_medal_table", 
-      "title_s": "2014 Winter Olympics medal table", 
-      "users": 49
-    }, 
-    {
-      "edits": 212, 
-      "page_id": 39193505, 
-      "rev_ids": [
-        594777752, 
-        595964497
-      ], 
-      "title": "House_of_Cards_(season_2)", 
-      "title_s": "House of Cards (season 2)", 
       "users": 25
     }, 
     {
-      "edits": 208, 
-      "page_id": 39480587, 
+      "edits": 295, 
+      "page_id": 41656418, 
       "rev_ids": [
-        594552264, 
-        595727745
+        595426826, 
+        596457881
       ], 
-      "title": "2013\u201314_Kitchee_SC_season", 
-      "title_s": "2013\u201314 Kitchee SC season", 
-      "users": 3
+      "title": "Japanese_resistance_to_the_Empire_of_Japan_in_World_War_II", 
+      "title_s": "Japanese resistance to the Empire of Japan in World War II", 
+      "users": 5
+    }, 
+    {
+      "edits": 292, 
+      "page_id": 39780266, 
+      "rev_ids": [
+        595423715, 
+        596470697
+      ], 
+      "title": "Asia's_Next_Top_Model_(cycle_2)", 
+      "title_s": "Asia's Next Top Model (cycle 2)", 
+      "users": 8
+    }, 
+    {
+      "edits": 262, 
+      "page_id": 38490834, 
+      "rev_ids": [
+        595407416, 
+        596439057
+      ], 
+      "title": "United_States_at_the_2014_Winter_Olympics", 
+      "title_s": "United States at the 2014 Winter Olympics", 
+      "users": 19
+    }, 
+    {
+      "edits": 261, 
+      "page_id": 38494633, 
+      "rev_ids": [
+        595432408, 
+        596469094
+      ], 
+      "title": "Gunday", 
+      "title_s": "Gunday", 
+      "users": 48
+    }, 
+    {
+      "edits": 235, 
+      "page_id": 39193505, 
+      "rev_ids": [
+        595428398, 
+        596468492
+      ], 
+      "title": "House_of_Cards_(season_2)", 
+      "title_s": "House of Cards (season 2)", 
+      "users": 32
+    }, 
+    {
+      "edits": 234, 
+      "page_id": 41979235, 
+      "rev_ids": [
+        596034247, 
+        596471400
+      ], 
+      "title": "Ukraine_Civil_War", 
+      "title_s": "Ukraine Civil War", 
+      "users": 35
+    }, 
+    {
+      "edits": 232, 
+      "page_id": 44203, 
+      "rev_ids": [
+        595392643, 
+        596423272
+      ], 
+      "title": "Ezra_Pound", 
+      "title_s": "Ezra Pound", 
+      "users": 11
+    }, 
+    {
+      "edits": 231, 
+      "page_id": 41900635, 
+      "rev_ids": [
+        595432289, 
+        596394692
+      ], 
+      "title": "Winter_storms_of_2013\u201314_in_the_United_Kingdom", 
+      "title_s": "Winter storms of 2013\u201314 in the United Kingdom", 
+      "users": 19
+    }, 
+    {
+      "edits": 230, 
+      "page_id": 26481991, 
+      "rev_ids": [
+        595426972, 
+        596465727
+      ], 
+      "title": "2014_Winter_Olympics_medal_table", 
+      "title_s": "2014 Winter Olympics medal table", 
+      "users": 47
+    }, 
+    {
+      "edits": 225, 
+      "page_id": 40928287, 
+      "rev_ids": [
+        595381452, 
+        596454799
+      ], 
+      "title": "2014_NRL_Auckland_Nines", 
+      "title_s": "2014 NRL Auckland Nines", 
+      "users": 6
+    }, 
+    {
+      "edits": 222, 
+      "page_id": 21339404, 
+      "rev_ids": [
+        595410438, 
+        596409339
+      ], 
+      "title": "St._Inigoes_Shores,_Maryland", 
+      "title_s": "St. Inigoes Shores, Maryland", 
+      "users": 5
+    }, 
+    {
+      "edits": 221, 
+      "page_id": 41560399, 
+      "rev_ids": [
+        595403273, 
+        596460720
+      ], 
+      "title": "Chronological_summary_of_the_2014_Winter_Olympics", 
+      "title_s": "Chronological summary of the 2014 Winter Olympics", 
+      "users": 39
     }
   ], 
   "new_articles": [
     {
-      "edits": 227, 
-      "page_id": 41927607, 
+      "edits": 234, 
+      "page_id": 41979235, 
       "rev_ids": [
-        595248004, 
-        595966565
+        596034247, 
+        596471400
       ], 
-      "title": "2014_Venezuela_Protests", 
-      "title_s": "2014 Venezuela Protests", 
-      "users": 24
+      "title": "February_2014_Euromaidan_riots", 
+      "title_s": "February 2014 Euromaidan riots", 
+      "users": 35
     }, 
     {
-      "edits": 170, 
-      "page_id": 41926660, 
-      "rev_ids": [
-        595228926, 
-        595933064
-      ], 
-      "title": "LeRoy_Prinz", 
-      "title_s": "LeRoy Prinz", 
-      "users": 8
-    }, 
-    {
-      "edits": 160, 
-      "page_id": 41936802, 
-      "rev_ids": [
-        595380757, 
-        595858529
-      ], 
-      "title": "List_of_international_foreign_Liga_I_players", 
-      "title_s": "List of international foreign Liga I players", 
-      "users": 1
-    }, 
-    {
-      "edits": 131, 
-      "page_id": 41915202, 
-      "rev_ids": [
-        595054067, 
-        595846563
-      ], 
-      "title": "2014_PDC_European_Tour_Event_2", 
-      "title_s": "2014 PDC European Tour Event 2", 
-      "users": 7
-    }, 
-    {
-      "edits": 128, 
-      "page_id": 41909770, 
-      "rev_ids": [
-        594973832, 
-        595903698
-      ], 
-      "title": "2014_Algeria_Lockheed_C-130_Hercules_crash", 
-      "title_s": "2014 Algeria Lockheed C-130 Hercules crash", 
-      "users": 41
-    }, 
-    {
-      "edits": 123, 
+      "edits": 201, 
       "page_id": 41942566, 
       "rev_ids": [
         595458638, 
-        595926426
+        596371708
       ], 
       "title": "2014_Dubai_Tennis_Championships_\u2013_Women's_Singles", 
       "title_s": "2014 Dubai Tennis Championships \u2013 Women's Singles", 
-      "users": 4
-    }, 
-    {
-      "edits": 119, 
-      "page_id": 41921260, 
-      "rev_ids": [
-        595145549, 
-        595951568
-      ], 
-      "title": "Austrian_Walled_Towns", 
-      "title_s": "Austrian Walled Towns", 
-      "users": 11
-    }, 
-    {
-      "edits": 112, 
-      "page_id": 41928653, 
-      "rev_ids": [
-        595266574, 
-        595918368
-      ], 
-      "title": "Dennis_Lewin", 
-      "title_s": "Dennis Lewin", 
       "users": 9
     }, 
     {
-      "edits": 112, 
+      "edits": 165, 
+      "page_id": 41942385, 
+      "rev_ids": [
+        595455869, 
+        596469337
+      ], 
+      "title": "Military_history_of_the_Acadians", 
+      "title_s": "Military history of the Acadians", 
+      "users": 6
+    }, 
+    {
+      "edits": 140, 
       "page_id": 41960610, 
       "rev_ids": [
         595757021, 
-        595957565
+        596337102
       ], 
       "title": "List_of_coal_mines_in_Japan", 
       "title_s": "List of coal mines in Japan", 
       "users": 4
     }, 
     {
-      "edits": 103, 
-      "page_id": 41943933, 
+      "edits": 139, 
+      "page_id": 41975031, 
       "rev_ids": [
-        595477503, 
-        595944027
+        595979956, 
+        596453970
       ], 
-      "title": "Ras_ir-Ra\u0127eb", 
-      "title_s": "Ras ir-Ra\u0127eb", 
-      "users": 3
-    }
-  ], 
-  "stats": {
-    "edits": 692167, 
-    "titles": 280806, 
-    "users": 37117
-  }, 
-  "talkspace": [
-    {
-      "edits": 451, 
-      "page_id": 65717, 
-      "rev_ids": [
-        594914571, 
-        595966705
-      ], 
-      "title": "Nanking_Massacre", 
-      "title_s": "Nanking Massacre", 
-      "users": 13
+      "title": "Twitch_Plays_Pok\u00e9mon", 
+      "title_s": "Twitch Plays Pok\u00e9mon", 
+      "users": 31
     }, 
     {
-      "edits": 424, 
-      "page_id": 31946, 
+      "edits": 129, 
+      "page_id": 41946184, 
       "rev_ids": [
-        594554551, 
-        595940371
+        595515928, 
+        596404988
       ], 
-      "title": "List_of_metro_systems", 
-      "title_s": "List of metro systems", 
+      "title": "2014_Open_13_\u2013_Singles", 
+      "title_s": "2014 Open 13 \u2013 Singles", 
       "users": 8
     }, 
     {
-      "edits": 312, 
+      "edits": 127, 
+      "page_id": 41946117, 
+      "rev_ids": [
+        595514225, 
+        596407049
+      ], 
+      "title": "2014_Rio_Open_\u2013_Women's_Singles", 
+      "title_s": "2014 Rio Open \u2013 Women's Singles", 
+      "users": 3
+    }, 
+    {
+      "edits": 120, 
+      "page_id": 41946363, 
+      "rev_ids": [
+        595518913, 
+        596457651
+      ], 
+      "title": "2014_Delray_Beach_International_Tennis_Championships_\u2013_Singles", 
+      "title_s": "2014 Delray Beach International Tennis Championships \u2013 Singles", 
+      "users": 8
+    }, 
+    {
+      "edits": 117, 
+      "page_id": 41999710, 
+      "rev_ids": [
+        596372145, 
+        596434871
+      ], 
+      "title": "Matt_Haag", 
+      "title_s": "Matt Haag", 
+      "users": 6
+    }, 
+    {
+      "edits": 117, 
+      "page_id": 41946444, 
+      "rev_ids": [
+        595520535, 
+        596436847
+      ], 
+      "title": "2014_Rio_Open_\u2013_Men's_Singles", 
+      "title_s": "2014 Rio Open \u2013 Men's Singles", 
+      "users": 6
+    }
+  ], 
+  "stats": {
+    "anon_edits": 191366, 
+    "bot_edits": 24959, 
+    "edits": 685147, 
+    "titles": 276394, 
+    "users": 37404
+  }, 
+  "talkspace": [
+    {
+      "edits": 624, 
+      "page_id": 31946, 
+      "rev_ids": [
+        595428096, 
+        596467559
+      ], 
+      "title": "List_of_metro_systems", 
+      "title_s": "List of metro systems", 
+      "users": 12
+    }, 
+    {
+      "edits": 392, 
       "page_id": 42390, 
       "rev_ids": [
-        590272842, 
-        595962504
+        595431449, 
+        596371561
       ], 
       "title": "Qigong", 
       "title_s": "Qigong", 
-      "users": 16
+      "users": 17
+    }, 
+    {
+      "edits": 312, 
+      "page_id": 65717, 
+      "rev_ids": [
+        595428126, 
+        596138076
+      ], 
+      "title": "Nanking_Massacre", 
+      "title_s": "Nanking Massacre", 
+      "users": 11
     }, 
     {
       "edits": 229, 
-      "page_id": 59005, 
+      "page_id": 41894391, 
       "rev_ids": [
-        594807353, 
-        595966272
+        595408730, 
+        596470547
       ], 
-      "title": "Jehovah's_Witnesses", 
-      "title_s": "Jehovah's Witnesses", 
-      "users": 7
+      "title": "Marius_(giraffe)", 
+      "title_s": "Marius (giraffe)", 
+      "users": 18
     }, 
     {
-      "edits": 219, 
+      "edits": 214, 
       "page_id": 1019313, 
       "rev_ids": [
-        594918535, 
-        595965678
+        595417932, 
+        596137300
       ], 
       "title": "Gospel_of_Matthew", 
       "title_s": "Gospel of Matthew", 
