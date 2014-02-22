@@ -9,7 +9,7 @@ from os.path import dirname, join as pjoin
 import sys
 sys.path.insert(0, os.path.expanduser('~/projects/clastic'))
 
-from clastic import Application, render_json, render_json_dev, render_basic
+from clastic import Application, render_json, render_basic
 from clastic.render import AshesRenderFactory
 from clastic.meta import MetaApplication
 from clastic.middleware import GetParamMiddleware
@@ -21,13 +21,14 @@ from mail import Mailinglist, KEY
 ENABLE_FAKE = True
 
 _CUR_PATH = dirname(os.path.abspath(__file__))
-LANG_MAP = json.load(open(pjoin(_CUR_PATH, 'language_codes.json')))
+ISSUE_TEMPLATES_PATH = pjoin(_CUR_PATH, 'issue_templates')
 
 ARCHIVE_BASE_PATH = pjoin(dirname(_CUR_PATH), 'static', 'archive')
 ARCHIVE_PATH_TMPL = '{lang_shortcode}/{date_str}{dev_flag}/weeklypedia_{date_str}{dev_flag}.{fmt}'
 ARCHIVE_PATH_TMPL = pjoin(ARCHIVE_BASE_PATH, ARCHIVE_PATH_TMPL)
 
 API_BASE_URL = 'http://tools.wmflabs.org/weeklypedia/fetch/'
+LANG_MAP = json.load(open(pjoin(_CUR_PATH, 'language_codes.json')))
 DEFAULT_LANGUAGE = 'en'
 
 HISTORY_FILE = 'history.json'
@@ -47,12 +48,12 @@ def get_language_list():
     return sorted(LANG_MAP.keys())
 
 
-def send(sendkey, ashes_env, lang=DEFAULT_LANGUAGE, list_id=''):
+def send(sendkey, issue_ashes_env, lang=DEFAULT_LANGUAGE, list_id=''):
     render_ctx = fetch_rc(lang=lang)
     render_ctx['issue_number'] = 2
     render_ctx['language'] = LANG_MAP[lang]
-    changes_html = ashes_env.render('template.html', render_ctx)
-    changes_text = ashes_env.render('template.txt', render_ctx)
+    changes_html = issue_ashes_env.render('template.html', render_ctx)
+    changes_text = issue_ashes_env.render('template.txt', render_ctx)
     mailinglist = Mailinglist(sendkey + KEY)
     subject = 'Weeklypedia, Issue 2, Estonian Edition'
     mailinglist.new_campaign(subject,
@@ -99,25 +100,27 @@ def get_issue_data(lang=DEFAULT_LANGUAGE):
     return render_ctx
 
 
-def get_rendered_issue(ashes_env, lang=DEFAULT_LANGUAGE, format=None):
+def get_rendered_issue(issue_ashes_env, lang=DEFAULT_LANGUAGE, format=None):
     render_ctx = get_issue_data(lang)
-    return _render_issue(render_ctx, ashes_env, format=format)
+    return _render_issue(render_ctx, issue_ashes_env, format=format)
 
 
-def _render_issue(render_ctx, ashes_env, format=None):
+def _render_issue(render_ctx, issue_ashes_env, format=None):
     format = format or 'html'
     if format == 'json':
-        ret = json.dumps(render_ctx, indent=2, sort_keys=True)
-    elif format == 'html':
-        ret = ashes_env.render('template.html', render_ctx).encode('utf-8')
+        return json.dumps(render_ctx, indent=2, sort_keys=True)
+
+    if format == 'html':
+        ret = issue_ashes_env.render('template.html', render_ctx)
     elif format == 'web':
-        ret = ashes_env.render('template_nostyles.html', render_ctx).encode('utf-8')
+        ret = issue_ashes_env.render('template_nostyles.html', render_ctx)
     else:
-        ret = ashes_env.render('template.txt', render_ctx).encode('utf-8')
-    return ret
+        ret = issue_ashes_env.render('template.txt', render_ctx)
+    return ret.encode('utf-8')
 
 
-def render_and_save_all_formats(ashes_env, lang=DEFAULT_LANGUAGE, is_dev=True):
+def render_and_save_all_formats(issue_ashes_env,
+                                lang=DEFAULT_LANGUAGE, is_dev=True):
     ret = []
     render_ctx = get_issue_data(lang=lang)
     for fmt in ('html', 'json', 'txt'):
@@ -135,7 +138,7 @@ def render_and_save_all_formats(ashes_env, lang=DEFAULT_LANGUAGE, is_dev=True):
             out_file = open(out_path, 'w')
             # if exception, couldn't create file or parent directories
         with out_file:
-            rendered = _render_issue(render_ctx, ashes_env, format=fmt)
+            rendered = _render_issue(render_ctx, issue_ashes_env, format=fmt)
             out_file.write(rendered)
         ret.append((out_path, len(rendered)))
     return ret
@@ -175,8 +178,9 @@ def create_app():
               ('/fetch/<lang>', fetch_rc, render_json),
               ('/publish/bake/<lang>', render_and_save_all_formats, render_json),
               ('/static', StaticApplication(STATIC_PATH))]
-    ashes_render = AshesRenderFactory(_CUR_PATH, filters={'ci': comma_int})
-    resources = {'ashes_env': ashes_render.env}
+    issue_renderer = AshesRenderFactory(ISSUE_TEMPLATES_PATH,
+                                        filters={'ci': comma_int})
+    resources = {'issue_ashes_env': issue_renderer.env}
     return Application(routes, resources, middlewares=[gpm])
 
 
