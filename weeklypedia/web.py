@@ -43,11 +43,6 @@ def fetch_rc(lang=DEFAULT_LANGUAGE):
     return data
 
 
-if ENABLE_FAKE:
-    import fake
-    fetch_rc = fake.fake_fetch_rc
-
-
 def get_language_list():
     return sorted(LANG_MAP.keys())
 
@@ -190,6 +185,12 @@ def comma_int(val):
         return '{0:,}'.format(val)
     except ValueError:
         return val
+
+
+if __name__ == '__main__':
+    if ENABLE_FAKE:
+        import fake
+        fetch_rc = fake.fake_fetch_rc
 
 
 wsgi_app = create_app()
