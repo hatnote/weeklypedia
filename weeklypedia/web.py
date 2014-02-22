@@ -10,10 +10,12 @@ from clastic import Application, render_json, render_json_dev, render_basic
 from clastic.render import AshesRenderFactory
 from clastic.meta import MetaApplication
 from clastic.middleware import GetParamMiddleware
+from clastic.static import StaticApplication
+
 
 from mail import Mailinglist, KEY
 
-ENABLE_FAKE = False
+ENABLE_FAKE = True
 
 _CUR_PATH = dirname(os.path.abspath(__file__))
 LANG_MAP = json.load(open(pjoin(_CUR_PATH, 'language_codes.json')))
@@ -26,6 +28,7 @@ API_BASE_URL = 'http://tools.wmflabs.org/weeklypedia/fetch/'
 DEFAULT_LANGUAGE = 'en'
 
 HISTORY_FILE = 'history.json'
+STATIC_PATH = os.path.abspath(_CUR_PATH + '/../static/')
 
 
 def fetch_rc(lang=DEFAULT_LANGUAGE):
@@ -88,6 +91,8 @@ def _render_issue(render_ctx, ashes_env, format=None):
         ret = json.dumps(render_ctx, indent=2, sort_keys=True)
     elif format == 'html':
         ret = ashes_env.render('template.html', render_ctx).encode('utf-8')
+    elif format == 'web':
+        ret = ashes_env.render('template_nostyles.html', render_ctx).encode('utf-8')
     else:
         ret = ashes_env.render('template.txt', render_ctx).encode('utf-8')
     return ret
@@ -149,7 +154,8 @@ def create_app():
               ('/view/<lang>/<format?>', get_rendered_issue, render_basic),
               ('/fetch/', fetch_rc, render_json),
               ('/fetch/<lang>', fetch_rc, render_json),
-              ('/publish/bake/<lang>', render_and_save_all_formats, render_json)]
+              ('/publish/bake/<lang>', render_and_save_all_formats, render_json),
+              ('/static', StaticApplication(STATIC_PATH))]
     ashes_render = AshesRenderFactory(_CUR_PATH, filters={'ci': comma_int})
     resources = {'ashes_env': ashes_render.env}
     return Application(routes, resources, middlewares=[gpm])
@@ -166,4 +172,4 @@ wsgi_app = create_app()
 
 
 if __name__ == '__main__':
-    wsgi_app.serve(use_meta=False)
+    wsgi_app.serve(use_meta=False, use_static=False)

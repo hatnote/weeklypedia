@@ -1,0 +1,47 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+  <meta name="viewport" content="width=device-width" />
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+  <title>the WEEKLYPEDIA ({full_lang_name}, Issue {issue_number})</title>
+  <link rel="stylesheet" type="text/css" href="/static/css/style.css">
+</head>
+<body>
+  <table class="body-wrap">
+    <tr>
+      <td></td>
+      <td class="container" bgcolor="#fff">
+      <!-- content -->
+      <div class="content">
+        <table>
+          <tr>
+            <td>
+              <h1><span><em>the</em> WEEKLYPEDIA</span></h1>
+              <p><em>Issue {issue_number}, {date} ({full_lang_name} Wikipedia Edition)</em></p>
+              <p>Hello there, welcome to our  weekly digest of Wikipedia activity. (This is a second attempt to send the issue, this time with correct links)</p>
+              <h2>Articles</h2>
+              <p>{#stats}This week, {users|ci} authors made {edits|ci} contributions to {titles|ci} different articles.{/stats} The top 20 articles for the week:</p>
+              <ol>
+                {#mainspace}
+                <li><a href="https://{lang}.wikipedia.org/wiki/{title}" target="_blank">{title_s}</a> ({edits|ci} contributions by {users} authors)</li>
+                {/mainspace}
+              </ol>
+              <h2>Discussions</h2>
+              <p>The most active discussions:</p>
+              <ol>
+                {#talkspace}
+                <li><a href="https://{lang}.wikipedia.org/wiki/Talk:{title}" target="_blank">{title_s}</a></li>
+                {/talkspace}
+              </ol>
+              <p>Learn more about the <a href="http://weekly.hatnote.com">Weeklypedia Digest</a></p>
+            </td>
+          </tr>
+        </table>
+      </div>
+      <!-- /content -->
+      </td>
+      <td></td>
+    </tr>
+  </table>
+</body>
+</html>
