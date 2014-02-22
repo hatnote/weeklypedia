@@ -1,11 +1,9 @@
+<!doctype html>
 <html>
 <head>
   <title>Weeklypedia controls</title>
-  <meta name="description" content="A weekly email digest with the most active Wikipedia articles">
-  <meta name="keywords" content="Wikipedia,email,digest,top,weeklypedia,hatnote">
   <meta charset="utf-8" />
   <link href="css/style.css" rel="stylesheet" media="all">
-
 </head>
 <body>
   <header>
@@ -13,10 +11,10 @@
   </header>
   <article>
     <section>
-      <h2>Send an email</h2>
+      <h2>Publish an issue</h2>
       <form action="/send" method="post">
         <p>
-          <label for="list-id">List id</label>
+          <label for="list-id">List ID</label>
           <input id="list-id" name="id" type="text" value="a5ecbc7404">
         </p>
         <p>
@@ -34,8 +32,8 @@
           </select>
         </p>
         <p>
-          <label for="code">Last four digits of sendkey</label>
-          <input id="subject" name="subject" type="password" maxlength="4">
+          <label for="sendkey">Key code</label>
+          <input id="sendkey" name="sendkey" autocomplete="off">
         </p>
         <button type="submit">Submit</button>
       </form>
@@ -50,4 +48,4 @@
     ga('send', 'pageview');
   </script>
 </body>
-</html> 
+</html>
