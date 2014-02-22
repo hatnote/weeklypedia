@@ -6,6 +6,9 @@ import urllib2
 from datetime import datetime
 from os.path import dirname, join as pjoin
 
+import sys
+sys.path.insert(0, os.path.expanduser('~/projects/clastic'))
+
 from clastic import Application, render_json, render_json_dev, render_basic
 from clastic.render import AshesRenderFactory
 from clastic.meta import MetaApplication
@@ -20,9 +23,9 @@ ENABLE_FAKE = True
 _CUR_PATH = dirname(os.path.abspath(__file__))
 LANG_MAP = json.load(open(pjoin(_CUR_PATH, 'language_codes.json')))
 
+ARCHIVE_BASE_PATH = pjoin(dirname(_CUR_PATH), 'static', 'archive')
 ARCHIVE_PATH_TMPL = '{lang_shortcode}/{date_str}{dev_flag}/weeklypedia_{date_str}{dev_flag}.{fmt}'
-ARCHIVE_PATH_TMPL = pjoin(dirname(_CUR_PATH), 'static', 'archive',
-                          ARCHIVE_PATH_TMPL)
+ARCHIVE_PATH_TMPL = pjoin(ARCHIVE_BASE_PATH, ARCHIVE_PATH_TMPL)
 
 API_BASE_URL = 'http://tools.wmflabs.org/weeklypedia/fetch/'
 DEFAULT_LANGUAGE = 'en'
@@ -71,12 +74,33 @@ def send(sendkey, ashes_env, lang=DEFAULT_LANGUAGE, list_id=''):
     return 'Success: sent issue %s' % render_ctx['issue_number']
 
 
+def get_past_issue_paths(lang, include_dev=False):
+    ret = []
+    lang_path = pjoin(ARCHIVE_BASE_PATH, lang)
+    if not os.path.isdir(lang_path):
+        return ret
+    past_issue_fns = os.listdir(lang_path)
+    for fn in past_issue_fns:
+        if not include_dev and fn.endswith('_dev'):
+            continue
+        full_path = pjoin(lang_path, fn)
+        if os.path.isdir(full_path):
+            ret.append(full_path)
+    return ret
+
+
+def get_current_issue_number(lang):
+    past_issue_count = len(get_past_issue_paths(lang, include_dev=False))
+    return past_issue_count + 1
+
+
 def get_issue_data(lang=DEFAULT_LANGUAGE):
+    basic_info = {'short_lang_name': lang,
+                  'full_lang_name': LANG_MAP[lang]}
+    basic_info['issue_number'] = get_current_issue_number(lang)
+    basic_info['date'] = datetime.utcnow().strftime('%B %d, %Y')
     render_ctx = fetch_rc(lang=lang)
-    render_ctx['issue_number'] = 2  # TODO
-    render_ctx['date'] = datetime.utcnow().strftime('%B %d, %Y')
-    render_ctx['short_lang_name'] = lang
-    render_ctx['full_lang_name'] = LANG_MAP[lang]
+    render_ctx.update(basic_info)
     return render_ctx
 
 
@@ -149,7 +173,7 @@ def create_app():
     routes = [('/', main_page, render_basic),
               ('/meta', MetaApplication()),
               ('/send', send, render_basic),
-              ('/_dump_environ', lambda request: request.environ, render_json_dev),
+              ('/_dump_environ', lambda request: request.environ, render_basic),
               ('/view', get_language_list, render_basic),
               ('/view/<lang>/<format?>', get_rendered_issue, render_basic),
               ('/fetch/', fetch_rc, render_json),
