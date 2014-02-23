@@ -3,7 +3,7 @@
 <head>
   <title>Weeklypedia controls</title>
   <meta charset="utf-8" />
-  <link href="css/style.css" rel="stylesheet" media="all">
+  <link href="/static/css/style.css" rel="stylesheet" media="all">
 </head>
 <body>
   <header>
@@ -12,28 +12,32 @@
   <article>
     <section>
       <h2>Publish an issue</h2>
-      <form action="/send" method="post">
+      <form action="/publish/send" method="POST">
         <p>
           <label for="list-id">List ID</label>
-          <input id="list-id" name="id" type="text" value="a5ecbc7404">
+          <input id="list-id" name="list_id" type="text" value="a5ecbc7404">
         </p>
         <p>
           <label for="language">Language code</label>
-          <input id="language" name="language" type="text" maxlength="3" width="3">
+          <input id="language" name="lang" type="text" value="en">
         </p>
         <p>
           <label for="subject">Subject</label>
           <input id="subject" name="subject" type="text" value="Weeklypedia: test">
         </p>
-        <p>
+        <!-- <p>
           <label for="source">Source</label>
           <select id="source" name="source">
             <option>From new query</option>
           </select>
+        </p> -->
+        <p>
+          <label for="send-key">Key code</label>
+          <input id="send-key" name="send_key" autocomplete="off">
         </p>
         <p>
-          <label for="sendkey">Key code</label>
-          <input id="sendkey" name="sendkey" autocomplete="off">
+          <label for="testing-cbox">Testing</label>
+          <input id="testing-cbox" name="is_dev" type="checkbox" checked />
         </p>
         <button type="submit">Submit</button>
       </form>

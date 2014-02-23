@@ -9,19 +9,21 @@ from os.path import dirname, join as pjoin
 import sys
 sys.path.insert(0, os.path.expanduser('~/projects/clastic'))
 
-from clastic import Application, render_json, render_basic
+from clastic import Application, render_json, render_basic, POST
 from clastic.render import AshesRenderFactory
 from clastic.meta import MetaApplication
 from clastic.middleware import GetParamMiddleware
+from clastic.middleware.form import PostDataMiddleware
 from clastic.static import StaticApplication
 
 
-from mail import Mailinglist, KEY
+from mail import Mailinglist, KEY, TEST_LIST_ID
 
 ENABLE_FAKE = True
 
 _CUR_PATH = dirname(os.path.abspath(__file__))
 ISSUE_TEMPLATES_PATH = pjoin(_CUR_PATH, 'issue_templates')
+SITE_TEMPLATES_PATH = pjoin(_CUR_PATH, 'site_templates')
 
 ARCHIVE_BASE_PATH = pjoin(dirname(_CUR_PATH), 'static', 'archive')
 ARCHIVE_PATH_TMPL = '{lang_shortcode}/{date_str}{dev_flag}/weeklypedia_{date_str}{dev_flag}.{fmt}'
@@ -29,6 +31,7 @@ ARCHIVE_PATH_TMPL = pjoin(ARCHIVE_BASE_PATH, ARCHIVE_PATH_TMPL)
 
 API_BASE_URL = 'http://tools.wmflabs.org/weeklypedia/fetch/'
 LANG_MAP = json.load(open(pjoin(_CUR_PATH, 'language_codes.json')))
+SUPPORTED_LANGS = ['en', 'de', 'fr', 'ko', 'et', 'sv', 'it', 'ca']
 DEFAULT_LANGUAGE = 'en'
 
 HISTORY_FILE = 'history.json'
@@ -46,28 +49,6 @@ def fetch_rc(lang=DEFAULT_LANGUAGE):
 
 def get_language_list():
     return sorted(LANG_MAP.keys())
-
-
-def send(sendkey, issue_ashes_env, lang=DEFAULT_LANGUAGE, list_id=''):
-    render_ctx = fetch_rc(lang=lang)
-    render_ctx['issue_number'] = 2
-    render_ctx['language'] = LANG_MAP[lang]
-    changes_html = issue_ashes_env.render('template.html', render_ctx)
-    changes_text = issue_ashes_env.render('template.txt', render_ctx)
-    mailinglist = Mailinglist(sendkey + KEY)
-    subject = 'Weeklypedia, Issue 2, Estonian Edition'
-    mailinglist.new_campaign(subject,
-                             changes_html,
-                             changes_text,
-                             list_id=list_id)
-    mailinglist.send_next_campaign()
-    history = load_history()
-    if not history.get(lang):
-        history[lang] = []
-    history[lang].append(render_ctx)
-    with open(pjoin(_CUR_PATH, HISTORY_FILE), 'w') as outfile:
-        json.dump(history, outfile)
-    return 'Success: sent issue %s' % render_ctx['issue_number']
 
 
 def get_past_issue_paths(lang, include_dev=False):
@@ -162,26 +143,57 @@ def load_history():
     return history
 
 
-def main_page():
-    return ':-|'
+def get_control_info():
+    return {'supported_langs': SUPPORTED_LANGS,
+            'test_list_id': TEST_LIST_ID}
+
+
+def render_save_send(lang, list_id, send_key, issue_ashes_env, is_dev=True):
+    if is_dev:
+        list_id = TEST_LIST_ID
+    render_and_save_all_formats(issue_ashes_env, lang=lang, is_dev=is_dev)
+    return _send(lang, list_id, send_key, is_dev=is_dev)
+
+
+def _send(lang, list_id, send_key, is_dev=False):
+    mailinglist = Mailinglist(send_key + KEY)
+    subject = 'Weeklypedia'
+    past_issue_paths = get_past_issue_paths(lang, include_dev=is_dev)
+    issue_path = sorted(past_issue_paths)[-1]
+    issue_fns = os.listdir(issue_path)
+    issue_html_path = [fn for fn in issue_fns if fn.endswith('.html')][0]
+    issue_text_path = [fn for fn in issue_fns if fn.endswith('.txt')][0]
+    issue_html = open(pjoin(issue_path, issue_html_path)).read()
+    issue_text = open(pjoin(issue_path, issue_text_path)).read()
+    mailinglist.new_campaign(subject,
+                             issue_html,
+                             issue_text,
+                             list_id=list_id)
+    mailinglist.send_next_campaign()
+    return 'Success: sent issue %s' % lang
 
 
 def create_app():
-    gpm = GetParamMiddleware(['sendkey', 'list_id'])
-    routes = [('/', main_page, render_basic),
-              ('/meta', MetaApplication()),
-              ('/send', send, render_basic),
+    pdm = PostDataMiddleware(['lang', 'list_id', 'send_key', 'is_dev'])
+    ma = MetaApplication()
+    routes = [('/', ma),
+              #('/meta', ma),
               ('/_dump_environ', lambda request: request.environ, render_basic),
               ('/view', get_language_list, render_basic),
               ('/view/<lang>/<format?>', get_rendered_issue, render_basic),
               ('/fetch/', fetch_rc, render_json),
               ('/fetch/<lang>', fetch_rc, render_json),
+              ('/publish/', get_control_info, 'controls.html'),
               ('/publish/bake/<lang>', render_and_save_all_formats, render_json),
+              POST('/publish/send', render_save_send, render_basic,
+                   middlewares=[pdm]),
               ('/static', StaticApplication(STATIC_PATH))]
-    issue_renderer = AshesRenderFactory(ISSUE_TEMPLATES_PATH,
-                                        filters={'ci': comma_int})
-    resources = {'issue_ashes_env': issue_renderer.env}
-    return Application(routes, resources, middlewares=[gpm])
+    site_rf = AshesRenderFactory(SITE_TEMPLATES_PATH)
+    issue_rf = AshesRenderFactory(ISSUE_TEMPLATES_PATH,
+                                  filters={'ci': comma_int})
+    resources = {'issue_ashes_env': issue_rf.env}
+    return Application(routes, resources,
+                       render_factory=site_rf)
 
 
 def comma_int(val):

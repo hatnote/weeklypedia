@@ -8,8 +8,9 @@ import mailchimp
 _CUR_PATH = os.path.dirname(os.path.abspath(__file__))
 KEY = json.load(open(os.path.join(_CUR_PATH, 'secrets.json'))).get('mc')
 
+TEST_LIST_ID = "a5ecbc7404"
+DEFAULT_LIST = TEST_LIST_ID
 
-DEFAULT_LIST = 'a5ecbc7404'
 #              'f811608f69'
 
 
