@@ -1,405 +1,415 @@
 {
+  "date": "March 02, 2014", 
   "fetch_info": {
-    "duration": 52.006680965423584, 
+    "duration": 269.00042390823364, 
+    "end_date": "2014-03-02T02:13:54.294485", 
     "lang": "en", 
-    "timestamp": "2014-02-21T10:54:04.708131"
+    "start_date": "2014-02-23T02:13:54.294485"
   }, 
+  "full_lang_name": "English", 
+  "intro_note": "Hello! and welcome to our weekly digest of Wikipedia activity.", 
+  "issue_number": 1, 
   "mainspace": [
     {
-      "edits": 579, 
-      "page_id": 41927607, 
-      "rev_ids": [
-        595427206, 
-        596444367
-      ], 
-      "title": "2014_Venezuela_Protests", 
-      "title_s": "2014 Venezuela Protests", 
-      "users": 33
-    }, 
-    {
-      "edits": 546, 
-      "page_id": 41894390, 
-      "rev_ids": [
-        595400375, 
-        596471566
-      ], 
-      "title": "Marius_(giraffe)", 
-      "title_s": "Marius (giraffe)", 
-      "users": 32
-    }, 
-    {
-      "edits": 539, 
-      "page_id": 38480222, 
-      "rev_ids": [
-        595429798, 
-        596454344
-      ], 
-      "title": "Ice_hockey_at_the_2014_Winter_Olympics_\u2013_Men's_tournament", 
-      "title_s": "Ice hockey at the 2014 Winter Olympics \u2013 Men's tournament", 
-      "users": 64
-    }, 
-    {
-      "edits": 412, 
-      "page_id": 39401170, 
-      "rev_ids": [
-        595429392, 
-        596462211
-      ], 
-      "title": "American_Idol_(season_13)", 
-      "title_s": "American Idol (season 13)", 
-      "users": 29
-    }, 
-    {
-      "edits": 374, 
+      "edits": 513, 
       "page_id": 41480750, 
       "rev_ids": [
-        595423041, 
-        596449936
+        596713707, 
+        597753294
       ], 
       "title": "Deaths_in_2014", 
       "title_s": "Deaths in 2014", 
-      "users": 69
+      "users": 81
     }, 
     {
-      "edits": 362, 
-      "page_id": 564099, 
+      "edits": 461, 
+      "page_id": 41979235, 
       "rev_ids": [
-        595406672, 
-        596405420
+        596708167, 
+        597753772
       ], 
-      "title": "Philip_Seymour_Hoffman", 
-      "title_s": "Philip Seymour Hoffman", 
-      "users": 27
+      "title": "2014_Ukrainian_Revolution", 
+      "title_s": "2014 Ukrainian Revolution", 
+      "users": 88
     }, 
     {
-      "edits": 345, 
-      "page_id": 390504, 
+      "edits": 410, 
+      "page_id": 41916620, 
       "rev_ids": [
-        595431945, 
-        596467455
+        596590583, 
+        597750069
       ], 
-      "title": "St._Mary's_City,_Maryland", 
-      "title_s": "St. Mary's City, Maryland", 
-      "users": 4
-    }, 
-    {
-      "edits": 319, 
-      "page_id": 38490807, 
-      "rev_ids": [
-        595420287, 
-        596470725
-      ], 
-      "title": "Canada_at_the_2014_Winter_Olympics", 
-      "title_s": "Canada at the 2014 Winter Olympics", 
-      "users": 25
-    }, 
-    {
-      "edits": 295, 
-      "page_id": 41656418, 
-      "rev_ids": [
-        595426826, 
-        596457881
-      ], 
-      "title": "Japanese_resistance_to_the_Empire_of_Japan_in_World_War_II", 
-      "title_s": "Japanese resistance to the Empire of Japan in World War II", 
+      "title": "33rd_Regiment_Alabama_Infantry", 
+      "title_s": "33rd Regiment Alabama Infantry", 
       "users": 5
     }, 
     {
-      "edits": 292, 
-      "page_id": 39780266, 
+      "edits": 395, 
+      "page_id": 4176378, 
       "rev_ids": [
-        595423715, 
-        596470697
+        596716894, 
+        597750595
       ], 
-      "title": "Asia's_Next_Top_Model_(cycle_2)", 
-      "title_s": "Asia's Next Top Model (cycle 2)", 
-      "users": 8
+      "title": "Joaqu\u00edn_Guzm\u00e1n_Loera", 
+      "title_s": "Joaqu\u00edn Guzm\u00e1n Loera", 
+      "users": 54
     }, 
     {
-      "edits": 262, 
-      "page_id": 38490834, 
+      "edits": 358, 
+      "page_id": 35019300, 
       "rev_ids": [
-        595407416, 
-        596439057
+        596651255, 
+        597750396
       ], 
-      "title": "United_States_at_the_2014_Winter_Olympics", 
-      "title_s": "United States at the 2014 Winter Olympics", 
-      "users": 19
-    }, 
-    {
-      "edits": 261, 
-      "page_id": 38494633, 
-      "rev_ids": [
-        595432408, 
-        596469094
-      ], 
-      "title": "Gunday", 
-      "title_s": "Gunday", 
-      "users": 48
-    }, 
-    {
-      "edits": 235, 
-      "page_id": 39193505, 
-      "rev_ids": [
-        595428398, 
-        596468492
-      ], 
-      "title": "House_of_Cards_(season_2)", 
-      "title_s": "House of Cards (season 2)", 
-      "users": 32
-    }, 
-    {
-      "edits": 234, 
-      "page_id": 41979235, 
-      "rev_ids": [
-        596034247, 
-        596471400
-      ], 
-      "title": "Ukraine_Civil_War", 
-      "title_s": "Ukraine Civil War", 
+      "title": "2014_Asia_Cup", 
+      "title_s": "2014 Asia Cup", 
       "users": 35
     }, 
     {
-      "edits": 232, 
-      "page_id": 44203, 
+      "edits": 344, 
+      "page_id": 41927607, 
       "rev_ids": [
-        595392643, 
-        596423272
+        596714180, 
+        597747658
       ], 
-      "title": "Ezra_Pound", 
-      "title_s": "Ezra Pound", 
+      "title": "2014_Venezuelan_protests", 
+      "title_s": "2014 Venezuelan protests", 
+      "users": 39
+    }, 
+    {
+      "edits": 320, 
+      "page_id": 1047631, 
+      "rev_ids": [
+        593970256, 
+        597745038
+      ], 
+      "title": "Salute_(pyrotechnics)", 
+      "title_s": "Salute (pyrotechnics)", 
+      "users": 7
+    }, 
+    {
+      "edits": 303, 
+      "page_id": 393805, 
+      "rev_ids": [
+        596710093, 
+        597747427
+      ], 
+      "title": "Viktor_Yanukovych", 
+      "title_s": "Viktor Yanukovych", 
+      "users": 74
+    }, 
+    {
+      "edits": 301, 
+      "page_id": 277587, 
+      "rev_ids": [
+        595145068, 
+        597742358
+      ], 
+      "title": "Harold_Ramis", 
+      "title_s": "Harold Ramis", 
+      "users": 84
+    }, 
+    {
+      "edits": 298, 
+      "page_id": 39780266, 
+      "rev_ids": [
+        596663943, 
+        597748263
+      ], 
+      "title": "Asia's_Next_Top_Model_(cycle_2)", 
+      "title_s": "Asia's Next Top Model (cycle 2)", 
+      "users": 9
+    }, 
+    {
+      "edits": 282, 
+      "page_id": 34985901, 
+      "rev_ids": [
+        596688484, 
+        597682396
+      ], 
+      "title": "2014_ICC_Under-19_Cricket_World_Cup", 
+      "title_s": "2014 ICC Under-19 Cricket World Cup", 
       "users": 11
     }, 
     {
-      "edits": 231, 
-      "page_id": 41900635, 
+      "edits": 279, 
+      "page_id": 2536257, 
       "rev_ids": [
-        595432289, 
-        596394692
+        596655500, 
+        597692236
       ], 
-      "title": "Winter_storms_of_2013\u201314_in_the_United_Kingdom", 
-      "title_s": "Winter storms of 2013\u201314 in the United Kingdom", 
-      "users": 19
-    }, 
-    {
-      "edits": 230, 
-      "page_id": 26481991, 
-      "rev_ids": [
-        595426972, 
-        596465727
-      ], 
-      "title": "2014_Winter_Olympics_medal_table", 
-      "title_s": "2014 Winter Olympics medal table", 
-      "users": 47
-    }, 
-    {
-      "edits": 225, 
-      "page_id": 40928287, 
-      "rev_ids": [
-        595381452, 
-        596454799
-      ], 
-      "title": "2014_NRL_Auckland_Nines", 
-      "title_s": "2014 NRL Auckland Nines", 
+      "title": "Working_holiday_visa", 
+      "title_s": "Working holiday visa", 
       "users": 6
     }, 
     {
-      "edits": 222, 
-      "page_id": 21339404, 
+      "edits": 272, 
+      "page_id": 41928053, 
       "rev_ids": [
-        595410438, 
-        596409339
+        596360997, 
+        597698457
       ], 
-      "title": "St._Inigoes_Shores,_Maryland", 
-      "title_s": "St. Inigoes Shores, Maryland", 
-      "users": 5
+      "title": "2014_German_Open_Grand_Prix_Gold", 
+      "title_s": "2014 German Open Grand Prix Gold", 
+      "users": 4
+    }, 
+    {
+      "edits": 260, 
+      "page_id": 39405808, 
+      "rev_ids": [
+        596684764, 
+        597612765
+      ], 
+      "title": "The_Voice_(U.S._season_6)", 
+      "title_s": "The Voice (U.S. season 6)", 
+      "users": 16
+    }, 
+    {
+      "edits": 248, 
+      "page_id": 1525239, 
+      "rev_ids": [
+        591413127, 
+        597753731
+      ], 
+      "title": "Paddington,_New_South_Wales", 
+      "title_s": "Paddington, New South Wales", 
+      "users": 2
+    }, 
+    {
+      "edits": 228, 
+      "page_id": 1813667, 
+      "rev_ids": [
+        590639953, 
+        597628411
+      ], 
+      "title": "Naval_Air_Station_Patuxent_River", 
+      "title_s": "Naval Air Station Patuxent River", 
+      "users": 2
     }, 
     {
       "edits": 221, 
-      "page_id": 41560399, 
+      "page_id": 3385820, 
       "rev_ids": [
-        595403273, 
-        596460720
+        593329101, 
+        597709208
       ], 
-      "title": "Chronological_summary_of_the_2014_Winter_Olympics", 
-      "title_s": "Chronological summary of the 2014 Winter Olympics", 
-      "users": 39
+      "title": "Quentin_Elias", 
+      "title_s": "Quentin Elias", 
+      "users": 14
+    }, 
+    {
+      "edits": 205, 
+      "page_id": 306850, 
+      "rev_ids": [
+        596716012, 
+        597542233
+      ], 
+      "title": "El_Dorado", 
+      "title_s": "El Dorado", 
+      "users": 5
+    }, 
+    {
+      "edits": 183, 
+      "page_id": 4971457, 
+      "rev_ids": [
+        593984916, 
+        597735712
+      ], 
+      "title": "African_theatre_of_World_War_I", 
+      "title_s": "African theatre of World War I", 
+      "users": 6
+    }, 
+    {
+      "edits": 182, 
+      "page_id": 86359, 
+      "rev_ids": [
+        592913069, 
+        597463945
+      ], 
+      "title": "Swamp", 
+      "title_s": "Swamp", 
+      "users": 14
     }
   ], 
   "new_articles": [
     {
-      "edits": 234, 
-      "page_id": 41979235, 
+      "edits": 166, 
+      "page_id": 42024858, 
       "rev_ids": [
-        596034247, 
-        596471400
+        596778033, 
+        597651842
       ], 
-      "title": "February_2014_Euromaidan_riots", 
-      "title_s": "February 2014 Euromaidan riots", 
-      "users": 35
+      "title": "Jerome_Alexander", 
+      "title_s": "Jerome Alexander", 
+      "users": 2
     }, 
     {
-      "edits": 201, 
-      "page_id": 41942566, 
+      "edits": 161, 
+      "page_id": 42048728, 
       "rev_ids": [
-        595458638, 
-        596371708
+        597141970, 
+        597595610
       ], 
-      "title": "2014_Dubai_Tennis_Championships_\u2013_Women's_Singles", 
-      "title_s": "2014 Dubai Tennis Championships \u2013 Women's Singles", 
-      "users": 9
+      "title": "Primetime_Emmy_Award_for_Outstanding_Music_Composition_for_a_Miniseries,_Movie,_or_a_Special", 
+      "title_s": "Primetime Emmy Award for Outstanding Music Composition for a Miniseries, Movie, or a Special", 
+      "users": 2
     }, 
     {
-      "edits": 165, 
-      "page_id": 41942385, 
+      "edits": 155, 
+      "page_id": 42034518, 
       "rev_ids": [
-        595455869, 
-        596469337
+        596932799, 
+        597637452
       ], 
-      "title": "Military_history_of_the_Acadians", 
-      "title_s": "Military history of the Acadians", 
-      "users": 6
+      "title": "Kaji_Biraj_Thapa_Magar_of_Gorkha", 
+      "title_s": "Kaji Biraj Thapa Magar of Gorkha", 
+      "users": 8
     }, 
     {
-      "edits": 140, 
-      "page_id": 41960610, 
+      "edits": 133, 
+      "page_id": 42073493, 
       "rev_ids": [
-        595757021, 
-        596337102
+        597527853, 
+        597736335
       ], 
-      "title": "List_of_coal_mines_in_Japan", 
-      "title_s": "List of coal mines in Japan", 
+      "title": "J._D._Foster", 
+      "title_s": "J. D. Foster", 
+      "users": 7
+    }, 
+    {
+      "edits": 115, 
+      "page_id": 42062570, 
+      "rev_ids": [
+        597353425, 
+        597604302
+      ], 
+      "title": "List_of_civil_parishes_of_Ireland", 
+      "title_s": "List of civil parishes of Ireland", 
       "users": 4
     }, 
     {
-      "edits": 139, 
-      "page_id": 41975031, 
+      "edits": 113, 
+      "page_id": 42031256, 
       "rev_ids": [
-        595979956, 
-        596453970
+        596879139, 
+        597064687
       ], 
-      "title": "Twitch_Plays_Pok\u00e9mon", 
-      "title_s": "Twitch Plays Pok\u00e9mon", 
-      "users": 31
+      "title": "United_telecoms_limited", 
+      "title_s": "United telecoms limited", 
+      "users": 4
     }, 
     {
-      "edits": 129, 
-      "page_id": 41946184, 
+      "edits": 112, 
+      "page_id": 42062804, 
       "rev_ids": [
-        595515928, 
-        596404988
+        597357604, 
+        597752594
       ], 
-      "title": "2014_Open_13_\u2013_Singles", 
-      "title_s": "2014 Open 13 \u2013 Singles", 
-      "users": 8
+      "title": "Tanks_in_the_Australian_Army", 
+      "title_s": "Tanks in the Australian Army", 
+      "users": 10
     }, 
     {
-      "edits": 127, 
-      "page_id": 41946117, 
+      "edits": 104, 
+      "page_id": 42085062, 
       "rev_ids": [
-        595514225, 
-        596407049
+        597720858, 
+        597731887
       ], 
-      "title": "2014_Rio_Open_\u2013_Women's_Singles", 
-      "title_s": "2014 Rio Open \u2013 Women's Singles", 
-      "users": 3
+      "title": "Fungal_isolates", 
+      "title_s": "Fungal isolates", 
+      "users": 1
     }, 
     {
-      "edits": 120, 
-      "page_id": 41946363, 
+      "edits": 97, 
+      "page_id": 42037143, 
       "rev_ids": [
-        595518913, 
-        596457651
+        596960525, 
+        597602192
       ], 
-      "title": "2014_Delray_Beach_International_Tennis_Championships_\u2013_Singles", 
-      "title_s": "2014 Delray Beach International Tennis Championships \u2013 Singles", 
-      "users": 8
+      "title": "Sunstone_(comics)", 
+      "title_s": "Sunstone (comics)", 
+      "users": 4
     }, 
     {
-      "edits": 117, 
-      "page_id": 41999710, 
+      "edits": 94, 
+      "page_id": 42047334, 
       "rev_ids": [
-        596372145, 
-        596434871
+        597117720, 
+        597733629
       ], 
-      "title": "Matt_Haag", 
-      "title_s": "Matt Haag", 
-      "users": 6
-    }, 
-    {
-      "edits": 117, 
-      "page_id": 41946444, 
-      "rev_ids": [
-        595520535, 
-        596436847
-      ], 
-      "title": "2014_Rio_Open_\u2013_Men's_Singles", 
-      "title_s": "2014 Rio Open \u2013 Men's Singles", 
-      "users": 6
+      "title": "NXT_ArRIVAL", 
+      "title_s": "NXT ArRIVAL", 
+      "users": 19
     }
   ], 
+  "short_lang_name": "en", 
   "stats": {
-    "anon_edits": 191366, 
-    "bot_edits": 24959, 
-    "edits": 685147, 
-    "titles": 276394, 
-    "users": 37404
+    "anon_edits": 192062, 
+    "anon_ip_count": 81886, 
+    "anon_titles": 89139, 
+    "bot_count": 41, 
+    "bot_edits": 22037, 
+    "bot_titles": 20223, 
+    "edits": 665473, 
+    "titles": 260210, 
+    "users": 37491
   }, 
   "talkspace": [
     {
-      "edits": 624, 
+      "edits": 268, 
+      "page_id": 36780667, 
+      "rev_ids": [
+        596714506, 
+        597751147
+      ], 
+      "title": "Cities_and_towns_during_the_Syrian_Civil_War", 
+      "title_s": "Cities and towns during the Syrian Civil War", 
+      "users": 34
+    }, 
+    {
+      "edits": 194, 
+      "page_id": 331940, 
+      "rev_ids": [
+        593812172, 
+        597707767
+      ], 
+      "title": "Wales", 
+      "title_s": "Wales", 
+      "users": 11
+    }, 
+    {
+      "edits": 194, 
       "page_id": 31946, 
       "rev_ids": [
-        595428096, 
-        596467559
+        596705827, 
+        597569688
       ], 
       "title": "List_of_metro_systems", 
       "title_s": "List of metro systems", 
       "users": 12
     }, 
     {
-      "edits": 392, 
-      "page_id": 42390, 
+      "edits": 193, 
+      "page_id": 5030553, 
       "rev_ids": [
-        595431449, 
-        596371561
+        596694983, 
+        597744589
       ], 
-      "title": "Qigong", 
-      "title_s": "Qigong", 
-      "users": 17
+      "title": "Main_Page", 
+      "title_s": "Main Page", 
+      "users": 66
     }, 
     {
-      "edits": 312, 
-      "page_id": 65717, 
+      "edits": 175, 
+      "page_id": 41981088, 
       "rev_ids": [
-        595428126, 
-        596138076
+        596713466, 
+        597742399
       ], 
-      "title": "Nanking_Massacre", 
-      "title_s": "Nanking Massacre", 
-      "users": 11
-    }, 
-    {
-      "edits": 229, 
-      "page_id": 41894391, 
-      "rev_ids": [
-        595408730, 
-        596470547
-      ], 
-      "title": "Marius_(giraffe)", 
-      "title_s": "Marius (giraffe)", 
-      "users": 18
-    }, 
-    {
-      "edits": 214, 
-      "page_id": 1019313, 
-      "rev_ids": [
-        595417932, 
-        596137300
-      ], 
-      "title": "Gospel_of_Matthew", 
-      "title_s": "Gospel of Matthew", 
-      "users": 9
+      "title": "Ukrainian_Revolution_of_2014", 
+      "title_s": "Ukrainian Revolution of 2014", 
+      "users": 32
     }
   ]
 }
