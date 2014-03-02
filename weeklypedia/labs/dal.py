@@ -138,7 +138,7 @@ class RecentChangesSummarizer(object):
         cursor.execute(query, params)
         return cursor.fetchall()
 
-    def _interval2timedelta(arg, default=None):
+    def _interval2timedelta(self, arg, default=None):
         default = default or timedelta(days=7)
         if arg is None:
             ret = default
@@ -232,8 +232,13 @@ class RecentChangesSummarizer(object):
     def get_full_summary(self, interval=None, main_limit=20, talk_limit=5,
                          new_limit=10, with_extracts=False):
         ret = {}
+        interval = self._interval2timedelta(interval)
         fi = ret['fetch_info'] = {}
         start_time = time.time()
+        current_dt = datetime.utcnow()
+        start_dt = current_dt - interval
+        fi['start_date'] = start_dt.isoformat()
+        fi['end_date'] = current_dt.isoformat()
         ret['stats'] = self.get_activity_summary(interval=interval)
         ret['mainspace'] = self.get_mainspace_activity(interval=interval,
                                                        limit=main_limit)
@@ -242,7 +247,6 @@ class RecentChangesSummarizer(object):
         granp = self.get_ranked_activity_new_pages
         ret['new_articles'] = granp(interval=interval, limit=new_limit)
         fi['lang'] = self.lang
-        fi['timestamp'] = datetime.utcnow().isoformat()
         fi['duration'] = time.time() - start_time
         #if with_extracts:
         #    titles = [i['title'] for i in ret['mainspace']]
