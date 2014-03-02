@@ -25,7 +25,10 @@ SITE_TEMPLATES_PATH = pjoin(_CUR_PATH, 'site_templates')
 
 ARCHIVE_BASE_PATH = pjoin(dirname(_CUR_PATH), 'static', 'archive')
 ARCHIVE_PATH_TMPL = '{lang_shortcode}/{date_str}{dev_flag}/weeklypedia_{date_str}{dev_flag}.{fmt}'
+ARCHIVE_PATH_HTML_TMPL = '/static/archive/{lang_shortcode}/{date_str}/{file_name}'
+ARCHIVE_INDEX_PATH_TMPL = ARCHIVE_BASE_PATH + '/{lang_shortcode}/index.html'
 ARCHIVE_PATH_TMPL = pjoin(ARCHIVE_BASE_PATH, ARCHIVE_PATH_TMPL)
+ARCHIVE_TITLE_TMPL = 'weeklypedia_{date_str}.html'
 
 API_BASE_URL = 'http://tools.wmflabs.org/weeklypedia/fetch/'
 LANG_MAP = json.load(open(pjoin(_CUR_PATH, 'language_codes.json')))
@@ -96,6 +99,10 @@ def get_rendered_issue(issue_ashes_env, lang=DEFAULT_LANGUAGE, format=None):
     return _render_issue(render_ctx, issue_ashes_env, format=format)
 
 
+def get_archive(site_ashes_env, lang):
+    return render_archive(site_ashes_env, lang)
+
+
 def _render_issue(render_ctx, issue_ashes_env, intro=DEFAULT_INTRO, format=None):
     format = format or 'html'
     if format == 'json':
@@ -108,6 +115,35 @@ def _render_issue(render_ctx, issue_ashes_env, intro=DEFAULT_INTRO, format=None)
     else:
         ret = issue_ashes_env.render('template.txt', render_ctx)
     return ret.encode('utf-8')
+
+
+def render_archive(site_ashes_env, lang):
+    ret = {}
+    ret['issues'] = []
+    paths = get_past_issue_paths(lang)
+    for archive in paths:
+        date = archive.rpartition('/')[2]
+        arch_title = ARCHIVE_TITLE_TMPL.format(date_str=date)
+        archive_path = ARCHIVE_PATH_HTML_TMPL.format(lang_shortcode=lang,
+                                                     date_str=date, 
+                                                     file_name=arch_title)
+        display_date = datetime.strptime(date, '%Y%m%d').strftime('%B %d, %Y')
+        ret['issues'].insert(0, {'path': archive_path, 
+                                 'date': display_date})
+    ret['lang'] = LANG_MAP[lang]
+    return site_ashes_env.render('archive_index.html', ret)
+
+
+def render_and_save_archives(site_ashes_env):
+    ret = []
+    for lang in SUPPORTED_LANGS:
+        out_path = ARCHIVE_INDEX_PATH_TMPL.format(lang_shortcode=lang)
+        out_file = open(out_path, 'w')
+        with out_file:
+            rendered = render_archive(site_ashes_env, lang)
+            out_file.write(rendered)
+        ret.append((out_path, len(rendered)))
+    return ret
 
 
 def render_and_save_all_formats(issue_ashes_env,
@@ -197,6 +233,8 @@ def create_app():
     routes = [('/', ma),
               #('/meta', ma),
               ('/_dump_environ', lambda request: request.environ, render_basic),
+              #('/archive/<lang>', get_archive, render_basic),
+              ('/build_archives', render_and_save_archives, render_basic),
               ('/view', get_language_list, render_basic),
               ('/view/<lang>/<format?>', get_rendered_issue, render_basic),
               ('/fetch/', fetch_rc, render_json),
@@ -209,7 +247,8 @@ def create_app():
     site_rf = AshesRenderFactory(SITE_TEMPLATES_PATH)
     issue_rf = AshesRenderFactory(ISSUE_TEMPLATES_PATH,
                                   filters={'ci': comma_int})
-    resources = {'issue_ashes_env': issue_rf.env}
+    resources = {'issue_ashes_env': issue_rf.env,
+                 'site_ashes_env': site_rf.env}
     return Application(routes, resources,
                        render_factory=site_rf)
 

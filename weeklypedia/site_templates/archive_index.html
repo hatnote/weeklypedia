@@ -1,10 +1,10 @@
 <html>
 <head>
-  <title>Weeklypedia</title>
+  <title>Weeklypedia, {lang} archive</title>
   <meta name="description" content="A weekly email digest with the most active Wikipedia articles">
   <meta name="keywords" content="Wikipedia,email,digest,top,weeklypedia,hatnote">
   <meta charset="utf-8" />
-  <link href="css/style.css" rel="stylesheet" media="all">
+  <link href="/static/css/style.css" rel="stylesheet" media="all">
 
 </head>
 <body>
@@ -13,28 +13,15 @@
     <p>A list of the most edited Wikipedia articles and discussions from the last week.</p>
     <p>Delivered every friday by email.</p>
   </header>
-  <section class="announce">
-    <p>Next issue: <span class="date">January 31, 2014 (Volume 2)</span></p>
-    <p class="more">Read <a href="/static/archive.html">past issues in the archive</a></span></p>
-  </section>
   <article>
     <section>
-      <h2>Sign up!</h2>
-      <p>Join a list to receive a weekly email with the top twenty Wikipedia articles and top five Wikipedia discussions from this week.</p>
+      <h2>{lang} Edition</h2>
+      <p>Return to the <a href="/static/archive.html">index of archives</a>. If you want to stay up to date with the most active articles and discussions, please <a href="/static/index.html">sign up for future issues</a>.</p>
       <ul class="buttons">
-        <li><a href="http://eepurl.com/MMlpX">English Wikipedia Edition</a></li>
-        <li><a href="http://eepurl.com/MMlG9">German Wikipedia Edition</a></li>
-        <li><a href="http://eepurl.com/MMmVX">French Wikipedia Edition</a></li>
-        <li><a href="http://eepurl.com/MMm8n">Korean Wikipedia Edition</a></li>
-        <li><a href="http://eepurl.com/MMnlf">Estonian Wikipedia Edition</a></li>
-        <li><a href="http://eepurl.com/MMTnP">Swedish Wikipedia Edition</a></li>
-        <li><a href="http://eepurl.com/MQTPb">Italian Wikipedia Edition</a></li>
-        <li><a href="http://eepurl.com/M7HU9">Catalan Wikipedia Edition</a></li>
+        {#issues}
+        <li><a href="{path}">{date}</a></li>
+        {/issues}
       </ul>
-    </section>
-    <section>
-      <h2>Other languages</h2>
-      <p>Wikipedia is available in over 280 languages. To request a list in any other language (or help translate the template text) please <a href="mailto:stephen.laporte@gmail.com">email me</a>  or submit an <a href="https://github.com/hatnote/weeklypedia/issues">issue on github</a>.
     </section>
     <section>
       <h2>About</h2>

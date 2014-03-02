@@ -44,11 +44,16 @@ section.announce {
   background: rgb(245, 245, 245);
 }
 section.announce p {
+  text-align: center;
   padding: 0.5em;
   font: 800 12pt serif;
 }
 section.announce .date {
   font: 300 12pt serif;
+}
+section.announce .more {
+  font: 400 12pt serif;
+  margin-top: -1.5em;
 }
 label {
   vertical-align: top;
