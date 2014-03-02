@@ -41,6 +41,9 @@ section.announce p {
 section.announce .date {
   font: 300 12pt serif;
 }
+label {
+  vertical-align: top;
+}
 p {
   color: #666;
   line-height: 1.5em;

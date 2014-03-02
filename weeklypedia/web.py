@@ -34,6 +34,8 @@ LANG_MAP = json.load(open(pjoin(_CUR_PATH, 'language_codes.json')))
 SUPPORTED_LANGS = ['en', 'de', 'fr', 'ko', 'et', 'sv', 'it', 'ca']
 DEFAULT_LANGUAGE = 'en'
 
+DEFAULT_INTRO = 'Hello there, welcome to our weekly digest of Wikipedia activity!'
+
 HISTORY_FILE = 'history.json'
 STATIC_PATH = os.path.abspath(_CUR_PATH + '/../static/')
 
@@ -71,9 +73,11 @@ def get_current_issue_number(lang):
     return past_issue_count + 1
 
 
-def get_issue_data(lang=DEFAULT_LANGUAGE):
+def get_issue_data(lang=DEFAULT_LANGUAGE,
+                   intro=DEFAULT_INTRO):
     basic_info = {'short_lang_name': lang,
                   'full_lang_name': LANG_MAP[lang]}
+    basic_info['intro'] = intro
     basic_info['issue_number'] = get_current_issue_number(lang)
     basic_info['date'] = datetime.utcnow().strftime('%B %d, %Y')
     render_ctx = fetch_rc(lang=lang)
@@ -86,7 +90,7 @@ def get_rendered_issue(issue_ashes_env, lang=DEFAULT_LANGUAGE, format=None):
     return _render_issue(render_ctx, issue_ashes_env, format=format)
 
 
-def _render_issue(render_ctx, issue_ashes_env, format=None):
+def _render_issue(render_ctx, issue_ashes_env, intro=DEFAULT_INTRO, format=None):
     format = format or 'html'
     if format == 'json':
         return json.dumps(render_ctx, indent=2, sort_keys=True)
@@ -101,9 +105,11 @@ def _render_issue(render_ctx, issue_ashes_env, format=None):
 
 
 def render_and_save_all_formats(issue_ashes_env,
-                                lang=DEFAULT_LANGUAGE, is_dev=True):
+                                lang=DEFAULT_LANGUAGE, 
+                                intro=DEFAULT_INTRO,
+                                is_dev=True):
     ret = []
-    render_ctx = get_issue_data(lang=lang)
+    render_ctx = get_issue_data(lang=lang, intro=intro)
     for fmt in ('html', 'json', 'txt'):
         fargs = {'fmt': fmt,
                  'date_str': datetime.utcnow().strftime('%Y%m%d'),
@@ -148,10 +154,18 @@ def get_control_info():
             'test_list_id': TEST_LIST_ID}
 
 
-def render_save_send(lang, list_id, send_key, issue_ashes_env, is_dev=True):
+def render_save_send(lang, 
+                     list_id, 
+                     intro, 
+                     send_key, 
+                     issue_ashes_env, 
+                     is_dev=True):
     if is_dev:
         list_id = TEST_LIST_ID
-    render_and_save_all_formats(issue_ashes_env, lang=lang, is_dev=is_dev)
+    render_and_save_all_formats(issue_ashes_env,
+                                lang=lang, 
+                                intro=intro, 
+                                is_dev=is_dev)
     return _send(lang, list_id, send_key, is_dev=is_dev)
 
 
@@ -174,7 +188,7 @@ def _send(lang, list_id, send_key, is_dev=False):
 
 
 def create_app():
-    pdm = PostDataMiddleware(['lang', 'list_id', 'send_key', 'is_dev'])
+    pdm = PostDataMiddleware(['lang', 'list_id', 'intro', 'send_key', 'is_dev'])
     ma = MetaApplication()
     routes = [('/', ma),
               #('/meta', ma),
