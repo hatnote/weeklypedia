@@ -1,3 +1,7 @@
+* {
+  -webkit-font-smoothing: antialiased;
+}
+
 body {
   margin: 5em 0;
   background-color: rgb(237, 224, 206);
@@ -12,6 +16,10 @@ article, header {
 header {
   background-color: #fff;
   text-align: center;
+  padding-bottom: 0;
+}
+header.main {
+  padding: 1.5em;
 }
 header h1 {
   border-top: 1px solid #222222;
@@ -23,6 +31,7 @@ header h1 span {
   padding: 0 20px;
   position: relative;
   top: -20px;
+  font-weight: 200;
 }
 header p {
   font-style: italic;
@@ -45,12 +54,16 @@ label {
   vertical-align: top;
 }
 p {
-  color: #666;
+  color: #383838;
   line-height: 1.5em;
   font: 400 12pt serif;
 }
 h2 {
   margin: 0;
+  text-transform: uppercase;
+  font-weight: 200;
+  line-height: 1.2;
+  font-size: 28px;
 }
 a {
   color: #348eda;
