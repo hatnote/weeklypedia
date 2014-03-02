@@ -84,7 +84,7 @@ def get_issue_data(lang=DEFAULT_LANGUAGE,
     basic_info = {'short_lang_name': lang,
                   'full_lang_name': LANG_MAP[lang]}
     basic_info['intro'] = intro
-    basic_info['issue_number'] = get_current_issue_number(lang)
+    basic_info['issue_number'] = get_next_issue_number(lang)
     basic_info['date'] = datetime.utcnow().strftime('%B %d, %Y')
     render_ctx = fetch_rc(lang=lang)
     render_ctx.update(basic_info)
@@ -111,7 +111,7 @@ def _render_issue(render_ctx, issue_ashes_env, intro=DEFAULT_INTRO, format=None)
 
 
 def render_and_save_all_formats(issue_ashes_env,
-                                lang=DEFAULT_LANGUAGE, 
+                                lang=DEFAULT_LANGUAGE,
                                 intro=DEFAULT_INTRO,
                                 is_dev=True):
     ret = []
@@ -154,17 +154,17 @@ def get_control_info():
             'test_list_id': TEST_LIST_ID}
 
 
-def render_save_send(lang, 
-                     list_id, 
-                     intro, 
-                     send_key, 
-                     issue_ashes_env, 
+def render_save_send(lang,
+                     list_id,
+                     intro,
+                     send_key,
+                     issue_ashes_env,
                      is_dev=True):
     if is_dev:
         list_id = TEST_LIST_ID
     render_and_save_all_formats(issue_ashes_env,
-                                lang=lang, 
-                                intro=intro, 
+                                lang=lang,
+                                intro=intro,
                                 is_dev=is_dev)
     return _send(lang, list_id, send_key, is_dev=is_dev)
 
