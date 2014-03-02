@@ -163,7 +163,7 @@ class RecentChangesSummarizer(object):
         anon_result = self._select(self._anon_activity_query, params)[0]
         bot_result = self._select(self._bot_activity_query, params)[0]
         totals = {'total_edits': ret['edits'] + anon_result['anon_edits'],
-                  'total_users': ret['users'] + anon_result['anon_users'],
+                  'total_users': ret['users'] + anon_result['anon_ip_count'],
                   'total_titles': ret['titles'] + anon_result['anon_titles']}
 
         ret.update(anon_result)
