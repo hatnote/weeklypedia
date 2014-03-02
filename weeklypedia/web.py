@@ -87,7 +87,8 @@ def get_issue_data(lang=DEFAULT_LANGUAGE,
                   'full_lang_name': LANG_MAP[lang]}
     basic_info['intro'] = intro
     basic_info['issue_number'] = get_next_issue_number(lang)
-    basic_info['date'] = datetime.utcnow().strftime('%B %d, %Y')
+    display_date = datetime.utcnow().strftime('%B %d, %Y').replace(' 0', ' ')
+    basic_info['date'] = display_date
     render_ctx = fetch_rc(lang=lang)
     render_ctx.update(basic_info)
     return render_ctx
@@ -124,10 +125,11 @@ def render_archive(site_ashes_env, lang):
         date = archive.rpartition('/')[2]
         arch_title = ARCHIVE_TITLE_TMPL.format(date_str=date)
         archive_path = ARCHIVE_PATH_HTML_TMPL.format(lang_shortcode=lang,
-                                                     date_str=date, 
+                                                     date_str=date,
                                                      file_name=arch_title)
         display_date = datetime.strptime(date, '%Y%m%d').strftime('%B %d, %Y')
-        ret['issues'].insert(0, {'path': archive_path, 
+        display_date = display_date.replace(' 0', ' ')
+        ret['issues'].insert(0, {'path': archive_path,
                                  'date': display_date})
     ret['lang'] = LANG_MAP[lang]
     return site_ashes_env.render('archive_index.html', ret)
