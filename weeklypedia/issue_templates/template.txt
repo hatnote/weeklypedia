@@ -1,6 +1,6 @@
 The WEEKLYPEDIA: Issue {issue_number}, {date} ({full_lang_name} Wikipedia Edition)
 
-Hello there, welcome to our first weekly digest of Wikipedia activity.
+{intro}
 
 === Articles ===
 
