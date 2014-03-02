@@ -234,7 +234,7 @@ def create_app():
     routes = [('/', ma),
               #('/meta', ma),
               ('/_dump_environ', lambda request: request.environ, render_basic),
-              #('/archive/<lang>', get_archive, render_basic),
+              ('/archive/<lang>', get_archive, render_basic),
               ('/build_archives', render_and_save_archives, render_basic),
               ('/view', get_language_list, render_basic),
               ('/view/<lang>/<format?>', get_rendered_issue, render_basic),

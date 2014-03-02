@@ -15,14 +15,14 @@
       <p><em>Issue {issue_number}, {date} ({full_lang_name} Wikipedia Edition)</em></p>
       <p>{intro}</p>
       <h2>Articles</h2>
-      <p>{#stats}This week, {users|ci} authors made {edits|ci} contributions to {titles|ci} different articles.{/stats} The top 20 articles for the week:</p>
+      <p>{#stats}This week, {total_users|ci} authors made {edits|ci} contributions to {titles|ci} different articles.{/stats} The top 20 articles for the week:</p>
       <ol>
         {#mainspace}
         <li><a href="https://{short_lang_name}.wikipedia.org/wiki/{title}" target="_blank">{title_s}</a> ({edits|ci} contributions by {users} authors)</li>
         {/mainspace}
       </ol>
 
-      <h3>New Articles</h3>
+      <h2>New Articles</h2>
       <p>The ten most actively edited articles created within the last week.</p>
       <ol>
         {#new_articles}
@@ -37,7 +37,16 @@
         <li><a href="https://{short_lang_name}.wikipedia.org/wiki/Talk:{title}" target="_blank">{title_s}</a></li>
         {/talkspace}
       </ol>
+
+      <h2>Stats</h2>
+      <p>A few numbers from last week:</p>
+      <ul>
+        <li>{stats.users|ci} registered users and {stats.anon_ip_count|ci} unregistered users made {stats.edits|ci} edits to {stats.titles|ci} articles</li>
+        <li>Unregistered users made {stats.anon_edits|ci} edits to {stats.anon_titles|ci} articles</li>
+        <li>{stats.bot_count|ci} robots made {stats.bot_edits|ci} edits to {stats.bot_titles|ci} articles</li>
+      </ul>
       <p>Learn more about the <a href="http://weekly.hatnote.com">Weeklypedia Digest</a></p>
+
     </section>
   </article>
 </body>
