@@ -227,7 +227,7 @@ class RecentChangesSummarizer(object):
                   'namespace': namespace,
                   'start_date': start_date_str}
         res = self._select(self._bounding_revids_query, params)[0]
-        return (res['earliest_rev_id'], res['newest_rev_id'])
+        return {'old': res['earliest_rev_id'], 'new': res['newest_rev_id']}
 
     def get_full_summary(self, interval=None, main_limit=20, talk_limit=5,
                          new_limit=10, with_extracts=False):
