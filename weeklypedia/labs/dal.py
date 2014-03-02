@@ -162,9 +162,13 @@ class RecentChangesSummarizer(object):
         ret = self._select(self._activity_query, params)[0]
         anon_result = self._select(self._anon_activity_query, params)[0]
         bot_result = self._select(self._bot_activity_query, params)[0]
+        totals = {'total_edits': ret['edits'] + anon_result['anon_edits'],
+                  'total_users': ret['users'] + anon_result['anon_users'],
+                  'total_titles': ret['titles'] + anon_result['anon_titles']}
 
         ret.update(anon_result)
         ret.update(bot_result)
+        ret.update(totals)
         return ret
 
     def get_ranked_activity(self, limit=None, namespace=None, interval=None,
