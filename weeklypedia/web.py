@@ -12,10 +12,8 @@ sys.path.insert(0, os.path.expanduser('~/projects/clastic'))
 from clastic import Application, render_json, render_basic, POST
 from clastic.render import AshesRenderFactory
 from clastic.meta import MetaApplication
-from clastic.middleware import GetParamMiddleware
 from clastic.middleware.form import PostDataMiddleware
 from clastic.static import StaticApplication
-
 
 from mail import Mailinglist, KEY, TEST_LIST_ID
 
@@ -34,8 +32,12 @@ LANG_MAP = json.load(open(pjoin(_CUR_PATH, 'language_codes.json')))
 SUPPORTED_LANGS = ['en', 'de', 'fr', 'ko', 'et', 'sv', 'it', 'ca']
 DEFAULT_LANGUAGE = 'en'
 
-HISTORY_FILE = 'history.json'
+SUBJECT_TMPL = 'Weeklypedia {lang_name} #{issue_number}'
+
 STATIC_PATH = os.path.abspath(_CUR_PATH + '/../static/')
+
+# lol at punctuation like Panic! at the Disco or Godspeed You! etc.
+CURRENT_INTRO = 'Hello! and welcome to our weekly digest of Wikipedia activity.'
 
 
 def fetch_rc(lang=DEFAULT_LANGUAGE):
@@ -68,14 +70,20 @@ def get_past_issue_paths(lang, include_dev=False):
 
 def get_current_issue_number(lang):
     past_issue_count = len(get_past_issue_paths(lang, include_dev=False))
-    return past_issue_count + 1
+    return past_issue_count
 
 
-def get_issue_data(lang=DEFAULT_LANGUAGE):
+def get_next_issue_number(lang):
+    return get_current_issue_number(lang=lang) + 1
+
+
+def get_issue_data(lang=DEFAULT_LANGUAGE, intro_note=None):
+    intro_note = intro_note or CURRENT_INTRO
     basic_info = {'short_lang_name': lang,
                   'full_lang_name': LANG_MAP[lang]}
-    basic_info['issue_number'] = get_current_issue_number(lang)
+    basic_info['issue_number'] = get_next_issue_number(lang)
     basic_info['date'] = datetime.utcnow().strftime('%B %d, %Y')
+    basic_info['intro_note'] = intro_note
     render_ctx = fetch_rc(lang=lang)
     render_ctx.update(basic_info)
     return render_ctx
@@ -137,12 +145,6 @@ def mkdir_p(path):
         raise
 
 
-def load_history():
-    with open(pjoin(_CUR_PATH, HISTORY_FILE)) as infile:
-        history = json.load(infile)
-    return history
-
-
 def get_control_info():
     return {'supported_langs': SUPPORTED_LANGS,
             'test_list_id': TEST_LIST_ID}
@@ -156,8 +158,12 @@ def render_save_send(lang, list_id, send_key, issue_ashes_env, is_dev=True):
 
 
 def _send(lang, list_id, send_key, is_dev=False):
+    lang_name = LANG_MAP[lang]
+    issue_number = get_current_issue_number(lang)
+    subject = SUBJECT_TMPL.format(lang_name=lang_name,
+                                  issue_number=issue_number)
     mailinglist = Mailinglist(send_key + KEY)
-    subject = 'Weeklypedia'
+
     past_issue_paths = get_past_issue_paths(lang, include_dev=is_dev)
     issue_path = sorted(past_issue_paths)[-1]
     issue_fns = os.listdir(issue_path)
