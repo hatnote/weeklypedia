@@ -44,7 +44,6 @@ SUBJECT_TMPL = 'Weeklypedia {lang_name} #{issue_number}'
 STATIC_PATH = os.path.abspath(_CUR_PATH + '/../static/')
 
 
-
 def fetch_rc(lang=DEFAULT_LANGUAGE):
     if lang not in LANG_MAP:
         raise KeyError('unknown language code: %r' % lang)
@@ -111,7 +110,7 @@ def _render_issue(render_ctx, issue_ashes_env, intro=DEFAULT_INTRO, format=None)
     if format == 'html':
         ret = issue_ashes_env.render('template.html', render_ctx)
     elif format == 'web':
-        ret = issue_ashes_env.render('template_nostyles.html', render_ctx)
+        ret = issue_ashes_env.render('template_archive.html', render_ctx)
     else:
         ret = issue_ashes_env.render('template.txt', render_ctx)
     return ret.encode('utf-8')
