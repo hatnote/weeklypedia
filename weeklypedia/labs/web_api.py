@@ -2,9 +2,10 @@
 
 from dal import RecentChangesSummarizer
 
-from clastic import Application, render_json, render_json_dev
+from clastic import Application, render_json, render_basic
 from clastic.meta import MetaApplication
 #from clastic.middleware import GetParamMiddleware
+
 
 # TODO: make interval and limits parameterized
 
@@ -18,8 +19,11 @@ def create_app():
     routes = [('/', fetch_rc, render_json),
               ('/fetch/', fetch_rc, render_json),
               ('/fetch/<lang>', fetch_rc, render_json),
+              ('/v2', fetch_rc, render_basic),
+              ('/v2/fetch/', fetch_rc, render_basic),
+              ('/v2/fetch/<lang>', fetch_rc, render_basic),
               ('/meta', MetaApplication()),
-              ('/_dump_environ', lambda request: request.environ, render_json_dev)]
+              ('/_dump_environ', lambda request: request.environ, render_basic)]
     return Application(routes)
 
 
