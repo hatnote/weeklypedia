@@ -1,0 +1,5 @@
+-e git+https://github.com/mahmoud/clastic.git#egg=clastic 
+-e git+https://github.com/slaporte/wapiti.git#egg=wapiti
+
+oursql==0.9.3.1
+flup==1.0.2
