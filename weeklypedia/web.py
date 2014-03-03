@@ -99,8 +99,8 @@ def get_rendered_issue(issue_ashes_env, lang=DEFAULT_LANGUAGE, format=None):
     return _render_issue(render_ctx, issue_ashes_env, format=format)
 
 
-def get_archive(site_ashes_env, lang):
-    return render_archive(site_ashes_env, lang)
+def get_archive(issue_ashes_env, lang):
+    return render_archive(issue_ashes_env, lang)
 
 
 def _render_issue(render_ctx, issue_ashes_env, intro=DEFAULT_INTRO, format=None):
@@ -117,7 +117,7 @@ def _render_issue(render_ctx, issue_ashes_env, intro=DEFAULT_INTRO, format=None)
     return ret.encode('utf-8')
 
 
-def render_archive(site_ashes_env, lang):
+def render_archive(issue_ashes_env, lang):
     ret = {}
     ret['issues'] = []
     paths = get_past_issue_paths(lang)
@@ -132,45 +132,51 @@ def render_archive(site_ashes_env, lang):
         ret['issues'].insert(0, {'path': archive_path,
                                  'date': display_date})
     ret['lang'] = LANG_MAP[lang]
-    return site_ashes_env.render('archive_index.html', ret)
+    return issue_ashes_env.render('template_archive_index.html', ret)
 
 
-def render_and_save_archives(site_ashes_env):
+def render_and_save_archives(issue_ashes_env):
     ret = []
     for lang in SUPPORTED_LANGS:
         out_path = ARCHIVE_INDEX_PATH_TMPL.format(lang_shortcode=lang)
         out_file = open(out_path, 'w')
         with out_file:
-            rendered = render_archive(site_ashes_env, lang)
+            rendered = render_archive(issue_ashes_env, lang)
             out_file.write(rendered)
         ret.append((out_path, len(rendered)))
     return ret
+
+
+def save_issue(fmt, rendered, lang, is_dev):
+    fargs = {'fmt': fmt,
+             'date_str': datetime.utcnow().strftime('%Y%m%d'),
+             'lang_shortcode': lang,
+             'dev_flag': ''}
+    if is_dev:
+        fargs['dev_flag'] = '_dev'
+    out_path = ARCHIVE_PATH_TMPL.format(**fargs)
+    try:
+        out_file = open(out_path, 'w')
+    except IOError:
+        mkdir_p(os.path.dirname(out_path))
+        out_file = open(out_path, 'w')
+        # if exception, couldn't create file or parent directories
+    with out_file:
+        out_file.write(rendered)
+    return (out_path, len(rendered))
 
 
 def render_and_save_all_formats(issue_ashes_env,
                                 lang=DEFAULT_LANGUAGE,
                                 intro=DEFAULT_INTRO,
                                 is_dev=True):
-    ret = []
+    ret = {'issues': [], 'archives': []}
     render_ctx = get_issue_data(lang=lang, intro=intro)
     for fmt in ('html', 'json', 'txt'):
-        fargs = {'fmt': fmt,
-                 'date_str': datetime.utcnow().strftime('%Y%m%d'),
-                 'lang_shortcode': lang,
-                 'dev_flag': ''}
-        if is_dev:
-            fargs['dev_flag'] = '_dev'
-        out_path = ARCHIVE_PATH_TMPL.format(**fargs)
-        try:
-            out_file = open(out_path, 'w')
-        except IOError:
-            mkdir_p(os.path.dirname(out_path))
-            out_file = open(out_path, 'w')
-            # if exception, couldn't create file or parent directories
-        with out_file:
-            rendered = _render_issue(render_ctx, issue_ashes_env, format=fmt)
-            out_file.write(rendered)
-        ret.append((out_path, len(rendered)))
+        rendered = _render_issue(render_ctx, issue_ashes_env, format=fmt)
+        issue = save_issue(fmt, rendered, lang, issue_ashes_env)
+        ret['issues'].append(issue)
+    ret['archives'] = render_and_save_archives(issue_ashes_env)
     return ret
 
 
@@ -248,8 +254,7 @@ def create_app():
     site_rf = AshesRenderFactory(SITE_TEMPLATES_PATH)
     issue_rf = AshesRenderFactory(ISSUE_TEMPLATES_PATH,
                                   filters={'ci': comma_int})
-    resources = {'issue_ashes_env': issue_rf.env,
-                 'site_ashes_env': site_rf.env}
+    resources = {'issue_ashes_env': issue_rf.env}
     return Application(routes, resources,
                        render_factory=site_rf)
 
