@@ -4,31 +4,10 @@ import os
 import json
 import urllib2
 from datetime import datetime
-from os.path import dirname, join as pjoin
 
 
-DEBUG = False
-
-API_BASE_URL = 'http://tools.wmflabs.org/weeklypedia/fetch/'
-DEFAULT_LANGUAGE = 'en'
-_CUR_PATH = dirname(os.path.abspath(__file__))
-LANG_MAP = json.load(open(pjoin(_CUR_PATH, 'language_codes.json')))
-
-DATA_BASE_PATH = pjoin(dirname(_CUR_PATH), 'static', 'data')
-DATA_PATH_TMPL = '{lang_shortcode}/{date_str}{dev_flag}/weeklypedia_{lang_shortcode}_{date_str}{dev_flag}.{fmt}'
-DATA_PATH_TMPL = pjoin(DATA_BASE_PATH, DATA_PATH_TMPL)
-
-
-def mkdir_p(path):
-    # bolton
-    import os
-    import errno
-    try:
-        os.makedirs(path)
-    except OSError as exc:
-        if exc.errno == errno.EEXIST and os.path.isdir(path):
-            return
-        raise
+from common import LANG_MAP, DEBUG, DEFAULT_LANGUAGE, API_BASE_URL
+from common import DATA_BASE_PATH, DATA_PATH_TMPL, mkdir_p
 
 
 def fetch_rc(lang=DEFAULT_LANGUAGE):
@@ -50,8 +29,7 @@ def render_rc(render_ctx):
 
 
 def save(render_ctx, is_dev=DEBUG):
-    fargs = {'fmt': 'json',
-             'date_str': datetime.utcnow().strftime('%Y%m%d'),
+    fargs = {'date_str': datetime.utcnow().strftime('%Y%m%d'),
              'lang_shortcode': render_ctx['short_lang_name'],
              'dev_flag': ''}
     if is_dev:
@@ -77,14 +55,14 @@ def fetch_and_save(lang=DEFAULT_LANGUAGE, debug=DEBUG):
 
 def get_past_data_paths(lang, include_dev=DEBUG):
     ret = []
-    lang_path = pjoin(DATA_BASE_PATH, lang)
+    lang_path = os.path.join(DATA_BASE_PATH, lang)
     if not os.path.isdir(lang_path):
         return ret
     past_issue_fns = os.listdir(lang_path)
     for fn in past_issue_fns:
         if not include_dev and fn.endswith('_dev'):
             continue
-        full_path = pjoin(lang_path, fn)
+        full_path = os.path.join(lang_path, fn)
         if os.path.isdir(full_path):
             ret.append(full_path)
     return ret
@@ -94,7 +72,7 @@ def get_latest_data_path(lang, include_dev=DEBUG):
     past_issue_paths = get_past_data_paths(lang, include_dev=include_dev)
     issue_path = sorted(past_issue_paths)[-1]
     latest_issue_fn = sorted(os.listdir(issue_path))[-1]
-    return pjoin(issue_path, latest_issue_fn)
+    return os.path.join(issue_path, latest_issue_fn)
 
 
 

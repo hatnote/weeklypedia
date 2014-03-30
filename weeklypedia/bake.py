@@ -8,14 +8,14 @@ from os.path import dirname, join as pjoin
 from mail import Mailinglist, KEY
 from fetch import get_latest_data_path
 
-DEFAULT_LANGUAGE = 'en'
-SUPPORTED_LANGS = ['en', 'de', 'fr', 'ko', 'et', 'sv', 'it', 'ca']
-# lol at punctuation like Panic! at the Disco or Godspeed You! etc.
-DEFAULT_INTRO = 'Hello there! Welcome to our weekly digest of Wikipedia activity.'
+from common import (DEFAULT_LANGUAGE,
+                    DEFAULT_INTRO,
+                    LANG_MAP,
+                    SUBJECT_TMPL,
+                    SUPPORTED_LANGS,
+                    mkdir_p)
 
 _CUR_PATH = dirname(os.path.abspath(__file__))
-LANG_MAP = json.load(open(pjoin(_CUR_PATH, 'language_codes.json')))
-SUBJECT_TMPL = 'Weeklypedia {lang_name} #{issue_number}'
 
 INDEX_PATH = pjoin(dirname(_CUR_PATH), 'static', 'index.html')
 ARCHIVE_BASE_PATH = pjoin(dirname(_CUR_PATH), 'static', 'archive')
@@ -27,16 +27,16 @@ ARCHIVE_PATH_TMPL = pjoin(ARCHIVE_BASE_PATH, ARCHIVE_PATH_TMPL)
 
 
 class Issue(object):
-    def __init__(self, 
-                 lang, 
-                 custom_issue=None, 
-                 custom_subject=None, 
+    def __init__(self,
+                 lang,
+                 custom_issue=None,
+                 custom_subject=None,
                  include_dev=True):
         self.lang = lang
         self.full_lang_name = LANG_MAP[lang]
         past_issue_paths = get_past_issue_paths(lang, include_dev=include_dev)
         if custom_issue:
-            issue_path = [path for path in past_issue_paths \
+            issue_path = [path for path in past_issue_paths
                           if custom_issue in path][0]
             # what if there is a _dev issue?
         else:
@@ -196,15 +196,3 @@ def render_and_save_archives(issue_ashes_env):
         ret.append((out_path, len(rendered)))
     ret.append(render_index(issue_ashes_env))
     return ret
-
-
-def mkdir_p(path):
-    # bolton
-    import os
-    import errno
-    try:
-        os.makedirs(path)
-    except OSError as exc:
-        if exc.errno == errno.EEXIST and os.path.isdir(path):
-            return
-        raise

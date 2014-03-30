@@ -14,11 +14,11 @@ from clastic.static import StaticApplication
 
 from mail import TEST_LIST_ID
 from fetch import fetch_rc
-from bake import (Issue, 
-                  render_issue, 
-                  prep_latest_issue, 
-                  bake_latest_issue, 
-                  render_and_save_archives, 
+from bake import (Issue,
+                  render_issue,
+                  prep_latest_issue,
+                  bake_latest_issue,
+                  render_and_save_archives,
                   render_archive,
                   SUPPORTED_LANGS,
                   DEFAULT_LANGUAGE,
@@ -27,7 +27,6 @@ from bake import (Issue,
 _CUR_PATH = dirname(os.path.abspath(__file__))
 ISSUE_TEMPLATES_PATH = pjoin(_CUR_PATH, 'issue_templates')
 SITE_TEMPLATES_PATH = pjoin(_CUR_PATH, 'site_templates')
-API_BASE_URL = 'http://tools.wmflabs.org/weeklypedia/fetch/'
 STATIC_PATH = os.path.abspath(_CUR_PATH + '/../static/')
 
 
