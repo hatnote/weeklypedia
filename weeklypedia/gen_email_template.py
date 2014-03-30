@@ -6,8 +6,10 @@ from argparse import ArgumentParser, FileType
 
 from premailer import Premailer
 
-_url_var_fix_re = re.compile("%7B(?P<var_name>\w+)%7D")
-# TODO: get rid of script tags
+_url_var_fix_re = re.compile(r"%7B(?P<var_name>\w+)%7D")
+_exclude_email_re = re.compile(r'<!-- email-exclude -->.*?'
+                               '<!-- end-email-exclude -->',
+                               re.DOTALL)
 
 
 def get_argparser():
@@ -16,11 +18,8 @@ def get_argparser():
 
     add('in_file')
     add('out_file', nargs='?', type=FileType('w'), default=sys.stdout)
+    add('--style', nargs='?')
     return prs
-
-
-def get_email_template(base_template_text):
-    pass
 
 
 def main():
@@ -30,9 +29,11 @@ def main():
     out_file = args.out_file
     html_text = open(args.in_file).read()
 
-    p = Premailer(html=html_text)
+    p = Premailer(html=html_text,
+                  external_styles=args.style)
     inlined_html = p.transform()
     inlined_html = _url_var_fix_re.sub('{\g<var_name>}', inlined_html)
+    inlined_html = _exclude_email_re.sub('', inlined_html)
     out_file.write(inlined_html)
 
 
