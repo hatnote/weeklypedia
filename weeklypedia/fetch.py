@@ -5,16 +5,16 @@ import urllib2
 from datetime import datetime
 from os.path import dirname, join as pjoin
 
-DEBUG = True
+DEBUG = False
 
 API_BASE_URL = 'http://tools.wmflabs.org/weeklypedia/fetch/'
 DEFAULT_LANGUAGE = 'ko'
 _CUR_PATH = dirname(os.path.abspath(__file__))
 LANG_MAP = json.load(open(pjoin(_CUR_PATH, 'language_codes.json')))
 
-ARCHIVE_BASE_PATH = pjoin(dirname(_CUR_PATH), 'static', 'data')
-ARCHIVE_PATH_TMPL = '{lang_shortcode}/{date_str}{dev_flag}/weeklypedia_{lang_shortcode}_{date_str}{dev_flag}.{fmt}'
-ARCHIVE_PATH_TMPL = pjoin(ARCHIVE_BASE_PATH, ARCHIVE_PATH_TMPL)
+DATA_BASE_PATH = pjoin(dirname(_CUR_PATH), 'static', 'data')
+DATA_PATH_TMPL = '{lang_shortcode}/{date_str}{dev_flag}/weeklypedia_{lang_shortcode}_{date_str}{dev_flag}.{fmt}'
+DATA_PATH_TMPL = pjoin(DATA_BASE_PATH, DATA_PATH_TMPL)
 
 
 def mkdir_p(path):
@@ -27,6 +27,7 @@ def mkdir_p(path):
         if exc.errno == errno.EEXIST and os.path.isdir(path):
             return
         raise
+
 
 def fetch_rc(lang=DEFAULT_LANGUAGE):
     if lang not in LANG_MAP:
@@ -41,8 +42,10 @@ def fetch_rc(lang=DEFAULT_LANGUAGE):
     data.update(basic_info)
     return data
 
+
 def render_rc(render_ctx):
     return json.dumps(render_ctx, indent=2, sort_keys=True)
+
 
 def save(render_ctx, is_dev=DEBUG):
     fargs = {'fmt': 'json',
@@ -51,7 +54,7 @@ def save(render_ctx, is_dev=DEBUG):
              'dev_flag': ''}
     if is_dev:
         fargs['dev_flag'] = '_dev'
-    out_path = ARCHIVE_PATH_TMPL.format(**fargs)
+    out_path = DATA_PATH_TMPL.format(**fargs)
     rendered = render_rc(render_ctx)
     try:
         out_file = open(out_path, 'w')
@@ -63,10 +66,12 @@ def save(render_ctx, is_dev=DEBUG):
         out_file.write(rendered)
     return (out_path, len(rendered))
 
+
 def fetch_and_save(lang=DEFAULT_LANGUAGE, debug=DEBUG):
     fetch_resp = fetch_rc(lang)
     save_resp = save(fetch_resp, debug)
     return save_resp
+
 
 def get_argparser():
     from argparse import ArgumentParser
@@ -76,8 +81,10 @@ def get_argparser():
     prs.add_argument('--debug', default=DEBUG, action='store_true')
     return prs
 
+
 if __name__ == '__main__':
     parser = get_argparser()
     args = parser.parse_args()
     fetch_and_save(args.lang, args.debug)
-    import pdb; pdb.set_trace();
+    if args.debug:
+        import pdb; pdb.set_trace();
