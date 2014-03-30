@@ -2,7 +2,7 @@
 
 import os
 import json
-from datetime import datetime
+from datetime import datetime, timedelta
 from os.path import dirname, join as pjoin
 
 from mail import Mailinglist, KEY
@@ -15,12 +15,12 @@ DEFAULT_INTRO = 'Hello there! Welcome to our weekly digest of Wikipedia activity
 
 _CUR_PATH = dirname(os.path.abspath(__file__))
 LANG_MAP = json.load(open(pjoin(_CUR_PATH, 'language_codes.json')))
-
-ARCHIVE_BASE_PATH = pjoin(dirname(_CUR_PATH), 'static', 'archive')
-
-ARCHIVE_PATH_TMPL = '{lang_shortcode}/{date_str}{dev_flag}/weeklypedia_{date_str}{dev_flag}.{fmt}'
 SUBJECT_TMPL = 'Weeklypedia {lang_name} #{issue_number}'
-ARCHIVE_PATH_HTML_TMPL = '/archive/{lang_shortcode}/{date_str}/{file_name}'
+
+INDEX_PATH = pjoin(dirname(_CUR_PATH), 'static', 'index.html')
+ARCHIVE_BASE_PATH = pjoin(dirname(_CUR_PATH), 'static', 'archive')
+ARCHIVE_PATH_TMPL = '{lang_shortcode}/{date_str}{dev_flag}/weeklypedia_{date_str}{dev_flag}.{fmt}'
+ARCHIVE_PATH_HTML_TMPL = '{date_str}/{file_name}'
 ARCHIVE_TITLE_TMPL = 'weeklypedia_{date_str}.html'
 ARCHIVE_INDEX_PATH_TMPL = ARCHIVE_BASE_PATH + '/{lang_shortcode}/index.html'
 ARCHIVE_PATH_TMPL = pjoin(ARCHIVE_BASE_PATH, ARCHIVE_PATH_TMPL)
@@ -72,6 +72,7 @@ class Issue(object):
         mailinglist.send_next_campaign()
         return 'Success: sent issue %s' % self.lang
 
+
 def get_past_issue_paths(lang, include_dev=False):
     ret = []
     lang_path = pjoin(ARCHIVE_BASE_PATH, lang)
@@ -121,6 +122,7 @@ def bake_latest_issue(issue_ashes_env,
     ret['archives'] = render_and_save_archives(issue_ashes_env)
     return ret
 
+
 def render_issue(render_ctx, issue_ashes_env, intro=DEFAULT_INTRO, format=None):
     format = format or 'html'
     if format == 'json':
@@ -133,6 +135,7 @@ def render_issue(render_ctx, issue_ashes_env, intro=DEFAULT_INTRO, format=None):
     else:
         ret = issue_ashes_env.render('template.txt', render_ctx)
     return ret.encode('utf-8')
+
 
 def save_issue(fmt, rendered, lang, is_dev):
     fargs = {'fmt': fmt,
@@ -171,6 +174,17 @@ def render_archive(issue_ashes_env, lang):
     return issue_ashes_env.render('template_archive_index.html', ret)
 
 
+def render_index(issue_ashes_env):
+    next_date = (datetime.now() + timedelta(days=7)).strftime('%B %d, %Y')
+    context = {'next_date': next_date,
+               'volume': get_next_issue_number(DEFAULT_LANGUAGE)}
+    rendered_index = issue_ashes_env.render('template_index.html', context)
+    out_file = open(INDEX_PATH, 'w')
+    with out_file:
+        out_file.write(rendered_index)
+    return (INDEX_PATH, len(rendered_index))
+
+
 def render_and_save_archives(issue_ashes_env):
     ret = []
     for lang in SUPPORTED_LANGS:
@@ -180,7 +194,9 @@ def render_and_save_archives(issue_ashes_env):
             rendered = render_archive(issue_ashes_env, lang)
             out_file.write(rendered)
         ret.append((out_path, len(rendered)))
+    ret.append(render_index(issue_ashes_env))
     return ret
+
 
 def mkdir_p(path):
     # bolton
