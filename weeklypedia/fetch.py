@@ -1,14 +1,16 @@
 # -*- coding: utf-8 -*-
+
 import os
 import json
 import urllib2
 from datetime import datetime
 from os.path import dirname, join as pjoin
 
+
 DEBUG = False
 
 API_BASE_URL = 'http://tools.wmflabs.org/weeklypedia/fetch/'
-DEFAULT_LANGUAGE = 'ko'
+DEFAULT_LANGUAGE = 'en'
 _CUR_PATH = dirname(os.path.abspath(__file__))
 LANG_MAP = json.load(open(pjoin(_CUR_PATH, 'language_codes.json')))
 
@@ -73,6 +75,29 @@ def fetch_and_save(lang=DEFAULT_LANGUAGE, debug=DEBUG):
     return save_resp
 
 
+def get_past_data_paths(lang, include_dev=DEBUG):
+    ret = []
+    lang_path = pjoin(DATA_BASE_PATH, lang)
+    if not os.path.isdir(lang_path):
+        return ret
+    past_issue_fns = os.listdir(lang_path)
+    for fn in past_issue_fns:
+        if not include_dev and fn.endswith('_dev'):
+            continue
+        full_path = pjoin(lang_path, fn)
+        if os.path.isdir(full_path):
+            ret.append(full_path)
+    return ret
+
+
+def get_latest_data_path(lang, include_dev=DEBUG):
+    past_issue_paths = get_past_data_paths(lang, include_dev=include_dev)
+    issue_path = sorted(past_issue_paths)[-1]
+    latest_issue_fn = sorted(os.listdir(issue_path))[-1]
+    return pjoin(issue_path, latest_issue_fn)
+
+
+
 def get_argparser():
     from argparse import ArgumentParser
     desc = "fetch json data from labs"
@@ -87,4 +112,5 @@ if __name__ == '__main__':
     args = parser.parse_args()
     fetch_and_save(args.lang, args.debug)
     if args.debug:
+        print get_latest_data_path('de', include_dev=True)
         import pdb; pdb.set_trace();
