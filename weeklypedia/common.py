@@ -10,6 +10,8 @@ DEFAULT_LANGUAGE = 'en'
 DEFAULT_INTRO = 'Hello there! Welcome to our weekly digest of Wikipedia activity.'
 SUBJECT_TMPL = 'Weeklypedia {lang_name} #{issue_number}'
 
+DEBUG_LIST_ID = "a5ecbc7404"
+
 _CUR_PATH = dirname(os.path.abspath(__file__))
 
 LANG_MAP = json.load(open(pjoin(_CUR_PATH, 'language_codes.json')))
