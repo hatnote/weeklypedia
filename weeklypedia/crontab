@@ -1,0 +1,14 @@
+0 * * * *  /home/hatnote/virtualenvs/weeklypedia/bin/python  /home/hatnote/weeklypedia/weeklypedia/fetch.py --lang en
+3 * * * *  /home/hatnote/virtualenvs/weeklypedia/bin/python  /home/hatnote/weeklypedia/weeklypedia/fetch.py --lang de
+
+# and so forth, now for the weekly publication
+
+# cron runs in the server's local timezone, eastern in this case take
+# this into account when scheduling publication time (might want to
+# try sending it out on friday morning, local time of primary
+# demographic
+
+# TODO: could set python bin path and script root path through a variable
+
+# English gets published at 6AM Eastern on Friday
+0 6 * * 5  /home/hatnote/virtualenvs/weeklypedia/bin/python  /home/hatnote/weeklypedia/weeklypedia/publish.py --lang en --list-key 1234
