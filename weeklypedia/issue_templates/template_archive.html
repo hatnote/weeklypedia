@@ -9,14 +9,11 @@
   <header>
   <h1><span><em>the</em> WEEKLYPEDIA</span> </h1>
   </header>
-  <!-- email-exclude -->
-  <div class="navigation"></div>
-  <!-- end-email-exclude -->
   <article>
     <section>
       <p><em>Issue {issue_number}, {date} ({full_lang_name} Wikipedia Edition)</em></p>
       <p>{intro}</p>
-      <h2>Articles</h2>
+      <h2 id="articles">Articles</h2>
       <p>{#stats}This week, {total_users|ci} authors made {edits|ci} contributions to {titles|ci} different articles.{/stats} The top 20 articles for the week:</p>
       <ol>
         {#mainspace}
@@ -24,7 +21,7 @@
         {/mainspace}
       </ol>
 
-      <h2>New Articles</h2>
+      <h2 id="new-articles">New Articles</h2>
       <p>The ten most actively edited articles created within the last week.</p>
       <ol>
         {#new_articles}
@@ -32,7 +29,7 @@
         {/new_articles}
       </ol>
 
-      <h2>Discussions</h2>
+      <h2 id="discussions">Discussions</h2>
       <p>The most active discussions:</p>
       <ol>
         {#talkspace}
@@ -40,7 +37,7 @@
         {/talkspace}
       </ol>
 
-      <h2>Stats</h2>
+      <h2 id="statistics">Stats</h2>
       <p>A few numbers from last week:</p>
       <ul>
         <li>{stats.users|ci} registered users and {stats.anon_ip_count|ci} unregistered users made {stats.edits|ci} edits to {stats.titles|ci} articles</li>
@@ -52,7 +49,6 @@
     </section>
   </article>
   <!-- email-exclude -->
-  <div class="navigation"></div>
   <script>
     (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
     (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
