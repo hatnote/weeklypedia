@@ -1,5 +1,8 @@
--e git+https://github.com/mahmoud/clastic.git#egg=clastic 
+Werkzeug==0.9.4
+argparse==1.2.1
+-e git+https://github.com/mahmoud/clastic.git#egg=clastic
+docopt==0.4.0
+mailchimp==2.0.7
+requests==2.2.1
 -e git+https://github.com/slaporte/wapiti.git#egg=wapiti
-
-oursql==0.9.3.1
-flup==1.0.2
+wsgiref==0.1.2
