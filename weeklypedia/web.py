@@ -25,7 +25,7 @@ SITE_TEMPLATES_PATH = pjoin(_CUR_PATH, 'site_templates')
 
 ARCHIVE_BASE_PATH = pjoin(dirname(_CUR_PATH), 'static', 'archive')
 ARCHIVE_PATH_TMPL = '{lang_shortcode}/{date_str}{dev_flag}/weeklypedia_{date_str}{dev_flag}.{fmt}'
-ARCHIVE_PATH_HTML_TMPL = '/static/archive/{lang_shortcode}/{date_str}/{file_name}'
+ARCHIVE_PATH_HTML_TMPL = '/archive/{lang_shortcode}/{date_str}/{file_name}'
 ARCHIVE_INDEX_PATH_TMPL = ARCHIVE_BASE_PATH + '/{lang_shortcode}/index.html'
 ARCHIVE_PATH_TMPL = pjoin(ARCHIVE_BASE_PATH, ARCHIVE_PATH_TMPL)
 ARCHIVE_TITLE_TMPL = 'weeklypedia_{date_str}.html'
