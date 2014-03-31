@@ -1,5 +1,15 @@
-0 * * * *  /home/hatnote/virtualenvs/weeklypedia/bin/python  /home/hatnote/weeklypedia/weeklypedia/fetch.py --lang en
-3 * * * *  /home/hatnote/virtualenvs/weeklypedia/bin/python  /home/hatnote/weeklypedia/weeklypedia/fetch.py --lang de
+PYTHON_BIN=/home/hatnote/virtualenvs/weeklypedia/bin/python
+FETCH_SCRIPT=/home/hatnote/weeklypedia/weeklypedia/fetch.py
+LOG_BASE_PATH=/home/hatnote/weeklypedia/logs/cron_out
+
+0 * * * *  $PYTHON_BIN $FETCH_SCRIPT --lang ko >> $LOG_BASE_PATH/ko.txt 2>&1
+1 * * * *  $PYTHON_BIN $FETCH_SCRIPT --lang en >> $LOG_BASE_PATH/en.txt 2>&1
+3 * * * *  $PYTHON_BIN $FETCH_SCRIPT --lang de >> $LOG_BASE_PATH/de.txt 2>&1
+5 * * * *  $PYTHON_BIN $FETCH_SCRIPT --lang fr >> $LOG_BASE_PATH/fr.txt 2>&1
+7 * * * *  $PYTHON_BIN $FETCH_SCRIPT --lang et >> $LOG_BASE_PATH/et.txt 2>&1
+8 * * * *  $PYTHON_BIN $FETCH_SCRIPT --lang sv >> $LOG_BASE_PATH/sv.txt 2>&1
+10 * * * *  $PYTHON_BIN $FETCH_SCRIPT --lang it >> $LOG_BASE_PATH/it.txt 2>&1
+11 * * * *  $PYTHON_BIN $FETCH_SCRIPT --lang ca >> $LOG_BASE_PATH/ca.txt 2>&1
 
 # and so forth, now for the weekly publication
 
