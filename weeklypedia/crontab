@@ -11,14 +11,16 @@ LOG_BASE_PATH=/home/hatnote/weeklypedia/logs/cron_out
 10 * * * *  $PYTHON_BIN $FETCH_SCRIPT --lang it >> $LOG_BASE_PATH/it.txt 2>&1
 11 * * * *  $PYTHON_BIN $FETCH_SCRIPT --lang ca >> $LOG_BASE_PATH/ca.txt 2>&1
 
-# and so forth, now for the weekly publication
+# cron runs in the server's local timezone, eastern in this case
+# developer preview Thursday at 8:30pm Eastern
+30 20 * * 4 $PYTHON_BIN $PUBLISH_SCRIPT --lang en --debug
 
-# cron runs in the server's local timezone, eastern in this case take
-# this into account when scheduling publication time (might want to
-# try sending it out on friday morning, local time of primary
-# demographic
-
-# TODO: could set python bin path and script root path through a variable
-
-# English gets published at 6AM Eastern on Friday
-0 6 * * 5  /home/hatnote/virtualenvs/weeklypedia/bin/python  /home/hatnote/weeklypedia/weeklypedia/publish.py --lang en --list-key 1234
+# production jobs go out on Friday morning (TODO: localize)
+# These are arbitrarily spaced out by a couple minutes just to be safe
+30 4 * * 5 $PYTHON_BIN $PUBLISH_SCRIPT --lang ko $LOG_BASE_PATH/ko.txt 2>&1
+30 4 * * 5 $PYTHON_BIN $PUBLISH_SCRIPT --lang en $LOG_BASE_PATH/en.txt 2>&1
+30 4 * * 5 $PYTHON_BIN $PUBLISH_SCRIPT --lang de $LOG_BASE_PATH/de.txt 2>&1
+30 4 * * 5 $PYTHON_BIN $PUBLISH_SCRIPT --lang fr $LOG_BASE_PATH/fr.txt 2>&1
+31 4 * * 5 $PYTHON_BIN $PUBLISH_SCRIPT --lang et $LOG_BASE_PATH/et.txt 2>&1
+31 4 * * 5 $PYTHON_BIN $PUBLISH_SCRIPT --lang sv $LOG_BASE_PATH/sv.txt 2>&1
+31 4 * * 5 $PYTHON_BIN $PUBLISH_SCRIPT --lang it $LOG_BASE_PATH/it.txt 2>&1
