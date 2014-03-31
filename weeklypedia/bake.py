@@ -10,6 +10,7 @@ from fetch import get_latest_data_path
 
 from common import (DEFAULT_LANGUAGE,
                     DEFAULT_INTRO,
+                    CUSTOM_INTRO_PATH,
                     LANG_MAP,
                     SUBJECT_TMPL,
                     SUPPORTED_LANGS,
@@ -98,9 +99,17 @@ def get_next_issue_number(lang):
 
 
 def prep_latest_issue(lang=DEFAULT_LANGUAGE,
-                      intro=DEFAULT_INTRO,
+                      intro=None,
                       format=None,
                       include_dev=True):
+    if intro is None:
+        try:
+            intro = open(CUSTOM_INTRO_PATH).read()
+            intro = intro.decode('utf-8').strip()
+        except:
+            intro = None
+        if not intro:
+            intro = DEFAULT_INTRO
     issue_info = {'intro': intro,
                   'issue_number': get_next_issue_number(lang)}
     latest_issue_p = get_latest_data_path(lang, include_dev=include_dev)
