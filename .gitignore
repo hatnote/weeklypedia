@@ -4,6 +4,8 @@ venv/*
 logs/*
 *.py[cod]
 
+static/data/*
+
 weeklypedia*_dev.json
 weeklypedia*_dev.html
 weeklypedia*_dev.txt
