@@ -23,7 +23,7 @@ DATA_BASE_PATH = pjoin(dirname(_CUR_PATH), 'static', 'data')
 DATA_PATH_TMPL = '{lang_shortcode}/{date_str}{dev_flag}/weeklypedia_{lang_shortcode}_{date_str}{dev_flag}.json'
 DATA_PATH_TMPL = pjoin(DATA_BASE_PATH, DATA_PATH_TMPL)
 
-
+CUSTOM_INTRO_PATH = pjoin(DATA_BASE_PATH, 'custom_intro.txt')
 
 
 def mkdir_p(path):
