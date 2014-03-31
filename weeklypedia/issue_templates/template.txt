@@ -10,6 +10,16 @@ The WEEKLYPEDIA: Issue {issue_number}, {date} ({full_lang_name} Wikipedia Editio
 {@idx_1}{.}{/idx_1}. {title_s} ({edits|ci} changes by {users} authors)
 	https://{short_lang_name}.wikipedia.org/wiki/{title}
 {/mainspace}
+
+=== New Articles ===
+
+The ten most actively edited articles created within the last week:
+
+{#new_articles}
+{@idx_1}{.}{/idx_1}. {title_s} ({edits|ci} changes by {users} authors)
+    https://{short_lang_name}.wikipedia.org/wiki/{title}
+{/new_articles}
+
 === Discussions ===
 
 The most active discussions:
@@ -18,5 +28,15 @@ The most active discussions:
 {@idx_1}{.}{/idx_1}. {title_s}
 	https://{short_lang_name}.wikipedia.org/wiki/Talk:{title}
 {/talkspace}
+
+=== Stats ===
+
+A few numbers from last week:
+
+* {stats.users|ci} registered users and {stats.anon_ip_count|ci} unregistered users made {stats.edits|ci} edits to {stats.titles|ci} articles
+
+* Unregistered users made {stats.anon_edits|ci} edits to {stats.anon_titles|ci} articles
+
+* {stats.bot_count|ci} robots made {stats.bot_edits|ci} edits to {stats.bot_titles|ci} articles
 
 Learn more about the Weeklypedia Digest: http://weekly.hatnote.com/

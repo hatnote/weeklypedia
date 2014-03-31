@@ -3,6 +3,10 @@
 <head>
   <meta name="viewport" content="width=device-width" />
   <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+  <meta name="description" content="A weekly email digest with the most active Wikipedia articles">
+  <meta name="keywords" content="Wikipedia,email,digest,top,weeklypedia,hatnote">
+  <meta charset="utf-8" />
+  <link href="../../../css/style.css" rel="stylesheet" media="all">
   <title>the WEEKLYPEDIA ({full_lang_name}, Issue {issue_number})</title>
 </head>
 <body>
@@ -14,10 +18,10 @@
       <p><em>Issue {issue_number}, {date} ({full_lang_name} Wikipedia Edition)</em></p>
       <p>{intro}</p>
       <h2 id="articles">Articles</h2>
-      <p>{#stats}This week, {total_users|ci} authors made {edits|ci} contributions to {titles|ci} different articles.{/stats} The top 20 articles for the week:</p>
+      <p>{#stats}This week, {total_users|ci} authors made {edits|ci} changes to {titles|ci} different articles.{/stats} The top 20 articles for the week:</p>
       <ol>
         {#mainspace}
-        <li><a href="https://{short_lang_name}.wikipedia.org/wiki/{title}" target="_blank">{title_s}</a> ({edits|ci} contributions by {users} authors)</li>
+        <li><a href="https://{short_lang_name}.wikipedia.org/wiki/{title}" target="_blank">{title_s}</a> (<a href="https://{short_lang_name}.wikipedia.org/w/index.php?title={title}&diff={rev_ids.new}&oldid={rev_ids.old}">{edits|ci} changes</a> by {users} authors)</li>
         {/mainspace}
       </ol>
 
@@ -25,7 +29,7 @@
       <p>The ten most actively edited articles created within the last week.</p>
       <ol>
         {#new_articles}
-        <li><a href="https://{short_lang_name}.wikipedia.org/wiki/{title}" target="_blank">{title_s}</a> ({edits|ci} contributions by {users} authors)</li>
+        <li><a href="https://{short_lang_name}.wikipedia.org/wiki/{title}" target="_blank">{title_s}</a> ({edits|ci} changes by {users} authors)</li>
         {/new_articles}
       </ol>
 
