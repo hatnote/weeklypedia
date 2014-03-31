@@ -1,61 +1,68 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml" style="margin: 0;padding: 0;font: 'serif';font-size: 100%;line-height: 1.6;">
-<head style="margin: 0;padding: 0;font: 'serif';font-size: 100%;line-height: 1.6;">
-<meta name="viewport" content="width=device-width" style="margin: 0;padding: 0;font: 'serif';font-size: 100%;line-height: 1.6;">
-<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" style="margin: 0;padding: 0;font: 'serif';font-size: 100%;line-height: 1.6;">
-<title style="margin: 0;padding: 0;font: 'serif';font-size: 100%;line-height: 1.6;">the WEEKLYPEDIA ({full_lang_name}, Issue {issue_number})</title>
-
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+  <meta name="viewport" content="width=device-width" />
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+  <meta name="description" content="A weekly email digest with the most active Wikipedia articles">
+  <meta name="keywords" content="Wikipedia,email,digest,top,weeklypedia,hatnote">
+  <meta charset="utf-8" />
+  <!-- email-exclude -->
+  <link href="../../../css/style.css" rel="stylesheet" media="all">
+  <!-- end-email-exclude -->
+  <title>the WEEKLYPEDIA ({full_lang_name}, Issue {issue_number})</title>
 </head>
+<body>
+  <header>
+  <h1><span><em>the</em> WEEKLYPEDIA</span> </h1>
+  </header>
+  <article>
+    <section>
+      <p><em>Issue {issue_number}, {date} ({full_lang_name} Wikipedia Edition)</em></p>
+      <p>{intro}</p>
+      <h2 id="articles">Articles</h2>
+      <p>{#stats}This week, {total_users|ci} authors made {edits|ci} changes to {titles|ci} different articles.{/stats} The top 20 articles for the week:</p>
+      <ol>
+        {#mainspace}
+        <li><a href="https://{short_lang_name}.wikipedia.org/wiki/{title}" target="_blank">{title_s}</a> (<a href="https://{short_lang_name}.wikipedia.org/w/index.php?title={title}&diff={rev_ids.new}&oldid={rev_ids.old}">{edits|ci} changes</a> by {users} authors)</li>
+        {/mainspace}
+      </ol>
 
-<body bgcolor="#ede0ce" style="margin: 0;padding: 0;font: 'serif';font-size: 100%;line-height: 1.6;-webkit-font-smoothing: antialiased;-webkit-text-size-adjust: none;height: 100%;width: 100%;">
+      <h2 id="new-articles">New Articles</h2>
+      <p>The ten most actively edited articles created within the last week.</p>
+      <ol>
+        {#new_articles}
+        <li><a href="https://{short_lang_name}.wikipedia.org/wiki/{title}" target="_blank">{title_s}</a> ({edits|ci} changes by {users} authors)</li>
+        {/new_articles}
+      </ol>
 
-<!-- body -->
-<table class="body-wrap" style="margin: 0;padding: 20px;font: 'serif';font-size: 100%;line-height: 1.6;width: 100%;">
-        <tr style="margin: 0;padding: 0;font: 'serif';font-size: 100%;line-height: 1.6;">
-                <td style="margin: 0;padding: 0;font: 'serif';font-size: 100%;line-height: 1.6;"></td>
-                <td class="container" bgcolor="#fff" style="margin: 0 auto;padding: 0;font: 'serif';font-size: 100%;line-height: 1.6;border: 1px solid #f0f0f0;display: block;max-width: 600px;clear: both;">
+      <h2 id="discussions">Discussions</h2>
+      <p>The most active discussions:</p>
+      <ol>
+        {#talkspace}
+        <li><a href="https://{short_lang_name}.wikipedia.org/wiki/Talk:{title}" target="_blank">{title_s}</a></li>
+        {/talkspace}
+      </ol>
 
-                        <!-- content -->
-                        <div class="content" style="margin: 0 auto;padding: 20px;font: 'serif';font-size: 100%;line-height: 1.6;max-width: 600px;display: block;">
-                        <table style="margin: 0;padding: 0;font: 'serif';font-size: 100%;line-height: 1.6;width: 100%;">
-                                <tr style="margin: 0;padding: 0;font: 'serif';font-size: 100%;line-height: 1.6;">
-                                        <td style="margin: 0;padding: 0;font: 'serif';font-size: 100%;line-height: 1.6;">
-                                                <h1 style="margin: 40px 0 10px;padding: 0;font: 800 'serif';font-size: 36px;line-height: 1.2;text-transform: uppercase;margin-bottom: 15px;color: #000;font-weight: 200;text-align: center;border-top: 1px solid #222222;margin-top: 58px;"><span style="margin: 0;padding: 0 20px;font: 400 14px/21px;font-size: 100%;line-height: 1.6;text-transform: none;position: relative;top: -28px;background: #fff;"><em style="margin: 0;padding: 0;font: 'serif';font-size: 100%;line-height: 1.6;display: inline-block;padding-right: 20px;">the</em> WEEKLYPEDIA</span></h1>
-                                                <p style="margin: 0;padding: 0;font: 'serif';font-size: 14px;line-height: 1.6;margin-bottom: 10px;font-weight: normal;"><em style="margin: 0;padding: 0;font: 'serif';font-size: 100%;line-height: 1.6;">Issue {issue_number}, {date} ({full_lang_name} Wikipedia Edition)</em></p>
-                                                <p style="margin: 0;padding: 0;font: 'serif';font-size: 14px;line-height: 1.6;margin-bottom: 10px;font-weight: normal;">{intro}</p>
-                                                <h2 style="margin: 40px 0 10px;padding: 0;font: 800 'serif';font-size: 28px;line-height: 1.2;text-transform: uppercase;margin-bottom: 15px;color: #000;font-weight: 200;">Articles</h2>
-                                                <p style="margin: 0;padding: 0;font: 'serif';font-size: 14px;line-height: 1.6;margin-bottom: 10px;font-weight: normal;">{#stats}This week, {users|ci} authors made {edits|ci} contributions to {titles|ci} different articles.{/stats} The top 20 articles for the week:</p>
-                                                <ol style="margin: 0;padding: 0;font: 'serif';font-size: 14px;line-height: 1.6;margin-bottom: 10px;font-weight: normal;">
-                                                        {#mainspace}
-                                                        <li style="margin: 0;padding: 0;font: 'serif';font-size: 100%;line-height: 1.6;margin-left: 5px;list-style-position: inside;"><a href="https://{short_lang_name}.wikipedia.org/wiki/{title}" target="_blank" style="margin: 0;padding: 0;font: 'serif';font-size: 100%;line-height: 1.6;color: #348eda;">{title_s}</a> (<a href="//{short_lang_name}.wikipedia.org/w/index.php?title={title}&diff={rev_ids.new}&oldid={rev_ids.old}" style="margin: 0;padding: 0;font: 'serif';font-size: 100%;line-height: 1.6;color: #348eda;">{edits|ci} changes</a> by {users} authors)</li>
-                                                        {/mainspace}
-                                                </ol>
-                                                <h2 style="margin: 40px 0 10px;padding: 0;font: 800 'serif';font-size: 28px;line-height: 1.2;text-transform: uppercase;margin-bottom: 15px;color: #000;font-weight: 200;">New Articles</h2>
-                                                <p style="margin: 0;padding: 0;font: 'serif';font-size: 14px;line-height: 1.6;margin-bottom: 10px;font-weight: normal;">The ten most actively edited articles created this week:</p>
-                                                <ol style="margin: 0;padding: 0;font: 'serif';font-size: 14px;line-height: 1.6;margin-bottom: 10px;font-weight: normal;">
-                                                        {#new_articles}
-                                                        <li style="margin: 0;padding: 0;font: 'serif';font-size: 100%;line-height: 1.6;margin-left: 5px;list-style-position: inside;"><a href="https://{short_lang_name}.wikipedia.org/wiki/{title}" target="_blank" style="margin: 0;padding: 0;font: 'serif';font-size: 100%;line-height: 1.6;color: #348eda;">{title_s}</a> ({edits|ci} changes by {users} authors)</li>
-                                                        {/new_articles}
-                                                </ol>
-                                                <h2 style="margin: 40px 0 10px;padding: 0;font: 800 'serif';font-size: 28px;line-height: 1.2;text-transform: uppercase;margin-bottom: 15px;color: #000;font-weight: 200;">Discussions</h2>
-                                                <p style="margin: 0;padding: 0;font: 'serif';font-size: 14px;line-height: 1.6;margin-bottom: 10px;font-weight: normal;">The most active discussions:</p>
-                                                <ol style="margin: 0;padding: 0;font: 'serif';font-size: 14px;line-height: 1.6;margin-bottom: 10px;font-weight: normal;">
-                                                        {#talkspace}
-                                                        <li style="margin: 0;padding: 0;font: 'serif';font-size: 100%;line-height: 1.6;margin-left: 5px;list-style-position: inside;"><a href="https://{short_lang_name}.wikipedia.org/wiki/Talk:{title}" target="_blank" style="margin: 0;padding: 0;font: 'serif';font-size: 100%;line-height: 1.6;color: #348eda;">{title_s}</a></li>
-                                                        {/talkspace}
-                                                </ol>
-                                                <p style="margin: 0;padding: 0;font: 'serif';font-size: 14px;line-height: 1.6;margin-bottom: 10px;font-weight: normal;">Learn more about the <a href="http://weekly.hatnote.com" style="margin: 0;padding: 0;font: 'serif';font-size: 100%;line-height: 1.6;color: #348eda;">Weeklypedia Digest</a>
-                                        </p></td>
-                                </tr>
-                        </table>
-                        </div>
-                        <!-- /content -->
+      <h2 id="statistics">Stats</h2>
+      <p>A few numbers from last week:</p>
+      <ul>
+        <li>{stats.users|ci} registered users and {stats.anon_ip_count|ci} unregistered users made {stats.edits|ci} edits to {stats.titles|ci} articles</li>
+        <li>Unregistered users made {stats.anon_edits|ci} edits to {stats.anon_titles|ci} articles</li>
+        <li>{stats.bot_count|ci} robots made {stats.bot_edits|ci} edits to {stats.bot_titles|ci} articles</li>
+      </ul>
+      <p>Learn more about the <a href="http://weekly.hatnote.com">Weeklypedia Digest</a></p>
 
-                </td>
-                <td style="margin: 0;padding: 0;font: 'serif';font-size: 100%;line-height: 1.6;"></td>
-        </tr>
-</table>
-<!-- /body -->
-
+    </section>
+  </article>
+  <!-- email-exclude -->
+  <script>
+    (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+    (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+    m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+    })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+    ga('create', 'UA-40320359-1', 'hatnote.com');
+    ga('send', 'pageview');
+  </script>
+  <!-- end-email-exclude -->
 </body>
 </html>

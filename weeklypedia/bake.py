@@ -20,7 +20,7 @@ _CUR_PATH = dirname(os.path.abspath(__file__))
 
 INDEX_PATH = pjoin(dirname(_CUR_PATH), 'static', 'index.html')
 ARCHIVE_BASE_PATH = pjoin(dirname(_CUR_PATH), 'static', 'archive')
-ARCHIVE_PATH_TMPL = '{lang_shortcode}/{date_str}{dev_flag}/weeklypedia_{date_str}{dev_flag}.{fmt}'
+ARCHIVE_PATH_TMPL = '{lang_shortcode}/{date_str}{dev_flag}/weeklypedia_{date_str}{dev_flag}{email_flag}.{fmt}'
 ARCHIVE_PATH_HTML_TMPL = '{date_str}/{file_name}'
 ARCHIVE_TITLE_TMPL = 'weeklypedia_{date_str}.html'
 ARCHIVE_INDEX_PATH_TMPL = ARCHIVE_BASE_PATH + '/{lang_shortcode}/index.html'
@@ -43,11 +43,11 @@ class Issue(object):
         else:
             issue_path = sorted(past_issue_paths)[-1]
         self.fns = os.listdir(issue_path)
-        html_path = [fn for fn in self.fns if fn.endswith('.html')][0]
+        email_html_path = [fn for fn in self.fns if fn.endswith('_e.html')][0]
         text_path = [fn for fn in self.fns if fn.endswith('.txt')][0]
         json_path = [fn for fn in self.fns if fn.endswith('.json')][0]
         info = json.load(open(pjoin(issue_path, json_path)))
-        self.html_path = pjoin(issue_path, html_path)
+        self.email_html_path = pjoin(issue_path, email_html_path)
         self.text_path = pjoin(issue_path, text_path)
         self.number = info['issue_number']
         self.subject = custom_subject
@@ -57,7 +57,7 @@ class Issue(object):
 
 
     def read_html(self):
-        return open(self.html_path).read()
+        return open(self.email_html_path).read()
 
 
     def read_text(self):
@@ -124,7 +124,7 @@ def bake_latest_issue(issue_ashes_env,
                       include_dev=True):
     ret = {'issues': []}
     issue_data = prep_latest_issue(lang, intro, include_dev)
-    for fmt in ('html', 'json', 'txt'):
+    for fmt in ('html', 'json', 'txt', 'email'):
         rendered = render_issue(issue_data, issue_ashes_env, format=fmt)
         issue = save_issue(fmt, rendered, lang, issue_ashes_env)
         ret['issues'].append(issue)
@@ -139,8 +139,8 @@ def render_issue(render_ctx, issue_ashes_env, intro=DEFAULT_INTRO, format=None):
 
     if format == 'html':
         ret = issue_ashes_env.render('template.html', render_ctx)
-    elif format == 'web':
-        ret = issue_ashes_env.render('template_archive.html', render_ctx)
+    elif format == 'email':
+        ret = issue_ashes_env.render('email.html', render_ctx)
     else:
         ret = issue_ashes_env.render('template.txt', render_ctx)
     return ret.encode('utf-8')
@@ -150,9 +150,13 @@ def save_issue(fmt, rendered, lang, is_dev):
     fargs = {'fmt': fmt,
              'date_str': datetime.utcnow().strftime('%Y%m%d'),
              'lang_shortcode': lang,
-             'dev_flag': ''}
+             'dev_flag': '',
+             'email_flag': ''}
     if is_dev:
         fargs['dev_flag'] = '_dev'
+    if fmt == 'email':
+        fargs['email_flag'] = '_e'
+        fargs['fmt'] = '.html'
     out_path = ARCHIVE_PATH_TMPL.format(**fargs)
     try:
         out_file = open(out_path, 'w')
