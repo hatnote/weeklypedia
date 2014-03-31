@@ -156,7 +156,7 @@ def save_issue(fmt, rendered, lang, is_dev):
         fargs['dev_flag'] = '_dev'
     if fmt == 'email':
         fargs['email_flag'] = '_e'
-        fargs['fmt'] = '.html'
+        fargs['fmt'] = 'html'
     out_path = ARCHIVE_PATH_TMPL.format(**fargs)
     try:
         out_file = open(out_path, 'w')
