@@ -15,6 +15,7 @@ DEBUG_LIST_ID = "a5ecbc7404"
 _CUR_PATH = dirname(os.path.abspath(__file__))
 
 LANG_MAP = json.load(open(pjoin(_CUR_PATH, 'language_codes.json')))
+SENDKEY = json.load(open(os.path.join(_CUR_PATH, 'secrets.json'))).get('key')
 SUPPORTED_LANGS = ['en', 'de', 'fr', 'ko', 'et', 'sv', 'it', 'ca']
 API_BASE_URL = 'http://tools.wmflabs.org/weeklypedia/fetch/'
 
