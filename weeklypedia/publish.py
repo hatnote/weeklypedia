@@ -16,13 +16,14 @@ from bake import (Issue,
                   SUPPORTED_LANGS)
 
 _CUR_PATH = dirname(os.path.abspath(__file__))
-IDS = json.load(open(os.path.join(_CUR_PATH, 'secrets.json'))).get('list_ids')
+LIST_ID_MAP = json.load(open(os.path.join(_CUR_PATH, 'secrets.json'))).get('list_ids')
 
 
 def send_issue(lang, is_dev=False):
-    list_id = IDS.get(lang)
     if is_dev:
         list_id = DEBUG_LIST_ID
+    else:
+        list_id = LIST_ID_MAP[lang]
     cur_issue = Issue(lang, include_dev=is_dev)
     return cur_issue.send(list_id, SENDKEY)
 
