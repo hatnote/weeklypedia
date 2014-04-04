@@ -1,5 +1,6 @@
 PYTHON_BIN=/home/hatnote/virtualenvs/weeklypedia/bin/python
 FETCH_SCRIPT=/home/hatnote/weeklypedia/weeklypedia/fetch.py
+PUBLISH_SCRIPT=/home/hatnote/weeklypedia/weeklypedia/publish.py
 LOG_BASE_PATH=/home/hatnote/weeklypedia/logs/cron_out
 
 0 * * * *  $PYTHON_BIN $FETCH_SCRIPT --lang ko >> $LOG_BASE_PATH/ko.txt 2>&1
@@ -17,10 +18,10 @@ LOG_BASE_PATH=/home/hatnote/weeklypedia/logs/cron_out
 
 # production jobs go out on Friday morning (TODO: localize)
 # These are arbitrarily spaced out by a couple minutes just to be safe
-30 4 * * 5 $PYTHON_BIN $PUBLISH_SCRIPT --lang ko $LOG_BASE_PATH/ko.txt 2>&1
-30 4 * * 5 $PYTHON_BIN $PUBLISH_SCRIPT --lang en $LOG_BASE_PATH/en.txt 2>&1
-30 4 * * 5 $PYTHON_BIN $PUBLISH_SCRIPT --lang de $LOG_BASE_PATH/de.txt 2>&1
-30 4 * * 5 $PYTHON_BIN $PUBLISH_SCRIPT --lang fr $LOG_BASE_PATH/fr.txt 2>&1
-31 4 * * 5 $PYTHON_BIN $PUBLISH_SCRIPT --lang et $LOG_BASE_PATH/et.txt 2>&1
-31 4 * * 5 $PYTHON_BIN $PUBLISH_SCRIPT --lang sv $LOG_BASE_PATH/sv.txt 2>&1
-31 4 * * 5 $PYTHON_BIN $PUBLISH_SCRIPT --lang it $LOG_BASE_PATH/it.txt 2>&1
+30 6 * * 5 $PYTHON_BIN $PUBLISH_SCRIPT --lang ko >> $LOG_BASE_PATH/ko.txt 2>&1
+30 6 * * 5 $PYTHON_BIN $PUBLISH_SCRIPT --lang en >> $LOG_BASE_PATH/en.txt 2>&1
+30 6 * * 5 $PYTHON_BIN $PUBLISH_SCRIPT --lang de >> $LOG_BASE_PATH/de.txt 2>&1
+30 6 * * 5 $PYTHON_BIN $PUBLISH_SCRIPT --lang fr >> $LOG_BASE_PATH/fr.txt 2>&1
+31 6 * * 5 $PYTHON_BIN $PUBLISH_SCRIPT --lang et >> $LOG_BASE_PATH/et.txt 2>&1
+31 6 * * 5 $PYTHON_BIN $PUBLISH_SCRIPT --lang sv >> $LOG_BASE_PATH/sv.txt 2>&1
+31 6 * * 5 $PYTHON_BIN $PUBLISH_SCRIPT --lang it >> $LOG_BASE_PATH/it.txt 2>&1
