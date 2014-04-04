@@ -1,22 +1,10 @@
-Hello again! After a precarious wait, Weeklypedia is back and better
-than ever. How has Weeklypedia improved you ask? Here's the short version:
+Hello again! After our not-so-brief hiatus, Weeklypedia is back and better than ever. How has Weeklypedia improved you ask? Here's the short version:
 
-<ul>
-<li><b>New sections!</b> "New Articles" highlights articles created
-within the last week. "Statistics" summarizes some numbers for you
-quants out there.</li>
-<li><b>Archives!</b> The most-frequently requested feature, a
-non-email version for easy linkage and reference. 
-<a href="http://weekly.hatnote.com/archive.html">View them here.</a></li>
-<li><b>More accurate!</b> We've discovered and squared away a couple
-inconsistencies in the rollups.</li>
-<li><b>Robustified!</b> Weeklypedia now reacts much better to
-Wikipedia database downtime and other availability issues.</li>
-<li><b>Fully automated!</b> The first trial issues of Weeklypedia were
-manual affairs.</li> 
-</ul>
+  + New sections! "New Articles" highlights articles created within the last week. "Statistics" summarizes some numbers for you quants out there.
+  + Archives! The most-frequently requested feature, a non-email version for easy linkage and reference. View them here: http://weekly.hatnote.com/archive.html
+  + More accurate! We've discovered and squared away a couple inconsistencies in the old rollup algorithms.
+  + Diffs! Articles are accompanied with links for a merged diff of all the changes to the article during that week.
+  + Robustification! Weeklypedia now reacts much better to Wikipedia database downtime and other availability issues.
+  + Full automation! The first trial issues of Weeklypedia were manual affairs. No longer!
 
-Just to be extra-clear. In spite of the lengthy gap between alpha and
-beta versions, the new version's automation should ensure timely
-regular delivery for all Weeklypedians. Thanks for bearing with us and
-continue to forward widely!
+This new Weeklypedia's automation should ensure timely and reliable delivery for all Weeklypedians. Thanks for bearing with us, enjoy this week's issue, and continue to forward widely!
