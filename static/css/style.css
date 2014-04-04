@@ -3,6 +3,9 @@ body {
   background-color: rgb(237, 224, 206);
   -webkit-font-smoothing: antialiased;
 }
+#intro {
+    white-space: pre-wrap;
+}
 article, header {
   background-color: #fff;
   color: #222222;
