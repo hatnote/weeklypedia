@@ -10,6 +10,7 @@ from fetch import get_latest_data_path
 
 from common import (DEFAULT_LANGUAGE,
                     DEFAULT_INTRO,
+                    DEBUG,
                     CUSTOM_INTRO_PATH,
                     LANG_MAP,
                     SUBJECT_TMPL,
@@ -32,7 +33,7 @@ class Issue(object):
                  lang,
                  custom_issue=None,
                  custom_subject=None,
-                 include_dev=True):
+                 include_dev=DEBUG):
         self.lang = lang
         self.full_lang_name = LANG_MAP[lang]
         past_issue_paths = get_past_issue_paths(lang, include_dev=include_dev)
@@ -79,7 +80,7 @@ def get_past_issue_paths(lang, include_dev=False):
     lang_path = pjoin(ARCHIVE_BASE_PATH, lang)
     if not os.path.isdir(lang_path):
         return ret
-    past_issue_fns = os.listdir(lang_path)
+    past_issue_fns = sorted(os.listdir(lang_path))
     for fn in past_issue_fns:
         if not include_dev and fn.endswith('_dev'):
             continue
@@ -100,8 +101,7 @@ def get_next_issue_number(lang):
 
 def prep_latest_issue(lang=DEFAULT_LANGUAGE,
                       intro=None,
-                      format=None,
-                      include_dev=True):
+                      include_dev=DEBUG):
     if intro is None:
         try:
             intro = open(CUSTOM_INTRO_PATH).read()
@@ -121,12 +121,12 @@ def prep_latest_issue(lang=DEFAULT_LANGUAGE,
 def bake_latest_issue(issue_ashes_env,
                       lang=DEFAULT_LANGUAGE,
                       intro=None,
-                      include_dev=True):
+                      include_dev=DEBUG):
     ret = {'issues': []}
     issue_data = prep_latest_issue(lang, intro, include_dev)
     for fmt in ('html', 'json', 'txt', 'email'):
         rendered = render_issue(issue_data, issue_ashes_env, format=fmt)
-        issue = save_issue(fmt, rendered, lang, issue_ashes_env)
+        issue = save_issue(fmt, rendered, lang, is_dev=include_dev)
         ret['issues'].append(issue)
     ret['archives'] = render_and_save_archives(issue_ashes_env)
     return ret
