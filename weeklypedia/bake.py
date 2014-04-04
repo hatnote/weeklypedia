@@ -120,7 +120,7 @@ def prep_latest_issue(lang=DEFAULT_LANGUAGE,
 
 def bake_latest_issue(issue_ashes_env,
                       lang=DEFAULT_LANGUAGE,
-                      intro=DEFAULT_INTRO,
+                      intro=None,
                       include_dev=True):
     ret = {'issues': []}
     issue_data = prep_latest_issue(lang, intro, include_dev)
