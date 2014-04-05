@@ -25,3 +25,4 @@ LOG_BASE_PATH=/home/hatnote/weeklypedia/logs/cron_out
 31 6 * * 5 $PYTHON_BIN $PUBLISH_SCRIPT --lang et >> $LOG_BASE_PATH/et.txt 2>&1
 31 6 * * 5 $PYTHON_BIN $PUBLISH_SCRIPT --lang sv >> $LOG_BASE_PATH/sv.txt 2>&1
 31 6 * * 5 $PYTHON_BIN $PUBLISH_SCRIPT --lang it >> $LOG_BASE_PATH/it.txt 2>&1
+31 6 * * 5 $PYTHON_BIN $PUBLISH_SCRIPT --lang ca >> $LOG_BASE_PATH/ca.txt 2>&1
