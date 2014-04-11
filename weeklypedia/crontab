@@ -9,6 +9,7 @@ LOG_BASE_PATH=/home/hatnote/weeklypedia/logs/cron_out
 5 * * * *  $PYTHON_BIN $FETCH_SCRIPT --lang fr >> $LOG_BASE_PATH/fr.txt 2>&1
 7 * * * *  $PYTHON_BIN $FETCH_SCRIPT --lang et >> $LOG_BASE_PATH/et.txt 2>&1
 8 * * * *  $PYTHON_BIN $FETCH_SCRIPT --lang sv >> $LOG_BASE_PATH/sv.txt 2>&1
+9 * * * *  $PYTHON_BIN $FETCH_SCRIPT --lang da >> $LOG_BASE_PATH/da.txt 2>&1
 10 * * * *  $PYTHON_BIN $FETCH_SCRIPT --lang it >> $LOG_BASE_PATH/it.txt 2>&1
 11 * * * *  $PYTHON_BIN $FETCH_SCRIPT --lang ca >> $LOG_BASE_PATH/ca.txt 2>&1
 
@@ -24,4 +25,6 @@ LOG_BASE_PATH=/home/hatnote/weeklypedia/logs/cron_out
 30 6 * * 5 $PYTHON_BIN $PUBLISH_SCRIPT --lang fr >> $LOG_BASE_PATH/fr.txt 2>&1
 31 6 * * 5 $PYTHON_BIN $PUBLISH_SCRIPT --lang et >> $LOG_BASE_PATH/et.txt 2>&1
 31 6 * * 5 $PYTHON_BIN $PUBLISH_SCRIPT --lang sv >> $LOG_BASE_PATH/sv.txt 2>&1
+31 6 * * 5 $PYTHON_BIN $PUBLISH_SCRIPT --lang da >> $LOG_BASE_PATH/da.txt 2>&1
 31 6 * * 5 $PYTHON_BIN $PUBLISH_SCRIPT --lang it >> $LOG_BASE_PATH/it.txt 2>&1
+32 6 * * 5 $PYTHON_BIN $PUBLISH_SCRIPT --lang ca >> $LOG_BASE_PATH/ca.txt 2>&1
