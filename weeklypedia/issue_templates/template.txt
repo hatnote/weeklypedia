@@ -4,7 +4,7 @@ The WEEKLYPEDIA: Issue {issue_number}, {date} ({full_lang_name} Wikipedia Editio
 
 === Articles ===
 
-{#stats}This week, {users|ci} authors made {edits|ci} contributions to {titles|ci} different articles.{/stats} The top 20 articles for the week:
+{#stats}This week, {total_users|ci} authors made {edits|ci} contributions to {titles|ci} different articles.{/stats} The top 20 articles for the week:
 
 {#mainspace}
 {@idx_1}{.}{/idx_1}. {title_s} ({edits|ci} changes by {users} authors)
