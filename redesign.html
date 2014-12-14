@@ -1,0 +1,255 @@
+
+<html>
+<head>
+  <title>Weeklypedia</title>
+  <meta name="description" content="A weekly email digest with the most active Wikipedia articles">
+  <meta name="keywords" content="Wikipedia,email,digest,top,weeklypedia,hatnote">
+  <meta charset="utf-8" />
+  <link href="http://fonts.googleapis.com/css?family=PT+Sans:400,700" rel="stylesheet" type="text/css">
+  <script src="./static/js/jquery.min.js"></script>
+  <style>
+  body {
+  margin: 5em 0;
+   background:url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAYAAAAGCAYAAADgzO9IAAAALElEQVQIW2NkwAKUlJT+M6KLgwTv3bvHiCIBEwQphksgC8Il0AXBEtgEQRIAiVQVbL6uiJkAAAAASUVORK5CYII=) repeat;
+    -webkit-font-smoothing: antialiased;
+    font-family: 'PT Sans', sans-serif;
+}
+#intro {
+    white-space: pre-wrap;
+}
+.main, .header {
+  background-color: #fff;
+  color: #222222;
+  margin: auto;
+  padding: 1.5em;
+  width: 600px;
+}
+.content {
+  padding-bottom: 1em;
+}
+.header {
+  background-color: #fff;
+  text-align: center;
+  padding-bottom: 0;
+  padding: 1.5em;
+}
+.header h1 {
+  border-top: 1px solid #222222;
+  color: #222;
+  margin: 1em 0 0 0;
+}
+.header em {
+  font-weight: 400;
+}
+.header h1 span {
+  background: #fff;
+  padding: 0 20px;
+  position: relative;
+  top: -20px;
+  font-weight: 700;
+}
+.header p {
+  font-style: italic;
+  margin-top: -10px;
+}
+.announce {
+  width: 600px;
+  padding: 0.1em 1.5em;
+  margin: 0 auto;
+  background: rgb(245, 245, 245);
+}
+.announce p {
+  text-align: center;
+  padding: 0.5em;
+  font: 700 12pt;
+}
+.announce .date {
+  font: 300 12pt;
+}
+.announce .more {
+  font: 400 12pt;
+}
+.preview-area {
+  border: 2px solid #6C6C6C;
+  padding: 1em;
+}
+.preview-area p {
+  text-align: left;
+}
+label {
+  vertical-align: top;
+}
+p {
+  color: #383838;
+  line-height: 1.5em;
+  font: 400 12pt;
+}
+h2 {
+  margin: 0.5em 0 0 0 ;
+  text-transform: uppercase;
+  font-weight: 200;
+  line-height: 1.2;
+  font-size: 28px;
+}
+ol {
+  line-height: 1.5em;
+}
+a {
+  color: #348eda;
+}
+a:hover {
+  color: red;
+}
+.lang-links h2 {
+  text-align: center;
+  
+  margin-top: 0.3em;
+  padding: 0.5em;
+}
+.buttons {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  width: 100%;
+  overflow: hidden;
+}
+.buttons li {
+  line-height: 1.5em;
+  text-decoration: none;
+  font-weight: 700;
+  letter-spacing: 1px;
+  
+  
+  margin: 0.5em 0;
+  overflow: hidden;
+  text-align: center;
+}
+.buttons li a {
+  text-decoration: none;
+  color: #000;
+  display: block;
+  border: 2px solid #6C6C6C;
+  background: none;
+  padding: 0.5em 0px;
+}
+.buttons li a:hover {
+  background-color: #6C6C6C;
+  color: #fff;
+}
+.button {
+  width: 20em;
+}
+
+#archive {
+  background-color: #6C6C6C;
+  margin-top: 0.5em;
+}
+
+button {
+  position: relative;
+  padding: 1em;
+  border: none;
+  background-color: #e85657;
+  color: #f9f6e5;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  font-weight: 700;
+  
+  overflow: hidden;
+  width: 100%;
+  
+  text-decoration: none;
+  outline: none;
+  font-family: inherit;
+  font-size: 100%;
+  margin: 0;
+  -webkit-appearance: button;
+  cursor: pointer;
+}
+
+  </style>
+<script>
+$(function() {
+  $('.lang-links').hide();
+  $('#signup').click(function() {
+    $('.signup-links').slideToggle();
+  });
+  $('#archive').click(function() {
+    $('.archive-links').slideToggle();
+  });
+});
+</script>
+</head>
+<body>
+  <div class="header">
+    <h1><span><em>the</em> WEEKLYPEDIA</span> </h1>
+    <p>A list of the most edited Wikipedia articles and discussions from the last week.</p>
+    <p>Delivered every Friday by email.</p>
+  </div>
+  <div class="announce">
+    <p><strong>Next issue</strong>: <span class="date">November 27, 2014 (Issue 36)</span></p>
+  </div>
+  <div class="main">
+    <div class="content">
+      <p>Join a list to receive a weekly email with the top twenty Wikipedia articles and top five Wikipedia discussions from this week.</p>
+      <button type="button" id="signup"><span>Sign up!</span></button>
+      
+      <div class="lang-links signup-links">
+        <h2>Which language?</h2>
+        <ul class="buttons">
+          <li><a href="http://eepurl.com/MMlpX">English Wikipedia Edition</a></li>
+          <li><a href="http://eepurl.com/MMlG9">German Wikipedia Edition</a></li>
+          <li><a href="http://eepurl.com/MMmVX">French Wikipedia Edition</a></li>
+          <li><a href="http://eepurl.com/MMm8n">Korean Wikipedia Edition</a></li>
+          <li><a href="http://eepurl.com/MMnlf">Estonian Wikipedia Edition</a></li>
+          <li><a href="http://eepurl.com/MMTnP">Swedish Wikipedia Edition</a></li>
+          <li><a href="http://eepurl.com/Sko4L">Danish Wikipedia Edition</a></li>
+          <li><a href="http://eepurl.com/MQTPb">Italian Wikipedia Edition</a></li>
+          <li><a href="http://eepurl.com/M7HU9">Catalan Wikipedia Edition</a></li>
+        </ul>
+        <h2>Other languages</h2>
+        <p>Wikipedia is available in over 280 languages. To request a list in any other language (or help translate the template text) please <a href="mailto:stephen.laporte@gmail.com">email me</a>  or submit an <a href="https://github.com/hatnote/weeklypedia/issues">issue on GitHub</a>.
+      </div>
+      
+    </div>
+    <div class="content">
+      <div class="preview-area">
+      <p><strong>Last week, in Issue 35</strong>: 104,712 authors made 622,667 changes to 264,881 articles. The top articles for the week:</p>
+        <ol>
+          <li>Interstellar (film) (382 changes by 98 authors)</li>
+          <li>Gamergate controversy (353 changes by 53 authors)</li>
+          <li>Deaths in 2014 (322 changes by 70 authors)</li>
+        </ol>
+      </div>
+      <button type="button" id="archive"><span>Read the archive</span></button>
+      <div class="lang-links archive-links">
+        <h2>Archives for...</h2>
+        <ul class="buttons">
+          <li><a href="http://eepurl.com/MMlpX">English Wikipedia Edition</a></li>
+          <li><a href="http://eepurl.com/MMlG9">German Wikipedia Edition</a></li>
+          <li><a href="http://eepurl.com/MMmVX">French Wikipedia Edition</a></li>
+          <li><a href="http://eepurl.com/MMm8n">Korean Wikipedia Edition</a></li>
+          <li><a href="http://eepurl.com/MMnlf">Estonian Wikipedia Edition</a></li>
+          <li><a href="http://eepurl.com/MMTnP">Swedish Wikipedia Edition</a></li>
+          <li><a href="http://eepurl.com/Sko4L">Danish Wikipedia Edition</a></li>
+          <li><a href="http://eepurl.com/MQTPb">Italian Wikipedia Edition</a></li>
+          <li><a href="http://eepurl.com/M7HU9">Catalan Wikipedia Edition</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="content">
+      <h2>About</h2>
+      <p>This project retrieves a list of the week's recent changes using <a href="http://tools.wmflabs.org/">Wikimedia Tool Labs</a>, and delivers emails using MailChimp. Code and more information <a href="https://github.com/hatnote/weeklypedia">available on GitHub</a>. Built by <a href="https://github.com/slaporte">Stephen LaPorte</a> and <a href="https://github.com/mahmoud">Mahmoud Hashemi</a>.</p>
+      <p><a href="http://blog.hatnote.com/">Learn more on the Hatnote blog</a>.</p>
+    </div>
+  </div>
+  <script>
+    (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+    (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+    m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+    })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+    ga('create', 'UA-40320359-1', 'hatnote.com');
+    ga('send', 'pageview');
+  </script>
+</body>
+</html>
