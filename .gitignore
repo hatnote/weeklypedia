@@ -1,10 +1,13 @@
 secrets.py
 secrets.json
+static.tar.gz
+static/*
 venv/*
 logs/*
 *.py[cod]
 
 static/data/*
+weeklypedia/fake/*
 
 weeklypedia*_dev.json
 weeklypedia*_dev.html
