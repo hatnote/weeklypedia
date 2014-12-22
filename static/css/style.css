@@ -1,59 +1,82 @@
 body {
   margin: 5em 0;
-  background-color: rgb(237, 224, 206);
+  background:url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAYAAAAGCAYAAADgzO9IAAAALElEQVQIW2NkwAKUlJT+M6KLgwTv3bvHiCIBEwQphksgC8Il0AXBEtgEQRIAiVQVbL6uiJkAAAAASUVORK5CYII=) repeat;
   -webkit-font-smoothing: antialiased;
+  font-family: 'PT Sans', sans-serif;
 }
 #intro {
     white-space: pre-wrap;
 }
-article, header {
+.main, .header {
   background-color: #fff;
   color: #222222;
   margin: auto;
   padding: 1.5em;
   width: 600px;
 }
-header {
+.content {
+  padding-bottom: 1em;
+}
+.header {
   background-color: #fff;
   text-align: center;
   padding-bottom: 0;
-}
-header.main {
   padding: 1.5em;
 }
-header h1 {
+.header h1 {
   border-top: 1px solid #222222;
   color: #222;
   margin: 1em 0 0 0;
 }
-header h1 span {
+.header em {
+  font-weight: 400;
+}
+.header h1 span {
   background: #fff;
   padding: 0 20px;
   position: relative;
   top: -20px;
-  font-weight: 200;
+  font-weight: 700;
 }
-header p {
+.header p {
   font-style: italic;
   margin-top: -10px;
 }
-section.announce {
+.announce {
   width: 600px;
   padding: 0.1em 1.5em;
   margin: 0 auto;
   background: rgb(245, 245, 245);
 }
-section.announce p {
+.announce p {
   text-align: center;
   padding: 0.5em;
-  font: 800 12pt serif;
+  font: 700 12pt;
 }
-section.announce .date {
-  font: 300 12pt serif;
+.announce .date {
+  font: 300 12pt;
 }
-section.announce .more {
-  font: 400 12pt serif;
-  margin-top: -1.5em;
+.announce .more {
+  font: 400 12pt;
+}
+.preview-area {
+  border: 2px solid #6C6C6C;
+  padding: 1em;
+}
+.preview-area p {
+  text-align: left;
+}
+.read-full {
+  display: block;
+  text-align: center;
+  margin: 0;
+  background-color: #F5F5F5;
+  padding: 0.5em;
+  text-decoration: none;
+}
+.read-full:hover {
+  color: #e85657;
+  background-color: #fff;
 }
 label {
   vertical-align: top;
@@ -61,10 +84,10 @@ label {
 p {
   color: #383838;
   line-height: 1.5em;
-  font: 400 12pt serif;
+  font: 400 12pt;
 }
 h2 {
-  margin: 0;
+  margin: 0.5em 0 0 0 ;
   text-transform: uppercase;
   font-weight: 200;
   line-height: 1.2;
@@ -79,10 +102,102 @@ a {
 a:hover {
   color: red;
 }
+.lang-links h2 {
+  text-align: center;
+  
+  margin-top: 0.3em;
+  padding: 0.5em;
+}
+.buttons {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  width: 100%;
+  overflow: hidden;
+}
 .buttons li {
-  font: 400 12pt serif;
   line-height: 1.5em;
+  text-decoration: none;
+  font-weight: 700;
+  letter-spacing: 1px;
+  
+  
+  margin: 0.5em 0;
+  overflow: hidden;
+  text-align: center;
+}
+.buttons li a {
+  text-decoration: none;
+  color: #000;
+  display: block;
+  border: 2px solid #6C6C6C;
+  background: none;
+  padding: 0.5em 0px;
+}
+.archive-list li {
+  width: 49%;
+  display: inline-block;
+  margin: 0;
+}
+.buttons li a:hover {
+  background-color: #6C6C6C;
+  color: #fff;
 }
 .button {
   width: 20em;
+}
+
+#archive {
+  background-color: #6C6C6C;
+  margin-top: 0.5em;
+}
+.breadcrumb {
+  margin: 0;
+  padding: 1em 0;
+}
+.breadcrumb a {
+  text-decoration: none;
+}
+.breadcrumb li {
+    display: inline;
+}
+.breadcrumb li + li:before {
+    content:"» ";
+}
+button {
+  position: relative;
+  padding: 1em;
+  border: none;
+  background-color: #e85657;
+  color: #f9f6e5;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  font-weight: 700;
+  
+  overflow: hidden;
+  width: 100%;
+  
+  text-decoration: none;
+  outline: none;
+  font-family: inherit;
+  font-size: 100%;
+  margin: 0;
+  -webkit-appearance: button;
+  cursor: pointer;
+}
+
+a.signup {
+  background-color: #e85657;
+  color: #f9f6e5;
+  text-align: center;
+  display: block;
+  padding: 1em;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  font-weight: 700;
+  text-decoration: none;
+}
+a.signup:hover {
+  background-color: #F5F5F5;
+  color: #e85657;
 }

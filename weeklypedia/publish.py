@@ -13,6 +13,7 @@ from web import (comma_int,
 
 from bake import (Issue,
                   bake_latest_issue,
+                  render_index,
                   SUPPORTED_LANGS)
 
 _CUR_PATH = dirname(os.path.abspath(__file__))

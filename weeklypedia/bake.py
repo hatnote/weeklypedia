@@ -8,13 +8,15 @@ from os.path import dirname, join as pjoin
 from mail import Mailinglist, KEY
 from fetch import get_latest_data_path
 
-from common import (DEFAULT_LANGUAGE,
+from common import (DATA_BASE_PATH,
+                    DEFAULT_LANGUAGE,
                     DEFAULT_INTRO,
                     DEBUG,
                     CUSTOM_INTRO_PATH,
                     LANG_MAP,
                     SUBJECT_TMPL,
                     SUPPORTED_LANGS,
+                    SIGNUP_MAP,
                     mkdir_p)
 
 _CUR_PATH = dirname(os.path.abspath(__file__))
@@ -24,6 +26,7 @@ ARCHIVE_BASE_PATH = pjoin(dirname(_CUR_PATH), 'static', 'archive')
 ARCHIVE_PATH_TMPL = '{lang_shortcode}/{date_str}{dev_flag}/weeklypedia_{date_str}{dev_flag}{email_flag}.{fmt}'
 ARCHIVE_PATH_HTML_TMPL = '{date_str}/{file_name}'
 ARCHIVE_TITLE_TMPL = 'weeklypedia_{date_str}.html'
+ARCHIVE_DATA_TITLE_TMPL = 'weeklypedia_{date_str}.json'
 ARCHIVE_INDEX_PATH_TMPL = ARCHIVE_BASE_PATH + '/{lang_shortcode}/index.html'
 ARCHIVE_PATH_TMPL = pjoin(ARCHIVE_BASE_PATH, ARCHIVE_PATH_TMPL)
 
@@ -99,6 +102,16 @@ def get_next_issue_number(lang):
     return get_current_issue_number(lang=lang) + 1
 
 
+def get_issue_data(lang, date):
+    arch_data_title = ARCHIVE_DATA_TITLE_TMPL.format(date_str=date)
+    archive_data_path = ARCHIVE_PATH_HTML_TMPL.format(lang_shortcode=lang,
+                                                      date_str=date,
+                                                      file_name=arch_data_title)
+    archive_file = os.path.join(ARCHIVE_BASE_PATH, lang, archive_data_path)
+    issue_data = json.load(open(archive_file))
+    return issue_data
+
+
 def prep_latest_issue(lang=DEFAULT_LANGUAGE,
                       intro=None,
                       include_dev=DEBUG):
@@ -118,12 +131,28 @@ def prep_latest_issue(lang=DEFAULT_LANGUAGE,
     return issue_data
 
 
+def prep_preview(lang=DEFAULT_LANGUAGE, include_dev=DEBUG):
+    most_recent = get_past_issue_paths(lang)[-1]
+    date = most_recent.rpartition('/')[2]
+    issue_title = ARCHIVE_TITLE_TMPL.format(date_str=date)
+    issue_path = ARCHIVE_PATH_HTML_TMPL.format(lang_shortcode=lang,
+                                               date_str=date,
+                                               file_name=issue_title)
+    preview_data = get_issue_data(lang, date)
+    stats = preview_data['stats']
+    preview_data['mainspace'] = preview_data['mainspace'][:5]
+    preview_data['stats']['all_users'] = stats['users'] + stats['anon_ip_count']
+    preview_data['path'] = 'archive/%s/%s' % (lang, issue_path)
+    return preview_data
+
+
 def bake_latest_issue(issue_ashes_env,
                       lang=DEFAULT_LANGUAGE,
                       intro=None,
                       include_dev=DEBUG):
     ret = {'issues': []}
     issue_data = prep_latest_issue(lang, intro, include_dev)
+    issue_data['signup_url'] = SIGNUP_MAP[lang]
     for fmt in ('html', 'json', 'txt', 'email'):
         rendered = render_issue(issue_data, issue_ashes_env, format=fmt)
         issue = save_issue(fmt, rendered, lang, is_dev=include_dev)
@@ -146,12 +175,14 @@ def render_issue(render_ctx, issue_ashes_env, intro=DEFAULT_INTRO, format=None):
     return ret.encode('utf-8')
 
 
-def save_issue(fmt, rendered, lang, is_dev):
+def save_issue(fmt, rendered, lang, is_dev=DEBUG, date=False):
     fargs = {'fmt': fmt,
              'date_str': datetime.utcnow().strftime('%Y%m%d'),
              'lang_shortcode': lang,
              'dev_flag': '',
              'email_flag': ''}
+    if date:
+        fargs['date_str'] = date
     if is_dev:
         fargs['dev_flag'] = '_dev'
     if fmt == 'email':
@@ -184,6 +215,7 @@ def render_archive(issue_ashes_env, lang):
         ret['issues'].insert(0, {'path': archive_path,
                                  'date': display_date})
     ret['lang'] = LANG_MAP[lang]
+    ret['signup_url'] = SIGNUP_MAP[lang]
     return issue_ashes_env.render('template_archive_index.html', ret)
 
 
@@ -191,6 +223,8 @@ def render_index(issue_ashes_env):
     next_date = (datetime.now() + timedelta(days=7)).strftime('%B %d, %Y')
     context = {'next_date': next_date,
                'volume': get_next_issue_number(DEFAULT_LANGUAGE)}
+    preview = prep_preview(DEFAULT_LANGUAGE)
+    context.update(preview)
     rendered_index = issue_ashes_env.render('template_index.html', context)
     out_file = open(INDEX_PATH, 'w')
     with out_file:

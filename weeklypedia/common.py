@@ -19,11 +19,25 @@ SENDKEY = json.load(open(os.path.join(_CUR_PATH, 'secrets.json'))).get('key')
 SUPPORTED_LANGS = ['en', 'de', 'fr', 'ko', 'et', 'sv', 'da', 'it', 'ca']
 API_BASE_URL = 'http://tools.wmflabs.org/weeklypedia/fetch/'
 
+ARCHIVE_BASE_PATH = pjoin(dirname(_CUR_PATH), 'static', 'archive')
+
 DATA_BASE_PATH = pjoin(dirname(_CUR_PATH), 'static', 'data')
 DATA_PATH_TMPL = '{lang_shortcode}/{date_str}{dev_flag}/weeklypedia_{lang_shortcode}_{date_str}{dev_flag}.json'
 DATA_PATH_TMPL = pjoin(DATA_BASE_PATH, DATA_PATH_TMPL)
 
 CUSTOM_INTRO_PATH = pjoin(DATA_BASE_PATH, 'custom_intro.txt')
+
+SIGNUP_MAP = {
+	'en': 'http://eepurl.com/MMlpX',
+    'de': 'http://eepurl.com/MMlG9',
+    'fr': 'http://eepurl.com/MMmVX',
+    'ko': 'http://eepurl.com/MMm8n',
+    'et': 'http://eepurl.com/MMnlf',
+    'sv': 'http://eepurl.com/MMTnP',
+    'da': 'http://eepurl.com/Sko4L',
+    'it': 'http://eepurl.com/MQTPb',
+    'ca': 'http://eepurl.com/M7HU9'
+}
 
 
 def mkdir_p(path):
