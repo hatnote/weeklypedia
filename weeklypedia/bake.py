@@ -226,8 +226,8 @@ def render_index(issue_ashes_env):
     preview = prep_preview(DEFAULT_LANGUAGE)
     context.update(preview)
     rendered_index = issue_ashes_env.render('template_index.html', context)
-    out_file = open(INDEX_PATH, 'w')
-    with out_file:
+    rendered_index = rendered_index.encode('utf-8')
+    with open(INDEX_PATH, 'w') as out_file:
         out_file.write(rendered_index)
     return (INDEX_PATH, len(rendered_index))
 
