@@ -36,7 +36,8 @@ SIGNUP_MAP = {
     'sv': 'http://eepurl.com/MMTnP',
     'da': 'http://eepurl.com/Sko4L',
     'it': 'http://eepurl.com/MQTPb',
-    'ca': 'http://eepurl.com/M7HU9'
+    'ca': 'http://eepurl.com/M7HU9',
+    'eo': 'http://eepurl.com/_RE_X'
 }
 
 
