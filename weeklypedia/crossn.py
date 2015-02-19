@@ -1,14 +1,36 @@
 
 # Credit to Mark Williams for this
+import re
+import uuid
+import mailbox
 import argparse
+import tempfile
 from contextlib import closing
 from collections import namedtuple
 import xml.etree.cElementTree as ET
-import mailbox
-import tempfile
-import uuid
-import re
 
+
+TMPSTR = """
+this is some fun output to look
+at isn't it
+Traceback (most recent call last):
+  File "crossn.py", line 205, in <module>
+    main()
+  File "crossn.py", line 195, in main
+    delete=not args.save)
+  File "crossn.py", line 179, in rss_from_emails
+    for email in emails])
+  File "crossn.py", line 144, in fromemail
+    return cls(title=title, description=None, link=None,
+  File "crossn.py", line 144, in fromemail
+    return cls(title=title, description=None, link=None,
+  File "/usr/lib/python2.7/bdb.py", line 49, in trace_dispatch
+    return self.dispatch_line(frame)
+  File "/usr/lib/python2.7/bdb.py", line 68, in dispatch_line
+    if self.quitting: raise BdbQuit
+bdb.BdbQuit
+oh no!
+"""
 
 class mbox_readonlydir(mailbox.mbox):
     """\
@@ -115,11 +137,22 @@ DEFAULT_SUBJECT_RENDERER = 'Cron <%(user)s@%(host)s> %(command)s'
 MESSAGE_ID_PARSER = re.compile('<(?P<id>[^@]+)@(?P<host>[^>+]+)>')
 
 
+def find_python_error_type(text):
+    from tbutils import ParsedTB
+    try:
+        tb_str = text[text.index('Traceback (most recent'):]
+    except ValueError:
+        raise ValueError('no traceback found')
+    parsed_tb = ParsedTB.from_string(tb_str)
+    return parsed_tb.exc_type
+
+
+
 class RSSItem(namedtuple('RSSItem', ['title', 'description', 'link',
                                      'lastBuildDate', 'pubDate', 'guid'])):
 
     @classmethod
-    def fromemail(cls, email, excludes=('command',),
+    def fromemail(cls, email, excludes=(),
                   redacted='REDACTED',
                   parser=DEFAULT_SUBJECT_PARSER,
                   renderer=DEFAULT_SUBJECT_RENDERER):
@@ -138,9 +171,35 @@ class RSSItem(namedtuple('RSSItem', ['title', 'description', 'link',
             guid = uuid.uuid4()
         else:
             guid = match.group('id')
+        body = email.get_payload()
 
-        return cls(title=title, description=None, link=None,
+        desc = 'Cron ran %s at %s.' % (parsed['command'], pubDate)
+        try:
+            python_error_type = find_python_error_type(body)
+        except:
+            python_error_type = None
+        if python_error_type:
+            desc += ' Check for a Python exception: %s.' % python_error_type
+
+        if body:
+            desc += ' Command output:\n\n' + summarize(body, 16)
+
+        return cls(title=title, description=desc, link=None,
                    lastBuildDate=lastBuildDate, pubDate=pubDate, guid=guid)
+
+
+def summarize(text, length):
+    """
+    Length is the amount of text to show. It doesn't include the
+    length that the summarization adds back in."
+    """
+    len_diff = len(text) - length
+    if len_diff <= 0:
+        return text
+    return ''.join([text[:length/2],
+                    '... (%s bytes) ...' % len_diff,
+                    text[-length/2:]])
+
 
 
 def render_rss(rss_items):
