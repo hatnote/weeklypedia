@@ -10,28 +10,6 @@ from collections import namedtuple
 import xml.etree.cElementTree as ET
 
 
-TMPSTR = """
-this is some fun output to look
-at isn't it
-Traceback (most recent call last):
-  File "crossn.py", line 205, in <module>
-    main()
-  File "crossn.py", line 195, in main
-    delete=not args.save)
-  File "crossn.py", line 179, in rss_from_emails
-    for email in emails])
-  File "crossn.py", line 144, in fromemail
-    return cls(title=title, description=None, link=None,
-  File "crossn.py", line 144, in fromemail
-    return cls(title=title, description=None, link=None,
-  File "/usr/lib/python2.7/bdb.py", line 49, in trace_dispatch
-    return self.dispatch_line(frame)
-  File "/usr/lib/python2.7/bdb.py", line 68, in dispatch_line
-    if self.quitting: raise BdbQuit
-bdb.BdbQuit
-oh no!
-"""
-
 class mbox_readonlydir(mailbox.mbox):
     """\
     A subclass of mbox suitable for use with mboxs insides a read-only
@@ -131,7 +109,7 @@ class mbox_readonlydir(mailbox.mbox):
 
 DEFAULT_SUBJECT_PARSER = re.compile(
     'Cron <(?P<user>[^@].+)@(?P<host>[^>].+)> (?P<command>.*)')
-DEFAULT_SUBJECT_RENDERER = 'Cron <%(user)s@%(host)s> %(command)s'
+DEFAULT_SUBJECT_RENDERER = 'cron: <%(user)s@%(host)s> %(command)s'
 
 
 MESSAGE_ID_PARSER = re.compile('<(?P<id>[^@]+)@(?P<host>[^>+]+)>')
