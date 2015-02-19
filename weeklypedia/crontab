@@ -1,30 +1,32 @@
+# Weeklypedia constants
 PYTHON_BIN=/home/hatnote/virtualenvs/weeklypedia/bin/python
 FETCH_SCRIPT=/home/hatnote/weeklypedia/weeklypedia/fetch.py
 PUBLISH_SCRIPT=/home/hatnote/weeklypedia/weeklypedia/publish.py
 LOG_BASE_PATH=/home/hatnote/weeklypedia/logs/cron_out
 
-0 * * * *  $PYTHON_BIN $FETCH_SCRIPT --lang ko >> $LOG_BASE_PATH/ko.txt 2>&1
-1 * * * *  $PYTHON_BIN $FETCH_SCRIPT --lang en >> $LOG_BASE_PATH/en.txt 2>&1
-3 * * * *  $PYTHON_BIN $FETCH_SCRIPT --lang de >> $LOG_BASE_PATH/de.txt 2>&1
-5 * * * *  $PYTHON_BIN $FETCH_SCRIPT --lang fr >> $LOG_BASE_PATH/fr.txt 2>&1
-7 * * * *  $PYTHON_BIN $FETCH_SCRIPT --lang et >> $LOG_BASE_PATH/et.txt 2>&1
-8 * * * *  $PYTHON_BIN $FETCH_SCRIPT --lang sv >> $LOG_BASE_PATH/sv.txt 2>&1
-9 * * * *  $PYTHON_BIN $FETCH_SCRIPT --lang da >> $LOG_BASE_PATH/da.txt 2>&1
-10 * * * *  $PYTHON_BIN $FETCH_SCRIPT --lang it >> $LOG_BASE_PATH/it.txt 2>&1
-11 * * * *  $PYTHON_BIN $FETCH_SCRIPT --lang ca >> $LOG_BASE_PATH/ca.txt 2>&1
+0 * * * *  $PYTHON_BIN $FETCH_SCRIPT --lang ko 2>&1 | tee -a $LOG_BASE_PATH/ko.txt
+1 * * * *  $PYTHON_BIN $FETCH_SCRIPT --lang en 2>&1 | tee -a $LOG_BASE_PATH/en.txt
+3 * * * *  $PYTHON_BIN $FETCH_SCRIPT --lang de 2>&1 | tee -a $LOG_BASE_PATH/de.txt
+5 * * * *  $PYTHON_BIN $FETCH_SCRIPT --lang fr 2>&1 | tee -a $LOG_BASE_PATH/fr.txt
+7 * * * *  $PYTHON_BIN $FETCH_SCRIPT --lang et 2>&1 | tee -a $LOG_BASE_PATH/et.txt
+8 * * * *  $PYTHON_BIN $FETCH_SCRIPT --lang sv 2>&1 | tee -a $LOG_BASE_PATH/sv.txt
+9 * * * *  $PYTHON_BIN $FETCH_SCRIPT --lang da 2>&1 | tee -a $LOG_BASE_PATH/da.txt
+10 * * * *  $PYTHON_BIN $FETCH_SCRIPT --lang it 2>&1 | tee -a $LOG_BASE_PATH/it.txt
+11 * * * *  $PYTHON_BIN $FETCH_SCRIPT --lang ca 2>&1 | tee -a $LOG_BASE_PATH/ca.txt
 
-# cron runs in the server's local timezone, eastern in this case
+
 # developer preview Thursday at 8:30pm Eastern
 30 20 * * 4 $PYTHON_BIN $PUBLISH_SCRIPT --lang en --debug
 
 # production jobs go out on Friday morning (TODO: localize)
 # These are arbitrarily spaced out by a couple minutes just to be safe
-30 6 * * 5 $PYTHON_BIN $PUBLISH_SCRIPT --lang ko >> $LOG_BASE_PATH/ko.txt 2>&1
-30 6 * * 5 $PYTHON_BIN $PUBLISH_SCRIPT --lang en >> $LOG_BASE_PATH/en.txt 2>&1
-30 6 * * 5 $PYTHON_BIN $PUBLISH_SCRIPT --lang de >> $LOG_BASE_PATH/de.txt 2>&1
-30 6 * * 5 $PYTHON_BIN $PUBLISH_SCRIPT --lang fr >> $LOG_BASE_PATH/fr.txt 2>&1
-31 6 * * 5 $PYTHON_BIN $PUBLISH_SCRIPT --lang et >> $LOG_BASE_PATH/et.txt 2>&1
-31 6 * * 5 $PYTHON_BIN $PUBLISH_SCRIPT --lang sv >> $LOG_BASE_PATH/sv.txt 2>&1
-31 6 * * 5 $PYTHON_BIN $PUBLISH_SCRIPT --lang da >> $LOG_BASE_PATH/da.txt 2>&1
-31 6 * * 5 $PYTHON_BIN $PUBLISH_SCRIPT --lang it >> $LOG_BASE_PATH/it.txt 2>&1
-32 6 * * 5 $PYTHON_BIN $PUBLISH_SCRIPT --lang ca >> $LOG_BASE_PATH/ca.txt 2>&1
+30 6 * * 5 $PYTHON_BIN $PUBLISH_SCRIPT --lang ko 2>&1 | tee -a $LOG_BASE_PATH/ko.txt
+30 6 * * 5 $PYTHON_BIN $PUBLISH_SCRIPT --lang en 2>&1 | tee -a $LOG_BASE_PATH/en.txt
+30 6 * * 5 $PYTHON_BIN $PUBLISH_SCRIPT --lang de 2>&1 | tee -a $LOG_BASE_PATH/de.txt
+30 6 * * 5 $PYTHON_BIN $PUBLISH_SCRIPT --lang fr 2>&1 | tee -a $LOG_BASE_PATH/fr.txt
+31 6 * * 5 $PYTHON_BIN $PUBLISH_SCRIPT --lang et 2>&1 | tee -a $LOG_BASE_PATH/et.txt
+31 6 * * 5 $PYTHON_BIN $PUBLISH_SCRIPT --lang sv 2>&1 | tee -a $LOG_BASE_PATH/sv.txt
+31 6 * * 5 $PYTHON_BIN $PUBLISH_SCRIPT --lang da 2>&1 | tee -a $LOG_BASE_PATH/da.txt
+31 6 * * 5 $PYTHON_BIN $PUBLISH_SCRIPT --lang it 2>&1 | tee -a $LOG_BASE_PATH/it.txt
+32 6 * * 5 $PYTHON_BIN $PUBLISH_SCRIPT --lang ca 2>&1 | tee -a $LOG_BASE_PATH/ca.txt
+
