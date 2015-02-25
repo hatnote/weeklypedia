@@ -2,12 +2,16 @@
 # Credit to Mark Williams for this
 import re
 import uuid
+import socket
 import mailbox
 import argparse
 import tempfile
 from contextlib import closing
 from collections import namedtuple
 import xml.etree.cElementTree as ET
+
+
+FEED_TITLE = 'Cronfed'
 
 
 class mbox_readonlydir(mailbox.mbox):
@@ -125,10 +129,11 @@ def find_python_error_type(text):
     return parsed_tb.exc_type
 
 
+BaseRSSItem = namedtuple('RSSItem', ['title', 'description', 'link',
+                                     'lastBuildDate', 'pubDate', 'guid'])
 
-class RSSItem(namedtuple('RSSItem', ['title', 'description', 'link',
-                                     'lastBuildDate', 'pubDate', 'guid'])):
 
+class RSSItem(BaseRSSItem):
     @classmethod
     def fromemail(cls, email, excludes=(),
                   redacted='REDACTED',
@@ -178,15 +183,31 @@ def summarize(text, length):
                     '... (%s bytes) ...' % len_diff,
                     text[-length/2:]])
 
+DEFAULT_LINK = 'http://hatnote.com'
+DEFAULT_DESC = 'Fresh cron output from cronfed'
+DEFAULT_TITLE = 'Cronfed on %s' % socket.gethostname()
+EXCLUDE_TAGS = set(['lastBuildDate', 'link'])
 
 
 def render_rss(rss_items):
     rss = ET.Element('rss', {'version': '2.0'})
     channel = ET.SubElement(rss, 'channel')
+    title_elem = ET.SubElement(channel, 'title')
+    title_elem.text = DEFAULT_TITLE
+    desc_elem = ET.SubElement(channel, 'description')
+    desc_elem.text = DEFAULT_DESC
+    link_elem = ET.SubElement(channel, 'link')
+    link_elem.text = DEFAULT_LINK
+
     for rss_item in rss_items:
         item = ET.SubElement(channel, 'item')
         for tag, text in rss_item._asdict().items():
-            elem = ET.SubElement(item, tag)
+            if tag in EXCLUDE_TAGS:
+                continue
+            if tag == 'guid':
+                elem = ET.SubElement(item, tag, {'isPermaLink': 'false'})
+            else:
+                elem = ET.SubElement(item, tag)
             elem.text = text
 
     return ET.tostring(rss, encoding='UTF-8')
