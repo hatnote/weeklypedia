@@ -2,13 +2,13 @@
 PYTHON_BIN=/home/hatnote/virtualenvs/weeklypedia/bin/python
 FETCH_SCRIPT=/home/hatnote/weeklypedia/weeklypedia/fetch.py
 PUBLISH_SCRIPT=/home/hatnote/weeklypedia/weeklypedia/publish.py
-CROSSN_SCRIPT=/home/hatnote/weeklypedia/weeklypedia/crossn.py
+CRONFED_SCRIPT=/home/hatnote/weeklypedia/weeklypedia/cronfed.py
 CRON_RSS_PATH = /home/hatnote/weeklypedia/static/cron.rss
 HATNOTE_MAIL_PATH = /var/mail/hatnote
 LOG_BASE_PATH=/home/hatnote/weeklypedia/logs/cron_out
 
-# first, monitoring with crossn, every 15 minutes
-*/15 * * * *  $PYTHON_BIN $CROSSN_SCRIPT --output $CRON_RSS_PATH $HATNOTE_MAIL_PATH 2>&1 | tee -a $LOG_BASE_PATH/crossn.txt
+# first, monitoring with cronfed, every 15 minutes
+*/15 * * * *  $PYTHON_BIN $CRONFED_SCRIPT --output $CRON_RSS_PATH $HATNOTE_MAIL_PATH 2>&1 | tee -a $LOG_BASE_PATH/cronfed.txt
 
 # now, hourly Weeklypedia data fetches
 0 * * * *  $PYTHON_BIN $FETCH_SCRIPT --lang ko 2>&1 | tee -a $LOG_BASE_PATH/ko.txt
