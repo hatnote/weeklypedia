@@ -12,6 +12,10 @@ import xml.etree.cElementTree as ET
 
 
 FEED_TITLE = 'Cronfed'
+DEFAULT_LINK = 'http://hatnote.com'
+DEFAULT_DESC = 'Fresh cron output from cronfed'
+DEFAULT_TITLE = 'Cronfed on %s' % socket.gethostname()
+EXCLUDE_TAGS = set(['lastBuildDate'])
 
 
 class mbox_readonlydir(mailbox.mbox):
@@ -182,11 +186,6 @@ def summarize(text, length):
     return ''.join([text[:length/2],
                     '... (%s bytes) ...' % len_diff,
                     text[-length/2:]])
-
-DEFAULT_LINK = 'http://hatnote.com'
-DEFAULT_DESC = 'Fresh cron output from cronfed'
-DEFAULT_TITLE = 'Cronfed on %s' % socket.gethostname()
-EXCLUDE_TAGS = set(['lastBuildDate'])
 
 
 def render_rss(rss_items):
