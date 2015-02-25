@@ -186,7 +186,7 @@ def summarize(text, length):
 DEFAULT_LINK = 'http://hatnote.com'
 DEFAULT_DESC = 'Fresh cron output from cronfed'
 DEFAULT_TITLE = 'Cronfed on %s' % socket.gethostname()
-EXCLUDE_TAGS = set(['lastBuildDate', 'link'])
+EXCLUDE_TAGS = set(['lastBuildDate'])
 
 
 def render_rss(rss_items):
@@ -204,6 +204,8 @@ def render_rss(rss_items):
         for tag, text in rss_item._asdict().items():
             if tag in EXCLUDE_TAGS:
                 continue
+            if tag == 'link' and text is None:
+                text = DEFAULT_LINK
             if tag == 'guid':
                 elem = ET.SubElement(item, tag, {'isPermaLink': 'false'})
             else:
