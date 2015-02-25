@@ -16,6 +16,7 @@ DEFAULT_LINK = 'http://hatnote.com'
 DEFAULT_DESC = 'Fresh cron output from cronfed'
 DEFAULT_TITLE = 'Cronfed on %s' % socket.gethostname()
 EXCLUDE_TAGS = set(['lastBuildDate'])
+GUID_URL_TMPL = 'http://hatnote.com/{guid}'
 
 
 class mbox_readonlydir(mailbox.mbox):
@@ -206,9 +207,9 @@ def render_rss(rss_items):
             if tag == 'link' and text is None:
                 text = DEFAULT_LINK
             if tag == 'guid':
-                elem = ET.SubElement(item, tag, {'isPermaLink': 'false'})
-            else:
-                elem = ET.SubElement(item, tag)
+                text = GUID_URL_TMPL.format(guid=text)
+                # elem = ET.SubElement(item, tag, {'isPermaLink': 'false'})
+            elem = ET.SubElement(item, tag)
             elem.text = text
 
     return ET.tostring(rss, encoding='UTF-8')
