@@ -2,13 +2,12 @@
 PYTHON_BIN=/home/hatnote/virtualenvs/weeklypedia/bin/python
 FETCH_SCRIPT=/home/hatnote/weeklypedia/weeklypedia/fetch.py
 PUBLISH_SCRIPT=/home/hatnote/weeklypedia/weeklypedia/publish.py
-CRONFED_SCRIPT=/home/hatnote/weeklypedia/weeklypedia/cronfed.py
 CRON_RSS_PATH = /home/hatnote/weeklypedia/static/cron.rss
 HATNOTE_MAIL_PATH = /var/mail/hatnote
 LOG_BASE_PATH=/home/hatnote/weeklypedia/logs/cron_out
 
 # first, monitoring with cronfed, every 15 minutes
-*/15 * * * *  $PYTHON_BIN $CRONFED_SCRIPT --output $CRON_RSS_PATH $HATNOTE_MAIL_PATH 2>&1 | tee -a $LOG_BASE_PATH/cronfed.txt
+*/15 * * * *  $PYTHON_BIN -m cronfed --link http://hatnote.com --output $CRON_RSS_PATH $HATNOTE_MAIL_PATH 2>&1 | tee -a $LOG_BASE_PATH/cronfed.txt
 
 # now, hourly Weeklypedia data fetches
 0 * * * *  $PYTHON_BIN $FETCH_SCRIPT --lang ko 2>&1 | tee -a $LOG_BASE_PATH/ko.txt
@@ -36,4 +35,3 @@ LOG_BASE_PATH=/home/hatnote/weeklypedia/logs/cron_out
 21 6 * * 5 $PYTHON_BIN $PUBLISH_SCRIPT --lang da 2>&1 | tee -a $LOG_BASE_PATH/da.txt
 21 6 * * 5 $PYTHON_BIN $PUBLISH_SCRIPT --lang it 2>&1 | tee -a $LOG_BASE_PATH/it.txt
 22 6 * * 5 $PYTHON_BIN $PUBLISH_SCRIPT --lang ca 2>&1 | tee -a $LOG_BASE_PATH/ca.txt
-
