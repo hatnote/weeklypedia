@@ -33,7 +33,7 @@
     <div class="content">
       <p>Join a list to receive a weekly email with the top twenty Wikipedia articles and top five Wikipedia discussions from this week.</p>
       <button type="button" id="signup"><span>Sign up!</span></button>
-      
+
       <div class="lang-links signup-links">
         <h2>Which language?</h2>
         <ul class="buttons">
@@ -51,17 +51,17 @@
         <h2>Other languages</h2>
         <p>Wikipedia is available in over 280 languages. To request a list in any other language (or help translate the template text) please <a href="mailto:stephen.laporte@gmail.com">email me</a>  or submit an <a href="https://github.com/hatnote/weeklypedia/issues">issue on GitHub</a>.
       </div>
-      
+
     </div>
     <div class="content">
       <div class="preview-area">
-      <p><strong>Last week, in <a href="{path}">Issue {issue_number}</a></strong>: {stats.all_users|ci} users made {stats.edits|ci} changes to {stats.titles|ci} articles on English Wikipedia. The top articles for the week:</p>
+      <p><strong>Last week, in <a href="{path|u}">Issue {issue_number}</a></strong>: {stats.all_users|ci} users made {stats.edits|ci} changes to {stats.titles|ci} articles on English Wikipedia. The top articles for the week:</p>
         <ol>
           {#mainspace}
-          <li><a href="https://{short_lang_name}.wikipedia.org/wiki/{title}" target="_blank">{title_s}</a> (<a href="https://{short_lang_name}.wikipedia.org/w/index.php?title={title}&diff={rev_ids.new}&oldid={rev_ids.old}">{edits|ci} changes</a> by {users} authors)</li>
+          <li><a href="https://{short_lang_name|s}.wikipedia.org/wiki/{title|u}" target="_blank">{title_s}</a> (<a href="https://{short_lang_name|s}.wikipedia.org/w/index.php?title={title|u}&diff={rev_ids.new|u}&oldid={rev_ids.old|u}">{edits|ci} changes</a> by {users} authors)</li>
         {/mainspace}
         </ol>
-        <a class="read-full" href="{path}">Read the full issue</a>
+        <a class="read-full" href="{path|u}">Read the full issue</a>
       </div>
       <button type="button" id="archive"><span>Read the archive</span></button>
       <div class="lang-links archive-links">
