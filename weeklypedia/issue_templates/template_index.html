@@ -58,7 +58,7 @@
       <p><strong>Last week, in <a href="{path|u}">Issue {issue_number}</a></strong>: {stats.all_users|ci} users made {stats.edits|ci} changes to {stats.titles|ci} articles on English Wikipedia. The top articles for the week:</p>
         <ol>
           {#mainspace}
-          <li><a href="https://{short_lang_name|s}.wikipedia.org/wiki/{title|u}" target="_blank">{title_s}</a> (<a href="https://{short_lang_name|s}.wikipedia.org/w/index.php?title={title|u}&diff={rev_ids.new|u}&oldid={rev_ids.old|u}">{edits|ci} changes</a> by {users} authors)</li>
+          <li><a href="https://{short_lang_name|s}.wikipedia.org/wiki/{title|uc}" target="_blank">{title_s}</a> (<a href="https://{short_lang_name|s}.wikipedia.org/w/index.php?title={title|uc}&diff={rev_ids.new|uc}&oldid={rev_ids.old|uc}">{edits|ci} changes</a> by {users} authors)</li>
         {/mainspace}
         </ol>
         <a class="read-full" href="{path|u}">Read the full issue</a>
