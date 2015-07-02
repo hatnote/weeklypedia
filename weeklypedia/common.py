@@ -16,7 +16,7 @@ _CUR_PATH = dirname(os.path.abspath(__file__))
 
 LANG_MAP = json.load(open(pjoin(_CUR_PATH, 'language_codes.json')))
 SENDKEY = json.load(open(os.path.join(_CUR_PATH, 'secrets.json'))).get('key')
-SUPPORTED_LANGS = ['en', 'de', 'fr', 'ko', 'et', 'sv', 'da', 'it', 'ca']
+SUPPORTED_LANGS = ['en', 'de', 'fr', 'ko', 'et', 'sv', 'da', 'it', 'ca', 'es', 'fa']
 API_BASE_URL = 'http://tools.wmflabs.org/weeklypedia/fetch/'
 
 ARCHIVE_BASE_PATH = pjoin(dirname(_CUR_PATH), 'static', 'archive')
@@ -37,7 +37,9 @@ SIGNUP_MAP = {
     'da': 'http://eepurl.com/Sko4L',
     'it': 'http://eepurl.com/MQTPb',
     'ca': 'http://eepurl.com/M7HU9',
-    'eo': 'http://eepurl.com/_RE_X'
+    'eo': 'http://eepurl.com/_RE_X',
+    'es': 'http://eepurl.com/br8NNj',
+    'fa': 'http://eepurl.com/br8TlT'
 }
 
 
