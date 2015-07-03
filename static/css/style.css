@@ -134,6 +134,9 @@ a:hover {
   background: none;
   padding: 0.5em 0px;
 }
+ul.archive-list {
+  margin-bottom: 1em;
+}
 .archive-list li {
   width: 49%;
   display: inline-block;
