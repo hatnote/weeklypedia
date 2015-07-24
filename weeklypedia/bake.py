@@ -117,12 +117,16 @@ def prep_latest_issue(lang=DEFAULT_LANGUAGE,
                       include_dev=DEBUG):
     if intro is None:
         try:
+            print 'reading custom intro', CUSTOM_INTRO_PATH
             intro = open(CUSTOM_INTRO_PATH).read()
             intro = intro.decode('utf-8').strip()
         except:
+            print 'got exception reading intro'
+            import pdb;pdb.post_mortem()
             intro = None
         if not intro:
             intro = DEFAULT_INTRO
+    print 'selected intro', intro[:40], '...'
     issue_info = {'intro': intro,
                   'issue_number': get_next_issue_number(lang)}
     latest_issue_p = get_latest_data_path(lang, include_dev=include_dev)
