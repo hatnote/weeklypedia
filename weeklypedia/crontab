@@ -21,11 +21,13 @@ LOG_BASE_PATH=/home/hatnote/weeklypedia/logs/cron_out
 11 * * * *  $PYTHON_BIN $FETCH_SCRIPT --lang ca 2>&1 | tee -a $LOG_BASE_PATH/ca.txt
 12 * * * *  $PYTHON_BIN $FETCH_SCRIPT --lang es 2>&1 | tee -a $LOG_BASE_PATH/es.txt
 13 * * * *  $PYTHON_BIN $FETCH_SCRIPT --lang fa 2>&1 | tee -a $LOG_BASE_PATH/fa.txt
+14 * * * *  $PYTHON_BIN $FETCH_SCRIPT --lang zh 2>&1 | tee -a $LOG_BASE_PATH/zh.txt
+15 * * * *  $PYTHON_BIN $FETCH_SCRIPT --lang ur 2>&1 | tee -a $LOG_BASE_PATH/ur.txt
 
 # developer preview Thursday at 8:30pm Eastern
 20 20 * * 4 $PYTHON_BIN $PUBLISH_SCRIPT --lang en --debug
 21 20 * * 4 $PYTHON_BIN $PUBLISH_SCRIPT --lang es --debug
-22 20 * * 4 $PYTHON_BIN $PUBLISH_SCRIPT --lang fa --debug
+22 20 * * 4 $PYTHON_BIN $PUBLISH_SCRIPT --lang zh --debug
 
 # production jobs go out on Friday morning (TODO: localize)
 # These are arbitrarily spaced out by a couple minutes just to be safe
@@ -38,5 +40,7 @@ LOG_BASE_PATH=/home/hatnote/weeklypedia/logs/cron_out
 21 6 * * 5 $PYTHON_BIN $PUBLISH_SCRIPT --lang da 2>&1 | tee -a $LOG_BASE_PATH/da.txt
 21 6 * * 5 $PYTHON_BIN $PUBLISH_SCRIPT --lang it 2>&1 | tee -a $LOG_BASE_PATH/it.txt
 22 6 * * 5 $PYTHON_BIN $PUBLISH_SCRIPT --lang ca 2>&1 | tee -a $LOG_BASE_PATH/ca.txt
-23 6 * * 5 $PYTHON_BIN $PUBLISH_SCRIPT --lang es 2>&1 | tee -a $LOG_BASE_PATH/es.txt
-23 6 * * 5 $PYTHON_BIN $PUBLISH_SCRIPT --lang fa 2>&1 | tee -a $LOG_BASE_PATH/fa.txt
+22 6 * * 5 $PYTHON_BIN $PUBLISH_SCRIPT --lang es 2>&1 | tee -a $LOG_BASE_PATH/es.txt
+22 6 * * 5 $PYTHON_BIN $PUBLISH_SCRIPT --lang fa 2>&1 | tee -a $LOG_BASE_PATH/fa.txt
+22 6 * * 5 $PYTHON_BIN $PUBLISH_SCRIPT --lang zh 2>&1 | tee -a $LOG_BASE_PATH/zh.txt
+23 6 * * 5 $PYTHON_BIN $PUBLISH_SCRIPT --lang ur 2>&1 | tee -a $LOG_BASE_PATH/ur.txt
