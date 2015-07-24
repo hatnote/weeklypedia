@@ -49,4 +49,4 @@ if __name__ == '__main__':
     if args.lang in SUPPORTED_LANGS:
         lang = args.lang
         print bake_latest_issue(issue_ashes_env, lang=lang, include_dev=debug)
-        #print send_issue(lang, debug)
+        print send_issue(lang, debug)

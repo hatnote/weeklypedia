@@ -1,15 +1,5 @@
-Hello there! Welcome once again to our weekly digest of Wikipedia
-activity. But first some exciting news. Recently we at <a
-href="http://hatnote.com">Hatnote</a> helped launch a brand new
-integration between Wikipedia and <a
-href="https://en.wikipedia.org/wiki/IFTTT">IFTTT</a>. Whether you want
-more Wikipedia in your inbox, increased engagement on your home
-Wikipedia, or just plain love automation, we've got something for
-you. We've written a <b><a
-href="http://blog.hatnote.com/post/124069724187/wikipedia-and-ifttt-a-technical-guide">10-minute
-user's guide</a></b> and a <b><a href="http://blog.hatnote.com">5-step
-HOWTO on integrating Wikipedia and Twitter</a></b>. There are already
-tens of thousands of happy Wikipedia+IFTTT users and we certainly hope
-Weeklypedians will join in on the fun! &nbsp;-- <a
-href="https://twitter.com/mhashemi">Mahmoud</a> and <a
-href="https://twitter.com/sklaporte">Stephen</a>
+Hello there! Welcome once again to our weekly digest of Wikipedia activity.
+
+But first some exciting news. We at <a href="http://hatnote.com">Hatnote</a> helped launch a brand new official integration between Wikipedia and <a href="https://en.wikipedia.org/wiki/IFTTT">IFTTT</a>. Whether you want more Wikipedia in your inbox, increased engagement on your home Wikipedia, or just plain love automation, there's something for you. We've written a <b><a href="http://blog.hatnote.com/post/124069724187/wikipedia-and-ifttt-a-technical-guide">10-minute user's guide</a></b> and a <b><a href="http://blog.hatnote.com">5-step HOWTO on integrating Wikipedia and Twitter</a></b>. There are already tens of thousands of happy Wikipedia+IFTTT users and we certainly hope Weeklypedians will join in on the fun!
+
+&nbsp;-- <a href="https://twitter.com/mhashemi">Mahmoud</a> and <a href="https://twitter.com/sklaporte">Stephen</a>
