@@ -62,10 +62,11 @@ def main():
         base_bytes = open(base_tmpl_path).read()
         base_text = base_bytes.decode('utf-8')
         subbed_text = sub_strings(base_text, strings_map)
+        subbed_bytes = subbed_text.encode('utf-8')
 
         target_path = tmpl_dir + '/' + lang + '_' + src_fn
         with open(target_path, 'w') as f:  # TODO: atomic_save bolton
-            f.write(subbed_text.encode('utf-8'))
+            f.write(subbed_bytes)
     return
 
 
