@@ -59,14 +59,11 @@ class Issue(object):
             self.subject = SUBJECT_TMPL.format(lang_name=self.full_lang_name,
                                                issue_number=self.number)
 
-
     def read_html(self):
         return open(self.email_html_path).read()
 
-
     def read_text(self):
         return open(self.text_path).read()
-
 
     def send(self, list_id, send_key):
         mailinglist = Mailinglist(send_key + KEY)
@@ -244,3 +241,16 @@ def render_and_save_archives(issue_ashes_env):
         ret.append((out_path, len(rendered)))
     ret.append(render_index(issue_ashes_env))
     return ret
+
+
+def localize_data(issue_data, lang_code):
+    "To be called right before rendering html, etc."
+    #if lang_code == 'en':
+    #    return
+
+    # add local_date
+    issue_date = issue_data['date']
+    local_date = format_date(parse(issue_date), format='long', locale=lang_code)
+
+    # add local language names
+    # copy over issue numbers until number localization is decided
