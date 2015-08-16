@@ -9,8 +9,9 @@ CUR_PATH = os.path.dirname(os.path.abspath(__file__))
 DEFAULT_TMPL_DIR = CUR_PATH + '/issue_templates'
 BASE_TMPL_DIR = 'base'
 
-L10N_SRC_MAP = {'template.txt': {'text_only': True},
-                'template.html': {},
+# TODO: markup stripping for text only
+L10N_SRC_MAP = {'email.txt': {'text_only': True},
+                'archive.html': {},
                 'email.html': {}}
 
 

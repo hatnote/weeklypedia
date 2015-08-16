@@ -157,6 +157,7 @@ def bake_latest_issue(issue_ashes_env,
     issue_data = prep_latest_issue(lang, intro, include_dev)
     issue_data['signup_url'] = SIGNUP_MAP[lang]
     localize_data(issue_data)
+    # this fmt is used to generate the path, as well
     for fmt in ('html', 'json', 'txt', 'email'):
         rendered = render_issue(issue_data, issue_ashes_env, format=fmt)
         issue = save_issue(fmt, rendered, lang, is_dev=include_dev)
@@ -180,11 +181,13 @@ def render_issue(render_ctx, issue_ashes_env,
     lang = render_ctx['short_lang_name']
     env, ctx = issue_ashes_env, render_ctx
     if format == 'html':
-        ret = lang_fallback_render(env, lang, 'template.html', ctx)
+        ret = lang_fallback_render(env, lang, 'archive.html', ctx)
     elif format == 'email':
         ret = lang_fallback_render(env, lang, 'email.html', ctx)
+    elif format == 'txt':
+        ret = lang_fallback_render(env, lang, 'email.txt', ctx)
     else:
-        ret = lang_fallback_render(env, lang, 'template.txt', ctx)
+        raise ValueError('unrecognized render format: %r' % format)
     return ret.encode('utf-8')
 
 
