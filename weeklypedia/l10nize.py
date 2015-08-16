@@ -68,10 +68,16 @@ def main():
         subbed_bytes = subbed_text.encode('utf-8')
 
         if string_subber.unsubbed:
-            print ('could not find substitutions for %r'
-                   % string_subber.unsubbed)
+            print ('could not find substitutions for %r in %r'
+                   % (string_subber.unsubbed, base_tmpl_path))
 
         target_path = tmpl_dir + '/' + lang + '_' + src_fn
+
+        if '$' in subbed_text:
+            print ('possible malformed substitution target, '
+                   'check for occurrences of "$" in output: %r'
+                   % target_path)
+
         with open(target_path, 'w') as f:  # TODO: atomic_save bolton
             f.write(subbed_bytes)
     return
