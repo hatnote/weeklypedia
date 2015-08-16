@@ -37,3 +37,4 @@ signup_link: Sign up!
 about_heading: About
 about_text: >-
   This project retrieves a list of the week's recent changes using <a href="http://tools.wmflabs.org/">Wikimedia Tool Labs</a>, and delivers emails using MailChimp. Code and more information <a href="https://github.com/hatnote/weeklypedia">available on GitHub</a>. Built by <a href="https://github.com/slaporte">Stephen LaPorte</a> and <a href="https://github.com/mahmoud">Mahmoud Hashemi</a>.
+blog_link: Learn more on the Hatnote blog
