@@ -23,22 +23,24 @@ def get_argparser():
     return prs
 
 
-UNTRANSLATED = []
+class StringSubber(object):
+    def __init__(self, strings_map):
+        self.strings_map = strings_map
+        self.subbable_re = re.compile(r'\$(\w+)\$')
 
-# TODO: stringsubber class
-def sub_strings(text, strings_map):
-    def sub_one(match):
+    def get_subbed(self, text):
+        self.unsubbed = []
+        return self.subbable_re.sub(self._sub_one_match, text)
+
+    def _sub_one_match(self, match):
         string_name = match.group(1)
         string_name_lower = string_name.lower()
         try:
-            string = strings_map[string_name_lower]
+            string = self.strings_map[string_name_lower]
         except KeyError:
-            UNTRANSLATED.append(string_name)
+            self.unsubbed.append(string_name)
             string = match.group(0)
         return string
-
-    ret = re.sub(r'\$(\w+)\$', sub_one, text)
-    return ret
 
 
 def main():
@@ -55,14 +57,19 @@ def main():
         raise RuntimeError('expected strings file at %r (%r)'
                            % (strings_path, ioe))
     strings_map = yaml.load(strings_bytes)
+    string_subber = StringSubber(strings_map)
 
     base_tmpl_base_path = tmpl_dir + '/' + BASE_TMPL_DIR + '/'
     for src_fn, options in L10N_SRC_MAP.items():
         base_tmpl_path = base_tmpl_base_path + src_fn
         base_bytes = open(base_tmpl_path).read()
         base_text = base_bytes.decode('utf-8')
-        subbed_text = sub_strings(base_text, strings_map)
+        subbed_text = string_subber.get_subbed(base_text)
         subbed_bytes = subbed_text.encode('utf-8')
+
+        if string_subber.unsubbed:
+            print ('could not find substitutions for %r'
+                   % string_subber.unsubbed)
 
         target_path = tmpl_dir + '/' + lang + '_' + src_fn
         with open(target_path, 'w') as f:  # TODO: atomic_save bolton
