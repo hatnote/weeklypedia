@@ -10,8 +10,8 @@ DEFAULT_TMPL_DIR = CUR_PATH + '/issue_templates'
 BASE_TMPL_DIR = 'base'
 
 L10N_SRC_MAP = {'template.txt': {'text_only': True},
-                'template.html': {}}
-# 'email.html': {}}
+                'template.html': {},
+                'email.html': {}}
 
 
 def get_argparser():
