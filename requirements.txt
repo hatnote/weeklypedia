@@ -8,3 +8,6 @@ requests==2.2.1
 wsgiref==0.1.2
 cronfed==0.2.1
 ashes==0.7.6
+PyYAML==3.11
+python-dateutil==2.4.2
+Babel==2.0

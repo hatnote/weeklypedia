@@ -5,6 +5,10 @@ import json
 from datetime import datetime, timedelta
 from os.path import dirname, join as pjoin
 
+from babel.dates import format_date
+from dateutil.parser import parse as parse_date
+from ashes import TemplateNotFound
+
 from mail import Mailinglist, KEY
 from fetch import get_latest_data_path
 
@@ -14,6 +18,7 @@ from common import (DATA_BASE_PATH,
                     DEBUG,
                     CUSTOM_INTRO_PATH,
                     LANG_MAP,
+                    LOCAL_LANG_MAP,
                     SUBJECT_TMPL,
                     SUPPORTED_LANGS,
                     SIGNUP_MAP,
@@ -151,6 +156,7 @@ def bake_latest_issue(issue_ashes_env,
     ret = {'issues': []}
     issue_data = prep_latest_issue(lang, intro, include_dev)
     issue_data['signup_url'] = SIGNUP_MAP[lang]
+    localize_data(issue_data)
     for fmt in ('html', 'json', 'txt', 'email'):
         rendered = render_issue(issue_data, issue_ashes_env, format=fmt)
         issue = save_issue(fmt, rendered, lang, is_dev=include_dev)
@@ -159,17 +165,26 @@ def bake_latest_issue(issue_ashes_env,
     return ret
 
 
-def render_issue(render_ctx, issue_ashes_env, intro=DEFAULT_INTRO, format=None):
+def lang_fallback_render(env, lang, tmpl_name, ctx, fallback_lang='en'):
+    try:
+        return env.render(lang + '_' + tmpl_name, ctx)
+    except TemplateNotFound:
+        return env.render(fallback_lang + '_' + tmpl_name, ctx)
+
+
+def render_issue(render_ctx, issue_ashes_env,
+                 intro=DEFAULT_INTRO, format=None):
     format = format or 'html'
     if format == 'json':
         return json.dumps(render_ctx, indent=2, sort_keys=True)
-
+    lang = render_ctx['short_lang_name']
+    env, ctx = issue_ashes_env, render_ctx
     if format == 'html':
-        ret = issue_ashes_env.render('template.html', render_ctx)
+        ret = lang_fallback_render(env, lang, 'template.html', ctx)
     elif format == 'email':
-        ret = issue_ashes_env.render('email.html', render_ctx)
+        ret = lang_fallback_render(env, lang, 'email.html', ctx)
     else:
-        ret = issue_ashes_env.render('template.txt', render_ctx)
+        ret = lang_fallback_render(env, lang, 'template.txt', ctx)
     return ret.encode('utf-8')
 
 
@@ -245,12 +260,16 @@ def render_and_save_archives(issue_ashes_env):
 
 def localize_data(issue_data, lang_code):
     "To be called right before rendering html, etc."
-    #if lang_code == 'en':
-    #    return
+
+    lang_code = issue_data['short_lang_name']
+    eng_lang = LANG_MAP[lang_code]
+    full_lang_name = LOCAL_LANG_MAP.get(lang_code, eng_lang)
+    issue_data['local'] = {'full_lang_name': full_lang_name}
 
     # add local_date
-    issue_date = issue_data['date']
-    local_date = format_date(parse(issue_date), format='long', locale=lang_code)
+    issue_date_str = issue_data['date']
+    issue_date = parse_date(issue_date_str)
+    local_date = format_date(issue_date, format='long', locale=lang_code)
+    issue_data['local']['date'] = local_date
 
-    # add local language names
-    # copy over issue numbers until number localization is decided
+    return

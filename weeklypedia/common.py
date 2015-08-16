@@ -27,23 +27,23 @@ DATA_PATH_TMPL = pjoin(DATA_BASE_PATH, DATA_PATH_TMPL)
 
 CUSTOM_INTRO_PATH = pjoin(DATA_BASE_PATH, 'custom_intro.txt')
 
-SIGNUP_MAP = {
-	'en': 'http://eepurl.com/MMlpX',
-        'de': 'http://eepurl.com/MMlG9',
-        'fr': 'http://eepurl.com/MMmVX',
-        'ko': 'http://eepurl.com/MMm8n',
-        'et': 'http://eepurl.com/MMnlf',
-        'sv': 'http://eepurl.com/MMTnP',
-        'da': 'http://eepurl.com/Sko4L',
-        'it': 'http://eepurl.com/MQTPb',
-        'ca': 'http://eepurl.com/M7HU9',
-        'eo': 'http://eepurl.com/_RE_X',
-        'es': 'http://eepurl.com/br8NNj',
-        'fa': 'http://eepurl.com/br8TlT',
-        'zh': 'http://eepurl.com/bsmGhT',
-        'ur': 'http://eepurl.com/bsmG1P',
-        'kn': 'http://eepurl.com/buxugf'
-}
+SIGNUP_MAP = {'en': 'http://eepurl.com/MMlpX',
+              'de': 'http://eepurl.com/MMlG9',
+              'fr': 'http://eepurl.com/MMmVX',
+              'ko': 'http://eepurl.com/MMm8n',
+              'et': 'http://eepurl.com/MMnlf',
+              'sv': 'http://eepurl.com/MMTnP',
+              'da': 'http://eepurl.com/Sko4L',
+              'it': 'http://eepurl.com/MQTPb',
+              'ca': 'http://eepurl.com/M7HU9',
+              'eo': 'http://eepurl.com/_RE_X',
+              'es': 'http://eepurl.com/br8NNj',
+              'fa': 'http://eepurl.com/br8TlT',
+              'zh': 'http://eepurl.com/bsmGhT',
+              'ur': 'http://eepurl.com/bsmG1P',
+              'kn': 'http://eepurl.com/buxugf'}
+
+LOCAL_LANG_MAP = {'en': 'English'}  # TODO
 
 
 def mkdir_p(path):
