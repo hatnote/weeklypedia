@@ -1,0 +1,42 @@
+The WEEKLYPEDIA: Issue {issue_number}, {date} ({full_lang_name} Wikipedia Edition)
+
+{intro|s}
+
+=== $ARTICLES_HEADING$ ===
+
+{#stats}$ARTICLES_SUMMARY${/stats} $ARTICLES_INTRO$:
+
+{#mainspace}
+{@idx_1}{.}{/idx_1}. {title_s} ‭($DIFF_COUNT$ $DIFF_AUTHOR_COUNT$)‬
+	https://{short_lang_name|s}.wikipedia.org/wiki/{title|uc}
+{/mainspace}
+
+=== $NEW_ARTICLES_HEADING$ ===
+
+$NEW_ARTICLES_INTRO$:
+
+{#new_articles}
+{@idx_1}{.}{/idx_1}. {title_s} ‭($DIFF_COUNT$ $DIFF_AUTHOR_COUNT$)‬
+    https://{short_lang_name|s}.wikipedia.org/wiki/{title|uc}
+{/new_articles}
+
+=== $DISCUSSIONS_HEADING$ ===
+
+$DISCUSSIONS_INTRO$:
+
+{#talkspace}
+{@idx_1}{.}{/idx_1}. {title_s}
+	https://{short_lang_name|s}.wikipedia.org/wiki/Talk:{title|uc}
+{/talkspace}
+
+=== $STATS_HEADING$ ===
+
+$STATS_INTRO$:
+
+* $USER_EDIT_COUNTS$
+
+* $ANON_EDIT_COUNTS$
+
+* $BOT_EDIT_COUNTS$
+
+Learn more about the Weeklypedia Digest: http://weekly.hatnote.com/
