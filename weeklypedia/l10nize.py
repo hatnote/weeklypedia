@@ -9,6 +9,10 @@ CUR_PATH = os.path.dirname(os.path.abspath(__file__))
 DEFAULT_TMPL_DIR = CUR_PATH + '/issue_templates'
 BASE_TMPL_DIR = 'base'
 
+L10N_SRC_MAP = {'template.txt': {'text_only': True},
+                'template.html': {}}
+# 'email.html': {}}
+
 
 def get_argparser():
     prs = ArgumentParser()
@@ -41,7 +45,8 @@ def main():
     prs = get_argparser()
     args = prs.parse_args()
     lang = args.lang
-    tmpl_dir = args.tmpl_dir
+    orig_tmpl_dir = args.tmpl_dir
+    tmpl_dir = os.path.abspath(orig_tmpl_dir)
 
     strings_path = tmpl_dir + '/strings/' + lang + '_strings.yaml'
     try:
@@ -51,9 +56,16 @@ def main():
                            % (strings_path, ioe))
     strings_map = yaml.load(strings_bytes)
 
-    base_tmpl = tmpl_dir + '/' + BASE_TMPL_DIR + '/' + 'template.txt'  # tmp
-    print sub_strings(open(base_tmpl).read(), strings_map)
+    base_tmpl_base_path = tmpl_dir + '/' + BASE_TMPL_DIR + '/'
+    for src_fn, options in L10N_SRC_MAP.items():
+        base_tmpl_path = base_tmpl_base_path + src_fn
+        base_bytes = open(base_tmpl_path).read()
+        base_text = base_bytes.decode('utf-8')
+        subbed_text = sub_strings(base_text, strings_map)
 
+        target_path = tmpl_dir + '/' + lang + '_' + src_fn
+        with open(target_path, 'w') as f:  # TODO: atomic_save bolton
+            f.write(subbed_text.encode('utf-8'))
     return
 
 
