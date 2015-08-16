@@ -9,3 +9,15 @@
 * Hashtags
 * "Other Current Events on Wikipedia" (pages not featured elsewhere but in https://en.wikipedia.org/wiki/Category:Current_events , https://de.wikipedia.org/wiki/Kategorie:Wikipedia:Laufendes_Ereignis , etc.)
 * Number of total new articles
+
+## Localization
+
+* Add 'local' object to render context
+  * Add localized full language name
+  * Add localized date
+* Strip HTML from strings for text only l10nizing
+  * Should links be handled differently?
+* Make rendering look for English fallbacks
+* Localize email and archive HTML
+* Decide what to do with text-only first/last lines
+* Still no good story for the customizable intro text (markdown?)
