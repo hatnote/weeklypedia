@@ -17,3 +17,9 @@ Adding a new language
 5. Add crontab entries for fetching and publishing
 6. Add an li for your signup to static/index.html (so we can get subscribers today)
 7. Add an li for your signup to weeklypedia/issue_templates/template_index.html (so we can get subscribers next week), and add an li for the archive
+
+
+Other info
+==========
+
+* If there are no subscribers for the list, MailChimp returns a non-fatal error.
