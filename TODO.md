@@ -12,12 +12,10 @@
 
 ## Localization
 
-* Add 'local' object to render context
-  * Add localized full language name
-  * Add localized date
 * Strip HTML from strings for text only l10nizing
   * Should links be handled differently?
-* Make rendering look for English fallbacks
-* Localize email HTML
 * Decide what to do with text-only first/last lines
 * Still no good story for the customizable intro text (markdown?)
+
+
+* verify l10n
