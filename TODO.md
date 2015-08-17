@@ -10,6 +10,7 @@
 * "Other Current Events on Wikipedia" (pages not featured elsewhere but in https://en.wikipedia.org/wiki/Category:Current_events , https://de.wikipedia.org/wiki/Kategorie:Wikipedia:Laufendes_Ereignis , etc.)
 * Number of total new articles
 * Add Greek edition
+* Add Portuguese edition
 
 ## Localization
 
