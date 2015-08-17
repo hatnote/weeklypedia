@@ -11,6 +11,7 @@
 * Number of total new articles
 * Add Greek edition
 * Add Portuguese edition
+* Add Croatian edition
 
 ## Localization
 
