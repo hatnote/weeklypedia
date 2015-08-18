@@ -1,0 +1,40 @@
+head_title: the WEEKLYPEDIA ({full_lang_name}, nummer {issue_number})
+body_title: <em>the</em> WEEKLYPEDIA
+description: En lista med de mest redigerade Wikipedia-artiklarna och -diskussionerna den senaste veckan.
+delivery_description: Levereras varje fredag per epost.
+home_link: Hem
+archive_link: "{local.full_lang_name} utgåvans arkiv"
+issue_label: Nummer {issue_number}, {local.date}
+language_label: ({local.full_lang_name} Wikipedia utgåvan)
+
+articles_heading: Artiklar
+articles_summary: Denna vecka gjorde{total_users|ci} användare {edits|ci} ändringar i {titles|ci} olika artiklar.
+articles_intro: Topp-20 artiklarna denna vecka
+
+diff_count: "{edits|ci} ändringar"
+diff_author_count: by {users} användare
+
+new_articles_heading: Nya artiklar
+# new_articles_summary: # TODO
+new_articles_intro: De tio mest redigerade artklarna skapade senaste veckan
+
+# diff count and author count handled in article section
+
+discussions_heading: Diskussioner
+# discussions_summary: # TODO
+discussions_intro: De mest aktiva diskussionerna
+
+stats_heading: Statistik
+stats_intro: Några siffror från senaste veckan
+
+user_edit_counts: >-
+  {stats.users|ci} registerade användare och {stats.anon_ip_count|ci} oregisterade användare gjorde {stats.edits|ci} redigeringar i {stats.titles|ci} artiklar
+anon_edit_counts: Oregistrerade användare gjorde {stats.anon_edits|ci} redigeringar i {stats.anon_titles|ci} artiklar
+bot_edit_counts: >-
+  {stats.bot_count|ci} robotar gjorde {stats.bot_edits|ci} redigeringar i {stats.bot_titles|ci} artiklar
+signup_link: Prenumerera!
+about_heading: Om
+about_text: >-
+  Detta projekt hmtar en lista av veckans senaste ändringar genom <a href="http://tools.wmflabs.org/">Wikimedia Tool Labs</a>, och skickar epoat genom MailChimp. Kod och mer information <a href="https://github.com/hatnote/weeklypedia">finns på GitHub</a>. Byggt av <a href="https://github.com/slaporte">Stephen LaPorte</a> och <a href="https://github.com/mahmoud">Mahmoud Hashemi</a>.
+blog_link: Läs mer på bloggen Hatnote
+learn_more: Läs mer om <a href="http://weekly.hatnote.com">Weeklypedia Digest</a>!
