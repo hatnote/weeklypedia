@@ -1,0 +1,40 @@
+head_title: Die WEEKLYPEDIA ({} full_lang_name, Ausgabe {issue_number})
+body_title: <em>Die</em> WEEKLYPEDIA
+description: Eine Liste der bearbeiteten Wikipedia Artikel und Diskussionen aus der letzten Woche.
+delivery_description: Lieferung jeden Freitag per E-Mail.
+home_link: Home
+archive_link: "{local.full_lang_name} Ausgabe Archive"
+issue_label: Ausgabe {issue_number}, {local.date}
+language_label: ({} local.full_lang_name Wikipedia Ausgabe)
+
+articles_heading: Artikel
+articles_summary: Diese Woche machten {total_users|ci} Autoren {edits|ci} Änderungen in {title|ci} verschiedenen Artikeln.
+articles_intro: Die Top 20 Artikel der Woche
+
+diff_count: "{edits|ci} Veränderungen"
+diff_author_count: durch {users} Autoren
+
+new_articles_heading: Neue Artikel
+# New_articles_summary: # TODO
+new_articles_intro: Die zehn am stärksten aktiv bearbeitesten Artikel der letzten Woche.
+
+# Diff Zahl und Autor in Artikel Abschnitt behandelt Zählung
+
+discussions_heading: Diskussionen
+# Discussions_summary: # TODO
+discussions_intro: Die aktivsten Diskussionen
+
+stats_heading: Statistik
+stats_intro: Ein paar Zahlen aus der vergangenen Woche
+
+user_edit_counts: >-
+  {stats.users|ci}  registrierte Benutzer und {stats.anon_ip_count|ci} nicht registrierte Benutzer vorgenommen {stats.edits|ci} Änderungen in {stats.titles|ci} Artikeln
+anon_edit_counts: Nicht registrierte Benutzer machten {stats.anon_edits|ci} Änderungen in {stats.anon_titles|ci} Artikeln
+bot_edit_counts: >-
+  {stats.bot_count|ci} Roboter machten {stats.bot_edits|ci} Änderungen in {stats.bot_titles|ci} Artikel
+signup_link: Melden Sie sich!
+about_heading: Über
+about_text: >-
+  Dieses Projekt wird eine Liste der letzten Änderungen der letzten Woche mit <a href="http://tools.wmflabs.org/"> Wikimedia Tool Labs </a> per  E-Mails mit MailChimp liefern. Code und weitere Informationen <a href="https://github.com/hatnote/weeklypedia"> auf GitHub </a> erhältlich. Erstellt von <a href="https://github.com/slaporte"> Stephen LaPorte </a> und <a href="https://github.com/mahmoud"> Mahmoud Hashemi </a>.
+blog_link: Erfahren Sie mehr über den Hatnote Blog
+learn_more: Erfahren Sie mehr über die <a href="http://weekly.hatnote.com"> Weeklypedia Zusammenfassung </a>!
