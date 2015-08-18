@@ -1,0 +1,42 @@
+head_title: Le WEEKLYPEDIA ({full_lang_name}, numéro {issue_number})
+body_title: <em>Le</em> WEEKLYPEDIA
+description: Une liste des pages de Wikipédia les plus modifiées cette semaine.
+delivery_description: Distribué par courriel le vendredi.
+home_link: Accueil
+archive_link: "Archives de l’édition en {local.full_lang_name}"
+issue_label: Numéro {issue_number}, {local.date}
+language_label: (Édition de Wikipédia en {local.full_lang_name})
+
+articles_heading: Articles
+articles_summary: Cette semaine, {total_users|ci} auteurs ont effectué {edits|ci} modifications sur {titles|ci} articles différents.
+articles_intro: Voici le top 20 des articles de la semaine
+
+diff_count: "{edits|ci} modifications"
+diff_author_count: par {users} auteurs
+
+new_articles_heading: Nouveaux articles
+# new_articles_summary: # TODO
+new_articles_intro: Les dix articles créés cette semaine les plus modifiés
+
+# diff count and author count handled in article section
+
+discussions_heading: Discussions
+# discussions_summary: # TODO
+discussions_intro: Les discussions les plus actives
+
+stats_heading: Statistiques
+stats_intro: La semaine en chiffres
+
+user_edit_counts: >-
+  {stats.users|ci} utilisateurs enregistrés et {stats.anon_ip_count|ci} utilisateurs non enregistrés ont effectué {stats.edits|ci} modifications sur {stats.titles|ci} articles
+anon_edit_counts: Les utilisateurs non enregistrés ont effectué un total de {stats.anon_edits|ci} modifications sur {stats.anon_titles|ci} articles
+bot_edit_counts: >-
+  {stats.bot_count|ci} robots ont effectué {stats.bot_edits|ci} modifications sur {stats.bot_titles|ci} articles
+
+signup_link: S’abonner
+about_heading: À propos
+about_text: >-
+  Cet outil obtient la liste des modifications récentes de la semaine grâce à <a href="http://tools.wmflabs.org/">Wikimedia Tool Labs</a>, et distribue les courriels via MailChimp. Le code et plus d’informations sont <a href="https://github.com/hatnote/weeklypedia">disponibles sur GitHub</a>. Créé par <a href="https://github.com/slaporte">Stephen LaPorte</a> et <a href="https://github.com/mahmoud">Mahmoud Hashemi</a>.
+blog_link: En savoir plus sur le blog Hatnote
+learn_more: En savoir plus sur le <a href="http://weekly.hatnote.com">récapitulatif Weeklypedia</a> !
+
