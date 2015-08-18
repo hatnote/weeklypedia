@@ -9,7 +9,7 @@ language_label: ({local.full_lang_name} ವಿಕಿಪೀಡಿಯ ಆವೃತ
 
 articles_heading: ಲೇಖನೆಗಳು
 articles_summary: ಈ ವಾರ, {total_users|ci} ಲೇಖಕರು  {edits|ci} ಬದಲಾವಣೆಗಳನ್ನು {titles|ci} ಪ್ರತ್ಯೇಕ ಪುಟಗಳಲ್ಲಿ ಮಾಡಿದ್ದಾರೆ.
-articles_intro: ಈ ವಾರದ ಅಗ್ರ ೨೦ ಪುಟಗಳು
+articles_intro: ಈ ವಾರದಲ್ಲಿ ಅತಿ ಹೆಚ್ಚು ಬದಲಾವಣೆಗಳನ್ನು ಕಂಡ ಮೊದಲ ೨೦ ಪುಟಗಳು
 
 diff_count: "{edits|ci} ಬದಲಾವಣೆಗಳು"
 diff_author_count: {users} ಲೇಖಕರಿಂದ
