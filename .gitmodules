@@ -1,3 +1,0 @@
-[submodule "static"]
-	path = static
-	url = git@github.com:hatnote/weeklypedia-history.git
