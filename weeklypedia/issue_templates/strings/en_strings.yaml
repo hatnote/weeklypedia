@@ -6,6 +6,7 @@ home_link: Home
 archive_link: "{local.full_lang_name} edition archives"
 issue_label: Issue {issue_number}, {local.date}
 language_label: ({local.full_lang_name} Wikipedia edition)
+intro: Hello there! Welcome to our weekly digest of Wikipedia activity.
 
 articles_heading: Articles
 articles_summary: This week, {total_users|ci} authors made {edits|ci} changes to {titles|ci} different articles.
