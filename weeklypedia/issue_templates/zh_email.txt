@@ -1,0 +1,42 @@
+The WEEKLYPEDIA: Issue {issue_number}, {date} ({full_lang_name} Wikipedia Edition)
+
+{intro|s}
+
+=== 條目 ===
+
+{#stats}本週一共有 {total_users|ci} 位作者進行 {edits|ci} 次編輯，對於 {titles|ci} 個不同條目。{/stats} 本週 20 大熱門條目:
+
+{#mainspace}
+{@idx_1}{.}{/idx_1}. {title_s} ‭({edits|ci} 次編輯 ，由 {users} 位作者)‬
+	https://{short_lang_name|s}.wikipedia.org/wiki/{title|uc}
+{/mainspace}
+
+=== 新條目 ===
+
+在過去一週內建立的十個最活躍條目:
+
+{#new_articles}
+{@idx_1}{.}{/idx_1}. {title_s} ‭({edits|ci} 次編輯 ，由 {users} 位作者)‬
+    https://{short_lang_name|s}.wikipedia.org/wiki/{title|uc}
+{/new_articles}
+
+=== 討論 ===
+
+最活躍的討論:
+
+{#talkspace}
+{@idx_1}{.}{/idx_1}. {title_s}
+	https://{short_lang_name|s}.wikipedia.org/wiki/Talk:{title|uc}
+{/talkspace}
+
+=== 統計 ===
+
+上週的一些數據:
+
+* {stats.users|ci} 位註冊使用者以及 {stats.anon_ip_count|ci} 位未註冊使用者進行 {stats.edits|ci} 次編輯，對於 {stats.titles|ci} 個條目
+
+* 未註冊使用者進行 {stats.anon_edits|ci} 次編輯，對於 {stats.anon_titles|ci} 個條目
+
+* {stats.bot_count|ci} 個機器人進行 {stats.bot_edits|ci} 次編輯，對於 {stats.bot_titles|ci} 個條目
+
+Learn more about the Weeklypedia Digest: http://weekly.hatnote.com/

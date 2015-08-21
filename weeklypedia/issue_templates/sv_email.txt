@@ -1,0 +1,42 @@
+The WEEKLYPEDIA: Issue {issue_number}, {date} ({full_lang_name} Wikipedia Edition)
+
+{intro|s}
+
+=== Artiklar ===
+
+{#stats}Denna vecka gjorde{total_users|ci} användare {edits|ci} ändringar i {titles|ci} olika artiklar.{/stats} Topp-20 artiklarna denna vecka:
+
+{#mainspace}
+{@idx_1}{.}{/idx_1}. {title_s} ‭({edits|ci} ändringar by {users} användare)‬
+	https://{short_lang_name|s}.wikipedia.org/wiki/{title|uc}
+{/mainspace}
+
+=== Nya artiklar ===
+
+De tio mest redigerade artklarna skapade senaste veckan:
+
+{#new_articles}
+{@idx_1}{.}{/idx_1}. {title_s} ‭({edits|ci} ändringar by {users} användare)‬
+    https://{short_lang_name|s}.wikipedia.org/wiki/{title|uc}
+{/new_articles}
+
+=== Diskussioner ===
+
+De mest aktiva diskussionerna:
+
+{#talkspace}
+{@idx_1}{.}{/idx_1}. {title_s}
+	https://{short_lang_name|s}.wikipedia.org/wiki/Talk:{title|uc}
+{/talkspace}
+
+=== Statistik ===
+
+Några siffror från senaste veckan:
+
+* {stats.users|ci} registerade användare och {stats.anon_ip_count|ci} oregisterade användare gjorde {stats.edits|ci} redigeringar i {stats.titles|ci} artiklar
+
+* Oregistrerade användare gjorde {stats.anon_edits|ci} redigeringar i {stats.anon_titles|ci} artiklar
+
+* {stats.bot_count|ci} robotar gjorde {stats.bot_edits|ci} redigeringar i {stats.bot_titles|ci} artiklar
+
+Learn more about the Weeklypedia Digest: http://weekly.hatnote.com/

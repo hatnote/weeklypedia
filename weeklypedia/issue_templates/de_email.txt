@@ -1,0 +1,42 @@
+The WEEKLYPEDIA: Issue {issue_number}, {date} ({full_lang_name} Wikipedia Edition)
+
+{intro|s}
+
+=== Artikel ===
+
+{#stats}Diese Woche machten {total_users|ci} Autoren {edits|ci} Änderungen in {title|ci} verschiedenen Artikeln.{/stats} Die Top 20 Artikel der Woche:
+
+{#mainspace}
+{@idx_1}{.}{/idx_1}. {title_s} ‭({edits|ci} Veränderungen durch {users} Autoren)‬
+	https://{short_lang_name|s}.wikipedia.org/wiki/{title|uc}
+{/mainspace}
+
+=== Neue Artikel ===
+
+Die zehn am stärksten aktiv bearbeitesten Artikel der letzten Woche.:
+
+{#new_articles}
+{@idx_1}{.}{/idx_1}. {title_s} ‭({edits|ci} Veränderungen durch {users} Autoren)‬
+    https://{short_lang_name|s}.wikipedia.org/wiki/{title|uc}
+{/new_articles}
+
+=== Diskussionen ===
+
+Die aktivsten Diskussionen:
+
+{#talkspace}
+{@idx_1}{.}{/idx_1}. {title_s}
+	https://{short_lang_name|s}.wikipedia.org/wiki/Talk:{title|uc}
+{/talkspace}
+
+=== Statistik ===
+
+Ein paar Zahlen aus der vergangenen Woche:
+
+* {stats.users|ci}  registrierte Benutzer und {stats.anon_ip_count|ci} nicht registrierte Benutzer vorgenommen {stats.edits|ci} Änderungen in {stats.titles|ci} Artikeln
+
+* Nicht registrierte Benutzer machten {stats.anon_edits|ci} Änderungen in {stats.anon_titles|ci} Artikeln
+
+* {stats.bot_count|ci} Roboter machten {stats.bot_edits|ci} Änderungen in {stats.bot_titles|ci} Artikel
+
+Learn more about the Weeklypedia Digest: http://weekly.hatnote.com/
