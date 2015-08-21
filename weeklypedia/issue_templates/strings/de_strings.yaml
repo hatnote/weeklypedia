@@ -1,11 +1,11 @@
-head_title: Die WEEKLYPEDIA ({} full_lang_name, Ausgabe {issue_number})
+head_title: Die WEEKLYPEDIA ({local.full_lang_name} Wikipedia Ausgabe {issue_number})
 body_title: <em>Die</em> WEEKLYPEDIA
 description: Eine Liste der bearbeiteten Wikipedia Artikel und Diskussionen aus der letzten Woche.
 delivery_description: Lieferung jeden Freitag per E-Mail.
 home_link: Home
 archive_link: "{local.full_lang_name} Ausgabe Archive"
 issue_label: Ausgabe {issue_number}, {local.date}
-language_label: ({} local.full_lang_name Wikipedia Ausgabe)
+language_label: ({local.full_lang_name} Wikipedia Ausgabe)
 
 articles_heading: Artikel
 articles_summary: Diese Woche machten {total_users|ci} Autoren {edits|ci} Änderungen in {title|ci} verschiedenen Artikeln.

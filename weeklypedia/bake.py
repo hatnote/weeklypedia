@@ -156,7 +156,7 @@ def bake_latest_issue(issue_ashes_env,
     ret = {'issues': []}
     issue_data = prep_latest_issue(lang, intro, include_dev)
     issue_data['signup_url'] = SIGNUP_MAP[lang]
-    localize_data(issue_data)
+    issue_data = localize_data(issue_data, lang)
     # this fmt is used to generate the path, as well
     for fmt in ('html', 'json', 'txt', 'email'):
         rendered = render_issue(issue_data, issue_ashes_env, format=fmt)
@@ -275,4 +275,4 @@ def localize_data(issue_data, lang_code):
     local_date = format_date(issue_date, format='long', locale=lang_code)
     issue_data['local']['date'] = local_date
 
-    return
+    return issue_data

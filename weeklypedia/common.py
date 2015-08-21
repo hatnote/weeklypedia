@@ -15,20 +15,20 @@ DEBUG_LIST_ID = "a5ecbc7404"
 _CUR_PATH = dirname(os.path.abspath(__file__))
 
 LANG_MAP = json.load(open(pjoin(_CUR_PATH, 'language_codes.json')))
-LOCAL_LANG_MAP = {'en': 'English',
-                  'de': 'Deutsch',
-                  'fr': 'Français',
-                  'ko': '한국어',
-                  'et': 'Eesti',
-                  'sv': 'Svenska',
-                  'da': 'Dansk',
-                  'it': 'Italiano',
-                  'ca': 'Català',
-                  'es': 'Español',
-                  'fa': 'فارسی',
-                  'ur': 'اردو',
-                  'zh': '中文',
-                  'kn': 'ქართული'}
+LOCAL_LANG_MAP = {'en': u'English',
+                  'de': u'Deutsch',
+                  'fr': u'Français',
+                  'ko': u'한국어',
+                  'et': u'Eesti',
+                  'sv': u'Svenska',
+                  'da': u'Dansk',
+                  'it': u'Italiano',
+                  'ca': u'Català',
+                  'es': u'Español',
+                  'fa': u'فارسی',
+                  'ur': u'اردو',
+                  'zh': u'中文',
+                  'kn': u'ქართული'}
 SENDKEY = json.load(open(os.path.join(_CUR_PATH, 'secrets.json'))).get('key')
 SUPPORTED_LANGS = ['en', 'de', 'fr', 'ko', 'et', 'sv', 'da', 'it', 'ca', 'es', 'fa', 'zh', 'ur', 'kn']
 API_BASE_URL = 'http://tools.wmflabs.org/weeklypedia/fetch/'
@@ -56,8 +56,6 @@ SIGNUP_MAP = {'en': 'http://eepurl.com/MMlpX',
               'zh': 'http://eepurl.com/bsmGhT',
               'ur': 'http://eepurl.com/bsmG1P',
               'kn': 'http://eepurl.com/buxugf'}
-
-LOCAL_LANG_MAP = {'en': 'English'}  # TODO
 
 
 def mkdir_p(path):
