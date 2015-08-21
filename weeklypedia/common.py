@@ -28,7 +28,7 @@ LOCAL_LANG_MAP = {'en': u'English',
                   'fa': u'فارسی',
                   'ur': u'اردو',
                   'zh': u'中文',
-                  'kn': u'ქართული'}
+                  'kn': u'ಕನ್ನಡ'}
 SENDKEY = json.load(open(os.path.join(_CUR_PATH, 'secrets.json'))).get('key')
 SUPPORTED_LANGS = ['en', 'de', 'fr', 'ko', 'et', 'sv', 'da', 'it', 'ca', 'es', 'fa', 'zh', 'ur', 'kn']
 API_BASE_URL = 'http://tools.wmflabs.org/weeklypedia/fetch/'
