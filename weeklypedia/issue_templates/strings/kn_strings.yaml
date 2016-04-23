@@ -12,7 +12,7 @@ articles_summary: ಈ ವಾರ, {total_users|ci} ಲೇಖಕರು  {edits|ci}
 articles_intro: ಈ ವಾರದಲ್ಲಿ ಅತಿ ಹೆಚ್ಚು ಬದಲಾವಣೆಗಳನ್ನು ಕಂಡ ಮೊದಲ ೨೦ ಪುಟಗಳು
 
 diff_count: "{edits|ci} ಬದಲಾವಣೆಗಳು"
-diff_author_count: {users} ಲೇಖಕರಿಂದ
+diff_author_count: "{users} ಲೇಖಕರಿಂದ"
 
 new_articles_heading: ಹೊಸ ಲೇಖನಗಳು
 # new_articles_summary: # TODO

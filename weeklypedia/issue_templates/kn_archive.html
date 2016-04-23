@@ -1,0 +1,77 @@
+
+<html>
+<head>
+  <meta name="description" content="A weekly email digest with the most active Wikipedia articles">
+  <meta name="keywords" content="Wikipedia,email,digest,top,weeklypedia,hatnote">
+  <meta charset="utf-8" />
+  <link href="http://fonts.googleapis.com/css?family=PT+Sans:400,700" rel="stylesheet" type="text/css">
+  <script src=".../../../js/jquery.min.js"></script>
+  <!-- email-exclude -->
+  <link href="../../../css/style.css" rel="stylesheet" media="all">
+  <!-- end-email-exclude -->
+  <title>the WEEKLYPEDIA ({full_lang_name}, ಸಂಚಿಕೆ {issue_number})</title>
+</head>
+<body>
+  <div class="header">
+    <h1><span><em>the</em> WEEKLYPEDIA</span></h1>
+    <p>ಕನ್ನಡ ವಿಕಿಪೀಡಿಯದಲ್ಲಿ ಹಿಂದಿನ ವಾರ ಸಂಪಾದಿಸಿದ ಅತಿ ಹೆಚ್ಚು ಲೇಖನಗಳ ಮತ್ತು ಚರ್ಚಾಪುಟಗಳ ಪಟ್ಟಿ.</p>
+    <p>ಮಿಂಚಂಚೆಯಿಂದ ಪ್ರತಿ ಶುಕ್ರವಾರದಂದು ತಲುಪಿಸಲಾಗುತ್ತದೆ.</p>
+  </div>
+  <div class="announce">
+    <ul class="breadcrumb">
+      <li><a href="../../../index.html">ಮುಖಪುಟ</a></li>
+      <li><a href="../index.html">{local.full_lang_name} ಆವೃತ್ತಿಯ ನೆರೆಕೆಗಳು</a></li>
+      <li>ಸಂಚಿಕೆ {issue_number}, {local.date}</li>
+    </ul>
+  </div>
+  <div class="main">
+    <div class="content">
+      <p id="intro">{intro|s}</p>
+      <h2 id="articles">ಲೇಖನೆಗಳು</h2>
+      <p>{#stats}ಈ ವಾರ, {total_users|ci} ಲೇಖಕರು  {edits|ci} ಬದಲಾವಣೆಗಳನ್ನು {titles|ci} ಪ್ರತ್ಯೇಕ ಪುಟಗಳಲ್ಲಿ ಮಾಡಿದ್ದಾರೆ.{/stats} ಈ ವಾರದಲ್ಲಿ ಅತಿ ಹೆಚ್ಚು ಬದಲಾವಣೆಗಳನ್ನು ಕಂಡ ಮೊದಲ ೨೦ ಪುಟಗಳು:</p>
+      <ol>
+        {#mainspace}
+        <li><a href="https://{short_lang_name}.wikipedia.org/wiki/{title}" target="_blank">{title_s}</a> <span dir="ltr">(<a href="https://{short_lang_name}.wikipedia.org/w/index.php?title={title}&diff={rev_ids.new}&oldid={rev_ids.old}">{edits|ci} ಬದಲಾವಣೆಗಳು</a> {users} ಲೇಖಕರಿಂದ)</span></li>
+        {/mainspace}
+      </ol>
+
+      <h2 id="new-articles">ಹೊಸ ಲೇಖನಗಳು</h2>
+      <p>ಕಳೆದ ವಾರ ಸೃಷ್ಠಿಸಲಾದ ಲೇಖನಗಳಲ್ಲಿ ಹತ್ತು ಅತಿ ಹೆಚ್ಚು ಸಂಪಾದಿಸಿದ ಲೇಖನಗಳು</p>
+      <ol>
+        {#new_articles}
+        <li><a href="https://{short_lang_name}.wikipedia.org/wiki/{title}" target="_blank">{title_s}</a> <span dir="ltr">({edits|ci} ಬದಲಾವಣೆಗಳು {users} ಲೇಖಕರಿಂದ)</span></li>
+        {/new_articles}
+      </ol>
+
+      <h2 id="discussions">ಚರ್ಚೆಗಳು</h2>
+      <p>ಅತಿ ಹೆಚ್ಚು ಚರ್ಚೆಯಾದ ಪುಟಗಳು:</p>
+      <ol>
+        {#talkspace}
+        <li><a href="https://{short_lang_name}.wikipedia.org/wiki/Talk:{title}" target="_blank">{title_s}</a></li>
+        {/talkspace}
+      </ol>
+
+      <h2 id="statistics">ಅಂಕಿ ಅಂಶಗಳು</h2>
+      <p>ಕಳೆದ ವಾರದ ಕೆಲ ಅಂಕಿ ಅಂಶಗಳು:</p>
+      <ul>
+        <li>{stats.users|ci} ನೊಂದಾಯಿಸಿದ ಸದಸ್ಯರು ಮತ್ತು {stats.anon_ip_count|ci} ಅನಾಮಿಕ ಬಳಕೆದಾರರು {stats.titles|ci} ಲೇಖನಗಳನ್ನು {stats.edits|ci} ಬಾರಿ ಸಂಪಾದಿಸಿದ್ದಾರೆ</li>
+        <li>ಅನಾಮಿಕ ಬಳಕೆದಾರರು {stats.anon_titles|ci} ಲೇಖನಗಳನ್ನು {stats.anon_edits|ci} ಬಾರಿ ಸಂಪಾದಿಸಿದ್ದಾರೆ</li>
+        <li>{stats.bot_count|ci} ರೋಬೋಟ್‌ಗಳು {stats.bot_titles|ci} ಲೇಖನಗಳನ್ನು {stats.bot_edits|ci} ಬಾರಿ ಸಂಪಾದಿಸಿದ್ದಾರೆ</li>
+      </ul>
+    <a href="{signup_url}" class="signup"><span>ಮಿಂಚಂಚೆಯಿಂದ ಪಡೆಯಿರಿ!</span></a>
+    <div class="content">
+      <h2>ಯೋಜನೆಯ ಬಗ್ಗೆ</h2>
+      <p>ಈ ಯೋಜನೆಯು <a href="http://tools.wmflabs.org/">Wikimedia Tool Labs</a>ಅನ್ನು ಬಳಸಿಕೊಂಡು ವಾರದ ಇತ್ತೀಚಿನ ಬದಲಾವಣೆಗಳ ಪಟ್ಟಿ ಮಾಡುತ್ತದೆ, ಮತ್ತು ಇದನ್ನು MailChimp ನಿಂದ ಮಿಂಚಂಚೆಯ ಮೂಲಕ ತಲುಪಿಸಲಾಗತ್ತದೆ. ಕೋಡ್ ಮತ್ತು ಇನ್ನಷ್ಟು ಮಾಹಿತಿ <a href="https://github.com/hatnote/weeklypedia">GitHubನಲ್ಲಿ ಲಭ್ಯವಿದೆ</a>. <a href="https://github.com/slaporte">Stephen LaPorte</a> ಮತ್ತು <a href="https://github.com/mahmoud">Mahmoud Hashemi</a>ರವರು ಈ ತಂತ್ರಾಶವನ್ನು ರಚಿಸಿದ್ದಾರೆ.</p>
+      <p><a href="http://blog.hatnote.com/">Hatnote ಬ್ಲಾಗ್ ಬಗ್ಗೆ ಇನ್ನಷ್ಟು ತಿಳಿಯಿರಿ</a>.</p>
+    </div>
+  </div>
+  <script>
+    (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+    (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+    m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+    })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+    ga('create', 'UA-40320359-1', 'hatnote.com');
+    ga('send', 'pageview');
+  </script>
+</body>
+</html>

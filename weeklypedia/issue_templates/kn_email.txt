@@ -1,0 +1,42 @@
+The WEEKLYPEDIA: Issue {issue_number}, {date} ({full_lang_name} Wikipedia Edition)
+
+{intro|s}
+
+=== ಲೇಖನೆಗಳು ===
+
+{#stats}ಈ ವಾರ, {total_users|ci} ಲೇಖಕರು  {edits|ci} ಬದಲಾವಣೆಗಳನ್ನು {titles|ci} ಪ್ರತ್ಯೇಕ ಪುಟಗಳಲ್ಲಿ ಮಾಡಿದ್ದಾರೆ.{/stats} ಈ ವಾರದಲ್ಲಿ ಅತಿ ಹೆಚ್ಚು ಬದಲಾವಣೆಗಳನ್ನು ಕಂಡ ಮೊದಲ ೨೦ ಪುಟಗಳು:
+
+{#mainspace}
+{@idx_1}{.}{/idx_1}. {title_s} ‭({edits|ci} ಬದಲಾವಣೆಗಳು {users} ಲೇಖಕರಿಂದ)‬
+	https://{short_lang_name|s}.wikipedia.org/wiki/{title|uc}
+{/mainspace}
+
+=== ಹೊಸ ಲೇಖನಗಳು ===
+
+ಕಳೆದ ವಾರ ಸೃಷ್ಠಿಸಲಾದ ಲೇಖನಗಳಲ್ಲಿ ಹತ್ತು ಅತಿ ಹೆಚ್ಚು ಸಂಪಾದಿಸಿದ ಲೇಖನಗಳು:
+
+{#new_articles}
+{@idx_1}{.}{/idx_1}. {title_s} ‭({edits|ci} ಬದಲಾವಣೆಗಳು {users} ಲೇಖಕರಿಂದ)‬
+    https://{short_lang_name|s}.wikipedia.org/wiki/{title|uc}
+{/new_articles}
+
+=== ಚರ್ಚೆಗಳು ===
+
+ಅತಿ ಹೆಚ್ಚು ಚರ್ಚೆಯಾದ ಪುಟಗಳು:
+
+{#talkspace}
+{@idx_1}{.}{/idx_1}. {title_s}
+	https://{short_lang_name|s}.wikipedia.org/wiki/Talk:{title|uc}
+{/talkspace}
+
+=== ಅಂಕಿ ಅಂಶಗಳು ===
+
+ಕಳೆದ ವಾರದ ಕೆಲ ಅಂಕಿ ಅಂಶಗಳು:
+
+* {stats.users|ci} ನೊಂದಾಯಿಸಿದ ಸದಸ್ಯರು ಮತ್ತು {stats.anon_ip_count|ci} ಅನಾಮಿಕ ಬಳಕೆದಾರರು {stats.titles|ci} ಲೇಖನಗಳನ್ನು {stats.edits|ci} ಬಾರಿ ಸಂಪಾದಿಸಿದ್ದಾರೆ
+
+* ಅನಾಮಿಕ ಬಳಕೆದಾರರು {stats.anon_titles|ci} ಲೇಖನಗಳನ್ನು {stats.anon_edits|ci} ಬಾರಿ ಸಂಪಾದಿಸಿದ್ದಾರೆ
+
+* {stats.bot_count|ci} ರೋಬೋಟ್‌ಗಳು {stats.bot_titles|ci} ಲೇಖನಗಳನ್ನು {stats.bot_edits|ci} ಬಾರಿ ಸಂಪಾದಿಸಿದ್ದಾರೆ
+
+Learn more about the Weeklypedia Digest: http://weekly.hatnote.com/
