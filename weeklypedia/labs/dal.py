@@ -242,6 +242,8 @@ class RecentChangesSummarizer(object):
         fi['start_date'] = start_dt.isoformat()
         fi['end_date'] = current_dt.isoformat()
         ret['stats'] = self.get_activity_summary(interval=interval)
+        ret['talk_stats'] = self.get_activity_summary(interval=interval,
+                                                      namespace=1)
         ret['mainspace'] = self.get_mainspace_activity(interval=interval,
                                                        limit=main_limit)
         ret['talkspace'] = self.get_talkspace_activity(interval=interval,
