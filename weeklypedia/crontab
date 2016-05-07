@@ -47,6 +47,7 @@ LOG_BASE_PATH=/home/hatnote/weeklypedia/logs/cron_out
 14 * * * *  $PYTHON_BIN $FETCH_SCRIPT --lang zh 2>&1 | tee -a $LOG_BASE_PATH/zh.txt
 15 * * * *  $PYTHON_BIN $FETCH_SCRIPT --lang ur 2>&1 | tee -a $LOG_BASE_PATH/ur.txt
 16 * * * *  $PYTHON_BIN $FETCH_SCRIPT --lang kn 2>&1 | tee -a $LOG_BASE_PATH/kn.txt
+17 * * * *  $PYTHON_BIN $FETCH_SCRIPT --lang lv 2>&1 | tee -a $LOG_BASE_PATH/lv.txt
 
 # daily Weeklypedia data backups
 # TODO: maybe make this every other day or something?
@@ -55,9 +56,8 @@ LOG_BASE_PATH=/home/hatnote/weeklypedia/logs/cron_out
 
 # developer preview Thursday at 8:30pm Eastern
 20 20 * * 4 $PYTHON_BIN $PUBLISH_SCRIPT --lang en --debug
-21 20 * * 4 $PYTHON_BIN $PUBLISH_SCRIPT --lang es --debug
 22 20 * * 4 $PYTHON_BIN $PUBLISH_SCRIPT --lang zh --debug
-23 20 * * 4 $PYTHON_BIN $PUBLISH_SCRIPT --lang kn --debug
+23 20 * * 4 $PYTHON_BIN $PUBLISH_SCRIPT --lang lv --debug
 
 # production jobs go out on Friday morning (TODO: localize)
 # These are arbitrarily spaced out by a couple minutes just to be safe
@@ -75,6 +75,7 @@ LOG_BASE_PATH=/home/hatnote/weeklypedia/logs/cron_out
 22 6 * * 5 $PYTHON_BIN $PUBLISH_SCRIPT --lang zh 2>&1 | tee -a $LOG_BASE_PATH/zh.txt
 23 6 * * 5 $PYTHON_BIN $PUBLISH_SCRIPT --lang ur 2>&1 | tee -a $LOG_BASE_PATH/ur.txt
 23 6 * * 5 $PYTHON_BIN $PUBLISH_SCRIPT --lang kn 2>&1 | tee -a $LOG_BASE_PATH/kn.txt
+23 6 * * 5 $PYTHON_BIN $PUBLISH_SCRIPT --lang lv 2>&1 | tee -a $LOG_BASE_PATH/lv.txt
 
 #### Wikimon GeoIP update
 # Wikimon GeoIP update constants
