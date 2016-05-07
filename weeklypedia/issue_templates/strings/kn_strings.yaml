@@ -3,16 +3,17 @@ body_title: <em>the</em> WEEKLYPEDIA
 description: ಕನ್ನಡ ವಿಕಿಪೀಡಿಯದಲ್ಲಿ ಹಿಂದಿನ ವಾರ ಸಂಪಾದಿಸಿದ ಅತಿ ಹೆಚ್ಚು ಲೇಖನಗಳ ಮತ್ತು ಚರ್ಚಾಪುಟಗಳ ಪಟ್ಟಿ.
 delivery_description: ಮಿಂಚಂಚೆಯಿಂದ ಪ್ರತಿ ಶುಕ್ರವಾರದಂದು ತಲುಪಿಸಲಾಗುತ್ತದೆ.
 home_link: ಮುಖಪುಟ
-archive_link: "{local.full_lang_name} ಆವೃತ್ತಿಯ ನೆರೆಕೆಗಳು"
+archive_link: "{local.full_lang_name} ಆವೃತ್ತಿಗಳು"
 issue_label: ಸಂಚಿಕೆ {issue_number}, {local.date}
 language_label: ({local.full_lang_name} ವಿಕಿಪೀಡಿಯ ಆವೃತ್ತಿ)
+intro: ನಮಸ್ತೆ! ನಮ್ಮ ಕನ್ನಡ ವಿಕಿಪೀಡಿಯದ ಈ ವಾರದ ಚಟುವಟಿಕೆಗಳ ಸಂಕ್ಷಿಪ್ತರೂಪವಿಲ್ಲಿದೆ.
 
-articles_heading: ಲೇಖನೆಗಳು
+articles_heading: ಲೇಖನಗಳು
 articles_summary: ಈ ವಾರ, {total_users|ci} ಲೇಖಕರು  {edits|ci} ಬದಲಾವಣೆಗಳನ್ನು {titles|ci} ಪ್ರತ್ಯೇಕ ಪುಟಗಳಲ್ಲಿ ಮಾಡಿದ್ದಾರೆ.
 articles_intro: ಈ ವಾರದಲ್ಲಿ ಅತಿ ಹೆಚ್ಚು ಬದಲಾವಣೆಗಳನ್ನು ಕಂಡ ಮೊದಲ ೨೦ ಪುಟಗಳು
 
+diff_author_count: {users} ಲೇಖಕರಿಂದ
 diff_count: "{edits|ci} ಬದಲಾವಣೆಗಳು"
-diff_author_count: "{users} ಲೇಖಕರಿಂದ"
 
 new_articles_heading: ಹೊಸ ಲೇಖನಗಳು
 # new_articles_summary: # TODO
@@ -36,6 +37,6 @@ bot_edit_counts: >-
 signup_link: ಮಿಂಚಂಚೆಯಿಂದ ಪಡೆಯಿರಿ!
 about_heading: ಯೋಜನೆಯ ಬಗ್ಗೆ 
 about_text: >-
-  ಈ ಯೋಜನೆಯು <a href="http://tools.wmflabs.org/">Wikimedia Tool Labs</a>ಅನ್ನು ಬಳಸಿಕೊಂಡು ವಾರದ ಇತ್ತೀಚಿನ ಬದಲಾವಣೆಗಳ ಪಟ್ಟಿ ಮಾಡುತ್ತದೆ, ಮತ್ತು ಇದನ್ನು MailChimp ನಿಂದ ಮಿಂಚಂಚೆಯ ಮೂಲಕ ತಲುಪಿಸಲಾಗತ್ತದೆ. ಕೋಡ್ ಮತ್ತು ಇನ್ನಷ್ಟು ಮಾಹಿತಿ <a href="https://github.com/hatnote/weeklypedia">GitHubನಲ್ಲಿ ಲಭ್ಯವಿದೆ</a>. <a href="https://github.com/slaporte">Stephen LaPorte</a> ಮತ್ತು <a href="https://github.com/mahmoud">Mahmoud Hashemi</a>ರವರು ಈ ತಂತ್ರಾಶವನ್ನು ರಚಿಸಿದ್ದಾರೆ.
+  ಈ ಯೋಜನೆಯು <a href="http://tools.wmflabs.org/">Wikimedia Tool Labs</a> ಅನ್ನು ಬಳಸಿಕೊಂಡು ವಾರದ ಇತ್ತೀಚಿನ ಬದಲಾವಣೆಗಳ ಪಟ್ಟಿ ಮಾಡುತ್ತದೆ, ಮತ್ತು ಇದನ್ನು MailChimp ನಿಂದ ಮಿಂಚಂಚೆಯ ಮೂಲಕ ತಲುಪಿಸಲಾಗತ್ತದೆ. ಇದರ ಮೂಲ ಕೋಡ್ ಮತ್ತು ಇನ್ನಷ್ಟು ಮಾಹಿತಿ <a href="https://github.com/hatnote/weeklypedia">ಗಿಟ್‌ಹಬ್‌ನಲ್ಲಿ ಲಭ್ಯವಿದೆ</a>. <a href="https://github.com/slaporte">Stephen LaPorte</a> ಮತ್ತು <a href="https://github.com/mahmoud">Mahmoud Hashemi</a> ರವರು ಈ ತಂತ್ರಾಶವನ್ನು ರಚಿಸಿದ್ದಾರೆ.
 blog_link: Hatnote ಬ್ಲಾಗ್ ಬಗ್ಗೆ ಇನ್ನಷ್ಟು ತಿಳಿಯಿರಿ
-learn_more: <a href="http://weekly.hatnote.com">Weeklypedia Digest</a>ಬಗ್ಗೆ ಇನ್ನಷ್ಟು ತಿಳಿಯಿರಿ!
+learn_more: <a href="http://weekly.hatnote.com">Weeklypedia Digest</a> ಬಗ್ಗೆ ಇನ್ನಷ್ಟು ತಿಳಿಯಿರಿ!
