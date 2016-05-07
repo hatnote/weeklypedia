@@ -29,9 +29,10 @@ LOCAL_LANG_MAP = {'en': u'English',
                   'ur': u'اردو',
                   'zh': u'中文',
                   'kn': u'ಕನ್ನಡ',
-                  'lv': u'Latvian'}
+                  'lv': u'Latvian',
+                  'el': u'ελληνική'}
 SENDKEY = json.load(open(os.path.join(_CUR_PATH, 'secrets.json'))).get('key')
-SUPPORTED_LANGS = ['en', 'de', 'fr', 'ko', 'et', 'sv', 'da', 'it', 'ca', 'es', 'fa', 'zh', 'ur', 'kn', 'lv']
+SUPPORTED_LANGS = ['en', 'de', 'fr', 'ko', 'et', 'sv', 'da', 'it', 'ca', 'es', 'fa', 'zh', 'ur', 'kn', 'lv', 'el']
 API_BASE_URL = 'http://tools.wmflabs.org/weeklypedia/fetch/'
 
 ARCHIVE_BASE_PATH = pjoin(dirname(_CUR_PATH), 'static', 'archive')
@@ -57,7 +58,8 @@ SIGNUP_MAP = {'en': 'http://eepurl.com/MMlpX',
               'zh': 'http://eepurl.com/bsmGhT',
               'ur': 'http://eepurl.com/bsmG1P',
               'kn': 'http://eepurl.com/buxugf',
-              'lv': 'http://eepurl.com/b0V-yj'}
+              'lv': 'http://eepurl.com/b0V-yj',
+              'el': 'http://eepurl.com/b0WcUr'}
 
 
 def mkdir_p(path):
