@@ -1,0 +1,42 @@
+head_title: the WEEKLYPEDIA ({full_lang_name}, {issue_number}. numurs)
+body_title: <em>the</em> WEEKLYPEDIA
+description: Saraksts ar pēdējā nedēļā biežāk labotajiem Vikipēdijas rakstiem un diskusijām.
+delivery_description: Tiek piegādāts e-pastā katru piektdienu.
+home_link: Sākums
+archive_link: "{local.full_lang_name} versijas arhīvi"
+issue_label: {issue_number}. numurs, {local.date}
+language_label: ({local.full_lang_name} Vikipēdijas izdevums)
+intro: Sveicināti! Laipni lūgti mūsu Vikipēdijas nedēļas aktivitāšu apkopojumā.
+
+articles_heading: Raksti
+articles_summary: Šonedēļ {total_users|ci} autori veica {edits|ci} izmaiņas {titles|ci} atsevišķos rakstos.
+articles_intro: Nedēļas 20 aktīvākie raksti
+
+diff_count: "{edits|ci} izmaiņas",
+diff_author_count: {users} autori
+
+new_articles_heading: Jauni raksti
+# new_articles_summary: # TODO
+new_articles_intro: Desmit aktīvāk labotie raksti, kas tapuši pēdējās nedēļas laikā
+
+# diff count and author count handled in article section
+
+discussions_heading: Diskusijas
+# discussions_summary: # TODO
+discussions_intro: Aktīvākās diskusijas
+
+stats_heading: Statistika
+stats_intro: Daži skaitļi no pagājušās nedēļas
+
+user_edit_counts: >-
+  {stats.users|ci} reģistrēti un {stats.anon_ip_count|ci} nereģistrēti dalībnieki veica {stats.edits|ci} labojumus {stats.titles|ci} rakstos
+anon_edit_counts: Nereģistrēti dalībnieki veica {stats.anon_edits|ci} labojumus {stats.anon_titles|ci} rakstos
+bot_edit_counts: >-
+  {stats.bot_count|ci} roboti veica {stats.bot_edits|ci} labojumus {stats.bot_titles|ci} rakstos
+
+signup_link: Abonējiet!
+about_heading: Par
+about_text: >-
+  Šis projekts iegūst sarakstu ar pēdējās nedēļas izmaiņām, izmantojot <a href="http://tools.wmflabs.org/">Wikimedia Tool Labs</a>, un piegādā e-pastus, izmantojot MailChimp. Izejas kods un plašāka informācija <a href="https://github.com/hatnote/weeklypedia">pieejama GitHub</a>. Izveidouši <a href="https://github.com/slaporte">Stephen LaPorte</a> un <a href="https://github.com/mahmoud">Mahmoud Hashemi</a>.
+blog_link: Uzziniet vairāk Hatnote blogā
+learn_more: Uzziniet vairāk par <a href="http://weekly.hatnote.com">Weeklypedia Digest</a>!
