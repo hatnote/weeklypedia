@@ -4,7 +4,7 @@ description: Saraksts ar pēdējā nedēļā biežāk labotajiem Vikipēdijas ra
 delivery_description: Tiek piegādāts e-pastā katru piektdienu.
 home_link: Sākums
 archive_link: "{local.full_lang_name} versijas arhīvi"
-issue_label: {issue_number}. numurs, {local.date}
+issue_label: "{issue_number}. numurs, {local.date}"
 language_label: ({local.full_lang_name} Vikipēdijas izdevums)
 intro: Sveicināti! Laipni lūgti mūsu Vikipēdijas nedēļas aktivitāšu apkopojumā.
 
@@ -12,8 +12,8 @@ articles_heading: Raksti
 articles_summary: Šonedēļ {total_users|ci} autori veica {edits|ci} izmaiņas {titles|ci} atsevišķos rakstos.
 articles_intro: Nedēļas 20 aktīvākie raksti
 
-diff_count: "{edits|ci} izmaiņas",
-diff_author_count: {users} autori
+diff_count: "{edits|ci} izmaiņas"
+diff_author_count: "{users} autori"
 
 new_articles_heading: Jauni raksti
 # new_articles_summary: # TODO

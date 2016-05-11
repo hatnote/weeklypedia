@@ -1,0 +1,42 @@
+The WEEKLYPEDIA: Issue {issue_number}, {date} ({full_lang_name} Wikipedia Edition)
+
+{intro|s}
+
+=== Raksti ===
+
+{#stats}Šonedēļ {total_users|ci} autori veica {edits|ci} izmaiņas {titles|ci} atsevišķos rakstos.{/stats} Nedēļas 20 aktīvākie raksti:
+
+{#mainspace}
+{@idx_1}{.}{/idx_1}. {title_s} ‭({edits|ci} izmaiņas {users} autori)‬
+	https://{short_lang_name|s}.wikipedia.org/wiki/{title|uc}
+{/mainspace}
+
+=== Jauni raksti ===
+
+Desmit aktīvāk labotie raksti, kas tapuši pēdējās nedēļas laikā:
+
+{#new_articles}
+{@idx_1}{.}{/idx_1}. {title_s} ‭({edits|ci} izmaiņas {users} autori)‬
+    https://{short_lang_name|s}.wikipedia.org/wiki/{title|uc}
+{/new_articles}
+
+=== Diskusijas ===
+
+Aktīvākās diskusijas:
+
+{#talkspace}
+{@idx_1}{.}{/idx_1}. {title_s}
+	https://{short_lang_name|s}.wikipedia.org/wiki/Talk:{title|uc}
+{/talkspace}
+
+=== Statistika ===
+
+Daži skaitļi no pagājušās nedēļas:
+
+* {stats.users|ci} reģistrēti un {stats.anon_ip_count|ci} nereģistrēti dalībnieki veica {stats.edits|ci} labojumus {stats.titles|ci} rakstos
+
+* Nereģistrēti dalībnieki veica {stats.anon_edits|ci} labojumus {stats.anon_titles|ci} rakstos
+
+* {stats.bot_count|ci} roboti veica {stats.bot_edits|ci} labojumus {stats.bot_titles|ci} rakstos
+
+Learn more about the Weeklypedia Digest: http://weekly.hatnote.com/
