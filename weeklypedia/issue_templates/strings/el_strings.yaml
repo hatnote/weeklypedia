@@ -1,0 +1,99 @@
+#------------------
+# Weeklypedia
+#    If you want to translate the Weeklypedia newsletter, start with a copy
+#    of this file and leave us a note at:
+#    https://github.com/hatnote/weeklypedia/issues
+#------------------------------------------------------------------------------
+
+#-----------
+# Introduction
+#------------------------------------------------------------------------------
+
+head_title: >-
+    η Ελληνική WEEKLYPEDIA, τεύχος {issue_number})
+
+body_title: >-
+    <em>η</em> WEEKLYPEDIA
+
+description: >- 
+    Ένας κατάλογος των περισσότερο επεξεργασμένων λημμάτων και συζητήσεωςν 
+    της Βικιπαίδειας από την περασμένη εβδομάδα.
+
+delivery_description: Παραλαμβάνεται κάθε Παρασκευή με email.
+home_link: Κεντρική 
+archive_link: "αρχεία ελληνικής έκδοσης"
+issue_label: Τεύχος {issue_number}, {local.date} 
+language_label: έκδοσης Ελληνικής Βικιπαίδειας) 
+intro: >-
+    Γειά σας! Καλώς ήρθατε στην εβδομαδιαία επιτομή μας της δραστηριότητας στην Βικιπαίδεια.
+
+#-----------
+# Article section
+#------------------------------------------------------------------------------
+
+articles_heading: Λήμματα
+articles_summary: >-
+    Αυτή την εβδομάδα, {total_users|ci} συντάκτες έκαναν {edits|ci} αλλαγές σε
+    {titles|ci} διαφορετικά λήμματα.
+
+articles_intro: Τα κορυφαία 20 λήμματα για αυτή την εβδομάδα
+
+diff_count: "{edits|ci} αλλαγές"
+diff_author_count: από {users} συντάκτες
+
+#-----------
+# New articles section
+#------------------------------------------------------------------------------
+
+new_articles_heading: Νέα Λήμματα
+# new_articles_summary: # TODO
+new_articles_intro: >-
+    Τα δέκα περισσότερο ενεργά επεξεργασμένα λήμματα που δημιουργήθηκαν κατά την τελευταία εβδομάδα.
+    
+#-----------
+# Discussion section
+#------------------------------------------------------------------------------
+
+discussions_heading: Συζητήσεις
+# discussions_summary: # TODO
+discussions_intro: Οι περισσότερο ενεργές συζητήσεις
+
+#-----------
+# Stats section
+#------------------------------------------------------------------------------
+
+stats_heading: Στατιστικά
+stats_intro: Λίγοι αριθμοί από την περασμένη εβδομάδα
+user_edit_counts: >- 
+    {stats.users|ci} εγγεγραμμένοι χρήστες και
+    {stats.anon_ip_count|ci} μη εγγεγραμμένοι χρήστες έκαναν {stats.edits|ci}
+    επεξεργασίες σε {stats.titles|ci} λήμματα
+
+anon_edit_counts: >-
+    Μη εγγεγραμμένοι χρήστες έκαναν {stats.anon_edits|ci} επεξεργασίες σε
+    {stats.anon_titles|ci} λήμματα
+
+
+bot_edit_counts: >- 
+    {stats.bot_count|ci} robot έκαναν
+    {stats.bot_edits|ci} επεξεργασίες σε {stats.bot_titles|ci} λήμματα
+
+#-----------
+# Bottom section
+#------------------------------------------------------------------------------
+
+signup_link: Εγγραφείτε!
+about_heading: Σχετικά
+about_text: >-
+    Αυτό το έργο ανακτά τον κατάλογο τον πρόσφατων αλλαγών αυτής της εβδομάδας χρησιμοποιώντας το <a
+    href="http://tools.wmflabs.org/">Wikimedia Tool Labs</a>, και 
+    στέλνει email χρησιμοποιώντας το MailChimp. Ο κώδικας και περισσότερες πληροφορίες είναι <a
+    href="https://github.com/hatnote/weeklypedia">διαθέσιμα στο 
+    GitHub</a>. Δημιουργήθηκε από τους <a href="https://github.com/slaporte">Stephen
+    LaPorte</a> και <a href="https://github.com/mahmoud">Mahmoud
+    Hashemi</a>.
+
+blog_link: Μάθετε περισσότερα στο Hatnote blog
+learn_more: >-
+    Μάθετε περισσότερα σχετικά με το <a href="http://weekly.hatnote.com">Weeklypedia
+    Digest</a>!
