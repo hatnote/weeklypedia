@@ -1,0 +1,42 @@
+The WEEKLYPEDIA: Issue {issue_number}, {date} ({full_lang_name} Wikipedia Edition)
+
+{intro|s}
+
+=== Λήμματα ===
+
+{#stats}Αυτή την εβδομάδα, {total_users|ci} συντάκτες έκαναν {edits|ci} αλλαγές σε {titles|ci} διαφορετικά λήμματα.{/stats} Τα κορυφαία 20 λήμματα για αυτή την εβδομάδα:
+
+{#mainspace}
+{@idx_1}{.}{/idx_1}. {title_s} ‭({edits|ci} αλλαγές από {users} συντάκτες)‬
+	https://{short_lang_name|s}.wikipedia.org/wiki/{title|uc}
+{/mainspace}
+
+=== Νέα Λήμματα ===
+
+Τα δέκα περισσότερο ενεργά επεξεργασμένα λήμματα που δημιουργήθηκαν κατά την τελευταία εβδομάδα.:
+
+{#new_articles}
+{@idx_1}{.}{/idx_1}. {title_s} ‭({edits|ci} αλλαγές από {users} συντάκτες)‬
+    https://{short_lang_name|s}.wikipedia.org/wiki/{title|uc}
+{/new_articles}
+
+=== Συζητήσεις ===
+
+Οι περισσότερο ενεργές συζητήσεις:
+
+{#talkspace}
+{@idx_1}{.}{/idx_1}. {title_s}
+	https://{short_lang_name|s}.wikipedia.org/wiki/Talk:{title|uc}
+{/talkspace}
+
+=== Στατιστικά ===
+
+Λίγοι αριθμοί από την περασμένη εβδομάδα:
+
+* {stats.users|ci} εγγεγραμμένοι χρήστες και {stats.anon_ip_count|ci} μη εγγεγραμμένοι χρήστες έκαναν {stats.edits|ci} επεξεργασίες σε {stats.titles|ci} λήμματα
+
+* Μη εγγεγραμμένοι χρήστες έκαναν {stats.anon_edits|ci} επεξεργασίες σε {stats.anon_titles|ci} λήμματα
+
+* {stats.bot_count|ci} robot έκαναν {stats.bot_edits|ci} επεξεργασίες σε {stats.bot_titles|ci} λήμματα
+
+Learn more about the Weeklypedia Digest: http://weekly.hatnote.com/
