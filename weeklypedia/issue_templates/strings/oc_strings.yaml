@@ -1,0 +1,96 @@
+#------------------
+# Weeklypedia
+# Se volètz traduire lo bulletin Weeklypedia, començatz amb una còpia
+# d'aquel fichièr e laissatz-nos un messatge sus:
+# https://github.com/hatnote/weeklypedia/issues
+#------------------------------------------------------------------------------
+
+#-----------
+# Introduccion
+#------------------------------------------------------------------------------ 
+
+head_title: >-
+    la WEEKLYPÈDIA ({full_lang_name}, numèro {issue_number}) 
+
+body_title: >-
+    <em>a</em> WEEKLYPÈDIA 
+
+description: >-
+    Una lista dels articles mai modificats de la Wikipèdia e de las discussions
+    de la setmana passada.
+
+delivery_description: Distribuït cada divendres per corrièr electronic. 
+home_link: Pagina iniciala 
+archive_link: "{local.full_lang_name} archius d'edicion" 
+issue_label: Numèro {issue_number}, {local.date} 
+language_label: ({local.full_lang_name} edicion de la Wikipèdia) 
+intro: >-
+    Òu! Benvenguts al nòstre resumit setmanièr de l'activitat de la Wikipèdia.
+
+#-----------
+# Article de la seccion
+#------------------------------------------------------------------------------ 
+
+articles_heading: Articles 
+articles_summary: >-
+    Aquela setmana, {total_users|ci} autors an fach {edits|ci} cambiaments a
+    {titles|ci} diferents articles.
+
+articles_intro: los 20 melhors articles de la setmana 
+
+diff_count: "{edits|ci} cambiaments" 
+diff_author_count: per {users} autors
+
+#-----------
+# Seccion d'articles novèls
+#------------------------------------------------------------------------------ 
+
+new_articles_heading: Articles novèls
+# new_articles_summary: # TODO
+new_articles_intro: >-
+    Los dètz articles modificats mai activament creats la setmana passada
+
+#-----------
+# Seccion de discussion
+#------------------------------------------------------------------------------ 
+
+discussions_heading: Discussions
+# discussions_summary: # TODO 
+discussions_intro: Las discussions mai activas
+
+#-----------
+# Estadisticas de la seccion
+#------------------------------------------------------------------------------ 
+
+stats_heading: Estadisticas 
+stats_intro: Qualques chifras de la setmana passada 
+user_edit_counts: >-
+    {stats.users|ci} membres enregistrats e {stats.anon_ip_count|ci} membres pas
+    enregistrats an fach {stats.edits|ci} cambiaments a {stats.titles|ci}
+    articles
+
+anon_edit_counts: >-
+    Los membres pas enregistrats an modificat {stats.anon_edits|ci}
+    {stats.anon_titles|ci} articles
+
+bot_edit_counts: >-
+    {stats.bot_count|ci} que los robòts an fach {stats.bot_edits|ci} cambiaments
+    a {stats.bot_titles|ci} articles
+
+#-----------
+# Seccion inferiora
+#------------------------------------------------------------------------------
+
+signup_link: S'enregistrar! 
+about_heading: Qu'es aquò 
+about_text: >-
+    Aquèste projècte recupera una lista dels cambiaments recents de la setmana
+    mercé als <a href="http://tools.wmflabs.org/">Wikimedia Tool Labs</a>, e
+    distribuís de messatges electronics amb MailChimp. Còde e mai <a
+    href="https://github.com/hatnote/weeklypedia">disponibles sus GitHub</a>.
+    Creat per <a href="https://github.com/slaporte">Stephen LaPorte</a> i <a
+    href="https://github.com/mahmoud">Mahmoud Hashemi</a>.
+
+blog_link: Mai sul blog Hatnote 
+learn_more: >-
+    Mai sul <a href="http://weekly.hatnote.com">bulletin Weeklypèdia</a>
