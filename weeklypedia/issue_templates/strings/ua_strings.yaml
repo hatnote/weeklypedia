@@ -16,8 +16,8 @@ body_title: >-
     ВІКЛІПЕДІЯ
 
 description: >-
-	Список найбільш редагуємих статей Вікіпедії та
-	найактіниших обговорювань минулого тижня.
+    Список найбільш редагуємих статей Вікіпедії та
+    найактіниших обговорювань минулого тижня.
 
 delivery_description: Приходить щоп'ятниці на електронну пошту.
 home_link: Додому
@@ -48,7 +48,7 @@ diff_author_count: від {users} авторів
 new_articles_heading: Нові статті
 # new_articles_summary: # TODO
 new_articles_intro: >-
-	Десять найбільш активно редагуємих статей, створених протягом останнього тижня
+    Десять найбільш активно редагуємих статей, створених протягом останнього тижня
 
 #-----------
 # Discussion section
@@ -88,12 +88,12 @@ about_text: >-
     Цей проект отримує список останніх змін на тиждень за допомогою <a
     href="http://tools.wmflabs.org/">Wikimedia Tool Labs</a>, та
     використовує поштову розсилку від MailChimp. Вихідний код і більше
-	інформації <a href="https://github.com/hatnote/weeklypedia">доступні на
+    інформації <a href="https://github.com/hatnote/weeklypedia">доступні на
     GitHub</a>. Проект створений <a href="https://github.com/slaporte"> Стефаном
-     Лапорте</a> та <a href="https://github.com/mahmoud"> Махмудом
-     Хашемі </a>.
+    Лапорте</a> та <a href="https://github.com/mahmoud"> Махмудом
+    Хашемі </a>.
 
 blog_link: Дізнайтеся більше на блозі Hatnote
 learn_more: >-
     Детальніше про <a href="http://weekly.hatnote.com">Вікліпедія
-	Дайджест</a>!
+    Дайджест</a>!

@@ -1,0 +1,77 @@
+
+<html>
+<head>
+  <meta name="description" content="A weekly email digest with the most active Wikipedia articles">
+  <meta name="keywords" content="Wikipedia,email,digest,top,weeklypedia,hatnote">
+  <meta charset="utf-8" />
+  <link href="https://fonts.googleapis.com/css?family=PT+Sans:400,700" rel="stylesheet" type="text/css">
+  <script src=".../../../js/jquery.min.js"></script>
+  <!-- email-exclude -->
+  <link href="../../../css/style.css" rel="stylesheet" media="all">
+  <!-- end-email-exclude -->
+  <title>ВІКЛІПЕДІЯ ({full_lang_name}, Випуск {issue_number})</title>
+</head>
+<body>
+  <div class="header">
+    <h1><span>ВІКЛІПЕДІЯ</span></h1>
+    <p>Список найбільш редагуємих статей Вікіпедії та найактіниших обговорювань минулого тижня.</p>
+    <p>Приходить щоп'ятниці на електронну пошту.</p>
+  </div>
+  <div class="announce">
+    <ul class="breadcrumb">
+      <li><a href="../../../index.html">Додому</a></li>
+      <li><a href="../index.html">{local.full_lang_name} архів видань</a></li>
+      <li>Випуск {issue_number}, від {local.date}</li>
+    </ul>
+  </div>
+  <div class="main">
+    <div class="content">
+      <p id="intro">{intro|s}</p>
+      <h2 id="articles">Статті</h2>
+      <p>{#stats}На цьому тижні, {total_users|ci} автори зробили {edits|ci} редагувань до {titles|ci} різних статей.{/stats} 20 кращих статей за тиждень:</p>
+      <ol>
+        {#mainspace}
+        <li><a href="https://{short_lang_name}.wikipedia.org/wiki/{title}" target="_blank">{title_s}</a> <span dir="ltr">(<a href="https://{short_lang_name}.wikipedia.org/w/index.php?title={title}&diff={rev_ids.new}&oldid={rev_ids.old}">{edits|ci} редагувань</a> від {users} авторів)</span></li>
+        {/mainspace}
+      </ol>
+
+      <h2 id="new-articles">Нові статті</h2>
+      <p>Десять найбільш активно редагуємих статей, створених протягом останнього тижня</p>
+      <ol>
+        {#new_articles}
+        <li><a href="https://{short_lang_name}.wikipedia.org/wiki/{title}" target="_blank">{title_s}</a> <span dir="ltr">({edits|ci} редагувань від {users} авторів)</span></li>
+        {/new_articles}
+      </ol>
+
+      <h2 id="discussions">Обговорення</h2>
+      <p>Найбільш активні обговорення:</p>
+      <ol>
+        {#talkspace}
+        <li><a href="https://{short_lang_name}.wikipedia.org/wiki/Talk:{title}" target="_blank">{title_s}</a></li>
+        {/talkspace}
+      </ol>
+
+      <h2 id="statistics">Статистика</h2>
+      <p>Кілька цифр з минулого тижня:</p>
+      <ul>
+        <li>{stats.users|ci} зареєстрованих користувачів і {stats.anon_ip_count|ci} незареєстрованих користувачів зробили {stats.edits|ci} редагуваннь до {stats.titles|ci} статей</li>
+        <li>Незареєстровані користувачи зробили {stats.anon_edits|ci} редагуваннь до {stats.anon_titles|ci} статей</li>
+        <li>{stats.bot_count|ci} роботи зробили {stats.bot_edits|ci} редагуваннь до {stats.bot_titles|ci} статей</li>
+      </ul>
+    <a href="{signup_url}" class="signup"><span>Зареєструватися!</span></a>
+    <div class="content">
+      <h2>Про ВІКЛІПЕДІЮ</h2>
+      <p>Цей проект отримує список останніх змін на тиждень за допомогою <a href="http://tools.wmflabs.org/">Wikimedia Tool Labs</a>, та використовує поштову розсилку від MailChimp. Вихідний код і більше інформації <a href="https://github.com/hatnote/weeklypedia">доступні на GitHub</a>. Проект створений <a href="https://github.com/slaporte"> Стефаном Лапорте</a> та <a href="https://github.com/mahmoud"> Махмудом Хашемі </a>.</p>
+      <p><a href="http://blog.hatnote.com/">Дізнайтеся більше на блозі Hatnote</a>.</p>
+    </div>
+  </div>
+  <script>
+    (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+    (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+    m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+    })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+    ga('create', 'UA-40320359-1', 'hatnote.com');
+    ga('send', 'pageview');
+  </script>
+</body>
+</html>

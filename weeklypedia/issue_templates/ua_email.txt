@@ -1,0 +1,42 @@
+The WEEKLYPEDIA: Issue {issue_number}, {date} ({full_lang_name} Wikipedia Edition)
+
+{intro|s}
+
+=== Статті ===
+
+{#stats}На цьому тижні, {total_users|ci} автори зробили {edits|ci} редагувань до {titles|ci} різних статей.{/stats} 20 кращих статей за тиждень:
+
+{#mainspace}
+{@idx_1}{.}{/idx_1}. {title_s} ‭({edits|ci} редагувань від {users} авторів)‬
+	https://{short_lang_name|s}.wikipedia.org/wiki/{title|uc}
+{/mainspace}
+
+=== Нові статті ===
+
+Десять найбільш активно редагуємих статей, створених протягом останнього тижня:
+
+{#new_articles}
+{@idx_1}{.}{/idx_1}. {title_s} ‭({edits|ci} редагувань від {users} авторів)‬
+    https://{short_lang_name|s}.wikipedia.org/wiki/{title|uc}
+{/new_articles}
+
+=== Обговорення ===
+
+Найбільш активні обговорення:
+
+{#talkspace}
+{@idx_1}{.}{/idx_1}. {title_s}
+	https://{short_lang_name|s}.wikipedia.org/wiki/Talk:{title|uc}
+{/talkspace}
+
+=== Статистика ===
+
+Кілька цифр з минулого тижня:
+
+* {stats.users|ci} зареєстрованих користувачів і {stats.anon_ip_count|ci} незареєстрованих користувачів зробили {stats.edits|ci} редагуваннь до {stats.titles|ci} статей
+
+* Незареєстровані користувачи зробили {stats.anon_edits|ci} редагуваннь до {stats.anon_titles|ci} статей
+
+* {stats.bot_count|ci} роботи зробили {stats.bot_edits|ci} редагуваннь до {stats.bot_titles|ci} статей
+
+Learn more about the Weeklypedia Digest: http://weekly.hatnote.com/
