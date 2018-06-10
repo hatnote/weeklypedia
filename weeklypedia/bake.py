@@ -6,6 +6,7 @@ from datetime import datetime, timedelta
 from os.path import dirname, join as pjoin
 
 from babel.dates import format_date
+from babel import UnknownLocaleError
 from dateutil.parser import parse as parse_date
 from ashes import TemplateNotFound
 
@@ -272,7 +273,10 @@ def localize_data(issue_data, lang_code):
     # add local_date
     issue_date_str = issue_data['date']
     issue_date = parse_date(issue_date_str)
-    local_date = format_date(issue_date, format='long', locale=lang_code)
+    try:
+        local_date = format_date(issue_date, format='long', locale=lang_code)
+    except UnknownLocaleError as e:
+        local_date = format_date(issue_date, format='long', locale='en')
     issue_data['local']['date'] = local_date
 
     return issue_data
