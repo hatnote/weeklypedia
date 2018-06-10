@@ -13,11 +13,11 @@ head_title: >-
     ВИКЛИПЕДИЯ ({full_lang_name}, Номер {issue_number})
 
 body_title: >-
-	ВИКЛИПЕДИЯ
+    ВИКЛИПЕДИЯ
 
 description: >- 
-	Список наиболее редактирумых статей на Википедии
-	и наиболее активных обсуждений за последнюю неделю.
+    Список наиболее редактирумых статей на Википедии
+    и наиболее активных обсуждений за последнюю неделю.
 
 delivery_description: Приходит каждую пятницу на адрес электронной почты.
 home_link: Домой
@@ -26,7 +26,7 @@ issue_label: Номер {issue_number}, от {local.date}
 language_label: ({local.full_lang_name} язык Википедии) 
 intro: >-
     Привет! Добро пожаловать на наш еженедельный дайджест активности на Википедии.
-	
+
 #-----------
 # Article section
 #------------------------------------------------------------------------------
@@ -48,7 +48,7 @@ diff_author_count: сделанных {users} авторами
 new_articles_heading: Новые статьи
 # new_articles_summary: # TODO
 new_articles_intro: >-
-	Десять наиболее активно редактирумых статей за последнюю неделю
+    Десять наиболее активно редактирумых статей за последнюю неделю
 
 #-----------
 # Discussion section
@@ -70,7 +70,7 @@ user_edit_counts: >-
     редакций к {stats.titles|ci} статьям
 
 anon_edit_counts: >-
-	Незарегистрированные пользователи сделали {stats.anon_edits|ci} редакций к
+    Незарегистрированные пользователи сделали {stats.anon_edits|ci} редакций к
     {stats.anon_titles|ci} статьям
 
 
@@ -88,10 +88,10 @@ about_text: >-
     Этот проект получает список последних изменений за неделю, используя <a
     href="http://tools.wmflabs.org/">Wikimedia Tool Labs</a>, и
     доставляет на электронную почту, используя рассылку MailChimp.
-	Исходный код и больше информации <a href="https://github.com/hatnote/weeklypedia"> доступны на
+    Исходный код и больше информации <a href="https://github.com/hatnote/weeklypedia"> доступны на
     GitHub</a>. Проект создан <a href="https://github.com/slaporte">Стивеном
     ЛаПорте</a> и <a href="https://github.com/mahmoud">Махмудом
-	Хашеми</a>.
+    Хашеми</a>.
 
 blog_link: Узнать больше на блоге Hatnote
 learn_more: >-
