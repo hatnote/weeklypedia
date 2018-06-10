@@ -1,0 +1,42 @@
+The WEEKLYPEDIA: Issue {issue_number}, {date} ({full_lang_name} Wikipedia Edition)
+
+{intro|s}
+
+=== Articles ===
+
+{#stats}Aquesta setmana, {total_users|ci} autors han fet {edits|ci} canvis a {titles|ci} diferents articles.{/stats} els 20 millors articles de la setmana:
+
+{#mainspace}
+{@idx_1}{.}{/idx_1}. {title_s} ‭({edits|ci} canvis per {users} autors)‬
+	https://{short_lang_name|s}.wikipedia.org/wiki/{title|uc}
+{/mainspace}
+
+=== Nous articles ===
+
+Els deu articles modificats més activament creats durant la darrera setmana:
+
+{#new_articles}
+{@idx_1}{.}{/idx_1}. {title_s} ‭({edits|ci} canvis per {users} autors)‬
+    https://{short_lang_name|s}.wikipedia.org/wiki/{title|uc}
+{/new_articles}
+
+=== Discussions ===
+
+Les discussions més actives:
+
+{#talkspace}
+{@idx_1}{.}{/idx_1}. {title_s}
+	https://{short_lang_name|s}.wikipedia.org/wiki/Talk:{title|uc}
+{/talkspace}
+
+=== Estatístiques ===
+
+Alguns números de la setmana passada:
+
+* {stats.users|ci} membres registrats i {stats.anon_ip_count|ci} els membres no registrats han fet {stats.edits|ci} canvis a {stats.titles|ci} articles
+
+* Els membres no registrats han fet edicions {stats.anon_edits|ci} {stats.anon_titles|ci} articles
+
+* {stats.bot_count|ci} que els robots han fet {stats.bot_edits|ci} canvis a {stats.bot_titles|ci} articles
+
+Learn more about the Weeklypedia Digest: http://weekly.hatnote.com/
