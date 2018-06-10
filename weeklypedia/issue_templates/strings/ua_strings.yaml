@@ -1,0 +1,99 @@
+#------------------
+# Weeklypedia
+#    If you want to translate the Weeklypedia newsletter, start with a copy
+#    of this file and leave us a note at:
+#    https://github.com/hatnote/weeklypedia/issues
+#------------------------------------------------------------------------------
+
+#-----------
+# Introduction
+#------------------------------------------------------------------------------
+
+head_title: >-
+    ВІКЛІПЕДІЯ ({full_lang_name}, Випуск {issue_number})
+
+body_title: >-
+    ВІКЛІПЕДІЯ
+
+description: >-
+	Список найбільш редагуємих статей Вікіпедії та
+	найактіниших обговорювань минулого тижня.
+
+delivery_description: Приходить щоп'ятниці на електронну пошту.
+home_link: Додому
+archive_link: "{local.full_lang_name} архів видань"
+issue_label: Випуск {issue_number}, від {local.date} 
+language_label: ({local.full_lang_name} мова Вікіпедії) 
+intro: >-
+    Привіт! Ласкаво просимо на наш щотижневий дайджест активності у Вікіпедії.
+
+#-----------
+# Article section
+#------------------------------------------------------------------------------
+
+articles_heading: Статті
+articles_summary: >-
+    На цьому тижні, {total_users|ci} автори зробили {edits|ci} редагувань до
+    {titles|ci} різних статей.
+
+articles_intro: 20 кращих статей за тиждень
+
+diff_count: "{edits|ci} редагувань"
+diff_author_count: від {users} авторів
+
+#-----------
+# New articles section
+#------------------------------------------------------------------------------
+
+new_articles_heading: Нові статті
+# new_articles_summary: # TODO
+new_articles_intro: >-
+	Десять найбільш активно редагуємих статей, створених протягом останнього тижня
+
+#-----------
+# Discussion section
+#------------------------------------------------------------------------------
+
+discussions_heading: Обговорення
+# discussions_summary: # TODO
+discussions_intro: Найбільш активні обговорення
+
+#-----------
+# Stats section
+#------------------------------------------------------------------------------
+
+stats_heading: Статистика
+stats_intro: Кілька цифр з минулого тижня
+user_edit_counts: >- 
+    {stats.users|ci} зареєстрованих користувачів і
+    {stats.anon_ip_count|ci} незареєстрованих користувачів зробили {stats.edits|ci}
+    редагуваннь до {stats.titles|ci} статей
+
+anon_edit_counts: >-
+    Незареєстровані користувачи зробили {stats.anon_edits|ci} редагуваннь до
+    {stats.anon_titles|ci} статей
+
+
+bot_edit_counts: >- 
+    {stats.bot_count|ci} роботи зробили
+    {stats.bot_edits|ci} редагуваннь до {stats.bot_titles|ci} статей
+
+#-----------
+# Bottom section
+#------------------------------------------------------------------------------
+
+signup_link: Зареєструватися!
+about_heading: Про ВІКЛІПЕДІЮ
+about_text: >-
+    Цей проект отримує список останніх змін на тиждень за допомогою <a
+    href="http://tools.wmflabs.org/">Wikimedia Tool Labs</a>, та
+    використовує поштову розсилку від MailChimp. Вихідний код і більше
+	інформації <a href="https://github.com/hatnote/weeklypedia">доступні на
+    GitHub</a>. Проект створений <a href="https://github.com/slaporte"> Стефаном
+     Лапорте</a> та <a href="https://github.com/mahmoud"> Махмудом
+     Хашемі </a>.
+
+blog_link: Дізнайтеся більше на блозі Hatnote
+learn_more: >-
+    Детальніше про <a href="http://weekly.hatnote.com">Вікліпедія
+	Дайджест</a>!
