@@ -1,0 +1,77 @@
+
+<html>
+<head>
+  <meta name="description" content="A weekly email digest with the most active Wikipedia articles">
+  <meta name="keywords" content="Wikipedia,email,digest,top,weeklypedia,hatnote">
+  <meta charset="utf-8" />
+  <link href="https://fonts.googleapis.com/css?family=PT+Sans:400,700" rel="stylesheet" type="text/css">
+  <script src=".../../../js/jquery.min.js"></script>
+  <!-- email-exclude -->
+  <link href="../../../css/style.css" rel="stylesheet" media="all">
+  <!-- end-email-exclude -->
+  <title>ویکلی پیڈیا ({full_lang_name}, شمارہ {issue_number})</title>
+</head>
+<body>
+  <div class="header">
+    <h1><span>ویکلی پیڈیا</span></h1>
+    <p>آخری ہفتے میں، ویکیپیڈیا پر سب سے زیادہ نظر ثانی شدہ صفحات اور مباحث کی فہرست۔</p>
+    <p>ہر جمعے کو بذریعہ برقی خط ارسال کیا جاتا ہے۔</p>
+  </div>
+  <div class="announce">
+    <ul class="breadcrumb">
+      <li><a href="../../../index.html">Home</a></li>
+      <li><a href="../index.html">{local.full_lang_name} پرانے شمارے</a></li>
+      <li>شمارہ {issue_number}, {local.date}</li>
+    </ul>
+  </div>
+  <div class="main">
+    <div class="content">
+      <p id="intro">{intro|s}</p>
+      <h2 id="articles">مضامین</h2>
+      <p>{#stats}اس ہفتے، {titles|ci} مختلف مضامین میں {total_users|ci} صارفین نے {edits|ci} ترامیم کیں۔{/stats} اولین 20 مضامین جن میں سب سے زیادہ بار نظرثانی کی گئی۔:</p>
+      <ol>
+        {#mainspace}
+        <li><a href="https://{short_lang_name}.wikipedia.org/wiki/{title}" target="_blank">{title_s}</a> <span dir="ltr">(<a href="https://{short_lang_name}.wikipedia.org/w/index.php?title={title}&diff={rev_ids.new}&oldid={rev_ids.old}">{edits|ci} تبدیلیاں کیں</a> {users} صارفین نے)</span></li>
+        {/mainspace}
+      </ol>
+
+      <h2 id="new-articles">نئے مضامین</h2>
+      <p>10 نئے مضامین جن میں سب سے زیادا بار نظر ثانی کی گئی۔</p>
+      <ol>
+        {#new_articles}
+        <li><a href="https://{short_lang_name}.wikipedia.org/wiki/{title}" target="_blank">{title_s}</a> <span dir="ltr">({edits|ci} تبدیلیاں کیں {users} صارفین نے)</span></li>
+        {/new_articles}
+      </ol>
+
+      <h2 id="discussions">تبادلۂ خیال</h2>
+      <p>تبادلۂ خیال میں حالیہ سرگرمیاں:</p>
+      <ol>
+        {#talkspace}
+        <li><a href="https://{short_lang_name}.wikipedia.org/wiki/Talk:{title}" target="_blank">{title_s}</a></li>
+        {/talkspace}
+      </ol>
+
+      <h2 id="statistics">شماریات</h2>
+      <p>گزشتہ ہفتے سے چند اعداد و شمار:</p>
+      <ul>
+        <li>{stats.users|ci} مندرج صارفین اور {stats.anon_ip_count|ci} غیر مندرج صارفین نے  {stats.titles|ci} مضامین میں {stats.edits|ci} ترامیم کیں۔</li>
+        <li>غیر مندرج صارفین نے {stats.anon_titles|ci} مضامین میں {stats.anon_edits|ci} ترامیم کیں۔</li>
+        <li>{stats.bot_count|ci} روبہ جات نے {stats.bot_titles|ci} مضامین میں {stats.bot_edits|ci} ترامیم کیں۔</li>
+      </ul>
+    <a href="{signup_url}" class="signup"><span>کھاتہ بنائیں!</span></a>
+    <div class="content">
+      <h2>ہمارے بارے میں</h2>
+      <p>اس منصوبہ کا استعمال کرتے ہوئے گذشتہ ہفتے کی حالیہ تبدیلیوں کی ایک فہرست حاصل ہوتی ہے۔ یہ شماریات <a href="http://tools.wmflabs.org/">ویکیمیڈیا ٹول لیب</a> اور بذریعہ میل چیمپ ارسال کی جا رہی ہے۔ کوڈ اور مزید معلومات <a href="https://github.com/hatnote/weeklypedia"> GitHub پر موجود ہیں</a>۔ تیار کنندہ <a href="https://github.com/slaporte">اسٹیون لاپورٹی </a> اور <a href="https://github.com/mahmoud">محمد ہاشمی</a>۔</p>
+      <p><a href="http://blog.hatnote.com/">مزید معلومات کے لیے ہیٹ نوٹ بلاگ دیکھیے</a>.</p>
+    </div>
+  </div>
+  <script>
+    (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+    (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+    m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+    })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+    ga('create', 'UA-40320359-1', 'hatnote.com');
+    ga('send', 'pageview');
+  </script>
+</body>
+</html>

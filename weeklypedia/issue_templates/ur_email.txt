@@ -1,0 +1,42 @@
+The WEEKLYPEDIA: Issue {issue_number}, {date} ({full_lang_name} Wikipedia Edition)
+
+{intro|s}
+
+=== مضامین ===
+
+{#stats}اس ہفتے، {titles|ci} مختلف مضامین میں {total_users|ci} صارفین نے {edits|ci} ترامیم کیں۔{/stats} اولین 20 مضامین جن میں سب سے زیادہ بار نظرثانی کی گئی۔:
+
+{#mainspace}
+{@idx_1}{.}{/idx_1}. {title_s} ‭({edits|ci} تبدیلیاں کیں {users} صارفین نے)‬
+	https://{short_lang_name|s}.wikipedia.org/wiki/{title|uc}
+{/mainspace}
+
+=== نئے مضامین ===
+
+10 نئے مضامین جن میں سب سے زیادا بار نظر ثانی کی گئی۔:
+
+{#new_articles}
+{@idx_1}{.}{/idx_1}. {title_s} ‭({edits|ci} تبدیلیاں کیں {users} صارفین نے)‬
+    https://{short_lang_name|s}.wikipedia.org/wiki/{title|uc}
+{/new_articles}
+
+=== تبادلۂ خیال ===
+
+تبادلۂ خیال میں حالیہ سرگرمیاں:
+
+{#talkspace}
+{@idx_1}{.}{/idx_1}. {title_s}
+	https://{short_lang_name|s}.wikipedia.org/wiki/Talk:{title|uc}
+{/talkspace}
+
+=== شماریات ===
+
+گزشتہ ہفتے سے چند اعداد و شمار:
+
+* {stats.users|ci} مندرج صارفین اور {stats.anon_ip_count|ci} غیر مندرج صارفین نے  {stats.titles|ci} مضامین میں {stats.edits|ci} ترامیم کیں۔
+
+* غیر مندرج صارفین نے {stats.anon_titles|ci} مضامین میں {stats.anon_edits|ci} ترامیم کیں۔
+
+* {stats.bot_count|ci} روبہ جات نے {stats.bot_titles|ci} مضامین میں {stats.bot_edits|ci} ترامیم کیں۔
+
+Learn more about the Weeklypedia Digest: http://weekly.hatnote.com/

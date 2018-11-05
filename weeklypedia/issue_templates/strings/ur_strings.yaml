@@ -1,0 +1,98 @@
+#------------------
+# Weeklypedia
+#    If you want to translate the Weeklypedia newsletter, start with a copy
+#    of this file and leave us a note at:
+#    https://github.com/hatnote/weeklypedia/issues
+#------------------------------------------------------------------------------
+
+#-----------
+# Introduction
+#------------------------------------------------------------------------------
+
+head_title: >-
+    ویکلی پیڈیا ({full_lang_name}, شمارہ {issue_number})
+
+body_title: >-
+    ویکلی پیڈیا
+
+description: >-
+    آخری ہفتے میں، ویکیپیڈیا پر سب سے زیادہ نظر ثانی شدہ صفحات اور
+    مباحث کی فہرست۔
+
+delivery_description: ہر جمعے کو بذریعہ برقی خط ارسال کیا جاتا ہے۔
+home_link: Home
+archive_link: "{local.full_lang_name} پرانے شمارے"
+issue_label: شمارہ {issue_number}, {local.date}
+language_label: ({local.full_lang_name} ویکیپیڈیا)
+intro: >-
+    سلام! ویکیپیڈیا سرگرمیوں کے ہمارے ہفت روزہ ڈائجسٹ میں خوش امدید۔
+
+#-----------
+# Article section
+#------------------------------------------------------------------------------
+
+articles_heading: مضامین
+articles_summary: >-
+    اس ہفتے، {titles|ci} مختلف مضامین میں {total_users|ci} صارفین نے
+    {edits|ci} ترامیم کیں۔
+
+articles_intro: اولین 20 مضامین جن میں سب سے زیادہ بار نظرثانی کی گئی۔
+
+diff_author_count: "{users} صارفین نے"
+diff_count: "{edits|ci} تبدیلیاں کیں"
+
+#-----------
+# New articles section
+#------------------------------------------------------------------------------
+
+new_articles_heading: نئے مضامین
+# new_articles_summary: # TODO
+new_articles_intro: >-
+    10 نئے مضامین جن میں سب سے زیادا بار نظر ثانی کی گئی۔
+
+#-----------
+# Discussion section
+#------------------------------------------------------------------------------
+
+discussions_heading: تبادلۂ خیال
+# discussions_summary: # TODO
+discussions_intro: تبادلۂ خیال میں حالیہ سرگرمیاں
+
+#-----------
+# Stats section
+#------------------------------------------------------------------------------
+
+stats_heading: شماریات
+stats_intro: گزشتہ ہفتے سے چند اعداد و شمار
+user_edit_counts: >-
+    {stats.users|ci} مندرج صارفین اور
+    {stats.anon_ip_count|ci} غیر مندرج صارفین نے  {stats.titles|ci} مضامین
+    میں {stats.edits|ci} ترامیم کیں۔
+
+anon_edit_counts: >-
+    غیر مندرج صارفین نے {stats.anon_titles|ci} مضامین
+    میں {stats.anon_edits|ci} ترامیم کیں۔
+
+
+bot_edit_counts: >-
+    {stats.bot_count|ci} روبہ جات نے
+    {stats.bot_titles|ci} مضامین میں {stats.bot_edits|ci} ترامیم کیں۔
+
+#-----------
+# Bottom section
+#------------------------------------------------------------------------------
+
+signup_link: کھاتہ بنائیں!
+about_heading: ہمارے بارے میں
+about_text: >-
+    اس منصوبہ کا استعمال کرتے ہوئے گذشتہ ہفتے کی حالیہ تبدیلیوں کی ایک فہرست حاصل
+    ہوتی ہے۔ یہ شماریات <a
+    href="http://tools.wmflabs.org/">ویکیمیڈیا ٹول لیب</a> اور
+    بذریعہ میل چیمپ ارسال کی جا رہی ہے۔ کوڈ اور مزید معلومات <a
+    href="https://github.com/hatnote/weeklypedia">
+    GitHub پر موجود ہیں</a>۔ تیار کنندہ <a href="https://github.com/slaporte">اسٹیون لاپورٹی
+    </a> اور <a href="https://github.com/mahmoud">محمد
+    ہاشمی</a>۔
+blog_link: مزید معلومات کے لیے ہیٹ نوٹ بلاگ دیکھیے
+learn_more: >-
+    مزید معلومات کے لیے دیکھیے <a href="http://weekly.hatnote.com">ویکلی پیڈیا ڈائجسٹ</a>!
