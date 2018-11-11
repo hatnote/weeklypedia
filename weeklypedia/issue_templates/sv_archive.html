@@ -28,10 +28,10 @@
     <div class="content">
       <p id="intro">{intro|s}</p>
       <h2 id="articles">Artiklar</h2>
-      <p>{#stats}Denna vecka gjorde{total_users|ci} användare {edits|ci} ändringar i {titles|ci} olika artiklar.{/stats} Topp-20 artiklarna denna vecka:</p>
+      <p>{#stats}Denna vecka gjorde {total_users|ci} användare {edits|ci} ändringar i {titles|ci} olika artiklar.{/stats} Topp-20 artiklarna denna vecka:</p>
       <ol>
         {#mainspace}
-        <li><a href="https://{short_lang_name}.wikipedia.org/wiki/{title}" target="_blank">{title_s}</a> <span dir="ltr">(<a href="https://{short_lang_name}.wikipedia.org/w/index.php?title={title}&diff={rev_ids.new}&oldid={rev_ids.old}">{edits|ci} ändringar</a> by {users} användare)</span></li>
+        <li><a href="https://{short_lang_name}.wikipedia.org/wiki/{title}" target="_blank">{title_s}</a> <span dir="ltr">(<a href="https://{short_lang_name}.wikipedia.org/w/index.php?title={title}&diff={rev_ids.new}&oldid={rev_ids.old}">{edits|ci} ändringar</a> av {users} användare)</span></li>
         {/mainspace}
       </ol>
 
@@ -39,7 +39,7 @@
       <p>De tio mest redigerade artklarna skapade senaste veckan</p>
       <ol>
         {#new_articles}
-        <li><a href="https://{short_lang_name}.wikipedia.org/wiki/{title}" target="_blank">{title_s}</a> <span dir="ltr">({edits|ci} ändringar by {users} användare)</span></li>
+        <li><a href="https://{short_lang_name}.wikipedia.org/wiki/{title}" target="_blank">{title_s}</a> <span dir="ltr">({edits|ci} ändringar av {users} användare)</span></li>
         {/new_articles}
       </ol>
 
