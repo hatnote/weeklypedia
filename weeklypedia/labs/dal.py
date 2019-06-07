@@ -15,7 +15,7 @@ DATE_FORMAT = '%Y%m%d%H%M%S'
 
 
 """
-TODO: something with protections?
+TODO: something with protections?  (if we ever do this, remember to use rc_actor/actor, not rc_user, etc.)
    here's a query:
     select rc_cur_id, rc_title, rc_user_text, rc_params
     from recentchanges where
@@ -42,7 +42,7 @@ class RecentChangesSummarizer(object):
             SELECT rc_cur_id AS page_id,
                    rc_title AS title,
                    COUNT(*) AS edits,
-                   COUNT(DISTINCT rc_user) AS users
+                   COUNT(DISTINCT rc_actor) AS users
             FROM recentchanges
             WHERE rc_namespace = :namespace
             AND rc_type = 0
@@ -56,7 +56,7 @@ class RecentChangesSummarizer(object):
             SELECT rc_cur_id AS page_id,
                    rc_title AS title,
                    COUNT(*) AS edits,
-                   COUNT(DISTINCT rc_user) AS users
+                   COUNT(DISTINCT rc_actor) AS users
             FROM recentchanges
             WHERE rc_namespace = :namespace
             AND rc_type = 0
@@ -88,7 +88,7 @@ class RecentChangesSummarizer(object):
 
     _activity_query = '''
            SELECT COUNT(*) AS edits,
-                  COUNT(DISTINCT rc_user) AS users,
+                  COUNT(DISTINCT rc_actor) AS users,
                   COUNT(DISTINCT rc_cur_id) AS titles
            FROM recentchanges
            WHERE rc_namespace = :namespace
@@ -96,18 +96,19 @@ class RecentChangesSummarizer(object):
            AND rc_timestamp > :start_date;'''
 
     _anon_activity_query = '''
-           SELECT COUNT(*) AS anon_edits,
-                  COUNT(DISTINCT rc_user_text) AS anon_ip_count,
-                  COUNT(DISTINCT rc_cur_id) AS anon_titles
-           FROM recentchanges
-           WHERE rc_namespace = :namespace
-           AND rc_type = 0
-           AND rc_timestamp > :start_date
-           AND rc_user=0;'''
+        SELECT COUNT(*) AS anon_edits,
+           COUNT(DISTINCT actor.actor_name) AS anon_ip_count,
+           COUNT(DISTINCT rc_cur_id) AS anon_titles
+               FROM recentchanges
+               LEFT JOIN actor on rc_actor=actor_id
+               WHERE rc_namespace = :namespace
+               AND rc_type = 0
+               AND rc_timestamp > :start_date
+               AND actor.actor_user IS NULL;'''
 
     _bot_activity_query = '''
            SELECT COUNT(*) AS bot_edits,
-                  COUNT(DISTINCT rc_user) AS bot_count,
+                  COUNT(DISTINCT rc_actor) AS bot_count,
                   COUNT(DISTINCT rc_cur_id) AS bot_titles
            FROM recentchanges
            WHERE rc_namespace = :namespace
