@@ -90,5 +90,5 @@ if __name__ == '__main__':
     args = parser.parse_args()
     fetch_and_save(args.lang, args.debug)
     if args.debug:
-        print get_latest_data_path('de', include_dev=True)
+        print get_latest_data_path(args.lang, include_dev=True)
         import pdb; pdb.set_trace();
