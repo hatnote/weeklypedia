@@ -10,14 +10,15 @@
 #------------------------------------------------------------------------------
 
 head_title: >-
-    the WEEKLYPEDIA ({full_lang_name}, Issue {issue_number})
+    the WEEKLYPEDIA ({full_lang_name}, Edição {issue_number})
 
 body_title: >-
-    <em>the</em> WEEKLYPEDIA
+    <em>A</em> WEEKLYPEDIA
 
 description: >- 
-    A list of the most edited Wikipedia articles and
-    discussions from the last week.  
+    Uma lista dos artigos e dicussões mais editados na Wikipedia,
+    na última semana.
+    
 
 delivery_description: Delivered every Friday by email.
 home_link: Home 
@@ -25,7 +26,7 @@ archive_link: "{local.full_lang_name} edition archives"
 issue_label: Issue {issue_number}, {local.date} 
 language_label: ({local.full_lang_name} Wikipedia edition) 
 intro: >-
-    Hello there! Welcome to our weekly digest of Wikipedia activity.
+    Oi! Bem-vindos ao nosso resumo semanal da atividade na Wikipedia.
 
 #-----------
 # Article section
@@ -33,8 +34,8 @@ intro: >-
 
 articles_heading: Articles
 articles_summary: >-
-    This week, {total_users|ci} authors made {edits|ci} changes to
-    {titles|ci} different articles.
+    Essa semana, {total_users|ci} autores fizeram {edits|ci} alterações em
+    {titles|ci} diferentes artigos.
 
 articles_intro: The top 20 articles for the week
 
@@ -48,6 +49,7 @@ diff_author_count: by {users} authors
 new_articles_heading: New Articles
 # new_articles_summary: # TODO
 new_articles_intro: >-
+    Os dez mais ativamente editados artigos criados na últma semana.
     The ten most actively edited articles created within the last week
 
 #-----------
@@ -65,18 +67,18 @@ discussions_intro: The most active discussions
 stats_heading: Stats
 stats_intro: A few numbers from last week
 user_edit_counts: >- 
-    {stats.users|ci} registered users and
-    {stats.anon_ip_count|ci} unregistered users made {stats.edits|ci}
-    edits to {stats.titles|ci} articles
+    {stats.users|ci} usuários registrados e
+    {stats.anon_ip_count|ci} usuários não registrados fizeram {stats.edits|ci}
+    edições em {stats.titles|ci} artigos
 
 anon_edit_counts: >-
-    Unregistered users made {stats.anon_edits|ci} edits to
-    {stats.anon_titles|ci} articles
+    Usuários não-registrados fizeram {stats.anon_edits|ci} edições em
+    {stats.anon_titles|ci} artigos
 
 
 bot_edit_counts: >- 
-    {stats.bot_count|ci} robots made
-    {stats.bot_edits|ci} edits to {stats.bot_titles|ci} articles
+    {stats.bot_count|ci} robôs fizeram
+    {stats.bot_edits|ci} edições em {stats.bot_titles|ci} artigos
 
 #-----------
 # Bottom section
@@ -85,15 +87,15 @@ bot_edit_counts: >-
 signup_link: Sign up!
 about_heading: About
 about_text: >-
-    This project retrieves a list of the week's recent changes using <a
-    href="http://tools.wmflabs.org/">Wikimedia Tool Labs</a>, and
-    delivers emails using MailChimp. Code and more information <a
-    href="https://github.com/hatnote/weeklypedia">available on
-    GitHub</a>. Built by <a href="https://github.com/slaporte">Stephen
-    LaPorte</a> and <a href="https://github.com/mahmoud">Mahmoud
+    Este projeto recupera uma lista das modificações da semana usando a <a
+    href="http://tools.wmflabs.org/">Wikimedia Tool Labs</a>, e 
+    envia os emails usando o Mailchimp. Código e mais informações <a
+    href="https://github.com/hatnote/weeklypedia">disponíveis no GitHub
+    GitHub</a>. Feito por <a href="https://github.com/slaporte">Stephen
+    LaPorte</a> e <a href="https://github.com/mahmoud">Mahmoud
     Hashemi</a>.
 
 blog_link: Learn more on the Hatnote blog
 learn_more: >-
-    Learn more about the <a href="http://weekly.hatnote.com">Weeklypedia
+    Saiba mais sobre o <a href="http://weekly.hatnote.com">Weeklypedia
     Digest</a>!
