@@ -1,0 +1,98 @@
+#------------------
+# Weeklypedia
+#    If you want to translate the Weeklypedia newsletter, start with a copy
+#    of this file and leave us a note at:
+#    https://github.com/hatnote/weeklypedia/issues
+#------------------------------------------------------------------------------
+
+#-----------
+# Introduction
+#------------------------------------------------------------------------------
+
+head_title: >-
+    WEEKLYPEDIA ({full_lang_name}, vydání {issue_number})
+
+body_title: >-
+    WEEKLYPEDIA
+
+description: >- 
+    Přehled nejdůležitejších článků a diskuzí 
+    na Wikipedii z uplynulého týdne 
+
+delivery_description: Každý pátek ve vaší emailové schránce
+home_link: Domů 
+archive_link: "Archív českých vydání"
+issue_label: Vydání {issue_number}, {local.date} 
+language_label: ({local.full_lang_name} edice Wikipedie) 
+intro: >-
+    Dobrý den! Vítejte v našem týdením přehledu toho nejdůležitějšího na Wikipedii
+
+#-----------
+# Article section
+#------------------------------------------------------------------------------
+
+articles_heading: Články
+articles_summary: >-
+    Tento týden přispělo {total_users|ci} uživatelů celkem {edits|ci} změn do 
+    {titles|ci} různých článků
+
+articles_intro: 20 nejaktivnějších článků tento týden
+
+diff_count: "{edits|ci} změn"
+diff_author_count: od {users} přispěvatelů
+
+#-----------
+# New articles section
+#------------------------------------------------------------------------------
+
+new_articles_heading: Nové články
+# new_articles_summary: # TODO
+new_articles_intro: >-
+    Deset nejčastěji editovaných článků v uplynulém týdnu
+
+#-----------
+# Discussion section
+#------------------------------------------------------------------------------
+
+discussions_heading: Diskuze
+# discussions_summary: # TODO
+discussions_intro: Nejaktivnější diskuze
+
+#-----------
+# Stats section
+#------------------------------------------------------------------------------
+
+stats_heading: Statistiky
+stats_intro: Několik čísel z uplynulého týdne
+user_edit_counts: >- 
+    {stats.users|ci} registrovaných a 
+    {stats.anon_ip_count|ci} neregistrovaných uživatelů přispělo {stats.edits|ci}
+    změnami do {stats.titles|ci} článků
+
+anon_edit_counts: >-
+    Neregistrovaní uživatelé přispěli {stats.anon_edits|ci} změnami do 
+    {stats.anon_titles|ci} článků
+
+
+bot_edit_counts: >- 
+    {stats.bot_count|ci} botů přidalo 
+    {stats.bot_edits|ci} změn do {stats.bot_titles|ci} článků
+
+#-----------
+# Bottom section
+#------------------------------------------------------------------------------
+
+signup_link: Začít odebírat
+about_heading: O Weeklypedii:
+about_text: >-
+    Každý týden pro vás získáváme přehled nejdůležitějších změn pomocí <a
+    href="http://tools.wmflabs.org/">Wikimedia Tool Labs</a>, a do vaší schránky
+    jej doručíme MailChimpem. Zdrojový kód a další informace <a
+    href="https://github.com/hatnote/weeklypedia">na GitHubu</a>. Přivedeno na svět <a href="https://github.com/slaporte">Stephenem
+    LaPortem</a> a <a href="https://github.com/mahmoud">Mahmoudem
+    Hashemim</a>.    
+
+blog_link: Více informací na Hatnote blogu
+learn_more: >-
+    Více informací o <a href="http://weekly.hatnote.com">Weeklypedia
+    Digest</a>!
