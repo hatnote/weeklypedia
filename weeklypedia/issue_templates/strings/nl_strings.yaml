@@ -1,0 +1,96 @@
+#------------------
+# Weeklypedia
+#    If you want to translate the Weeklypedia newsletter, start with a copy
+#    of this file and leave us a note at:
+#    https://github.com/hatnote/weeklypedia/issues
+#------------------------------------------------------------------------------
+
+#-----------
+# Introduction
+#------------------------------------------------------------------------------
+
+head_title: >-
+    de WEEKLYPEDIA ({full_lang_name}, uitgave {issue_number})
+
+body_title: >-
+    <em>de</em> WEEKLYPEDIA
+
+description: >- 
+    Een lijst van de meest bewerkte wikipedia artikelen en discussies van de afgelopen week.
+
+delivery_description: Bezorging elke vrijdag per e-mail
+home_link: Home 
+archive_link: "{local.full_lang_name} uitgave archieven"
+issue_label: Uitgave {issue_number}, {local.date} 
+language_label: ({local.full_lang_name} Wikipedia uitgave) 
+intro: >-
+    Hee! Welkom in ons wekelijks overzicht van Wikipedia activiteit.
+
+#-----------
+# Article section
+#------------------------------------------------------------------------------
+
+articles_heading: Artikelen
+articles_summary: >-
+    Deze week hebben {total_users|ci} auteurs {edits|ci} wijzigingen aangebracht in
+    {titles|ci} verschillende artikelen.
+
+articles_intro: De top 20 artikelen deze week
+
+diff_count: "{edits|ci} wijzigingen"
+diff_author_count: door {users} auteurs
+
+#-----------
+# New articles section
+#------------------------------------------------------------------------------
+
+new_articles_heading: Nieuwe artikelen
+# new_articles_summary: # TODO
+new_articles_intro: >-
+    De tien meest bewerkte artikelen gemaakt in de afgelopen week.
+
+#-----------
+# Discussion section
+#------------------------------------------------------------------------------
+
+discussions_heading: Discussies
+# discussions_summary: # TODO
+discussions_intro: De meest actieve discussies
+
+#-----------
+# Stats section
+#------------------------------------------------------------------------------
+
+stats_heading: Statistieken
+stats_intro: Wat cijvers over afgelopen week
+user_edit_counts: >- 
+    {stats.users|ci} geregistreerde gebruikers en
+    {stats.anon_ip_count|ci} niet geregistreerde gebruikers brachten {stats.edits|ci}
+    wijzigingen aan in {stats.titles|ci} artikelen
+
+anon_edit_counts: >-
+    Niet geregistreerde gebruikers brachten {stats.anon_edits|ci} wijzigingen aan in
+    {stats.anon_titles|ci} artikelen
+
+
+bot_edit_counts: >- 
+    {stats.bot_count|ci} robots brachten
+    {stats.bot_edits|ci} wijzigingen aan in {stats.bot_titles|ci} artikelen
+
+#-----------
+# Bottom section
+#------------------------------------------------------------------------------
+
+signup_link: Geef je op!
+about_heading: Over
+about_text: >-
+    Dit project haalt met <a href="http://tools.wmflabs.org/">Wikimedia Tool Labs</a> 
+    een lijst recente wijzigingen op en bezorgt e-mails met MailChimp. Code en meer informatie 
+    <a href="https://github.com/hatnote/weeklypedia">is te vinden op GitHub</a>. 
+    Gemaakt door <a href="https://github.com/slaporte">Stephen LaPorte</a> en 
+    <a href="https://github.com/mahmoud">Mahmoud Hashemi</a>.
+
+blog_link: Ontdek meer op het Hatnote blog
+learn_more: >-
+    Ontdek meer over de <a href="http://weekly.hatnote.com">Weeklypedia
+    samenvatting</a>!
