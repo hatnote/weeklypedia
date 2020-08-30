@@ -21,7 +21,7 @@ archive_link: "{local.full_lang_name} utgave arkiv"
 issue_label: Nummer {issue_number}, {local.date} 
 language_label: ({local.full_lang_name} Wikipedia) 
 intro: >-
-   Hei! Velkommen til vår ukentlige oppdatering om Wikipedia-aktivitet.
+   Hei! Velkommen til vår ukentlige oppdatering om aktivitet på Wikipedia.
 #-----------
 # Article section
 #------------------------------------------------------------------------------
