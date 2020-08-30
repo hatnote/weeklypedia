@@ -59,10 +59,10 @@ stats_heading: Statistikk
 stats_intro: Noen tall fra den siste uka
 user_edit_counts: >- 
     {stats.users|ci} registrerte brukere
-    {stats.anon_ip_count|ci} uregistrerte bruker gjorde {stats.edits|ci}
+    {stats.anon_ip_count|ci} uregistrerte brukere gjorde {stats.edits|ci}
     endringer på {stats.titles|ci} artikler
 anon_edit_counts: >-
-    Uregisrterte brukere gjorde {stats.anon_edits|ci} endringer på
+    Uregistrerte brukere gjorde {stats.anon_edits|ci} endringer på
     {stats.anon_titles|ci} artikler
 bot_edit_counts: >- 
     {stats.bot_count|ci} roboter gjorde
