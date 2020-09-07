@@ -17,16 +17,32 @@ from bake import (Issue,
                   SUPPORTED_LANGS)
 
 _CUR_PATH = dirname(os.path.abspath(__file__))
-LIST_ID_MAP = json.load(open(os.path.join(_CUR_PATH, 'secrets.json'))).get('list_ids')
+
+with open(os.path.join(_CUR_PATH, 'secrets.json')) as secrets_json:
+    secrets = json.load(secrets_json)
+    LIST_ID_MAP = secrets.get('list_ids')
+    SENDY_ID_MAP = secrets.get('sendy_ids')
 
 
-def send_issue(lang, is_dev=False):
-    if is_dev:
-        list_id = DEBUG_LIST_ID
-    else:
-        list_id = LIST_ID_MAP[lang]
+def send_issue(lang, mailer, is_dev=False):
     cur_issue = Issue(lang, include_dev=is_dev)
-    return cur_issue.send(list_id, SENDKEY)
+
+    if mailer == 'mailchimp':
+        if is_dev:
+            list_id = DEBUG_LIST_ID
+        else:
+            list_id = LIST_ID_MAP[lang]
+        result = cur_issue.send(list_id, SENDKEY)
+    elif mailer == 'sendy':
+        list_id = SENDY_ID_MAP[lang]
+        result = cur_issue.sendy_send(list_id)
+    return result
+
+
+def send_send_issue(lang, is_dev=False):
+    list_id = SENDY_LIST_ID_MAP[lang]
+    cur_issue = 
+
 
 def get_argparser():
     desc = 'Bake and send Weeklypedia issues. (Please fetch first)'
@@ -34,6 +50,7 @@ def get_argparser():
     prs.add_argument('--lang', default=None)
     prs.add_argument('--bake_all', default=False, action='store_true')
     prs.add_argument('--debug', default=DEBUG, action='store_true')
+    prs.add_argument('--mailer', default='mailchimp')
     return prs
 
 
@@ -48,5 +65,6 @@ if __name__ == '__main__':
             bake_latest_issue(issue_ashes_env, lang=lang, include_dev=debug)
     if args.lang in SUPPORTED_LANGS:
         lang = args.lang
+        mailer = args.mailer
         print bake_latest_issue(issue_ashes_env, lang=lang, include_dev=debug)
-        print send_issue(lang, debug)
+        print send_issue(lang, mailer, debug)

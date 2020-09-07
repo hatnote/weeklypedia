@@ -6,8 +6,13 @@ import json
 import mailchimp
 
 _CUR_PATH = os.path.dirname(os.path.abspath(__file__))
-KEY = json.load(open(os.path.join(_CUR_PATH, 'secrets.json'))).get('mc')
 
+with open(os.path.join(_CUR_PATH, 'secrets.json')) as secrets_json:
+    secrets = json.load(secrets_json)
+    KEY = secrets.get('mc')
+    SENDY_KEY = secrets.get('sendy_key')
+
+SENDY_URL 'https://mailer.hatnote.com/sendy'
 TEST_LIST_ID = "a5ecbc7404"
 DEFAULT_LIST = TEST_LIST_ID
 
@@ -50,6 +55,30 @@ class Mailinglist(object):
         campaigns = self.client.campaigns.list()
         return campaigns['data'][0]['id']
 
+
+class SendyMailinglist(object):
+    def __init__(self):
+        self.key = key
+        self.client = SendyAPI(host=SENDY_URL,
+                               api_key=SENDY_KEY)
+
+    def create_and_send(self,
+                        subject,
+                        html_content,
+                        text_content,
+                        list_id):
+        resp = client.create_campaign(
+            from_name='Weeklypedia Digest',
+            from_email='weeklypedia@hatnote.com',
+            reply_to='weeklypedia@hatnote.com',
+            title=subject,
+            subject=subject,
+            plain_text=text_content,
+            html_text=html_content,
+            list_ids=list_id,
+            send_campaign=1, # if 0, then it will be saved as a draft. How do you send a draft campaign?
+        )
+        print resp
 
 if __name__ == '__main__':
     mc = Mailinglist(KEY)

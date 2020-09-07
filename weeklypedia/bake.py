@@ -80,6 +80,11 @@ class Issue(object):
         mailinglist.send_next_campaign()
         return 'Success: sent issue %s' % self.lang
 
+    def sendy_send(self, list_id, send_key):
+        sendy = SendyMailinglist()
+        sendy.create_and_send(self.subject, self.read_html(), self_read_text(), list_id)
+        return 'Success: sent issue %s via sendy' % self.lang
+
 
 def get_past_issue_paths(lang, include_dev=False):
     ret = []
