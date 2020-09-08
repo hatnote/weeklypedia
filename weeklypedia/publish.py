@@ -39,11 +39,6 @@ def send_issue(lang, mailer, is_dev=False):
     return result
 
 
-def send_send_issue(lang, is_dev=False):
-    list_id = SENDY_LIST_ID_MAP[lang]
-    cur_issue = 
-
-
 def get_argparser():
     desc = 'Bake and send Weeklypedia issues. (Please fetch first)'
     prs = ArgumentParser(description=desc)

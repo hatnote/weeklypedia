@@ -3,6 +3,8 @@
 import os
 import json
 
+import requests
+
 import mailchimp
 
 _CUR_PATH = os.path.dirname(os.path.abspath(__file__))
@@ -12,11 +14,27 @@ with open(os.path.join(_CUR_PATH, 'secrets.json')) as secrets_json:
     KEY = secrets.get('mc')
     SENDY_KEY = secrets.get('sendy_key')
 
-SENDY_URL 'https://mailer.hatnote.com/sendy'
+SENDY_URL = 'http://mailer.hatnote.com/s/'
 TEST_LIST_ID = "a5ecbc7404"
 DEFAULT_LIST = TEST_LIST_ID
 
 #              'f811608f69'
+
+
+def sendy_send_campaign(subject, text_content, html_content, list_id):
+    url = SENDY_URL + 'api/campaigns/create.php'
+    data = {'from_name': 'Weeklypedia Digest',
+            'from_email': 'weeklypedia@hatnote.com',
+            'reply_to': 'weeklypedia@hatnote.com',
+            'title': subject,
+            'subject': subject,
+            'plain_text': text_content,
+            'html_text': html_content,
+            'list_ids': list_id,
+            'send_campaign': 1,
+            'api_key': SENDY_KEY}
+    resp = requests.post(url, data=data)
+    return resp
 
 
 class Mailinglist(object):
@@ -55,30 +73,6 @@ class Mailinglist(object):
         campaigns = self.client.campaigns.list()
         return campaigns['data'][0]['id']
 
-
-class SendyMailinglist(object):
-    def __init__(self):
-        self.key = key
-        self.client = SendyAPI(host=SENDY_URL,
-                               api_key=SENDY_KEY)
-
-    def create_and_send(self,
-                        subject,
-                        html_content,
-                        text_content,
-                        list_id):
-        resp = client.create_campaign(
-            from_name='Weeklypedia Digest',
-            from_email='weeklypedia@hatnote.com',
-            reply_to='weeklypedia@hatnote.com',
-            title=subject,
-            subject=subject,
-            plain_text=text_content,
-            html_text=html_content,
-            list_ids=list_id,
-            send_campaign=1, # if 0, then it will be saved as a draft. How do you send a draft campaign?
-        )
-        print resp
 
 if __name__ == '__main__':
     mc = Mailinglist(KEY)

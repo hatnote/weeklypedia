@@ -10,7 +10,7 @@ from babel import UnknownLocaleError
 from dateutil.parser import parse as parse_date
 from ashes import TemplateNotFound
 
-from mail import Mailinglist, KEY
+from mail import Mailinglist, sendy_send_campaign, KEY
 from fetch import get_latest_data_path
 
 from common import (DATA_BASE_PATH,
@@ -80,9 +80,8 @@ class Issue(object):
         mailinglist.send_next_campaign()
         return 'Success: sent issue %s' % self.lang
 
-    def sendy_send(self, list_id, send_key):
-        sendy = SendyMailinglist()
-        sendy.create_and_send(self.subject, self.read_html(), self_read_text(), list_id)
+    def sendy_send(self, list_id):
+        sendy_send_campaign(self.subject, self.read_text(), self.read_html(), list_id)
         return 'Success: sent issue %s via sendy' % self.lang
 
 
