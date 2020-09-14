@@ -36,6 +36,9 @@ ARCHIVE_DATA_TITLE_TMPL = 'weeklypedia_{date_str}.json'
 ARCHIVE_INDEX_PATH_TMPL = ARCHIVE_BASE_PATH + '/{lang_shortcode}/index.html'
 ARCHIVE_PATH_TMPL = pjoin(ARCHIVE_BASE_PATH, ARCHIVE_PATH_TMPL)
 
+with open(os.path.join(_CUR_PATH, 'secrets.json')) as secrets_json:
+    secrets = json.load(secrets_json)
+    SENDY_ID_MAP = secrets.get('sendy_ids')
 
 class Issue(object):
     def __init__(self,
@@ -185,6 +188,7 @@ def render_issue(render_ctx, issue_ashes_env,
     lang = render_ctx['short_lang_name']
     env = issue_ashes_env
     ctx = localize_data(render_ctx, lang)
+    ctx['list_id'] = SENDY_ID_MAP[lang]
     if format == 'html':
         ret = lang_fallback_render(env, lang, 'archive.html', ctx)
     elif format == 'email':
@@ -236,7 +240,7 @@ def render_archive(issue_ashes_env, lang):
         ret['issues'].insert(0, {'path': archive_path,
                                  'date': display_date})
     ret['lang'] = LANG_MAP[lang]
-    ret['signup_url'] = SIGNUP_MAP[lang]
+    ret['list_id'] = SENDY_ID_MAP[lang]
     return issue_ashes_env.render('template_archive_index.html', ret)
 
 

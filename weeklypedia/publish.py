@@ -44,6 +44,7 @@ def get_argparser():
     prs = ArgumentParser(description=desc)
     prs.add_argument('--lang', default=None)
     prs.add_argument('--bake_all', default=False, action='store_true')
+    prs.add_argument('--nosend', default=False, action='store_true')
     prs.add_argument('--debug', default=DEBUG, action='store_true')
     prs.add_argument('--mailer', default='mailchimp')
     return prs
@@ -58,8 +59,13 @@ if __name__ == '__main__':
     if args.bake_all:
         for lang in SUPPORTED_LANGS:
             bake_latest_issue(issue_ashes_env, lang=lang, include_dev=debug)
+    
     if args.lang in SUPPORTED_LANGS:
         lang = args.lang
         mailer = args.mailer
         print bake_latest_issue(issue_ashes_env, lang=lang, include_dev=debug)
-        print send_issue(lang, mailer, debug)
+        
+        if args.nosend:
+            print 'not sending...'
+        else:
+            print send_issue(lang, mailer, debug)

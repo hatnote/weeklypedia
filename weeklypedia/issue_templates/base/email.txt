@@ -40,3 +40,9 @@ $STATS_INTRO$:
 * $BOT_EDIT_COUNTS$
 
 Learn more about the Weeklypedia Digest: http://weekly.hatnote.com/
+
+This email was sent to [Email]
+
+Unsubscribe: [unsubscribe]
+
+Hatnote · 131 E Empire Street · San Jose, CA 95112 · USA

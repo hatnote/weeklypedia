@@ -12,31 +12,46 @@
   <!-- end-email-exclude -->
 </head>
 <body>
-  <div class="header">
-    <h1><span><em>the</em> WEEKLYPEDIA</span> </h1>
-    <p>A list of the most edited Wikipedia articles and discussions from the last week.</p>
-    <p>Delivered every Friday by email.</p>
-  </div>
-  <div class="announce">
-    <ul class="breadcrumb">
-        <li><a href="../../index.html">Home</a></li>
-        <li>{lang} edition archives</li>
-      </ul>
-  </div>
-  <div class="main">
-    <div class="content">
-      <h2>{lang} Edition</h2>
-      <p>If you want to stay up to date with the most active articles and discussions, please <a href="../../index.html">sign up for future issues</a>.</p>
-      <ul class="buttons archive-list">
-        {#issues}
-        <li><a href="{path}">{date}</a></li>
-        {/issues}
-      </ul>
-    <a href="{signup_url}" class="signup"><span>Sign up!</span></a>
-    <div class="content">
-      <h2>About</h2>
-      <p>This project retrieves a list of the week's recent changes using <a href="http://tools.wmflabs.org/">Wikimedia Tool Labs</a>, and delivers emails using MailChimp. Code and more information <a href="https://github.com/hatnote/weeklypedia">available on GitHub</a>. Built by <a href="https://github.com/slaporte">Stephen LaPorte</a> and <a href="https://github.com/mahmoud">Mahmoud Hashemi</a>.</p>
-      <p><a href="http://blog.hatnote.com/">Learn more on the Hatnote blog</a>.</p>
+  <div class="container">
+    <div class="header">
+      <h1><span><em>the</em> WEEKLYPEDIA</span> </h1>
+      <p>A list of the most edited Wikipedia articles and discussions from the last week.</p>
+      <p>Delivered every Friday by email.</p>
+    </div>
+    <div class="announce">
+      <ul class="breadcrumb">
+          <li><a href="../../index.html">Home</a></li>
+          <li>{lang} edition archives</li>
+        </ul>
+    </div>
+    <div class="main">
+      <div class="content">
+        <h2>Sign up</h2>
+        <p>If you want to stay up to date with the most active articles and discussions, please sign up for future issues.</p>
+
+        <form action="https://mailer.hatnote.com/s/subscribe" method="POST" accept-charset="utf-8">
+          <label class="email-label" for="email">Email</label>
+          <input class="email-input" type="email" name="email" id="email"/>
+          <div style="display:none;">
+            <label for="hp">HP</label><br/>
+            <input type="text" name="hp" id="hp"/></div>
+          <input type="hidden" name="list" value="{list_id}"/>
+          <input type="hidden" name="subform" value="yes"/>
+          <input class="sub-button" type="submit" name="submit" value="subscribe" id="submit"/>
+        </form>
+
+        <h2>{lang} Archives</h2>
+        
+        <ul class="buttons archive-list">
+          {#issues}
+          <li><a href="{path}">{date}</a></li>
+          {/issues}
+        </ul>
+      <div class="content">
+        <h2>About</h2>
+        <p>This project retrieves a list of the week's recent changes using <a href="http://tools.wmflabs.org/">Wikimedia Tool Labs</a>, and delivers emails using MailChimp. Code and more information <a href="https://github.com/hatnote/weeklypedia">available on GitHub</a>. Built by <a href="https://github.com/slaporte">Stephen LaPorte</a> and <a href="https://github.com/mahmoud">Mahmoud Hashemi</a>.</p>
+        <p><a href="http://blog.hatnote.com/">Learn more on the Hatnote blog</a>.</p>
+      </div>
     </div>
   </div>
   <script>
