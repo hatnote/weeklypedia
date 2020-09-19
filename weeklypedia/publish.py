@@ -6,15 +6,14 @@ from os.path import dirname
 from argparse import ArgumentParser
 from clastic.render import AshesRenderFactory
 
-from common import DEBUG, DEBUG_LIST_ID, SENDKEY
+from common import DEBUG, DEBUG_LIST_ID, SENDKEY, SUPPORTED_LANGS
 
 from web import (comma_int,
                  ISSUE_TEMPLATES_PATH)
 
 from bake import (Issue,
                   bake_latest_issue,
-                  render_index,
-                  SUPPORTED_LANGS)
+                  render_index)
 
 _CUR_PATH = dirname(os.path.abspath(__file__))
 
@@ -69,3 +68,6 @@ if __name__ == '__main__':
             print 'not sending...'
         else:
             print send_issue(lang, mailer, debug)
+
+    else:
+        print '!! language %s not supported' % args.lang

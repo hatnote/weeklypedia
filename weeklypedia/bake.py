@@ -13,7 +13,8 @@ from ashes import TemplateNotFound
 from mail import Mailinglist, sendy_send_campaign, KEY
 from fetch import get_latest_data_path
 
-from common import (DATA_BASE_PATH,
+from common import (ARCHIVE_URL,
+                    DATA_BASE_PATH,
                     DEFAULT_LANGUAGE,
                     DEFAULT_INTRO,
                     DEBUG,
@@ -23,6 +24,7 @@ from common import (DATA_BASE_PATH,
                     SUBJECT_TMPL,
                     SUPPORTED_LANGS,
                     SIGNUP_MAP,
+                    SENDY_IDS,
                     mkdir_p)
 
 _CUR_PATH = dirname(os.path.abspath(__file__))
@@ -38,7 +40,6 @@ ARCHIVE_PATH_TMPL = pjoin(ARCHIVE_BASE_PATH, ARCHIVE_PATH_TMPL)
 
 with open(os.path.join(_CUR_PATH, 'secrets.json')) as secrets_json:
     secrets = json.load(secrets_json)
-    SENDY_ID_MAP = secrets.get('sendy_ids')
 
 class Issue(object):
     def __init__(self,
@@ -188,7 +189,9 @@ def render_issue(render_ctx, issue_ashes_env,
     lang = render_ctx['short_lang_name']
     env = issue_ashes_env
     ctx = localize_data(render_ctx, lang)
-    ctx['list_id'] = SENDY_ID_MAP[lang]
+    ctx['list_id'] = SENDY_IDS[lang]
+    ctx['archive_link'] = ARCHIVE_URL % lang
+
     if format == 'html':
         ret = lang_fallback_render(env, lang, 'archive.html', ctx)
     elif format == 'email':
@@ -240,7 +243,7 @@ def render_archive(issue_ashes_env, lang):
         ret['issues'].insert(0, {'path': archive_path,
                                  'date': display_date})
     ret['lang'] = LANG_MAP[lang]
-    ret['list_id'] = SENDY_ID_MAP[lang]
+    ret['list_id'] = SENDY_IDS[lang]
     return issue_ashes_env.render('template_archive_index.html', ret)
 
 
@@ -261,6 +264,7 @@ def render_and_save_archives(issue_ashes_env):
     ret = []
     for lang in SUPPORTED_LANGS:
         out_path = ARCHIVE_INDEX_PATH_TMPL.format(lang_shortcode=lang)
+        mkdir_p(pjoin(ARCHIVE_BASE_PATH, lang))
         out_file = open(out_path, 'w')
         with out_file:
             rendered = render_archive(issue_ashes_env, lang)
