@@ -40,3 +40,9 @@ La semaine en chiffres:
 * {stats.bot_count|ci} robots ont effectué {stats.bot_edits|ci} modifications sur {stats.bot_titles|ci} articles
 
 Learn more about the Weeklypedia Digest: http://weekly.hatnote.com/
+
+This email was sent to [Email]
+
+Unsubscribe: [unsubscribe]
+
+Hatnote · 131 E Empire Street · San Jose, CA 95112 · USA

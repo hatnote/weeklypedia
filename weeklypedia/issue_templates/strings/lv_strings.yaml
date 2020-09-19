@@ -1,3 +1,14 @@
+#------------------
+# Weeklypedia
+#    If you want to translate the Weeklypedia newsletter, start with a copy
+#    of this file and leave us a note at:
+#    https://github.com/hatnote/weeklypedia/issues
+#------------------------------------------------------------------------------
+
+#-----------
+# Introduction
+#------------------------------------------------------------------------------
+
 head_title: the WEEKLYPEDIA ({full_lang_name}, {issue_number}. numurs)
 body_title: <em>the</em> WEEKLYPEDIA
 description: Saraksts ar pēdējā nedēļā biežāk labotajiem Vikipēdijas rakstiem un diskusijām.
@@ -34,9 +45,33 @@ anon_edit_counts: Nereģistrēti dalībnieki veica {stats.anon_edits|ci} labojum
 bot_edit_counts: >-
   {stats.bot_count|ci} roboti veica {stats.bot_edits|ci} labojumus {stats.bot_titles|ci} rakstos
 
+
+#-----------
+# subscription invitation
+#------------------------------------------------------------------------------
+
+signup: Sign up
+pitch: >-
+    If you want to stay up to date with the most active articles and
+    discussions, please sign up for future issues.
+
+email: "Email:"
+subscribe: Subscribe
+
+#-----------
+# Bottom section
+#------------------------------------------------------------------------------
+
 signup_link: Abonējiet!
 about_heading: Par
 about_text: >-
   Šis projekts iegūst sarakstu ar pēdējās nedēļas izmaiņām, izmantojot <a href="http://tools.wmflabs.org/">Wikimedia Tool Labs</a>, un piegādā e-pastus, izmantojot MailChimp. Izejas kods un plašāka informācija <a href="https://github.com/hatnote/weeklypedia">pieejama GitHub</a>. Izveidouši <a href="https://github.com/slaporte">Stephen LaPorte</a> un <a href="https://github.com/mahmoud">Mahmoud Hashemi</a>.
 blog_link: Uzziniet vairāk Hatnote blogā
 learn_more: Uzziniet vairāk par <a href="http://weekly.hatnote.com">Weeklypedia Digest</a>!
+
+#-----------
+# Email footer
+#------------------------------------------------------------------------------
+
+sent_to: This email was sent to
+unsubscribe: unsubscribe from this list

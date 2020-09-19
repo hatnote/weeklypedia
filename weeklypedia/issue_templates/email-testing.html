@@ -1,0 +1,59 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+  <meta name="viewport" content="width=device-width">
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+  <meta name="description" content="A weekly email digest with the most active Wikipedia articles">
+  <meta name="keywords" content="Wikipedia,email,digest,top,weeklypedia,hatnote">
+  <meta charset="utf-8">
+  <title>the WEEKLYPEDIA ({full_lang_name}, Issue {issue_number})</title>
+</head>
+<body style="margin:5em 0; background-color:rgb(237, 224, 206); -webkit-font-smoothing:antialiased" bgcolor="rgb(237, 224, 206)">
+  <header style="color:#222; margin:auto; padding:1.5em; width:600px; background-color:#fff; text-align:center; padding-bottom:0" bgcolor="#fff" width="600" align="center">
+  <h1 style="border-top:1px solid #222; color:#222; margin:1em 0 0 0">
+<span style="background:#fff; padding:0 20px; position:relative; top:-20px; font-weight:200"><em>the</em> WEEKLYPEDIA</span> </h1>
+  </header>
+  <article style="background-color:#fff; color:#222; margin:auto; padding:1.5em; width:600px" bgcolor="#fff" width="600">
+    <section>
+      <p style="color:#383838; line-height:1.5em; font:400 12pt serif"><em>Issue {issue_number}, {date} ({full_lang_name} Wikipedia Edition)</em></p>
+      <p style="color:#383838; line-height:1.5em; font:400 12pt serif">{intro}</p>
+      <h2 id="articles" style="margin:0; text-transform:uppercase; font-weight:200; line-height:1.2; font-size:28px">Articles</h2>
+      <p style="color:#383838; line-height:1.5em; font:400 12pt serif">{#stats}This week, {total_users|ci} authors made {edits|ci} changes to {titles|ci} different articles.{/stats} The top 20 articles for the week:</p>
+      <ol>
+        {#mainspace}
+        <li>
+<a  href="https://{short_lang_name}.wikipedia.org/wiki/{title}"  target="_blank" style="color:#348eda">{title_s}</a> (<a  href="https://{short_lang_name}.wikipedia.org/w/index.php?title={title}&diff={rev_ids.new}&oldid={rev_ids.old}"  style="color:#348eda">{edits|ci} changes</a> by {users} authors)</li>
+        {/mainspace}
+      </ol>
+
+      <h2 id="new-articles" style="margin:0; text-transform:uppercase; font-weight:200; line-height:1.2; font-size:28px">New Articles</h2>
+      <p style="color:#383838; line-height:1.5em; font:400 12pt serif">The ten most actively edited articles created within the last week.</p>
+      <ol>
+        {#new_articles}
+        <li>
+<a  href="https://{short_lang_name}.wikipedia.org/wiki/{title}"  target="_blank" style="color:#348eda">{title_s}</a> ({edits|ci} changes by {users} authors)</li>
+        {/new_articles}
+      </ol>
+
+      <h2 id="discussions" style="margin:0; text-transform:uppercase; font-weight:200; line-height:1.2; font-size:28px">Discussions</h2>
+      <p style="color:#383838; line-height:1.5em; font:400 12pt serif">The most active discussions:</p>
+      <ol>
+        {#talkspace}
+        <li><a  href="https://{short_lang_name}.wikipedia.org/wiki/Talk:{title}"  target="_blank" style="color:#348eda">{title_s}</a></li>
+        {/talkspace}
+      </ol>
+
+      <h2 id="statistics" style="margin:0; text-transform:uppercase; font-weight:200; line-height:1.2; font-size:28px">Stats</h2>
+      <p style="color:#383838; line-height:1.5em; font:400 12pt serif">A few numbers from last week:</p>
+      <ul>
+        <li>{stats.users|ci} registered users and {stats.anon_ip_count|ci} unregistered users made {stats.edits|ci} edits to {stats.titles|ci} articles</li>
+        <li>Unregistered users made {stats.anon_edits|ci} edits to {stats.anon_titles|ci} articles</li>
+        <li>{stats.bot_count|ci} robots made {stats.bot_edits|ci} edits to {stats.bot_titles|ci} articles</li>
+      </ul>
+      <p style="color:#383838; line-height:1.5em; font:400 12pt serif">Learn more about the <a  href="http://weekly.hatnote.com"  style="color:#348eda">Weeklypedia Digest</a></p>
+
+    </section>
+  </article>
+  
+</body>
+</html>

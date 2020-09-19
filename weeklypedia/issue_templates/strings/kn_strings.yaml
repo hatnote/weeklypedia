@@ -1,3 +1,14 @@
+#------------------
+# Weeklypedia
+#    If you want to translate the Weeklypedia newsletter, start with a copy
+#    of this file and leave us a note at:
+#    https://github.com/hatnote/weeklypedia/issues
+#------------------------------------------------------------------------------
+
+#-----------
+# Introduction
+#------------------------------------------------------------------------------
+
 head_title: the WEEKLYPEDIA ({full_lang_name}, ಸಂಚಿಕೆ {issue_number})
 body_title: <em>the</em> WEEKLYPEDIA
 description: ಕನ್ನಡ ವಿಕಿಪೀಡಿಯದಲ್ಲಿ ಹಿಂದಿನ ವಾರ ಸಂಪಾದಿಸಿದ ಅತಿ ಹೆಚ್ಚು ಲೇಖನಗಳ ಮತ್ತು ಚರ್ಚಾಪುಟಗಳ ಪಟ್ಟಿ.
@@ -8,6 +19,10 @@ issue_label: ಸಂಚಿಕೆ {issue_number}, {local.date}
 language_label: ({local.full_lang_name} ವಿಕಿಪೀಡಿಯ ಆವೃತ್ತಿ)
 intro: ನಮಸ್ತೆ! ನಮ್ಮ ಕನ್ನಡ ವಿಕಿಪೀಡಿಯದ ಈ ವಾರದ ಚಟುವಟಿಕೆಗಳ ಸಂಕ್ಷಿಪ್ತರೂಪವಿಲ್ಲಿದೆ.
 
+#-----------
+# Article section
+#------------------------------------------------------------------------------
+
 articles_heading: ಲೇಖನಗಳು
 articles_summary: ಈ ವಾರ, {total_users|ci} ಲೇಖಕರು  {edits|ci} ಬದಲಾವಣೆಗಳನ್ನು {titles|ci} ಪ್ರತ್ಯೇಕ ಪುಟಗಳಲ್ಲಿ ಮಾಡಿದ್ದಾರೆ.
 articles_intro: ಈ ವಾರದಲ್ಲಿ ಅತಿ ಹೆಚ್ಚು ಬದಲಾವಣೆಗಳನ್ನು ಕಂಡ ಮೊದಲ ೨೦ ಪುಟಗಳು
@@ -15,15 +30,28 @@ articles_intro: ಈ ವಾರದಲ್ಲಿ ಅತಿ ಹೆಚ್ಚು ಬದ
 diff_author_count: "{users} ಲೇಖಕರಿಂದ"
 diff_count: "{edits|ci} ಬದಲಾವಣೆಗಳು"
 
+#-----------
+# New articles section
+#------------------------------------------------------------------------------
+
+
 new_articles_heading: ಹೊಸ ಲೇಖನಗಳು
 # new_articles_summary: # TODO
 new_articles_intro: ಕಳೆದ ವಾರ ಸೃಷ್ಠಿಸಲಾದ ಲೇಖನಗಳಲ್ಲಿ ಹತ್ತು ಅತಿ ಹೆಚ್ಚು ಸಂಪಾದಿಸಿದ ಲೇಖನಗಳು
 
 # diff count and author count handled in article section
 
+#-----------
+# Discussion section
+#------------------------------------------------------------------------------
+
 discussions_heading: ಚರ್ಚೆಗಳು
 # discussions_summary: # TODO
 discussions_intro: ಅತಿ ಹೆಚ್ಚು ಚರ್ಚೆಯಾದ ಪುಟಗಳು
+
+#-----------
+# Stats section
+#------------------------------------------------------------------------------
 
 stats_heading: ಅಂಕಿ ಅಂಶಗಳು
 stats_intro: ಕಳೆದ ವಾರದ ಕೆಲ ಅಂಕಿ ಅಂಶಗಳು
@@ -34,9 +62,32 @@ anon_edit_counts: ಅನಾಮಿಕ ಬಳಕೆದಾರರು {stats.anon_tit
 bot_edit_counts: >-
   {stats.bot_count|ci} ರೋಬೋಟ್‌ಗಳು {stats.bot_titles|ci} ಲೇಖನಗಳನ್ನು {stats.bot_edits|ci} ಬಾರಿ ಸಂಪಾದಿಸಿದ್ದಾರೆ
 
+#-----------
+# subscription invitation
+#------------------------------------------------------------------------------
+
+signup: Sign up
+pitch: >-
+    If you want to stay up to date with the most active articles and
+    discussions, please sign up for future issues.
+
+email: "Email:"
+subscribe: Subscribe
+
+#-----------
+# Bottom section
+#------------------------------------------------------------------------------
+
 signup_link: ಮಿಂಚಂಚೆಯಿಂದ ಪಡೆಯಿರಿ!
 about_heading: ಯೋಜನೆಯ ಬಗ್ಗೆ 
 about_text: >-
   ಈ ಯೋಜನೆಯು <a href="http://tools.wmflabs.org/">Wikimedia Tool Labs</a> ಅನ್ನು ಬಳಸಿಕೊಂಡು ವಾರದ ಇತ್ತೀಚಿನ ಬದಲಾವಣೆಗಳ ಪಟ್ಟಿ ಮಾಡುತ್ತದೆ, ಮತ್ತು ಇದನ್ನು MailChimp ನಿಂದ ಮಿಂಚಂಚೆಯ ಮೂಲಕ ತಲುಪಿಸಲಾಗತ್ತದೆ. ಇದರ ಮೂಲ ಕೋಡ್ ಮತ್ತು ಇನ್ನಷ್ಟು ಮಾಹಿತಿ <a href="https://github.com/hatnote/weeklypedia">ಗಿಟ್‌ಹಬ್‌ನಲ್ಲಿ ಲಭ್ಯವಿದೆ</a>. <a href="https://github.com/slaporte">Stephen LaPorte</a> ಮತ್ತು <a href="https://github.com/mahmoud">Mahmoud Hashemi</a> ರವರು ಈ ತಂತ್ರಾಶವನ್ನು ರಚಿಸಿದ್ದಾರೆ.
 blog_link: Hatnote ಬ್ಲಾಗ್ ಬಗ್ಗೆ ಇನ್ನಷ್ಟು ತಿಳಿಯಿರಿ
 learn_more: <a href="http://weekly.hatnote.com">Weeklypedia Digest</a> ಬಗ್ಗೆ ಇನ್ನಷ್ಟು ತಿಳಿಯಿರಿ!
+
+#-----------
+# Email footer
+#------------------------------------------------------------------------------
+
+sent_to: This email was sent to
+unsubscribe: unsubscribe from this list

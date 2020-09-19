@@ -79,10 +79,22 @@ bot_edit_counts: >-
     {stats.bot_edits|ci} редагуваннь до {stats.bot_titles|ci} статей
 
 #-----------
+# subscription invitation
+#------------------------------------------------------------------------------
+
+signup: Зареєструватися!
+pitch: >-
+    If you want to stay up to date with the most active articles and
+    discussions, please sign up for future issues.
+
+email: "Email:"
+subscribe: Subscribe
+
+
+#-----------
 # Bottom section
 #------------------------------------------------------------------------------
 
-signup_link: Зареєструватися!
 about_heading: Про ВІКЛІПЕДІЮ
 about_text: >-
     Цей проект отримує список останніх змін на тиждень за допомогою <a
@@ -97,3 +109,10 @@ blog_link: Дізнайтеся більше на блозі Hatnote
 learn_more: >-
     Детальніше про <a href="http://weekly.hatnote.com">Вікліпедія
     Дайджест</a>!
+
+#-----------
+# Email footer
+#------------------------------------------------------------------------------
+
+sent_to: This email was sent to
+unsubscribe: unsubscribe from this list

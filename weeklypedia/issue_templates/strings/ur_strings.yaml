@@ -79,6 +79,18 @@ bot_edit_counts: >-
     {stats.bot_titles|ci} مضامین میں {stats.bot_edits|ci} ترامیم کیں۔
 
 #-----------
+# subscription invitation
+#------------------------------------------------------------------------------
+
+signup: Sign up
+pitch: >-
+    If you want to stay up to date with the most active articles and
+    discussions, please sign up for future issues.
+
+email: "Email:"
+subscribe: Subscribe
+
+#-----------
 # Bottom section
 #------------------------------------------------------------------------------
 
@@ -96,3 +108,10 @@ about_text: >-
 blog_link: مزید معلومات کے لیے ہیٹ نوٹ بلاگ دیکھیے
 learn_more: >-
     مزید معلومات کے لیے دیکھیے <a href="http://weekly.hatnote.com">ویکلی پیڈیا ڈائجسٹ</a>!
+
+#-----------
+# Email footer
+#------------------------------------------------------------------------------
+
+sent_to: This email was sent to
+unsubscribe: unsubscribe from this list

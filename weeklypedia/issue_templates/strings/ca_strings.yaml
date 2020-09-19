@@ -77,16 +77,27 @@ bot_edit_counts: >-
     {stats.bot_count|ci} que els robots han fet
     {stats.bot_edits|ci} canvis a {stats.bot_titles|ci} articles
 
+#-----------
+# subscription invitation
+#------------------------------------------------------------------------------
+
+signup: Registra't
+pitch: >-
+    If you want to stay up to date with the most active articles and
+    discussions, please sign up for future issues.
+
+email: "Correu electrònic:"
+subscribe: Subscribe
+
 # -----------
 # Secció inferior
 # ------------------------------------------------------------------------------
 
-signup_link: Registra-t'hi!
 about_heading: A propòsit
 about_text: >-
     Aquest projecte recupera una llista dels canvis recents de la setmana mitjançant <a
     href="http://tools.wmflabs.org/">Wikimedia Tool Labs</a>, i
-    lliura missatges de correu electrònic amb MailChimp. Codi i més informació <a
+    lliura missatges de correu electrònic amb Sendy. Codi i més informació <a
     href="https://github.com/hatnote/weeklypedia"> disponible a
     GitHub</a>. Creat per <a href="https://github.com/slaporte">Stephen
     LaPorte</a> i <a href="https://github.com/mahmoud">Mahmoud
@@ -95,3 +106,10 @@ about_text: >-
 blog_link: Més informació al blog Hatnote
 learn_more: >-
     Més informació sobre el bolletí <a href="http://weekly.hatnote.com">Weeklypedia</a>
+
+#-----------
+# Email footer
+#------------------------------------------------------------------------------
+
+sent_to: This email was sent to
+unsubscribe: cancel·lar la subscripció

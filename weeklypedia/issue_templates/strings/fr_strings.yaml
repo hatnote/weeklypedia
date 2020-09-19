@@ -1,3 +1,14 @@
+#------------------
+# Weeklypedia
+#    If you want to translate the Weeklypedia newsletter, start with a copy
+#    of this file and leave us a note at:
+#    https://github.com/hatnote/weeklypedia/issues
+#------------------------------------------------------------------------------
+
+#-----------
+# Introduction
+#------------------------------------------------------------------------------
+
 head_title: Le WEEKLYPEDIA ({full_lang_name}, numéro {issue_number})
 body_title: <em>Le</em> WEEKLYPEDIA
 description: Une liste des pages de Wikipédia les plus modifiées cette semaine.
@@ -7,6 +18,10 @@ archive_link: "Archives de l’édition en {local.full_lang_name}"
 issue_label: Numéro {issue_number}, {local.date}
 language_label: (Édition de Wikipédia en {local.full_lang_name})
 
+#-----------
+# Article section
+#------------------------------------------------------------------------------
+
 articles_heading: Articles
 articles_summary: Cette semaine, {total_users|ci} auteurs ont effectué {edits|ci} modifications sur {titles|ci} articles différents.
 articles_intro: Voici le top 20 des articles de la semaine
@@ -14,15 +29,27 @@ articles_intro: Voici le top 20 des articles de la semaine
 diff_count: "{edits|ci} modifications"
 diff_author_count: par {users} auteurs
 
+#-----------
+# New articles section
+#------------------------------------------------------------------------------
+
 new_articles_heading: Nouveaux articles
 # new_articles_summary: # TODO
 new_articles_intro: Les dix articles créés cette semaine les plus modifiés
 
 # diff count and author count handled in article section
 
+#-----------
+# Discussion section
+#------------------------------------------------------------------------------
+
 discussions_heading: Discussions
 # discussions_summary: # TODO
 discussions_intro: Les discussions les plus actives
+
+#-----------
+# Stats section
+#------------------------------------------------------------------------------
 
 stats_heading: Statistiques
 stats_intro: La semaine en chiffres
@@ -33,10 +60,32 @@ anon_edit_counts: Les utilisateurs non enregistrés ont effectué un total de {s
 bot_edit_counts: >-
   {stats.bot_count|ci} robots ont effectué {stats.bot_edits|ci} modifications sur {stats.bot_titles|ci} articles
 
-signup_link: S’abonner
+#-----------
+# subscription invitation
+#------------------------------------------------------------------------------
+
+signup: S’abonner
+pitch: >-
+    If you want to stay up to date with the most active articles and
+    discussions, please sign up for future issues.
+
+email: "Email:"
+subscribe: Subscribe
+
+#-----------
+# Bottom section
+#------------------------------------------------------------------------------
+
 about_heading: À propos
 about_text: >-
   Cet outil obtient la liste des modifications récentes de la semaine grâce à <a href="http://tools.wmflabs.org/">Wikimedia Tool Labs</a>, et distribue les courriels via MailChimp. Le code et plus d’informations sont <a href="https://github.com/hatnote/weeklypedia">disponibles sur GitHub</a>. Créé par <a href="https://github.com/slaporte">Stephen LaPorte</a> et <a href="https://github.com/mahmoud">Mahmoud Hashemi</a>.
 blog_link: En savoir plus sur le blog Hatnote
 learn_more: En savoir plus sur le <a href="http://weekly.hatnote.com">récapitulatif Weeklypedia</a> !
 
+
+#-----------
+# Email footer
+#------------------------------------------------------------------------------
+
+sent_to: This email was sent to
+unsubscribe: unsubscribe from this list

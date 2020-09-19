@@ -40,3 +40,9 @@ The WEEKLYPEDIA: Issue {issue_number}, {date} ({full_lang_name} Wikipedia Editio
 * {stats.bot_count|ci} روبہ جات نے {stats.bot_titles|ci} مضامین میں {stats.bot_edits|ci} ترامیم کیں۔
 
 Learn more about the Weeklypedia Digest: http://weekly.hatnote.com/
+
+This email was sent to [Email]
+
+Unsubscribe: [unsubscribe]
+
+Hatnote · 131 E Empire Street · San Jose, CA 95112 · USA

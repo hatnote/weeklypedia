@@ -77,11 +77,23 @@ bot_edit_counts: >-
     {stats.bot_count|ci} que los robòts an fach {stats.bot_edits|ci} cambiaments
     a {stats.bot_titles|ci} articles
 
+
+#-----------
+# subscription invitation
+#------------------------------------------------------------------------------
+
+signup: S'enregistrar! 
+pitch: >-
+    If you want to stay up to date with the most active articles and
+    discussions, please sign up for future issues.
+
+email: "Email:"
+subscribe: Subscribe
+
 #-----------
 # Seccion inferiora
 #------------------------------------------------------------------------------
 
-signup_link: S'enregistrar! 
 about_heading: Qu'es aquò 
 about_text: >-
     Aquèste projècte recupera una lista dels cambiaments recents de la setmana
@@ -94,3 +106,10 @@ about_text: >-
 blog_link: Mai sul blog Hatnote 
 learn_more: >-
     Mai sul <a href="http://weekly.hatnote.com">bulletin Weeklypèdia</a>
+
+#-----------
+# Email footer
+#------------------------------------------------------------------------------
+
+sent_to: This email was sent to
+unsubscribe: unsubscribe from this list

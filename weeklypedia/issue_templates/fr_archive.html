@@ -12,57 +12,73 @@
   <title>Le WEEKLYPEDIA ({full_lang_name}, numéro {issue_number})</title>
 </head>
 <body>
-  <div class="header">
-    <h1><span><em>Le</em> WEEKLYPEDIA</span></h1>
-    <p>Une liste des pages de Wikipédia les plus modifiées cette semaine.</p>
-    <p>Distribué par courriel le vendredi.</p>
-  </div>
-  <div class="announce">
-    <ul class="breadcrumb">
-      <li><a href="../../../index.html">Accueil</a></li>
-      <li><a href="../index.html">Archives de l’édition en {local.full_lang_name}</a></li>
-      <li>Numéro {issue_number}, {local.date}</li>
-    </ul>
-  </div>
-  <div class="main">
-    <div class="content">
-      <p id="intro">{intro|s}</p>
-      <h2 id="articles">Articles</h2>
-      <p>{#stats}Cette semaine, {total_users|ci} auteurs ont effectué {edits|ci} modifications sur {titles|ci} articles différents.{/stats} Voici le top 20 des articles de la semaine:</p>
-      <ol>
-        {#mainspace}
-        <li><a href="https://{short_lang_name}.wikipedia.org/wiki/{title}" target="_blank">{title_s}</a> <span dir="ltr">(<a href="https://{short_lang_name}.wikipedia.org/w/index.php?title={title}&diff={rev_ids.new}&oldid={rev_ids.old}">{edits|ci} modifications</a> par {users} auteurs)</span></li>
-        {/mainspace}
-      </ol>
-
-      <h2 id="new-articles">Nouveaux articles</h2>
-      <p>Les dix articles créés cette semaine les plus modifiés</p>
-      <ol>
-        {#new_articles}
-        <li><a href="https://{short_lang_name}.wikipedia.org/wiki/{title}" target="_blank">{title_s}</a> <span dir="ltr">({edits|ci} modifications par {users} auteurs)</span></li>
-        {/new_articles}
-      </ol>
-
-      <h2 id="discussions">Discussions</h2>
-      <p>Les discussions les plus actives:</p>
-      <ol>
-        {#talkspace}
-        <li><a href="https://{short_lang_name}.wikipedia.org/wiki/Talk:{title}" target="_blank">{title_s}</a></li>
-        {/talkspace}
-      </ol>
-
-      <h2 id="statistics">Statistiques</h2>
-      <p>La semaine en chiffres:</p>
-      <ul>
-        <li>{stats.users|ci} utilisateurs enregistrés et {stats.anon_ip_count|ci} utilisateurs non enregistrés ont effectué {stats.edits|ci} modifications sur {stats.titles|ci} articles</li>
-        <li>Les utilisateurs non enregistrés ont effectué un total de {stats.anon_edits|ci} modifications sur {stats.anon_titles|ci} articles</li>
-        <li>{stats.bot_count|ci} robots ont effectué {stats.bot_edits|ci} modifications sur {stats.bot_titles|ci} articles</li>
+  <div class="container">
+    <div class="header">
+      <h1><span><em>Le</em> WEEKLYPEDIA</span></h1>
+      <p>Une liste des pages de Wikipédia les plus modifiées cette semaine.</p>
+      <p>Distribué par courriel le vendredi.</p>
+    </div>
+    <div class="announce">
+      <ul class="breadcrumb">
+        <li><a href="../../../index.html">Accueil</a></li>
+        <li><a href="../index.html">Archives de l’édition en {local.full_lang_name}</a></li>
+        <li>Numéro {issue_number}, {local.date}</li>
       </ul>
-    <a href="{signup_url}" class="signup"><span>S’abonner</span></a>
-    <div class="content">
-      <h2>À propos</h2>
-      <p>Cet outil obtient la liste des modifications récentes de la semaine grâce à <a href="http://tools.wmflabs.org/">Wikimedia Tool Labs</a>, et distribue les courriels via MailChimp. Le code et plus d’informations sont <a href="https://github.com/hatnote/weeklypedia">disponibles sur GitHub</a>. Créé par <a href="https://github.com/slaporte">Stephen LaPorte</a> et <a href="https://github.com/mahmoud">Mahmoud Hashemi</a>.</p>
-      <p><a href="http://blog.hatnote.com/">En savoir plus sur le blog Hatnote</a>.</p>
+    </div>
+    <div class="main">
+      <div class="content">
+        <p id="intro">{intro|s}</p>
+        <h2 id="articles">Articles</h2>
+        <p>{#stats}Cette semaine, {total_users|ci} auteurs ont effectué {edits|ci} modifications sur {titles|ci} articles différents.{/stats} Voici le top 20 des articles de la semaine:</p>
+        <ol>
+          {#mainspace}
+          <li><a href="https://{short_lang_name}.wikipedia.org/wiki/{title}" target="_blank">{title_s}</a> <span dir="ltr">(<a href="https://{short_lang_name}.wikipedia.org/w/index.php?title={title}&diff={rev_ids.new}&oldid={rev_ids.old}">{edits|ci} modifications</a> par {users} auteurs)</span></li>
+          {/mainspace}
+        </ol>
+
+        <h2 id="new-articles">Nouveaux articles</h2>
+        <p>Les dix articles créés cette semaine les plus modifiés</p>
+        <ol>
+          {#new_articles}
+          <li><a href="https://{short_lang_name}.wikipedia.org/wiki/{title}" target="_blank">{title_s}</a> <span dir="ltr">({edits|ci} modifications par {users} auteurs)</span></li>
+          {/new_articles}
+        </ol>
+
+        <h2 id="discussions">Discussions</h2>
+        <p>Les discussions les plus actives:</p>
+        <ol>
+          {#talkspace}
+          <li><a href="https://{short_lang_name}.wikipedia.org/wiki/Talk:{title}" target="_blank">{title_s}</a></li>
+          {/talkspace}
+        </ol>
+
+        <h2 id="statistics">Statistiques</h2>
+        <p>La semaine en chiffres:</p>
+        <ul>
+          <li>{stats.users|ci} utilisateurs enregistrés et {stats.anon_ip_count|ci} utilisateurs non enregistrés ont effectué {stats.edits|ci} modifications sur {stats.titles|ci} articles</li>
+          <li>Les utilisateurs non enregistrés ont effectué un total de {stats.anon_edits|ci} modifications sur {stats.anon_titles|ci} articles</li>
+          <li>{stats.bot_count|ci} robots ont effectué {stats.bot_edits|ci} modifications sur {stats.bot_titles|ci} articles</li>
+        </ul>
+
+      <h2>S’abonner</h2>
+      <p>If you want to stay up to date with the most active articles and discussions, please sign up for future issues.</p>
+
+      <form action="https://mailer.hatnote.com/s/subscribe" method="POST" accept-charset="utf-8">
+        <label class="email-label" for="email">Email:</label>
+        <input class="email-input" type="email" name="email" id="email"/>
+        <div style="display:none;">
+          <label for="hp">HP</label><br/>
+          <input type="text" name="hp" id="hp"/></div>
+        <input type="hidden" name="list" value="{list_id}"/>
+        <input type="hidden" name="subform" value="yes"/>
+        <input class="sub-button" type="submit" name="submit" value="Subscribe" id="submit"/>
+      </form>
+
+      <div class="content">
+        <h2>À propos</h2>
+        <p>Cet outil obtient la liste des modifications récentes de la semaine grâce à <a href="http://tools.wmflabs.org/">Wikimedia Tool Labs</a>, et distribue les courriels via MailChimp. Le code et plus d’informations sont <a href="https://github.com/hatnote/weeklypedia">disponibles sur GitHub</a>. Créé par <a href="https://github.com/slaporte">Stephen LaPorte</a> et <a href="https://github.com/mahmoud">Mahmoud Hashemi</a>.</p>
+        <p><a href="http://blog.hatnote.com/">En savoir plus sur le blog Hatnote</a>.</p>
+      </div>
     </div>
   </div>
   <script>

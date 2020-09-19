@@ -40,3 +40,9 @@ The WEEKLYPEDIA: Issue {issue_number}, {date} ({full_lang_name} Wikipedia Editio
 * {stats.bot_count|ci} ರೋಬೋಟ್‌ಗಳು {stats.bot_titles|ci} ಲೇಖನಗಳನ್ನು {stats.bot_edits|ci} ಬಾರಿ ಸಂಪಾದಿಸಿದ್ದಾರೆ
 
 Learn more about the Weeklypedia Digest: http://weekly.hatnote.com/
+
+This email was sent to [Email]
+
+Unsubscribe: [unsubscribe]
+
+Hatnote · 131 E Empire Street · San Jose, CA 95112 · USA

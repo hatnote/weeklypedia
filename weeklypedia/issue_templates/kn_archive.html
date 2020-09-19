@@ -12,57 +12,73 @@
   <title>the WEEKLYPEDIA ({full_lang_name}, ಸಂಚಿಕೆ {issue_number})</title>
 </head>
 <body>
-  <div class="header">
-    <h1><span><em>the</em> WEEKLYPEDIA</span></h1>
-    <p>ಕನ್ನಡ ವಿಕಿಪೀಡಿಯದಲ್ಲಿ ಹಿಂದಿನ ವಾರ ಸಂಪಾದಿಸಿದ ಅತಿ ಹೆಚ್ಚು ಲೇಖನಗಳ ಮತ್ತು ಚರ್ಚಾಪುಟಗಳ ಪಟ್ಟಿ.</p>
-    <p>ಮಿಂಚಂಚೆಯಿಂದ ಪ್ರತಿ ಶುಕ್ರವಾರದಂದು ತಲುಪಿಸಲಾಗುತ್ತದೆ.</p>
-  </div>
-  <div class="announce">
-    <ul class="breadcrumb">
-      <li><a href="../../../index.html">ಮುಖಪುಟ</a></li>
-      <li><a href="../index.html">{local.full_lang_name} ಆವೃತ್ತಿಗಳು</a></li>
-      <li>ಸಂಚಿಕೆ {issue_number}, {local.date}</li>
-    </ul>
-  </div>
-  <div class="main">
-    <div class="content">
-      <p id="intro">{intro|s}</p>
-      <h2 id="articles">ಲೇಖನಗಳು</h2>
-      <p>{#stats}ಈ ವಾರ, {total_users|ci} ಲೇಖಕರು  {edits|ci} ಬದಲಾವಣೆಗಳನ್ನು {titles|ci} ಪ್ರತ್ಯೇಕ ಪುಟಗಳಲ್ಲಿ ಮಾಡಿದ್ದಾರೆ.{/stats} ಈ ವಾರದಲ್ಲಿ ಅತಿ ಹೆಚ್ಚು ಬದಲಾವಣೆಗಳನ್ನು ಕಂಡ ಮೊದಲ ೨೦ ಪುಟಗಳು:</p>
-      <ol>
-        {#mainspace}
-        <li><a href="https://{short_lang_name}.wikipedia.org/wiki/{title}" target="_blank">{title_s}</a> <span dir="ltr">(<a href="https://{short_lang_name}.wikipedia.org/w/index.php?title={title}&diff={rev_ids.new}&oldid={rev_ids.old}">{edits|ci} ಬದಲಾವಣೆಗಳು</a> {users} ಲೇಖಕರಿಂದ)</span></li>
-        {/mainspace}
-      </ol>
-
-      <h2 id="new-articles">ಹೊಸ ಲೇಖನಗಳು</h2>
-      <p>ಕಳೆದ ವಾರ ಸೃಷ್ಠಿಸಲಾದ ಲೇಖನಗಳಲ್ಲಿ ಹತ್ತು ಅತಿ ಹೆಚ್ಚು ಸಂಪಾದಿಸಿದ ಲೇಖನಗಳು</p>
-      <ol>
-        {#new_articles}
-        <li><a href="https://{short_lang_name}.wikipedia.org/wiki/{title}" target="_blank">{title_s}</a> <span dir="ltr">({edits|ci} ಬದಲಾವಣೆಗಳು {users} ಲೇಖಕರಿಂದ)</span></li>
-        {/new_articles}
-      </ol>
-
-      <h2 id="discussions">ಚರ್ಚೆಗಳು</h2>
-      <p>ಅತಿ ಹೆಚ್ಚು ಚರ್ಚೆಯಾದ ಪುಟಗಳು:</p>
-      <ol>
-        {#talkspace}
-        <li><a href="https://{short_lang_name}.wikipedia.org/wiki/Talk:{title}" target="_blank">{title_s}</a></li>
-        {/talkspace}
-      </ol>
-
-      <h2 id="statistics">ಅಂಕಿ ಅಂಶಗಳು</h2>
-      <p>ಕಳೆದ ವಾರದ ಕೆಲ ಅಂಕಿ ಅಂಶಗಳು:</p>
-      <ul>
-        <li>{stats.users|ci} ನೊಂದಾಯಿಸಿದ ಸದಸ್ಯರು ಮತ್ತು {stats.anon_ip_count|ci} ಅನಾಮಿಕ ಬಳಕೆದಾರರು {stats.titles|ci} ಲೇಖನಗಳನ್ನು {stats.edits|ci} ಬಾರಿ ಸಂಪಾದಿಸಿದ್ದಾರೆ</li>
-        <li>ಅನಾಮಿಕ ಬಳಕೆದಾರರು {stats.anon_titles|ci} ಲೇಖನಗಳನ್ನು {stats.anon_edits|ci} ಬಾರಿ ಸಂಪಾದಿಸಿದ್ದಾರೆ</li>
-        <li>{stats.bot_count|ci} ರೋಬೋಟ್‌ಗಳು {stats.bot_titles|ci} ಲೇಖನಗಳನ್ನು {stats.bot_edits|ci} ಬಾರಿ ಸಂಪಾದಿಸಿದ್ದಾರೆ</li>
+  <div class="container">
+    <div class="header">
+      <h1><span><em>the</em> WEEKLYPEDIA</span></h1>
+      <p>ಕನ್ನಡ ವಿಕಿಪೀಡಿಯದಲ್ಲಿ ಹಿಂದಿನ ವಾರ ಸಂಪಾದಿಸಿದ ಅತಿ ಹೆಚ್ಚು ಲೇಖನಗಳ ಮತ್ತು ಚರ್ಚಾಪುಟಗಳ ಪಟ್ಟಿ.</p>
+      <p>ಮಿಂಚಂಚೆಯಿಂದ ಪ್ರತಿ ಶುಕ್ರವಾರದಂದು ತಲುಪಿಸಲಾಗುತ್ತದೆ.</p>
+    </div>
+    <div class="announce">
+      <ul class="breadcrumb">
+        <li><a href="../../../index.html">ಮುಖಪುಟ</a></li>
+        <li><a href="../index.html">{local.full_lang_name} ಆವೃತ್ತಿಗಳು</a></li>
+        <li>ಸಂಚಿಕೆ {issue_number}, {local.date}</li>
       </ul>
-    <a href="{signup_url}" class="signup"><span>ಮಿಂಚಂಚೆಯಿಂದ ಪಡೆಯಿರಿ!</span></a>
-    <div class="content">
-      <h2>ಯೋಜನೆಯ ಬಗ್ಗೆ</h2>
-      <p>ಈ ಯೋಜನೆಯು <a href="http://tools.wmflabs.org/">Wikimedia Tool Labs</a> ಅನ್ನು ಬಳಸಿಕೊಂಡು ವಾರದ ಇತ್ತೀಚಿನ ಬದಲಾವಣೆಗಳ ಪಟ್ಟಿ ಮಾಡುತ್ತದೆ, ಮತ್ತು ಇದನ್ನು MailChimp ನಿಂದ ಮಿಂಚಂಚೆಯ ಮೂಲಕ ತಲುಪಿಸಲಾಗತ್ತದೆ. ಇದರ ಮೂಲ ಕೋಡ್ ಮತ್ತು ಇನ್ನಷ್ಟು ಮಾಹಿತಿ <a href="https://github.com/hatnote/weeklypedia">ಗಿಟ್‌ಹಬ್‌ನಲ್ಲಿ ಲಭ್ಯವಿದೆ</a>. <a href="https://github.com/slaporte">Stephen LaPorte</a> ಮತ್ತು <a href="https://github.com/mahmoud">Mahmoud Hashemi</a> ರವರು ಈ ತಂತ್ರಾಶವನ್ನು ರಚಿಸಿದ್ದಾರೆ.</p>
-      <p><a href="http://blog.hatnote.com/">Hatnote ಬ್ಲಾಗ್ ಬಗ್ಗೆ ಇನ್ನಷ್ಟು ತಿಳಿಯಿರಿ</a>.</p>
+    </div>
+    <div class="main">
+      <div class="content">
+        <p id="intro">{intro|s}</p>
+        <h2 id="articles">ಲೇಖನಗಳು</h2>
+        <p>{#stats}ಈ ವಾರ, {total_users|ci} ಲೇಖಕರು  {edits|ci} ಬದಲಾವಣೆಗಳನ್ನು {titles|ci} ಪ್ರತ್ಯೇಕ ಪುಟಗಳಲ್ಲಿ ಮಾಡಿದ್ದಾರೆ.{/stats} ಈ ವಾರದಲ್ಲಿ ಅತಿ ಹೆಚ್ಚು ಬದಲಾವಣೆಗಳನ್ನು ಕಂಡ ಮೊದಲ ೨೦ ಪುಟಗಳು:</p>
+        <ol>
+          {#mainspace}
+          <li><a href="https://{short_lang_name}.wikipedia.org/wiki/{title}" target="_blank">{title_s}</a> <span dir="ltr">(<a href="https://{short_lang_name}.wikipedia.org/w/index.php?title={title}&diff={rev_ids.new}&oldid={rev_ids.old}">{edits|ci} ಬದಲಾವಣೆಗಳು</a> {users} ಲೇಖಕರಿಂದ)</span></li>
+          {/mainspace}
+        </ol>
+
+        <h2 id="new-articles">ಹೊಸ ಲೇಖನಗಳು</h2>
+        <p>ಕಳೆದ ವಾರ ಸೃಷ್ಠಿಸಲಾದ ಲೇಖನಗಳಲ್ಲಿ ಹತ್ತು ಅತಿ ಹೆಚ್ಚು ಸಂಪಾದಿಸಿದ ಲೇಖನಗಳು</p>
+        <ol>
+          {#new_articles}
+          <li><a href="https://{short_lang_name}.wikipedia.org/wiki/{title}" target="_blank">{title_s}</a> <span dir="ltr">({edits|ci} ಬದಲಾವಣೆಗಳು {users} ಲೇಖಕರಿಂದ)</span></li>
+          {/new_articles}
+        </ol>
+
+        <h2 id="discussions">ಚರ್ಚೆಗಳು</h2>
+        <p>ಅತಿ ಹೆಚ್ಚು ಚರ್ಚೆಯಾದ ಪುಟಗಳು:</p>
+        <ol>
+          {#talkspace}
+          <li><a href="https://{short_lang_name}.wikipedia.org/wiki/Talk:{title}" target="_blank">{title_s}</a></li>
+          {/talkspace}
+        </ol>
+
+        <h2 id="statistics">ಅಂಕಿ ಅಂಶಗಳು</h2>
+        <p>ಕಳೆದ ವಾರದ ಕೆಲ ಅಂಕಿ ಅಂಶಗಳು:</p>
+        <ul>
+          <li>{stats.users|ci} ನೊಂದಾಯಿಸಿದ ಸದಸ್ಯರು ಮತ್ತು {stats.anon_ip_count|ci} ಅನಾಮಿಕ ಬಳಕೆದಾರರು {stats.titles|ci} ಲೇಖನಗಳನ್ನು {stats.edits|ci} ಬಾರಿ ಸಂಪಾದಿಸಿದ್ದಾರೆ</li>
+          <li>ಅನಾಮಿಕ ಬಳಕೆದಾರರು {stats.anon_titles|ci} ಲೇಖನಗಳನ್ನು {stats.anon_edits|ci} ಬಾರಿ ಸಂಪಾದಿಸಿದ್ದಾರೆ</li>
+          <li>{stats.bot_count|ci} ರೋಬೋಟ್‌ಗಳು {stats.bot_titles|ci} ಲೇಖನಗಳನ್ನು {stats.bot_edits|ci} ಬಾರಿ ಸಂಪಾದಿಸಿದ್ದಾರೆ</li>
+        </ul>
+
+      <h2>Sign up</h2>
+      <p>If you want to stay up to date with the most active articles and discussions, please sign up for future issues.</p>
+
+      <form action="https://mailer.hatnote.com/s/subscribe" method="POST" accept-charset="utf-8">
+        <label class="email-label" for="email">Email:</label>
+        <input class="email-input" type="email" name="email" id="email"/>
+        <div style="display:none;">
+          <label for="hp">HP</label><br/>
+          <input type="text" name="hp" id="hp"/></div>
+        <input type="hidden" name="list" value="{list_id}"/>
+        <input type="hidden" name="subform" value="yes"/>
+        <input class="sub-button" type="submit" name="submit" value="Subscribe" id="submit"/>
+      </form>
+
+      <div class="content">
+        <h2>ಯೋಜನೆಯ ಬಗ್ಗೆ</h2>
+        <p>ಈ ಯೋಜನೆಯು <a href="http://tools.wmflabs.org/">Wikimedia Tool Labs</a> ಅನ್ನು ಬಳಸಿಕೊಂಡು ವಾರದ ಇತ್ತೀಚಿನ ಬದಲಾವಣೆಗಳ ಪಟ್ಟಿ ಮಾಡುತ್ತದೆ, ಮತ್ತು ಇದನ್ನು MailChimp ನಿಂದ ಮಿಂಚಂಚೆಯ ಮೂಲಕ ತಲುಪಿಸಲಾಗತ್ತದೆ. ಇದರ ಮೂಲ ಕೋಡ್ ಮತ್ತು ಇನ್ನಷ್ಟು ಮಾಹಿತಿ <a href="https://github.com/hatnote/weeklypedia">ಗಿಟ್‌ಹಬ್‌ನಲ್ಲಿ ಲಭ್ಯವಿದೆ</a>. <a href="https://github.com/slaporte">Stephen LaPorte</a> ಮತ್ತು <a href="https://github.com/mahmoud">Mahmoud Hashemi</a> ರವರು ಈ ತಂತ್ರಾಶವನ್ನು ರಚಿಸಿದ್ದಾರೆ.</p>
+        <p><a href="http://blog.hatnote.com/">Hatnote ಬ್ಲಾಗ್ ಬಗ್ಗೆ ಇನ್ನಷ್ಟು ತಿಳಿಯಿರಿ</a>.</p>
+      </div>
     </div>
   </div>
   <script>

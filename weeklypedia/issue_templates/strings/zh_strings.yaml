@@ -1,3 +1,14 @@
+#------------------
+# Weeklypedia
+#    If you want to translate the Weeklypedia newsletter, start with a copy
+#    of this file and leave us a note at:
+#    https://github.com/hatnote/weeklypedia/issues
+#------------------------------------------------------------------------------
+
+#-----------
+# Introduction
+#------------------------------------------------------------------------------
+
 head_title: the WEEKLYPEDIA ({full_lang_name}，第 {issue_number} 期)
 body_title: <em>the</em> WEEKLYPEDIA
 description: 上週最多人編輯和討論的維基百科條目列表。
@@ -32,9 +43,32 @@ user_edit_counts: >-
 anon_edit_counts: 未註冊使用者進行 {stats.anon_edits|ci} 次編輯，對於 {stats.anon_titles|ci} 個條目
 bot_edit_counts: >-
   {stats.bot_count|ci} 個機器人進行 {stats.bot_edits|ci} 次編輯，對於 {stats.bot_titles|ci} 個條目
-signup_link: 註冊！
+
+#-----------
+# subscription invitation
+#------------------------------------------------------------------------------
+
+signup: 註冊！
+pitch: >-
+    If you want to stay up to date with the most active articles and
+    discussions, please sign up for future issues.
+
+email: "Email:"
+subscribe: Subscribe
+
+#-----------
+# Bottom section
+#------------------------------------------------------------------------------
+
 about_heading: 關於
 about_text: >-
   此專案使用 <a href="http://tools.wmflabs.org/">Wikimedia Tool Labs</a> 檢索每週更新列表，並使用 MailChimp 寄送郵件。程式碼以及更多資訊<a href="https://github.com/hatnote/weeklypedia">可在 GitHub 找到</a>。由 <a href="https://github.com/slaporte">Stephen LaPorte</a> 和 <a href="https://github.com/mahmoud">Mahmoud Hashemi</a> 建立。
 blog_link: 在 Hatnote blog 取得更多資訊
 learn_more: 知道更多關於 <a href="http://weekly.hatnote.com">Weeklypedia Digest</a>！
+
+#-----------
+# Email footer
+#------------------------------------------------------------------------------
+
+sent_to: This email was sent to
+unsubscribe: unsubscribe from this list

@@ -1,3 +1,14 @@
+#------------------
+# Weeklypedia
+#    If you want to translate the Weeklypedia newsletter, start with a copy
+#    of this file and leave us a note at:
+#    https://github.com/hatnote/weeklypedia/issues
+#------------------------------------------------------------------------------
+
+#-----------
+# Introduction
+#------------------------------------------------------------------------------
+
 head_title: the WEEKLYPEDIA ({full_lang_name}, nummer {issue_number})
 body_title: <em>the</em> WEEKLYPEDIA
 description: En lista med de mest redigerade Wikipedia-artiklarna och -diskussionerna den senaste veckan.
@@ -32,9 +43,32 @@ user_edit_counts: >-
 anon_edit_counts: Oregistrerade användare gjorde {stats.anon_edits|ci} redigeringar i {stats.anon_titles|ci} artiklar
 bot_edit_counts: >-
   {stats.bot_count|ci} robotar gjorde {stats.bot_edits|ci} redigeringar i {stats.bot_titles|ci} artiklar
-signup_link: Prenumerera!
+
+#-----------
+# subscription invitation
+#------------------------------------------------------------------------------
+
+signup: Prenumerera!
+pitch: >-
+    If you want to stay up to date with the most active articles and
+    discussions, please sign up for future issues.
+
+email: "Email:"
+subscribe: Subscribe
+
+#-----------
+# Bottom section
+#------------------------------------------------------------------------------
+
 about_heading: Om
 about_text: >-
   Detta projekt hmtar en lista av veckans senaste ändringar genom <a href="http://tools.wmflabs.org/">Wikimedia Tool Labs</a>, och skickar epoat genom MailChimp. Kod och mer information <a href="https://github.com/hatnote/weeklypedia">finns på GitHub</a>. Byggt av <a href="https://github.com/slaporte">Stephen LaPorte</a> och <a href="https://github.com/mahmoud">Mahmoud Hashemi</a>.
 blog_link: Läs mer på bloggen Hatnote
 learn_more: Läs mer om <a href="http://weekly.hatnote.com">Weeklypedia Digest</a>!
+
+#-----------
+# Email footer
+#------------------------------------------------------------------------------
+
+sent_to: This email was sent to
+unsubscribe: unsubscribe from this list
