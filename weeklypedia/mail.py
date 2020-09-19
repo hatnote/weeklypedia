@@ -14,7 +14,7 @@ with open(os.path.join(_CUR_PATH, 'secrets.json')) as secrets_json:
     KEY = secrets.get('mc')
     SENDY_KEY = secrets.get('sendy_key')
 
-SENDY_URL = 'http://mailer.hatnote.com/s/'
+SENDY_URL = 'https://mailer.hatnote.com/s/'
 TEST_LIST_ID = "a5ecbc7404"
 DEFAULT_LIST = TEST_LIST_ID
 

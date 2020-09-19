@@ -6,7 +6,7 @@ from os.path import dirname
 from argparse import ArgumentParser
 from clastic.render import AshesRenderFactory
 
-from common import DEBUG, DEBUG_LIST_ID, SENDKEY, SUPPORTED_LANGS
+from common import DEBUG, DEBUG_LIST_ID, SENDKEY, SUPPORTED_LANGS, SENDY_IDS
 
 from web import (comma_int,
                  ISSUE_TEMPLATES_PATH)
@@ -20,7 +20,6 @@ _CUR_PATH = dirname(os.path.abspath(__file__))
 with open(os.path.join(_CUR_PATH, 'secrets.json')) as secrets_json:
     secrets = json.load(secrets_json)
     LIST_ID_MAP = secrets.get('list_ids')
-    SENDY_ID_MAP = secrets.get('sendy_ids')
 
 
 def send_issue(lang, mailer, is_dev=False):
@@ -30,10 +29,10 @@ def send_issue(lang, mailer, is_dev=False):
         if is_dev:
             list_id = DEBUG_LIST_ID
         else:
-            list_id = LIST_ID_MAP[lang]
+            list_id = SENDY_IDS[lang]
         result = cur_issue.send(list_id, SENDKEY)
     elif mailer == 'sendy':
-        list_id = SENDY_ID_MAP[lang]
+        list_id = SENDY_IDS[lang]
         result = cur_issue.sendy_send(list_id)
     return result
 
