@@ -62,7 +62,7 @@ subscribe: Subscribe
 
 about_heading: Om
 about_text: >-
-  Detta projekt hmtar en lista av veckans senaste ändringar genom <a href="http://tools.wmflabs.org/">Wikimedia Tool Labs</a>, och skickar epoat genom MailChimp. Kod och mer information <a href="https://github.com/hatnote/weeklypedia">finns på GitHub</a>. Byggt av <a href="https://github.com/slaporte">Stephen LaPorte</a> och <a href="https://github.com/mahmoud">Mahmoud Hashemi</a>.
+  Detta projekt hmtar en lista av veckans senaste ändringar genom <a href="http://tools.wmflabs.org/">Wikimedia Tool Labs</a>, och skickar epoat genom Sendy. Kod och mer information <a href="https://github.com/hatnote/weeklypedia">finns på GitHub</a>. Byggt av <a href="https://github.com/slaporte">Stephen LaPorte</a> och <a href="https://github.com/mahmoud">Mahmoud Hashemi</a>.
 blog_link: Läs mer på bloggen Hatnote
 learn_more: Läs mer om <a href="http://weekly.hatnote.com">Weeklypedia Digest</a>!
 

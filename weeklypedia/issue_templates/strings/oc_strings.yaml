@@ -98,7 +98,7 @@ about_heading: Qu'es aquò
 about_text: >-
     Aquèste projècte recupera una lista dels cambiaments recents de la setmana
     mercé als <a href="http://tools.wmflabs.org/">Wikimedia Tool Labs</a>, e
-    distribuís de messatges electronics amb MailChimp. Còde e mai <a
+    distribuís de messatges electronics amb Sendy. Còde e mai <a
     href="https://github.com/hatnote/weeklypedia">disponibles sus GitHub</a>.
     Creat per <a href="https://github.com/slaporte">Stephen LaPorte</a> i <a
     href="https://github.com/mahmoud">Mahmoud Hashemi</a>.

@@ -4,18 +4,17 @@ import os
 import json
 from datetime import datetime, timedelta
 from os.path import dirname, join as pjoin
+from boltons.fileutils import mkdir_p
 
 from babel.dates import format_date
 from babel import UnknownLocaleError
 from dateutil.parser import parse as parse_date
 from ashes import TemplateNotFound
 
-from mail import Mailinglist, sendy_send_campaign, KEY
+from mail import sendy_send_campaign
 from fetch import get_latest_data_path
 
-from common import (ARCHIVE_URL,
-                    DATA_BASE_PATH,
-                    DEFAULT_LANGUAGE,
+from common import (DEFAULT_LANGUAGE,
                     DEFAULT_INTRO,
                     DEBUG,
                     CUSTOM_INTRO_PATH,
@@ -23,11 +22,11 @@ from common import (ARCHIVE_URL,
                     LOCAL_LANG_MAP,
                     SUBJECT_TMPL,
                     SUPPORTED_LANGS,
-                    SIGNUP_MAP,
-                    SENDY_IDS,
-                    mkdir_p)
+                    SENDY_IDS)
 
 _CUR_PATH = dirname(os.path.abspath(__file__))
+
+ARCHIVE_URL = 'https://weekly.hatnote.com/archive/%s/index.html'
 
 INDEX_PATH = pjoin(dirname(_CUR_PATH), 'static', 'index.html')
 ARCHIVE_BASE_PATH = pjoin(dirname(_CUR_PATH), 'static', 'archive')
@@ -38,8 +37,6 @@ ARCHIVE_DATA_TITLE_TMPL = 'weeklypedia_{date_str}.json'
 ARCHIVE_INDEX_PATH_TMPL = ARCHIVE_BASE_PATH + '/{lang_shortcode}/index.html'
 ARCHIVE_PATH_TMPL = pjoin(ARCHIVE_BASE_PATH, ARCHIVE_PATH_TMPL)
 
-with open(os.path.join(_CUR_PATH, 'secrets.json')) as secrets_json:
-    secrets = json.load(secrets_json)
 
 class Issue(object):
     def __init__(self,
@@ -75,16 +72,7 @@ class Issue(object):
     def read_text(self):
         return open(self.text_path).read()
 
-    def send(self, list_id, send_key):
-        mailinglist = Mailinglist(send_key + KEY)
-        mailinglist.new_campaign(self.subject,
-                                 self.read_html(),
-                                 self.read_text(),
-                                 list_id=list_id)
-        mailinglist.send_next_campaign()
-        return 'Success: sent issue %s' % self.lang
-
-    def sendy_send(self, list_id):
+    def send(self, list_id):
         sendy_send_campaign(self.subject, self.read_text(), self.read_html(), list_id)
         return 'Success: sent issue %s via sendy' % self.lang
 
@@ -164,7 +152,6 @@ def bake_latest_issue(issue_ashes_env,
                       include_dev=DEBUG):
     ret = {'issues': []}
     issue_data = prep_latest_issue(lang, intro, include_dev)
-    issue_data['signup_url'] = SIGNUP_MAP[lang]
     # this fmt is used to generate the path, as well
     for fmt in ('html', 'json', 'txt', 'email'):
         rendered = render_issue(issue_data, issue_ashes_env, format=fmt)

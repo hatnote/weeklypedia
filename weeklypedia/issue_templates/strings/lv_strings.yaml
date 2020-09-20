@@ -65,7 +65,7 @@ subscribe: Subscribe
 signup_link: Abonējiet!
 about_heading: Par
 about_text: >-
-  Šis projekts iegūst sarakstu ar pēdējās nedēļas izmaiņām, izmantojot <a href="http://tools.wmflabs.org/">Wikimedia Tool Labs</a>, un piegādā e-pastus, izmantojot MailChimp. Izejas kods un plašāka informācija <a href="https://github.com/hatnote/weeklypedia">pieejama GitHub</a>. Izveidouši <a href="https://github.com/slaporte">Stephen LaPorte</a> un <a href="https://github.com/mahmoud">Mahmoud Hashemi</a>.
+  Šis projekts iegūst sarakstu ar pēdējās nedēļas izmaiņām, izmantojot <a href="http://tools.wmflabs.org/">Wikimedia Tool Labs</a>, un piegādā e-pastus, izmantojot Sendy. Izejas kods un plašāka informācija <a href="https://github.com/hatnote/weeklypedia">pieejama GitHub</a>. Izveidouši <a href="https://github.com/slaporte">Stephen LaPorte</a> un <a href="https://github.com/mahmoud">Mahmoud Hashemi</a>.
 blog_link: Uzziniet vairāk Hatnote blogā
 learn_more: Uzziniet vairāk par <a href="http://weekly.hatnote.com">Weeklypedia Digest</a>!
 

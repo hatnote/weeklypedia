@@ -78,7 +78,7 @@ subscribe: Subscribe
 
 about_heading: À propos
 about_text: >-
-  Cet outil obtient la liste des modifications récentes de la semaine grâce à <a href="http://tools.wmflabs.org/">Wikimedia Tool Labs</a>, et distribue les courriels via MailChimp. Le code et plus d’informations sont <a href="https://github.com/hatnote/weeklypedia">disponibles sur GitHub</a>. Créé par <a href="https://github.com/slaporte">Stephen LaPorte</a> et <a href="https://github.com/mahmoud">Mahmoud Hashemi</a>.
+  Cet outil obtient la liste des modifications récentes de la semaine grâce à <a href="http://tools.wmflabs.org/">Wikimedia Tool Labs</a>, et distribue les courriels via Sendy. Le code et plus d’informations sont <a href="https://github.com/hatnote/weeklypedia">disponibles sur GitHub</a>. Créé par <a href="https://github.com/slaporte">Stephen LaPorte</a> et <a href="https://github.com/mahmoud">Mahmoud Hashemi</a>.
 blog_link: En savoir plus sur le blog Hatnote
 learn_more: En savoir plus sur le <a href="http://weekly.hatnote.com">récapitulatif Weeklypedia</a> !
 
