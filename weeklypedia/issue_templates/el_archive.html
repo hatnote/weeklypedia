@@ -12,57 +12,73 @@
   <title>η Ελληνική WEEKLYPEDIA, τεύχος {issue_number})</title>
 </head>
 <body>
-  <div class="header">
-    <h1><span><em>η</em> WEEKLYPEDIA</span></h1>
-    <p>Ένας κατάλογος των περισσότερο επεξεργασμένων λημμάτων και συζητήσεωςν  της Βικιπαίδειας από την περασμένη εβδομάδα.</p>
-    <p>Παραλαμβάνεται κάθε Παρασκευή με email.</p>
-  </div>
-  <div class="announce">
-    <ul class="breadcrumb">
-      <li><a href="../../../index.html">Κεντρική</a></li>
-      <li><a href="../index.html">αρχεία ελληνικής έκδοσης</a></li>
-      <li>Τεύχος {issue_number}, {local.date}</li>
-    </ul>
-  </div>
-  <div class="main">
-    <div class="content">
-      <p id="intro">{intro|s}</p>
-      <h2 id="articles">Λήμματα</h2>
-      <p>{#stats}Αυτή την εβδομάδα, {total_users|ci} συντάκτες έκαναν {edits|ci} αλλαγές σε {titles|ci} διαφορετικά λήμματα.{/stats} Τα κορυφαία 20 λήμματα για αυτή την εβδομάδα:</p>
-      <ol>
-        {#mainspace}
-        <li><a href="https://{short_lang_name}.wikipedia.org/wiki/{title}" target="_blank">{title_s}</a> <span dir="ltr">(<a href="https://{short_lang_name}.wikipedia.org/w/index.php?title={title}&diff={rev_ids.new}&oldid={rev_ids.old}">{edits|ci} αλλαγές</a> από {users} συντάκτες)</span></li>
-        {/mainspace}
-      </ol>
-
-      <h2 id="new-articles">Νέα Λήμματα</h2>
-      <p>Τα δέκα περισσότερο ενεργά επεξεργασμένα λήμματα που δημιουργήθηκαν κατά την τελευταία εβδομάδα.</p>
-      <ol>
-        {#new_articles}
-        <li><a href="https://{short_lang_name}.wikipedia.org/wiki/{title}" target="_blank">{title_s}</a> <span dir="ltr">({edits|ci} αλλαγές από {users} συντάκτες)</span></li>
-        {/new_articles}
-      </ol>
-
-      <h2 id="discussions">Συζητήσεις</h2>
-      <p>Οι περισσότερο ενεργές συζητήσεις:</p>
-      <ol>
-        {#talkspace}
-        <li><a href="https://{short_lang_name}.wikipedia.org/wiki/Talk:{title}" target="_blank">{title_s}</a></li>
-        {/talkspace}
-      </ol>
-
-      <h2 id="statistics">Στατιστικά</h2>
-      <p>Λίγοι αριθμοί από την περασμένη εβδομάδα:</p>
-      <ul>
-        <li>{stats.users|ci} εγγεγραμμένοι χρήστες και {stats.anon_ip_count|ci} μη εγγεγραμμένοι χρήστες έκαναν {stats.edits|ci} επεξεργασίες σε {stats.titles|ci} λήμματα</li>
-        <li>Μη εγγεγραμμένοι χρήστες έκαναν {stats.anon_edits|ci} επεξεργασίες σε {stats.anon_titles|ci} λήμματα</li>
-        <li>{stats.bot_count|ci} robot έκαναν {stats.bot_edits|ci} επεξεργασίες σε {stats.bot_titles|ci} λήμματα</li>
+  <div class="container">
+    <div class="header">
+      <h1><span><em>η</em> WEEKLYPEDIA</span></h1>
+      <p>Ένας κατάλογος των περισσότερο επεξεργασμένων λημμάτων και συζητήσεωςν  της Βικιπαίδειας από την περασμένη εβδομάδα.</p>
+      <p>Παραλαμβάνεται κάθε Παρασκευή με email.</p>
+    </div>
+    <div class="announce">
+      <ul class="breadcrumb">
+        <li><a href="../../../index.html">Κεντρική</a></li>
+        <li><a href="../index.html">αρχεία ελληνικής έκδοσης</a></li>
+        <li>Τεύχος {issue_number}, {local.date}</li>
       </ul>
-    <a href="{signup_url}" class="signup"><span>Εγγραφείτε!</span></a>
-    <div class="content">
-      <h2>Σχετικά</h2>
-      <p>Αυτό το έργο ανακτά τον κατάλογο τον πρόσφατων αλλαγών αυτής της εβδομάδας χρησιμοποιώντας το <a href="http://tools.wmflabs.org/">Wikimedia Tool Labs</a>, και  στέλνει email χρησιμοποιώντας το MailChimp. Ο κώδικας και περισσότερες πληροφορίες είναι <a href="https://github.com/hatnote/weeklypedia">διαθέσιμα στο  GitHub</a>. Δημιουργήθηκε από τους <a href="https://github.com/slaporte">Stephen LaPorte</a> και <a href="https://github.com/mahmoud">Mahmoud Hashemi</a>.</p>
-      <p><a href="http://blog.hatnote.com/">Μάθετε περισσότερα στο Hatnote blog</a>.</p>
+    </div>
+    <div class="main">
+      <div class="content">
+        <p id="intro">{intro|s}</p>
+        <h2 id="articles">Λήμματα</h2>
+        <p>{#stats}Αυτή την εβδομάδα, {total_users|ci} συντάκτες έκαναν {edits|ci} αλλαγές σε {titles|ci} διαφορετικά λήμματα.{/stats} Τα κορυφαία 20 λήμματα για αυτή την εβδομάδα:</p>
+        <ol>
+          {#mainspace}
+          <li><a href="https://{short_lang_name}.wikipedia.org/wiki/{title}" target="_blank">{title_s}</a> <span dir="ltr">(<a href="https://{short_lang_name}.wikipedia.org/w/index.php?title={title}&diff={rev_ids.new}&oldid={rev_ids.old}">{edits|ci} αλλαγές</a> από {users} συντάκτες)</span></li>
+          {/mainspace}
+        </ol>
+
+        <h2 id="new-articles">Νέα Λήμματα</h2>
+        <p>Τα δέκα περισσότερο ενεργά επεξεργασμένα λήμματα που δημιουργήθηκαν κατά την τελευταία εβδομάδα.</p>
+        <ol>
+          {#new_articles}
+          <li><a href="https://{short_lang_name}.wikipedia.org/wiki/{title}" target="_blank">{title_s}</a> <span dir="ltr">({edits|ci} αλλαγές από {users} συντάκτες)</span></li>
+          {/new_articles}
+        </ol>
+
+        <h2 id="discussions">Συζητήσεις</h2>
+        <p>Οι περισσότερο ενεργές συζητήσεις:</p>
+        <ol>
+          {#talkspace}
+          <li><a href="https://{short_lang_name}.wikipedia.org/wiki/Talk:{title}" target="_blank">{title_s}</a></li>
+          {/talkspace}
+        </ol>
+
+        <h2 id="statistics">Στατιστικά</h2>
+        <p>Λίγοι αριθμοί από την περασμένη εβδομάδα:</p>
+        <ul>
+          <li>{stats.users|ci} εγγεγραμμένοι χρήστες και {stats.anon_ip_count|ci} μη εγγεγραμμένοι χρήστες έκαναν {stats.edits|ci} επεξεργασίες σε {stats.titles|ci} λήμματα</li>
+          <li>Μη εγγεγραμμένοι χρήστες έκαναν {stats.anon_edits|ci} επεξεργασίες σε {stats.anon_titles|ci} λήμματα</li>
+          <li>{stats.bot_count|ci} robot έκαναν {stats.bot_edits|ci} επεξεργασίες σε {stats.bot_titles|ci} λήμματα</li>
+        </ul>
+
+      <h2>Εγγραφείτε!</h2>
+      <p>If you want to stay up to date with the most active articles and discussions, please sign up for future issues.</p>
+
+      <form action="https://mailer.hatnote.com/s/subscribe" method="POST" accept-charset="utf-8">
+        <label class="email-label" for="email">Email:</label>
+        <input class="email-input" type="email" name="email" id="email"/>
+        <div style="display:none;">
+          <label for="hp">HP</label><br/>
+          <input type="text" name="hp" id="hp"/></div>
+        <input type="hidden" name="list" value="{list_id}"/>
+        <input type="hidden" name="subform" value="yes"/>
+        <input class="sub-button" type="submit" name="submit" value="Subscribe" id="submit"/>
+      </form>
+
+      <div class="content">
+        <h2>Σχετικά</h2>
+        <p>Αυτό το έργο ανακτά τον κατάλογο τον πρόσφατων αλλαγών αυτής της εβδομάδας χρησιμοποιώντας το <a href="http://tools.wmflabs.org/">Wikimedia Tool Labs</a>, και  στέλνει email χρησιμοποιώντας το Sendy. Ο κώδικας και περισσότερες πληροφορίες είναι <a href="https://github.com/hatnote/weeklypedia">διαθέσιμα στο  GitHub</a>. Δημιουργήθηκε από τους <a href="https://github.com/slaporte">Stephen LaPorte</a> και <a href="https://github.com/mahmoud">Mahmoud Hashemi</a>.</p>
+        <p><a href="http://blog.hatnote.com/">Μάθετε περισσότερα στο Hatnote blog</a>.</p>
+      </div>
     </div>
   </div>
   <script>

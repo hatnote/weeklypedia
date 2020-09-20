@@ -40,3 +40,9 @@ A few numbers from last week:
 * {stats.bot_count|ci} robots made {stats.bot_edits|ci} edits to {stats.bot_titles|ci} articles
 
 Learn more about the Weeklypedia Digest: http://weekly.hatnote.com/
+
+This email was sent to [Email]
+
+Unsubscribe: [unsubscribe]
+
+Hatnote · 131 E Empire Street · San Jose, CA 95112 · USA

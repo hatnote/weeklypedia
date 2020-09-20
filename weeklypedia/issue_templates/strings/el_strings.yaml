@@ -22,7 +22,7 @@ description: >-
 delivery_description: Παραλαμβάνεται κάθε Παρασκευή με email.
 home_link: Κεντρική 
 archive_link: "αρχεία ελληνικής έκδοσης"
-issue_label: Τεύχος {issue_number}, {local.date} 
+issue_label: Τεύχος {issue_number}, {local.date}
 language_label: έκδοσης Ελληνικής Βικιπαίδειας) 
 intro: >-
     Γειά σας! Καλώς ήρθατε στην εβδομαδιαία επιτομή μας της δραστηριότητας στην Βικιπαίδεια.
@@ -79,15 +79,26 @@ bot_edit_counts: >-
     {stats.bot_edits|ci} επεξεργασίες σε {stats.bot_titles|ci} λήμματα
 
 #-----------
+# subscription invitation
+#------------------------------------------------------------------------------
+
+signup: Εγγραφείτε!
+pitch: >-
+    If you want to stay up to date with the most active articles and
+    discussions, please sign up for future issues.
+
+email: "Email:"
+subscribe: Subscribe
+
+#-----------
 # Bottom section
 #------------------------------------------------------------------------------
 
-signup_link: Εγγραφείτε!
 about_heading: Σχετικά
 about_text: >-
     Αυτό το έργο ανακτά τον κατάλογο τον πρόσφατων αλλαγών αυτής της εβδομάδας χρησιμοποιώντας το <a
     href="http://tools.wmflabs.org/">Wikimedia Tool Labs</a>, και 
-    στέλνει email χρησιμοποιώντας το MailChimp. Ο κώδικας και περισσότερες πληροφορίες είναι <a
+    στέλνει email χρησιμοποιώντας το Sendy. Ο κώδικας και περισσότερες πληροφορίες είναι <a
     href="https://github.com/hatnote/weeklypedia">διαθέσιμα στο 
     GitHub</a>. Δημιουργήθηκε από τους <a href="https://github.com/slaporte">Stephen
     LaPorte</a> και <a href="https://github.com/mahmoud">Mahmoud
@@ -97,3 +108,10 @@ blog_link: Μάθετε περισσότερα στο Hatnote blog
 learn_more: >-
     Μάθετε περισσότερα σχετικά με το <a href="http://weekly.hatnote.com">Weeklypedia
     Digest</a>!
+
+#-----------
+# Email footer
+#------------------------------------------------------------------------------
+
+sent_to: This email was sent to
+unsubscribe: unsubscribe from this list

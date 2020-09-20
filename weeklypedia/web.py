@@ -12,7 +12,6 @@ from clastic.meta import MetaApplication
 from clastic.middleware.form import PostDataMiddleware
 from clastic.static import StaticApplication
 
-from mail import TEST_LIST_ID
 from fetch import fetch_rc
 from bake import (Issue,
                   render_issue,

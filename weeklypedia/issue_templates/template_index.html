@@ -22,91 +22,68 @@
   </script>
 </head>
 <body>
-  <div class="header">
-    <h1><span><em>the</em> WEEKLYPEDIA</span> </h1>
-    <p>A digest of the most-edited Wikipedia articles and discussions from the last week.</p>
-    <p>Delivered every Friday by email.</p>
-  </div>
-  <div class="announce">
-    <p><strong>Next issue</strong>: <span class="date">{next_date} (Issue {volume})</span></p>
-  </div>
-  <div class="main">
-    <div class="content">
-      <p>Join a list to receive a weekly email with the top twenty Wikipedia articles and top five Wikipedia discussions from this weekk, available in English and <a href="#more" class="more">more languages</a>.</p>
-      <button type="button" id="signup"><span>Sign up!</span></button>
-
-      <div class="lang-links signup-links">
-        <h2>Which language?</h2>
-        <ul class="buttons">
-          <li><a href="http://eepurl.com/MMlpX">English Wikipedia Edition</a></li>
-          <li><a href="http://eepurl.com/MMlG9">German Wikipedia Edition</a></li>
-          <li><a href="http://eepurl.com/MMmVX">French Wikipedia Edition</a></li>
-          <li><a href="http://eepurl.com/MMm8n">Korean Wikipedia Edition</a></li>
-          <li><a href="http://eepurl.com/MMnlf">Estonian Wikipedia Edition</a></li>
-          <li><a href="http://eepurl.com/MMTnP">Swedish Wikipedia Edition</a></li>
-          <li><a href="http://eepurl.com/Sko4L">Danish Wikipedia Edition</a></li>
-          <li><a href="http://eepurl.com/MQTPb">Italian Wikipedia Edition</a></li>
-          <li><a href="http://eepurl.com/M7HU9">Catalan Wikipedia Edition</a></li>
-          <li><a href="http://eepurl.com/_RE_X">Esperanto Wikipedia Edition</a></li>
-	  <li><a href="http://eepurl.com/br8NNj">Spanish Wikipedia Edition</a></li>
-	  <li><a href="http://eepurl.com/br8TlT">Farsi Wikipedia Edition</a></li>
-	  <li><a href="http://eepurl.com/bsmG1P">Urdu Wikipedia Edition</a></li>
-	  <li><a href="http://eepurl.com/bsmGhT">Chinese Wikipedia Edition</a></li>
-	  <li><a href="http://eepurl.com/buxugf">Kannada Wikipedia Edition</a></li>
-	  <li><a href="http://eepurl.com/b0V-yj">Latvian Wikipedia Edition</a></li>
-	  <li><a href="http://eepurl.com/b0WcUr">Greek Wikipedia Edition</a></li>
-	  <li><a href="http://eepurl.com/b3EjMn">Telugu Wikipedia Edition</a></li>
-    <li><a href="http://eepurl.com/dxJIYf">Occitan Wikipedia Edition</a></li>
-    <li><a href="http://eepurl.com/dxJJGn">Russian Wikipedia Edition</a></li>
-    <li><a href="http://eepurl.com/dxJKwf">Ukrainian Wikipedia Edition</a></li>
-        </ul>
-        <h2>More languages</h2>
-        <p>Wikipedia is available in over 280 languages. To request a list in any other language (or help translate the template text) please <a href="mailto:stephen.laporte@gmail.com">email me</a>  or submit an <a href="https://github.com/hatnote/weeklypedia/issues">issue on GitHub</a>.
-      </div>
-
+  <div class="container">
+    <div class="header">
+      <h1><span><em>the</em> WEEKLYPEDIA</span> </h1>
+      <p>A digest of the most-edited Wikipedia articles and discussions from the last week.</p>
+      <p>Delivered every Friday by email.</p>
     </div>
-    <div class="content">
-      <div class="preview-area">
-      <p><strong>Last week, in <a href="{path|u}">Issue {issue_number}</a></strong>: {stats.all_users|ci} users made {stats.edits|ci} changes to {stats.titles|ci} articles on English Wikipedia. The top articles for the week:</p>
-        <ol>
-          {#mainspace}
-          <li><a href="https://{short_lang_name|s}.wikipedia.org/wiki/{title|uc}" target="_blank">{title_s}</a> (<a href="https://{short_lang_name|s}.wikipedia.org/w/index.php?title={title|uc}&diff={rev_ids.new|uc}&oldid={rev_ids.old|uc}">{edits|ci} changes</a> by {users} authors)</li>
-        {/mainspace}
-        </ol>
-        <a class="read-full" href="{path|u}">Read the full issue</a>
-      </div>
-      <button type="button" id="archive"><span>More languages &amp; archives</span></button>
-      <div class="lang-links archive-links">
-        <h2 id="more">Read more...</h2>
-        <ul class="buttons">
-          <li><a href="archive/en/index.html">English Wikipedia Edition</a></li>
-          <li><a href="archive/de/index.html">German Wikipedia Edition</a></li>
-          <li><a href="archive/fr/index.html">French Wikipedia Edition</a></li>
-          <li><a href="archive/ko/index.html">Korean Wikipedia Edition</a></li>
-          <li><a href="archive/et/index.html">Estonian Wikipedia Edition</a></li>
-          <li><a href="archive/sv/index.html">Swedish Wikipedia Edition</a></li>
-          <li><a href="archive/da/index.html">Danish Wikipedia Edition</a></li>
-          <li><a href="archive/it/index.html">Italian Wikipedia Edition</a></li>
-          <li><a href="archive/ca/index.html">Catalan Wikipedia Edition</a></li>
-	  <li><a href="archive/es/index.html">Spanish Wikipedia Edition</a></li>
-	  <li><a href="archive/fa/index.html">Farsi Wikipedia Edition</a></li>
-	  <li><a href="archive/ur/index.html">Urdu Wikipedia Edition</a></li>
-	  <li><a href="archive/zh/index.html">Chinese Wikipedia Edition</a></li>
-          <li><a href="archive/kn/index.html">Kannada Wikipedia Edition</a></li>
-          <li><a href="archive/lv/index.html">Latvian Wikipedia Edition</a></li>
-          <li><a href="archive/el/index.html">Greek Wikipedia Edition</a></li>
-          <li><a href="archive/te/index.html">Telugu Wikipedia Edition</a></li>
-          <li><a href="archive/oc/index.html">Occitan Wikipedia Edition</a></li>
-          <li><a href="archive/ru/index.html">Russian Wikipedia Edition</a></li>
-          <li><a href="archive/uk/index.html">Ukrainian Wikipedia Edition</a></li>
-          <li><a href="https://github.com/hatnote/weeklypedia/issues/new">Request another language</a></li>
-        </ul>
-      </div>
+    <div class="announce">
+      <p><strong>Next issue</strong>: <span class="date">{next_date} (Issue {volume})</span></p>
     </div>
-    <div class="content">
-      <h2>About</h2>
-      <p>This project retrieves a list of the week's recent changes using <a href="http://tools.wmflabs.org/">Wikimedia Tool Labs</a>, and delivers emails using MailChimp. Code and more information <a href="https://github.com/hatnote/weeklypedia">available on GitHub</a>. Built by <a href="https://github.com/slaporte">Stephen LaPorte</a> and <a href="https://github.com/mahmoud">Mahmoud Hashemi</a>.</p>
-      <p><a href="http://blog.hatnote.com/">Learn more on the Hatnote blog</a>.</p>
+    <div class="main">
+      <div class="content">
+        <p>Join a list to receive a weekly email with the top twenty Wikipedia articles and top five Wikipedia discussions from this weekk, available in English and <a href="#more" class="more">more languages</a>.</p>
+        <button type="button" id="signup"><span>Sign up &amp; read archive</span></button>
+
+        <div class="lang-links signup-links">
+          <h2>Which language?</h2>
+          <ul class="buttons">
+            <li><a href="archive/en/index.html">English Wikipedia Edition</a></li>
+            <li><a href="archive/de/index.html">German Wikipedia Edition</a></li>
+            <li><a href="archive/fr/index.html">French Wikipedia Edition</a></li>
+            <li><a href="archive/ko/index.html">Korean Wikipedia Edition</a></li>
+            <li><a href="archive/et/index.html">Estonian Wikipedia Edition</a></li>
+            <li><a href="archive/sv/index.html">Swedish Wikipedia Edition</a></li>
+            <li><a href="archive/da/index.html">Danish Wikipedia Edition</a></li>
+            <li><a href="archive/it/index.html">Italian Wikipedia Edition</a></li>
+            <li><a href="archive/ca/index.html">Catalan Wikipedia Edition</a></li>
+            <li><a href="archive/es/index.html">Spanish Wikipedia Edition</a></li>
+            <li><a href="archive/fa/index.html">Farsi Wikipedia Edition</a></li>
+            <li><a href="archive/ur/index.html">Urdu Wikipedia Edition</a></li>
+            <li><a href="archive/zh/index.html">Chinese Wikipedia Edition</a></li>
+            <li><a href="archive/kn/index.html">Kannada Wikipedia Edition</a></li>
+            <li><a href="archive/lv/index.html">Latvian Wikipedia Edition</a></li>
+            <li><a href="archive/el/index.html">Greek Wikipedia Edition</a></li>
+            <li><a href="archive/te/index.html">Telugu Wikipedia Edition</a></li>
+            <li><a href="archive/oc/index.html">Occitan Wikipedia Edition</a></li>
+            <li><a href="archive/ru/index.html">Russian Wikipedia Edition</a></li>
+            <li><a href="archive/uk/index.html">Ukrainian Wikipedia Edition</a></li>
+            <li><a href="https://github.com/hatnote/weeklypedia/issues/new">Request another language</a></li>
+          </ul>
+        
+          <h2>More languages</h2>
+          <p>Wikipedia is available in over 280 languages. To request a list in any other language (or help translate the template text) please <a href="mailto:stephen.laporte@gmail.com">email me</a>  or submit an <a href="https://github.com/hatnote/weeklypedia/issues/new">issue on GitHub</a>.
+
+          </div>
+      </div>
+      <div class="content">
+        <div class="preview-area">
+        <p><strong>Last week, in <a href="{path|u}">Issue {issue_number}</a></strong>: {stats.all_users|ci} users made {stats.edits|ci} changes to {stats.titles|ci} articles on English Wikipedia. The top articles for the week:</p>
+          <ol>
+            {#mainspace}
+            <li><a href="https://{short_lang_name|s}.wikipedia.org/wiki/{title|uc}" target="_blank">{title_s}</a> (<a href="https://{short_lang_name|s}.wikipedia.org/w/index.php?title={title|uc}&diff={rev_ids.new|uc}&oldid={rev_ids.old|uc}">{edits|ci} changes</a> by {users} authors)</li>
+          {/mainspace}
+          </ol>
+          <a class="read-full" href="{path|u}">Read the full issue</a>
+        </div>
+        
+      </div>
+      <div class="content">
+        <h2>About</h2>
+        <p>This project retrieves a list of the week's recent changes using <a href="http://tools.wmflabs.org/">Wikimedia Tool Labs</a>, and delivers emails using MailChimp. Code and more information <a href="https://github.com/hatnote/weeklypedia">available on GitHub</a>. Built by <a href="https://github.com/slaporte">Stephen LaPorte</a> and <a href="https://github.com/mahmoud">Mahmoud Hashemi</a>.</p>
+        <p><a href="http://blog.hatnote.com/">Learn more on the Hatnote blog</a>.</p>
+      </div>
     </div>
   </div>
   <script>

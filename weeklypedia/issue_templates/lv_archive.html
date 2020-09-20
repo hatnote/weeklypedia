@@ -12,57 +12,73 @@
   <title>the WEEKLYPEDIA ({full_lang_name}, {issue_number}. numurs)</title>
 </head>
 <body>
-  <div class="header">
-    <h1><span><em>the</em> WEEKLYPEDIA</span></h1>
-    <p>Saraksts ar pēdējā nedēļā biežāk labotajiem Vikipēdijas rakstiem un diskusijām.</p>
-    <p>Tiek piegādāts e-pastā katru piektdienu.</p>
-  </div>
-  <div class="announce">
-    <ul class="breadcrumb">
-      <li><a href="../../../index.html">Sākums</a></li>
-      <li><a href="../index.html">{local.full_lang_name} versijas arhīvi</a></li>
-      <li>{issue_number}. numurs, {local.date}</li>
-    </ul>
-  </div>
-  <div class="main">
-    <div class="content">
-      <p id="intro">{intro|s}</p>
-      <h2 id="articles">Raksti</h2>
-      <p>{#stats}Šonedēļ {total_users|ci} autori veica {edits|ci} izmaiņas {titles|ci} atsevišķos rakstos.{/stats} Nedēļas 20 aktīvākie raksti:</p>
-      <ol>
-        {#mainspace}
-        <li><a href="https://{short_lang_name}.wikipedia.org/wiki/{title}" target="_blank">{title_s}</a> <span dir="ltr">(<a href="https://{short_lang_name}.wikipedia.org/w/index.php?title={title}&diff={rev_ids.new}&oldid={rev_ids.old}">{edits|ci} izmaiņas</a> {users} autori)</span></li>
-        {/mainspace}
-      </ol>
-
-      <h2 id="new-articles">Jauni raksti</h2>
-      <p>Desmit aktīvāk labotie raksti, kas tapuši pēdējās nedēļas laikā</p>
-      <ol>
-        {#new_articles}
-        <li><a href="https://{short_lang_name}.wikipedia.org/wiki/{title}" target="_blank">{title_s}</a> <span dir="ltr">({edits|ci} izmaiņas {users} autori)</span></li>
-        {/new_articles}
-      </ol>
-
-      <h2 id="discussions">Diskusijas</h2>
-      <p>Aktīvākās diskusijas:</p>
-      <ol>
-        {#talkspace}
-        <li><a href="https://{short_lang_name}.wikipedia.org/wiki/Talk:{title}" target="_blank">{title_s}</a></li>
-        {/talkspace}
-      </ol>
-
-      <h2 id="statistics">Statistika</h2>
-      <p>Daži skaitļi no pagājušās nedēļas:</p>
-      <ul>
-        <li>{stats.users|ci} reģistrēti un {stats.anon_ip_count|ci} nereģistrēti dalībnieki veica {stats.edits|ci} labojumus {stats.titles|ci} rakstos</li>
-        <li>Nereģistrēti dalībnieki veica {stats.anon_edits|ci} labojumus {stats.anon_titles|ci} rakstos</li>
-        <li>{stats.bot_count|ci} roboti veica {stats.bot_edits|ci} labojumus {stats.bot_titles|ci} rakstos</li>
+  <div class="container">
+    <div class="header">
+      <h1><span><em>the</em> WEEKLYPEDIA</span></h1>
+      <p>Saraksts ar pēdējā nedēļā biežāk labotajiem Vikipēdijas rakstiem un diskusijām.</p>
+      <p>Tiek piegādāts e-pastā katru piektdienu.</p>
+    </div>
+    <div class="announce">
+      <ul class="breadcrumb">
+        <li><a href="../../../index.html">Sākums</a></li>
+        <li><a href="../index.html">{local.full_lang_name} versijas arhīvi</a></li>
+        <li>{issue_number}. numurs, {local.date}</li>
       </ul>
-    <a href="{signup_url}" class="signup"><span>Abonējiet!</span></a>
-    <div class="content">
-      <h2>Par</h2>
-      <p>Šis projekts iegūst sarakstu ar pēdējās nedēļas izmaiņām, izmantojot <a href="http://tools.wmflabs.org/">Wikimedia Tool Labs</a>, un piegādā e-pastus, izmantojot MailChimp. Izejas kods un plašāka informācija <a href="https://github.com/hatnote/weeklypedia">pieejama GitHub</a>. Izveidouši <a href="https://github.com/slaporte">Stephen LaPorte</a> un <a href="https://github.com/mahmoud">Mahmoud Hashemi</a>.</p>
-      <p><a href="http://blog.hatnote.com/">Uzziniet vairāk Hatnote blogā</a>.</p>
+    </div>
+    <div class="main">
+      <div class="content">
+        <p id="intro">{intro|s}</p>
+        <h2 id="articles">Raksti</h2>
+        <p>{#stats}Šonedēļ {total_users|ci} autori veica {edits|ci} izmaiņas {titles|ci} atsevišķos rakstos.{/stats} Nedēļas 20 aktīvākie raksti:</p>
+        <ol>
+          {#mainspace}
+          <li><a href="https://{short_lang_name}.wikipedia.org/wiki/{title}" target="_blank">{title_s}</a> <span dir="ltr">(<a href="https://{short_lang_name}.wikipedia.org/w/index.php?title={title}&diff={rev_ids.new}&oldid={rev_ids.old}">{edits|ci} izmaiņas</a> {users} autori)</span></li>
+          {/mainspace}
+        </ol>
+
+        <h2 id="new-articles">Jauni raksti</h2>
+        <p>Desmit aktīvāk labotie raksti, kas tapuši pēdējās nedēļas laikā</p>
+        <ol>
+          {#new_articles}
+          <li><a href="https://{short_lang_name}.wikipedia.org/wiki/{title}" target="_blank">{title_s}</a> <span dir="ltr">({edits|ci} izmaiņas {users} autori)</span></li>
+          {/new_articles}
+        </ol>
+
+        <h2 id="discussions">Diskusijas</h2>
+        <p>Aktīvākās diskusijas:</p>
+        <ol>
+          {#talkspace}
+          <li><a href="https://{short_lang_name}.wikipedia.org/wiki/Talk:{title}" target="_blank">{title_s}</a></li>
+          {/talkspace}
+        </ol>
+
+        <h2 id="statistics">Statistika</h2>
+        <p>Daži skaitļi no pagājušās nedēļas:</p>
+        <ul>
+          <li>{stats.users|ci} reģistrēti un {stats.anon_ip_count|ci} nereģistrēti dalībnieki veica {stats.edits|ci} labojumus {stats.titles|ci} rakstos</li>
+          <li>Nereģistrēti dalībnieki veica {stats.anon_edits|ci} labojumus {stats.anon_titles|ci} rakstos</li>
+          <li>{stats.bot_count|ci} roboti veica {stats.bot_edits|ci} labojumus {stats.bot_titles|ci} rakstos</li>
+        </ul>
+
+      <h2>Sign up</h2>
+      <p>If you want to stay up to date with the most active articles and discussions, please sign up for future issues.</p>
+
+      <form action="https://mailer.hatnote.com/s/subscribe" method="POST" accept-charset="utf-8">
+        <label class="email-label" for="email">Email:</label>
+        <input class="email-input" type="email" name="email" id="email"/>
+        <div style="display:none;">
+          <label for="hp">HP</label><br/>
+          <input type="text" name="hp" id="hp"/></div>
+        <input type="hidden" name="list" value="{list_id}"/>
+        <input type="hidden" name="subform" value="yes"/>
+        <input class="sub-button" type="submit" name="submit" value="Subscribe" id="submit"/>
+      </form>
+
+      <div class="content">
+        <h2>Par</h2>
+        <p>Šis projekts iegūst sarakstu ar pēdējās nedēļas izmaiņām, izmantojot <a href="http://tools.wmflabs.org/">Wikimedia Tool Labs</a>, un piegādā e-pastus, izmantojot MailChimp. Izejas kods un plašāka informācija <a href="https://github.com/hatnote/weeklypedia">pieejama GitHub</a>. Izveidouši <a href="https://github.com/slaporte">Stephen LaPorte</a> un <a href="https://github.com/mahmoud">Mahmoud Hashemi</a>.</p>
+        <p><a href="http://blog.hatnote.com/">Uzziniet vairāk Hatnote blogā</a>.</p>
+      </div>
     </div>
   </div>
   <script>

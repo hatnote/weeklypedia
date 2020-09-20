@@ -12,57 +12,73 @@
   <title>the WEEKLYPEDIA ({full_lang_name}, nummer {issue_number})</title>
 </head>
 <body>
-  <div class="header">
-    <h1><span><em>the</em> WEEKLYPEDIA</span></h1>
-    <p>En lista med de mest redigerade Wikipedia-artiklarna och -diskussionerna den senaste veckan.</p>
-    <p>Levereras varje fredag per epost.</p>
-  </div>
-  <div class="announce">
-    <ul class="breadcrumb">
-      <li><a href="../../../index.html">Hem</a></li>
-      <li><a href="../index.html">{local.full_lang_name} utgåvans arkiv</a></li>
-      <li>Nummer {issue_number}, {local.date}</li>
-    </ul>
-  </div>
-  <div class="main">
-    <div class="content">
-      <p id="intro">{intro|s}</p>
-      <h2 id="articles">Artiklar</h2>
-      <p>{#stats}Denna vecka gjorde {total_users|ci} användare {edits|ci} ändringar i {titles|ci} olika artiklar.{/stats} Topp-20 artiklarna denna vecka:</p>
-      <ol>
-        {#mainspace}
-        <li><a href="https://{short_lang_name}.wikipedia.org/wiki/{title}" target="_blank">{title_s}</a> <span dir="ltr">(<a href="https://{short_lang_name}.wikipedia.org/w/index.php?title={title}&diff={rev_ids.new}&oldid={rev_ids.old}">{edits|ci} ändringar</a> av {users} användare)</span></li>
-        {/mainspace}
-      </ol>
-
-      <h2 id="new-articles">Nya artiklar</h2>
-      <p>De tio mest redigerade artklarna skapade senaste veckan</p>
-      <ol>
-        {#new_articles}
-        <li><a href="https://{short_lang_name}.wikipedia.org/wiki/{title}" target="_blank">{title_s}</a> <span dir="ltr">({edits|ci} ändringar av {users} användare)</span></li>
-        {/new_articles}
-      </ol>
-
-      <h2 id="discussions">Diskussioner</h2>
-      <p>De mest aktiva diskussionerna:</p>
-      <ol>
-        {#talkspace}
-        <li><a href="https://{short_lang_name}.wikipedia.org/wiki/Talk:{title}" target="_blank">{title_s}</a></li>
-        {/talkspace}
-      </ol>
-
-      <h2 id="statistics">Statistik</h2>
-      <p>Några siffror från senaste veckan:</p>
-      <ul>
-        <li>{stats.users|ci} registerade användare och {stats.anon_ip_count|ci} oregisterade användare gjorde {stats.edits|ci} redigeringar i {stats.titles|ci} artiklar</li>
-        <li>Oregistrerade användare gjorde {stats.anon_edits|ci} redigeringar i {stats.anon_titles|ci} artiklar</li>
-        <li>{stats.bot_count|ci} robotar gjorde {stats.bot_edits|ci} redigeringar i {stats.bot_titles|ci} artiklar</li>
+  <div class="container">
+    <div class="header">
+      <h1><span><em>the</em> WEEKLYPEDIA</span></h1>
+      <p>En lista med de mest redigerade Wikipedia-artiklarna och -diskussionerna den senaste veckan.</p>
+      <p>Levereras varje fredag per epost.</p>
+    </div>
+    <div class="announce">
+      <ul class="breadcrumb">
+        <li><a href="../../../index.html">Hem</a></li>
+        <li><a href="../index.html">{local.full_lang_name} utgåvans arkiv</a></li>
+        <li>Nummer {issue_number}, {local.date}</li>
       </ul>
-    <a href="{signup_url}" class="signup"><span>Prenumerera!</span></a>
-    <div class="content">
-      <h2>Om</h2>
-      <p>Detta projekt hmtar en lista av veckans senaste ändringar genom <a href="http://tools.wmflabs.org/">Wikimedia Tool Labs</a>, och skickar epoat genom MailChimp. Kod och mer information <a href="https://github.com/hatnote/weeklypedia">finns på GitHub</a>. Byggt av <a href="https://github.com/slaporte">Stephen LaPorte</a> och <a href="https://github.com/mahmoud">Mahmoud Hashemi</a>.</p>
-      <p><a href="http://blog.hatnote.com/">Läs mer på bloggen Hatnote</a>.</p>
+    </div>
+    <div class="main">
+      <div class="content">
+        <p id="intro">{intro|s}</p>
+        <h2 id="articles">Artiklar</h2>
+        <p>{#stats}Denna vecka gjorde{total_users|ci} användare {edits|ci} ändringar i {titles|ci} olika artiklar.{/stats} Topp-20 artiklarna denna vecka:</p>
+        <ol>
+          {#mainspace}
+          <li><a href="https://{short_lang_name}.wikipedia.org/wiki/{title}" target="_blank">{title_s}</a> <span dir="ltr">(<a href="https://{short_lang_name}.wikipedia.org/w/index.php?title={title}&diff={rev_ids.new}&oldid={rev_ids.old}">{edits|ci} ändringar</a> by {users} användare)</span></li>
+          {/mainspace}
+        </ol>
+
+        <h2 id="new-articles">Nya artiklar</h2>
+        <p>De tio mest redigerade artklarna skapade senaste veckan</p>
+        <ol>
+          {#new_articles}
+          <li><a href="https://{short_lang_name}.wikipedia.org/wiki/{title}" target="_blank">{title_s}</a> <span dir="ltr">({edits|ci} ändringar by {users} användare)</span></li>
+          {/new_articles}
+        </ol>
+
+        <h2 id="discussions">Diskussioner</h2>
+        <p>De mest aktiva diskussionerna:</p>
+        <ol>
+          {#talkspace}
+          <li><a href="https://{short_lang_name}.wikipedia.org/wiki/Talk:{title}" target="_blank">{title_s}</a></li>
+          {/talkspace}
+        </ol>
+
+        <h2 id="statistics">Statistik</h2>
+        <p>Några siffror från senaste veckan:</p>
+        <ul>
+          <li>{stats.users|ci} registerade användare och {stats.anon_ip_count|ci} oregisterade användare gjorde {stats.edits|ci} redigeringar i {stats.titles|ci} artiklar</li>
+          <li>Oregistrerade användare gjorde {stats.anon_edits|ci} redigeringar i {stats.anon_titles|ci} artiklar</li>
+          <li>{stats.bot_count|ci} robotar gjorde {stats.bot_edits|ci} redigeringar i {stats.bot_titles|ci} artiklar</li>
+        </ul>
+
+      <h2>Prenumerera!</h2>
+      <p>If you want to stay up to date with the most active articles and discussions, please sign up for future issues.</p>
+
+      <form action="https://mailer.hatnote.com/s/subscribe" method="POST" accept-charset="utf-8">
+        <label class="email-label" for="email">Email:</label>
+        <input class="email-input" type="email" name="email" id="email"/>
+        <div style="display:none;">
+          <label for="hp">HP</label><br/>
+          <input type="text" name="hp" id="hp"/></div>
+        <input type="hidden" name="list" value="{list_id}"/>
+        <input type="hidden" name="subform" value="yes"/>
+        <input class="sub-button" type="submit" name="submit" value="Subscribe" id="submit"/>
+      </form>
+
+      <div class="content">
+        <h2>Om</h2>
+        <p>Detta projekt hmtar en lista av veckans senaste ändringar genom <a href="http://tools.wmflabs.org/">Wikimedia Tool Labs</a>, och skickar epoat genom MailChimp. Kod och mer information <a href="https://github.com/hatnote/weeklypedia">finns på GitHub</a>. Byggt av <a href="https://github.com/slaporte">Stephen LaPorte</a> och <a href="https://github.com/mahmoud">Mahmoud Hashemi</a>.</p>
+        <p><a href="http://blog.hatnote.com/">Läs mer på bloggen Hatnote</a>.</p>
+      </div>
     </div>
   </div>
   <script>

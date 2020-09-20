@@ -12,57 +12,73 @@
   <title>ВИКЛИПЕДИЯ ({full_lang_name}, Номер {issue_number})</title>
 </head>
 <body>
-  <div class="header">
-    <h1><span>ВИКЛИПЕДИЯ</span></h1>
-    <p>Список наиболее редактирумых статей на Википедии и наиболее активных обсуждений за последнюю неделю.</p>
-    <p>Приходит каждую пятницу на адрес электронной почты.</p>
-  </div>
-  <div class="announce">
-    <ul class="breadcrumb">
-      <li><a href="../../../index.html">Домой</a></li>
-      <li><a href="../index.html">{local.full_lang_name} архив изданий</a></li>
-      <li>Номер {issue_number}, от {local.date}</li>
-    </ul>
-  </div>
-  <div class="main">
-    <div class="content">
-      <p id="intro">{intro|s}</p>
-      <h2 id="articles">Статьи</h2>
-      <p>{#stats}На этой неделе, {total_users|ci} авторов сделали {edits|ci} редакций к {titles|ci} различным статьям.{/stats} Топ 20 статей за неделю.:</p>
-      <ol>
-        {#mainspace}
-        <li><a href="https://{short_lang_name}.wikipedia.org/wiki/{title}" target="_blank">{title_s}</a> <span dir="ltr">(<a href="https://{short_lang_name}.wikipedia.org/w/index.php?title={title}&diff={rev_ids.new}&oldid={rev_ids.old}">{edits|ci} редакций</a> сделанных {users} авторами)</span></li>
-        {/mainspace}
-      </ol>
-
-      <h2 id="new-articles">Новые статьи</h2>
-      <p>Десять наиболее активно редактирумых статей за последнюю неделю</p>
-      <ol>
-        {#new_articles}
-        <li><a href="https://{short_lang_name}.wikipedia.org/wiki/{title}" target="_blank">{title_s}</a> <span dir="ltr">({edits|ci} редакций сделанных {users} авторами)</span></li>
-        {/new_articles}
-      </ol>
-
-      <h2 id="discussions">Обсуждения</h2>
-      <p>Наиболее активные обсуждения:</p>
-      <ol>
-        {#talkspace}
-        <li><a href="https://{short_lang_name}.wikipedia.org/wiki/Talk:{title}" target="_blank">{title_s}</a></li>
-        {/talkspace}
-      </ol>
-
-      <h2 id="statistics">Статистика</h2>
-      <p>Несколько цифр прошлой недели:</p>
-      <ul>
-        <li>{stats.users|ci} зарегистрированных пользователей и {stats.anon_ip_count|ci} незарегистрированных пользователей сделали {stats.edits|ci} редакций к {stats.titles|ci} статьям</li>
-        <li>Незарегистрированные пользователи сделали {stats.anon_edits|ci} редакций к {stats.anon_titles|ci} статьям</li>
-        <li>{stats.bot_count|ci} роботы сделали {stats.bot_edits|ci} редакций к {stats.bot_titles|ci} статьям</li>
+  <div class="container">
+    <div class="header">
+      <h1><span>ВИКЛИПЕДИЯ</span></h1>
+      <p>Список наиболее редактирумых статей на Википедии и наиболее активных обсуждений за последнюю неделю.</p>
+      <p>Приходит каждую пятницу на адрес электронной почты.</p>
+    </div>
+    <div class="announce">
+      <ul class="breadcrumb">
+        <li><a href="../../../index.html">Домой</a></li>
+        <li><a href="../index.html">{local.full_lang_name} архив изданий</a></li>
+        <li>Номер {issue_number}, от {local.date}</li>
       </ul>
-    <a href="{signup_url}" class="signup"><span>Регистрация!</span></a>
-    <div class="content">
-      <h2>Про ВИКЛИПЕДИИЮ</h2>
-      <p>Этот проект получает список последних изменений за неделю, используя <a href="http://tools.wmflabs.org/">Wikimedia Tool Labs</a>, и доставляет на электронную почту, используя рассылку MailChimp. Исходный код и больше информации <a href="https://github.com/hatnote/weeklypedia"> доступны на GitHub</a>. Проект создан <a href="https://github.com/slaporte">Стивеном ЛаПорте</a> и <a href="https://github.com/mahmoud">Махмудом Хашеми</a>.</p>
-      <p><a href="http://blog.hatnote.com/">Узнать больше на блоге Hatnote</a>.</p>
+    </div>
+    <div class="main">
+      <div class="content">
+        <p id="intro">{intro|s}</p>
+        <h2 id="articles">Статьи</h2>
+        <p>{#stats}На этой неделе, {total_users|ci} авторов сделали {edits|ci} редакций к {titles|ci} различным статьям.{/stats} Топ 20 статей за неделю.:</p>
+        <ol>
+          {#mainspace}
+          <li><a href="https://{short_lang_name}.wikipedia.org/wiki/{title}" target="_blank">{title_s}</a> <span dir="ltr">(<a href="https://{short_lang_name}.wikipedia.org/w/index.php?title={title}&diff={rev_ids.new}&oldid={rev_ids.old}">{edits|ci} редакций</a> сделанных {users} авторами)</span></li>
+          {/mainspace}
+        </ol>
+
+        <h2 id="new-articles">Новые статьи</h2>
+        <p>Десять наиболее активно редактирумых статей за последнюю неделю</p>
+        <ol>
+          {#new_articles}
+          <li><a href="https://{short_lang_name}.wikipedia.org/wiki/{title}" target="_blank">{title_s}</a> <span dir="ltr">({edits|ci} редакций сделанных {users} авторами)</span></li>
+          {/new_articles}
+        </ol>
+
+        <h2 id="discussions">Обсуждения</h2>
+        <p>Наиболее активные обсуждения:</p>
+        <ol>
+          {#talkspace}
+          <li><a href="https://{short_lang_name}.wikipedia.org/wiki/Talk:{title}" target="_blank">{title_s}</a></li>
+          {/talkspace}
+        </ol>
+
+        <h2 id="statistics">Статистика</h2>
+        <p>Несколько цифр прошлой недели:</p>
+        <ul>
+          <li>{stats.users|ci} зарегистрированных пользователей и {stats.anon_ip_count|ci} незарегистрированных пользователей сделали {stats.edits|ci} редакций к {stats.titles|ci} статьям</li>
+          <li>Незарегистрированные пользователи сделали {stats.anon_edits|ci} редакций к {stats.anon_titles|ci} статьям</li>
+          <li>{stats.bot_count|ci} роботы сделали {stats.bot_edits|ci} редакций к {stats.bot_titles|ci} статьям</li>
+        </ul>
+
+      <h2>Регистрация!</h2>
+      <p>If you want to stay up to date with the most active articles and discussions, please sign up for future issues.</p>
+
+      <form action="https://mailer.hatnote.com/s/subscribe" method="POST" accept-charset="utf-8">
+        <label class="email-label" for="email">Email:</label>
+        <input class="email-input" type="email" name="email" id="email"/>
+        <div style="display:none;">
+          <label for="hp">HP</label><br/>
+          <input type="text" name="hp" id="hp"/></div>
+        <input type="hidden" name="list" value="{list_id}"/>
+        <input type="hidden" name="subform" value="yes"/>
+        <input class="sub-button" type="submit" name="submit" value="Subscribe" id="submit"/>
+      </form>
+
+      <div class="content">
+        <h2>Про ВИКЛИПЕДИИЮ</h2>
+        <p>Этот проект получает список последних изменений за неделю, используя <a href="http://tools.wmflabs.org/">Wikimedia Tool Labs</a>, и доставляет на электронную почту, используя рассылку MailChimp. Исходный код и больше информации <a href="https://github.com/hatnote/weeklypedia"> доступны на GitHub</a>. Проект создан <a href="https://github.com/slaporte">Стивеном ЛаПорте</a> и <a href="https://github.com/mahmoud">Махмудом Хашеми</a>.</p>
+        <p><a href="http://blog.hatnote.com/">Узнать больше на блоге Hatnote</a>.</p>
+      </div>
     </div>
   </div>
   <script>

@@ -4,10 +4,10 @@ import os
 import json
 import urllib2
 from datetime import datetime
-
+from boltons.fileutils import mkdir_p
 
 from common import LANG_MAP, DEBUG, DEFAULT_LANGUAGE, API_BASE_URL
-from common import DATA_BASE_PATH, DATA_PATH_TMPL, mkdir_p
+from common import DATA_BASE_PATH, DATA_PATH_TMPL
 
 
 def fetch_rc(lang=DEFAULT_LANGUAGE):
@@ -73,7 +73,6 @@ def get_latest_data_path(lang, include_dev=DEBUG):
     issue_path = sorted(past_issue_paths)[-1]
     latest_issue_fn = sorted(os.listdir(issue_path))[-1]
     return os.path.join(issue_path, latest_issue_fn)
-
 
 
 def get_argparser():

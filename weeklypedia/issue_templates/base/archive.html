@@ -12,57 +12,73 @@
   <title>$HEAD_TITLE$</title>
 </head>
 <body>
-  <div class="header">
-    <h1><span>$BODY_TITLE$</span></h1>
-    <p>$DESCRIPTION$</p>
-    <p>$DELIVERY_DESCRIPTION$</p>
-  </div>
-  <div class="announce">
-    <ul class="breadcrumb">
-      <li><a href="../../../index.html">$HOME_LINK$</a></li>
-      <li><a href="../index.html">$ARCHIVE_LINK$</a></li>
-      <li>$ISSUE_LABEL$</li>
-    </ul>
-  </div>
-  <div class="main">
-    <div class="content">
-      <p id="intro">{intro|s}</p>
-      <h2 id="articles">$ARTICLES_HEADING$</h2>
-      <p>{#stats}$ARTICLES_SUMMARY${/stats} $ARTICLES_INTRO$:</p>
-      <ol>
-        {#mainspace}
-        <li><a href="https://{short_lang_name}.wikipedia.org/wiki/{title}" target="_blank">{title_s}</a> <span dir="ltr">(<a href="https://{short_lang_name}.wikipedia.org/w/index.php?title={title}&diff={rev_ids.new}&oldid={rev_ids.old}">$DIFF_COUNT$</a> $DIFF_AUTHOR_COUNT$)</span></li>
-        {/mainspace}
-      </ol>
-
-      <h2 id="new-articles">$NEW_ARTICLES_HEADING$</h2>
-      <p>$NEW_ARTICLES_INTRO$</p>
-      <ol>
-        {#new_articles}
-        <li><a href="https://{short_lang_name}.wikipedia.org/wiki/{title}" target="_blank">{title_s}</a> <span dir="ltr">($DIFF_COUNT$ $DIFF_AUTHOR_COUNT$)</span></li>
-        {/new_articles}
-      </ol>
-
-      <h2 id="discussions">$DISCUSSIONS_HEADING$</h2>
-      <p>$DISCUSSIONS_INTRO$:</p>
-      <ol>
-        {#talkspace}
-        <li><a href="https://{short_lang_name}.wikipedia.org/wiki/Talk:{title}" target="_blank">{title_s}</a></li>
-        {/talkspace}
-      </ol>
-
-      <h2 id="statistics">$STATS_HEADING$</h2>
-      <p>$STATS_INTRO$:</p>
-      <ul>
-        <li>$USER_EDIT_COUNTS$</li>
-        <li>$ANON_EDIT_COUNTS$</li>
-        <li>$BOT_EDIT_COUNTS$</li>
+  <div class="container">
+    <div class="header">
+      <h1><span>$BODY_TITLE$</span></h1>
+      <p>$DESCRIPTION$</p>
+      <p>$DELIVERY_DESCRIPTION$</p>
+    </div>
+    <div class="announce">
+      <ul class="breadcrumb">
+        <li><a href="../../../index.html">$HOME_LINK$</a></li>
+        <li><a href="../index.html">$ARCHIVE_LINK$</a></li>
+        <li>$ISSUE_LABEL$</li>
       </ul>
-    <a href="{signup_url}" class="signup"><span>$SIGNUP_LINK$</span></a>
-    <div class="content">
-      <h2>$ABOUT_HEADING$</h2>
-      <p>$ABOUT_TEXT$</p>
-      <p><a href="http://blog.hatnote.com/">$BLOG_LINK$</a>.</p>
+    </div>
+    <div class="main">
+      <div class="content">
+        <p id="intro">{intro|s}</p>
+        <h2 id="articles">$ARTICLES_HEADING$</h2>
+        <p>{#stats}$ARTICLES_SUMMARY${/stats} $ARTICLES_INTRO$:</p>
+        <ol>
+          {#mainspace}
+          <li><a href="https://{short_lang_name}.wikipedia.org/wiki/{title}" target="_blank">{title_s}</a> <span dir="ltr">(<a href="https://{short_lang_name}.wikipedia.org/w/index.php?title={title}&diff={rev_ids.new}&oldid={rev_ids.old}">$DIFF_COUNT$</a> $DIFF_AUTHOR_COUNT$)</span></li>
+          {/mainspace}
+        </ol>
+
+        <h2 id="new-articles">$NEW_ARTICLES_HEADING$</h2>
+        <p>$NEW_ARTICLES_INTRO$</p>
+        <ol>
+          {#new_articles}
+          <li><a href="https://{short_lang_name}.wikipedia.org/wiki/{title}" target="_blank">{title_s}</a> <span dir="ltr">($DIFF_COUNT$ $DIFF_AUTHOR_COUNT$)</span></li>
+          {/new_articles}
+        </ol>
+
+        <h2 id="discussions">$DISCUSSIONS_HEADING$</h2>
+        <p>$DISCUSSIONS_INTRO$:</p>
+        <ol>
+          {#talkspace}
+          <li><a href="https://{short_lang_name}.wikipedia.org/wiki/Talk:{title}" target="_blank">{title_s}</a></li>
+          {/talkspace}
+        </ol>
+
+        <h2 id="statistics">$STATS_HEADING$</h2>
+        <p>$STATS_INTRO$:</p>
+        <ul>
+          <li>$USER_EDIT_COUNTS$</li>
+          <li>$ANON_EDIT_COUNTS$</li>
+          <li>$BOT_EDIT_COUNTS$</li>
+        </ul>
+
+      <h2>$SIGNUP$</h2>
+      <p>$PITCH$</p>
+
+      <form action="https://mailer.hatnote.com/s/subscribe" method="POST" accept-charset="utf-8">
+        <label class="email-label" for="email">$EMAIL$</label>
+        <input class="email-input" type="email" name="email" id="email"/>
+        <div style="display:none;">
+          <label for="hp">HP</label><br/>
+          <input type="text" name="hp" id="hp"/></div>
+        <input type="hidden" name="list" value="{list_id}"/>
+        <input type="hidden" name="subform" value="yes"/>
+        <input class="sub-button" type="submit" name="submit" value="$SUBSCRIBE$" id="submit"/>
+      </form>
+
+      <div class="content">
+        <h2>$ABOUT_HEADING$</h2>
+        <p>$ABOUT_TEXT$</p>
+        <p><a href="http://blog.hatnote.com/">$BLOG_LINK$</a>.</p>
+      </div>
     </div>
   </div>
   <script>

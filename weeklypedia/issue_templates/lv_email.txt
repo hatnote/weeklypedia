@@ -40,3 +40,9 @@ Daži skaitļi no pagājušās nedēļas:
 * {stats.bot_count|ci} roboti veica {stats.bot_edits|ci} labojumus {stats.bot_titles|ci} rakstos
 
 Learn more about the Weeklypedia Digest: http://weekly.hatnote.com/
+
+This email was sent to [Email]
+
+Unsubscribe: [unsubscribe]
+
+Hatnote · 131 E Empire Street · San Jose, CA 95112 · USA

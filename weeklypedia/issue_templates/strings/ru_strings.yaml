@@ -79,15 +79,26 @@ bot_edit_counts: >-
     {stats.bot_edits|ci} редакций к {stats.bot_titles|ci} статьям
 
 #-----------
+# subscription invitation
+#------------------------------------------------------------------------------
+
+signup: Регистрация!
+pitch: >-
+    If you want to stay up to date with the most active articles and
+    discussions, please sign up for future issues.
+
+email: "Email:"
+subscribe: Subscribe
+
+#-----------
 # Bottom section
 #------------------------------------------------------------------------------
 
-signup_link: Регистрация!
 about_heading: Про ВИКЛИПЕДИИЮ
 about_text: >-
     Этот проект получает список последних изменений за неделю, используя <a
     href="http://tools.wmflabs.org/">Wikimedia Tool Labs</a>, и
-    доставляет на электронную почту, используя рассылку MailChimp.
+    доставляет на электронную почту, используя рассылку Sendy.
     Исходный код и больше информации <a href="https://github.com/hatnote/weeklypedia"> доступны на
     GitHub</a>. Проект создан <a href="https://github.com/slaporte">Стивеном
     ЛаПорте</a> и <a href="https://github.com/mahmoud">Махмудом
@@ -96,3 +107,10 @@ about_text: >-
 blog_link: Узнать больше на блоге Hatnote
 learn_more: >-
     Узнать больше о <a href="http://weekly.hatnote.com">Виклипедия Дайджест</a>!
+
+#-----------
+# Email footer
+#------------------------------------------------------------------------------
+
+sent_to: This email was sent to
+unsubscribe: unsubscribe from this list

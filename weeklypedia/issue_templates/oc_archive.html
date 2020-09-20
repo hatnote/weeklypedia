@@ -12,57 +12,73 @@
   <title>la WEEKLYPÈDIA ({full_lang_name}, numèro {issue_number}) </title>
 </head>
 <body>
-  <div class="header">
-    <h1><span><em>a</em> WEEKLYPÈDIA </span></h1>
-    <p>Una lista dels articles mai modificats de la Wikipèdia e de las discussions de la setmana passada.</p>
-    <p>Distribuït cada divendres per corrièr electronic.</p>
-  </div>
-  <div class="announce">
-    <ul class="breadcrumb">
-      <li><a href="../../../index.html">Pagina iniciala</a></li>
-      <li><a href="../index.html">{local.full_lang_name} archius d'edicion</a></li>
-      <li>Numèro {issue_number}, {local.date}</li>
-    </ul>
-  </div>
-  <div class="main">
-    <div class="content">
-      <p id="intro">{intro|s}</p>
-      <h2 id="articles">Articles</h2>
-      <p>{#stats}Aquela setmana, {total_users|ci} autors an fach {edits|ci} cambiaments a {titles|ci} diferents articles.{/stats} los 20 melhors articles de la setmana:</p>
-      <ol>
-        {#mainspace}
-        <li><a href="https://{short_lang_name}.wikipedia.org/wiki/{title}" target="_blank">{title_s}</a> <span dir="ltr">(<a href="https://{short_lang_name}.wikipedia.org/w/index.php?title={title}&diff={rev_ids.new}&oldid={rev_ids.old}">{edits|ci} cambiaments</a> per {users} autors)</span></li>
-        {/mainspace}
-      </ol>
-
-      <h2 id="new-articles">Articles novèls</h2>
-      <p>Los dètz articles modificats mai activament creats la setmana passada</p>
-      <ol>
-        {#new_articles}
-        <li><a href="https://{short_lang_name}.wikipedia.org/wiki/{title}" target="_blank">{title_s}</a> <span dir="ltr">({edits|ci} cambiaments per {users} autors)</span></li>
-        {/new_articles}
-      </ol>
-
-      <h2 id="discussions">Discussions</h2>
-      <p>Las discussions mai activas:</p>
-      <ol>
-        {#talkspace}
-        <li><a href="https://{short_lang_name}.wikipedia.org/wiki/Talk:{title}" target="_blank">{title_s}</a></li>
-        {/talkspace}
-      </ol>
-
-      <h2 id="statistics">Estadisticas</h2>
-      <p>Qualques chifras de la setmana passada:</p>
-      <ul>
-        <li>{stats.users|ci} membres enregistrats e {stats.anon_ip_count|ci} membres pas enregistrats an fach {stats.edits|ci} cambiaments a {stats.titles|ci} articles</li>
-        <li>Los membres pas enregistrats an modificat {stats.anon_edits|ci} {stats.anon_titles|ci} articles</li>
-        <li>{stats.bot_count|ci} que los robòts an fach {stats.bot_edits|ci} cambiaments a {stats.bot_titles|ci} articles</li>
+  <div class="container">
+    <div class="header">
+      <h1><span><em>a</em> WEEKLYPÈDIA </span></h1>
+      <p>Una lista dels articles mai modificats de la Wikipèdia e de las discussions de la setmana passada.</p>
+      <p>Distribuït cada divendres per corrièr electronic.</p>
+    </div>
+    <div class="announce">
+      <ul class="breadcrumb">
+        <li><a href="../../../index.html">Pagina iniciala</a></li>
+        <li><a href="../index.html">{local.full_lang_name} archius d'edicion</a></li>
+        <li>Numèro {issue_number}, {local.date}</li>
       </ul>
-    <a href="{signup_url}" class="signup"><span>S'enregistrar!</span></a>
-    <div class="content">
-      <h2>Qu'es aquò</h2>
-      <p>Aquèste projècte recupera una lista dels cambiaments recents de la setmana mercé als <a href="http://tools.wmflabs.org/">Wikimedia Tool Labs</a>, e distribuís de messatges electronics amb MailChimp. Còde e mai <a href="https://github.com/hatnote/weeklypedia">disponibles sus GitHub</a>. Creat per <a href="https://github.com/slaporte">Stephen LaPorte</a> i <a href="https://github.com/mahmoud">Mahmoud Hashemi</a>.</p>
-      <p><a href="http://blog.hatnote.com/">Mai sul blog Hatnote</a>.</p>
+    </div>
+    <div class="main">
+      <div class="content">
+        <p id="intro">{intro|s}</p>
+        <h2 id="articles">Articles</h2>
+        <p>{#stats}Aquela setmana, {total_users|ci} autors an fach {edits|ci} cambiaments a {titles|ci} diferents articles.{/stats} los 20 melhors articles de la setmana:</p>
+        <ol>
+          {#mainspace}
+          <li><a href="https://{short_lang_name}.wikipedia.org/wiki/{title}" target="_blank">{title_s}</a> <span dir="ltr">(<a href="https://{short_lang_name}.wikipedia.org/w/index.php?title={title}&diff={rev_ids.new}&oldid={rev_ids.old}">{edits|ci} cambiaments</a> per {users} autors)</span></li>
+          {/mainspace}
+        </ol>
+
+        <h2 id="new-articles">Articles novèls</h2>
+        <p>Los dètz articles modificats mai activament creats la setmana passada</p>
+        <ol>
+          {#new_articles}
+          <li><a href="https://{short_lang_name}.wikipedia.org/wiki/{title}" target="_blank">{title_s}</a> <span dir="ltr">({edits|ci} cambiaments per {users} autors)</span></li>
+          {/new_articles}
+        </ol>
+
+        <h2 id="discussions">Discussions</h2>
+        <p>Las discussions mai activas:</p>
+        <ol>
+          {#talkspace}
+          <li><a href="https://{short_lang_name}.wikipedia.org/wiki/Talk:{title}" target="_blank">{title_s}</a></li>
+          {/talkspace}
+        </ol>
+
+        <h2 id="statistics">Estadisticas</h2>
+        <p>Qualques chifras de la setmana passada:</p>
+        <ul>
+          <li>{stats.users|ci} membres enregistrats e {stats.anon_ip_count|ci} membres pas enregistrats an fach {stats.edits|ci} cambiaments a {stats.titles|ci} articles</li>
+          <li>Los membres pas enregistrats an modificat {stats.anon_edits|ci} {stats.anon_titles|ci} articles</li>
+          <li>{stats.bot_count|ci} que los robòts an fach {stats.bot_edits|ci} cambiaments a {stats.bot_titles|ci} articles</li>
+        </ul>
+
+      <h2>S'enregistrar!</h2>
+      <p>If you want to stay up to date with the most active articles and discussions, please sign up for future issues.</p>
+
+      <form action="https://mailer.hatnote.com/s/subscribe" method="POST" accept-charset="utf-8">
+        <label class="email-label" for="email">Email:</label>
+        <input class="email-input" type="email" name="email" id="email"/>
+        <div style="display:none;">
+          <label for="hp">HP</label><br/>
+          <input type="text" name="hp" id="hp"/></div>
+        <input type="hidden" name="list" value="{list_id}"/>
+        <input type="hidden" name="subform" value="yes"/>
+        <input class="sub-button" type="submit" name="submit" value="Subscribe" id="submit"/>
+      </form>
+
+      <div class="content">
+        <h2>Qu'es aquò</h2>
+        <p>Aquèste projècte recupera una lista dels cambiaments recents de la setmana mercé als <a href="http://tools.wmflabs.org/">Wikimedia Tool Labs</a>, e distribuís de messatges electronics amb MailChimp. Còde e mai <a href="https://github.com/hatnote/weeklypedia">disponibles sus GitHub</a>. Creat per <a href="https://github.com/slaporte">Stephen LaPorte</a> i <a href="https://github.com/mahmoud">Mahmoud Hashemi</a>.</p>
+        <p><a href="http://blog.hatnote.com/">Mai sul blog Hatnote</a>.</p>
+      </div>
     </div>
   </div>
   <script>

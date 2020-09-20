@@ -40,3 +40,9 @@ Qualques chifras de la setmana passada:
 * {stats.bot_count|ci} que los robòts an fach {stats.bot_edits|ci} cambiaments a {stats.bot_titles|ci} articles
 
 Learn more about the Weeklypedia Digest: http://weekly.hatnote.com/
+
+This email was sent to [Email]
+
+Unsubscribe: [unsubscribe]
+
+Hatnote · 131 E Empire Street · San Jose, CA 95112 · USA

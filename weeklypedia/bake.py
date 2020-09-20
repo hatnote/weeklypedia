@@ -4,17 +4,17 @@ import os
 import json
 from datetime import datetime, timedelta
 from os.path import dirname, join as pjoin
+from boltons.fileutils import mkdir_p
 
 from babel.dates import format_date
 from babel import UnknownLocaleError
 from dateutil.parser import parse as parse_date
 from ashes import TemplateNotFound
 
-from mail import Mailinglist, KEY
+from mail import sendy_send_campaign
 from fetch import get_latest_data_path
 
-from common import (DATA_BASE_PATH,
-                    DEFAULT_LANGUAGE,
+from common import (DEFAULT_LANGUAGE,
                     DEFAULT_INTRO,
                     DEBUG,
                     CUSTOM_INTRO_PATH,
@@ -22,10 +22,11 @@ from common import (DATA_BASE_PATH,
                     LOCAL_LANG_MAP,
                     SUBJECT_TMPL,
                     SUPPORTED_LANGS,
-                    SIGNUP_MAP,
-                    mkdir_p)
+                    SENDY_IDS)
 
 _CUR_PATH = dirname(os.path.abspath(__file__))
+
+ARCHIVE_URL = 'https://weekly.hatnote.com/archive/%s/index.html'
 
 INDEX_PATH = pjoin(dirname(_CUR_PATH), 'static', 'index.html')
 ARCHIVE_BASE_PATH = pjoin(dirname(_CUR_PATH), 'static', 'archive')
@@ -71,14 +72,9 @@ class Issue(object):
     def read_text(self):
         return open(self.text_path).read()
 
-    def send(self, list_id, send_key):
-        mailinglist = Mailinglist(send_key + KEY)
-        mailinglist.new_campaign(self.subject,
-                                 self.read_html(),
-                                 self.read_text(),
-                                 list_id=list_id)
-        mailinglist.send_next_campaign()
-        return 'Success: sent issue %s' % self.lang
+    def send(self, list_id):
+        sendy_send_campaign(self.subject, self.read_text(), self.read_html(), list_id)
+        return 'Success: sent issue %s via sendy' % self.lang
 
 
 def get_past_issue_paths(lang, include_dev=False):
@@ -156,7 +152,6 @@ def bake_latest_issue(issue_ashes_env,
                       include_dev=DEBUG):
     ret = {'issues': []}
     issue_data = prep_latest_issue(lang, intro, include_dev)
-    issue_data['signup_url'] = SIGNUP_MAP[lang]
     # this fmt is used to generate the path, as well
     for fmt in ('html', 'json', 'txt', 'email'):
         rendered = render_issue(issue_data, issue_ashes_env, format=fmt)
@@ -181,6 +176,9 @@ def render_issue(render_ctx, issue_ashes_env,
     lang = render_ctx['short_lang_name']
     env = issue_ashes_env
     ctx = localize_data(render_ctx, lang)
+    ctx['list_id'] = SENDY_IDS[lang]
+    ctx['archive_link'] = ARCHIVE_URL % lang
+
     if format == 'html':
         ret = lang_fallback_render(env, lang, 'archive.html', ctx)
     elif format == 'email':
@@ -232,7 +230,7 @@ def render_archive(issue_ashes_env, lang):
         ret['issues'].insert(0, {'path': archive_path,
                                  'date': display_date})
     ret['lang'] = LANG_MAP[lang]
-    ret['signup_url'] = SIGNUP_MAP[lang]
+    ret['list_id'] = SENDY_IDS[lang]
     return issue_ashes_env.render('template_archive_index.html', ret)
 
 
@@ -253,6 +251,7 @@ def render_and_save_archives(issue_ashes_env):
     ret = []
     for lang in SUPPORTED_LANGS:
         out_path = ARCHIVE_INDEX_PATH_TMPL.format(lang_shortcode=lang)
+        mkdir_p(pjoin(ARCHIVE_BASE_PATH, lang))
         out_file = open(out_path, 'w')
         with out_file:
             rendered = render_archive(issue_ashes_env, lang)
