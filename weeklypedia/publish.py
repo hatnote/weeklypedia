@@ -52,19 +52,19 @@ if __name__ == '__main__':
             print '.. rendering all issues'
         for lang in SUPPORTED_LANGS:
             if not args.silent:
-                '.. rendering latest for %s' % lang
+                print '.. rendering latest for %s' % lang
             bake_latest_issue(issue_ashes_env, lang=lang, include_dev=debug)
     elif args.lang in SUPPORTED_LANGS:
         lang = args.lang
         if not args.silent:
-            '.. rendering latest for %s' % lang
-        bake_latest_issue(issue_ashes_env, lang=lang, include_dev=debug)        
+            print '.. rendering latest for %s' % lang
+        bake_latest_issue(issue_ashes_env, lang=lang, include_dev=debug)
         if args.nosend:
             if not args.silent:
                 print '.. not sending'
         else:
             if not args.silent:
-                '.. sending latest for %s' % lang
+                print '.. sending latest for %s' % lang
             send_issue(lang, debug)
     else:
         print '!! language %s not supported' % args.lang
