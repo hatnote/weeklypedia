@@ -235,7 +235,11 @@ def render_archive(issue_ashes_env, lang):
 
 
 def render_index(issue_ashes_env):
-    next_date = (datetime.now() + timedelta(days=7)).strftime('%B %d, %Y')
+    date_format = '%B %d, %Y'
+    latest_issue_p = get_latest_data_path(DEFAULT_LANGUAGE)
+    issue_data = json.load(open(latest_issue_p))
+    latest_date = datetime.strptime(issue_data['date'], date_format)
+    next_date = (latest_date + timedelta(days=7)).strftime(date_format)
     context = {'next_date': next_date,
                'volume': get_next_issue_number(DEFAULT_LANGUAGE)}
     preview = prep_preview(DEFAULT_LANGUAGE)
