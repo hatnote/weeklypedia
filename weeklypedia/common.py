@@ -39,31 +39,30 @@ LOCAL_LANG_MAP = {'en': u'English',
 
 SENDY_KEY = json.load(open(os.path.join(_CUR_PATH, 'secrets.json'))).get('sendy_key')
 
-SENDY_IDS = {'ca': '9sW1OtFlCbJlYgxSXuahHQ',
-             'zh': 'aSQ6TT0VKpw0tmzBPaRZDg',
-             'da': '0cs1zVQp3892EjjL0763350TeQ',
+DEBUG_ID = 'VN7NFOFUPp5WjrbMSH7Puw'
+SENDY_IDS = {'ca': '**9sW1OtFlCbJlYgxSXuahHQ',
+             'zh': '**SQ6TT0VKpw0tmzBPaRZDg',
+             'da': '**0cs1zVQp3892EjjL0763350TeQ',
              #'en': 'ccIjgMNDQjgxlFR8MrQS3g', # load testing
-             #'en': 'VN7NFOFUPp5WjrbMSH7Puw', # debug
-             'en': 'rFf1E97OGw9qMfZh1F81KA',
-             'es': 'HTPao3LPmzm0UrCNxfBUgA',
-             'eo': 'H804892jOtJrNTukmVWOlrbA',
-             'et': 'db8mkJ2Tl6pnNUIIVfMFog',
-             'fr': 'ELz1OOSd3olC6LSCJmCqhw',
-             'de': 't0892Imxu8HTkzoPkrow11MQ',
-             'it': 'EkOruTQZ64fx7V5k9heZNw',
-             'kn': 'Dn9KffuyqLRKSY9XAwPCHQ',
-             'ko': '65Y8dYqreq2Frkav2WmJ9Q',
-             'lv': 'zgfaJH8Jskz7VxNai9zc763A',
-             'sv': 'bqpefw4ZBxMBHxrTz9dPKg',
-             'fa': 'mRGhgpBb4RnwDe25RtP8fA',
-             'el': 'Ts6mbUlmOCiD0mlWPL8T4A',
-             'oc': 'OrhmrHkNlTRR9KWNMAgDMQ',
-             'ru': 'IUDkAYoiJDQ7P3AQtLIAhQ',
-             'es': '5EzGTlwChgHME1TDa763nncA',
-             'te': 'rp4VkbQ1p2QXi560nIrF3w',
-             'ur': 'QiUlnjE3S9kPdvpzWQdK5Q',
-             'uk': 'gYfAtFPIVbJgVLkEfpO892Uw '}
-
+             'en': '**rFf1E97OGw9qMfZh1F81KA',
+             'es': '**HTPao3LPmzm0UrCNxfBUgA',
+             'eo': '**H804892jOtJrNTukmVWOlrbA',
+             'et': '**db8mkJ2Tl6pnNUIIVfMFog',
+             'fr': '**ELz1OOSd3olC6LSCJmCqhw',
+             'de': '**t0892Imxu8HTkzoPkrow11MQ',
+             'it': '**EkOruTQZ64fx7V5k9heZNw',
+             'kn': '**Dn9KffuyqLRKSY9XAwPCHQ',
+             'ko': '**65Y8dYqreq2Frkav2WmJ9Q',
+             'lv': '**zgfaJH8Jskz7VxNai9zc763A',
+             'sv': '**bqpefw4ZBxMBHxrTz9dPKg',
+             'fa': '**mRGhgpBb4RnwDe25RtP8fA',
+             'el': '**Ts6mbUlmOCiD0mlWPL8T4A',
+             'oc': '**OrhmrHkNlTRR9KWNMAgDMQ',
+             'ru': '**IUDkAYoiJDQ7P3AQtLIAhQ',
+             'es': '**5EzGTlwChgHME1TDa763nncA',
+             'te': '**rp4VkbQ1p2QXi560nIrF3w',
+             'ur': '**QiUlnjE3S9kPdvpzWQdK5Q',
+             'uk': '**gYfAtFPIVbJgVLkEfpO892Uw '}
 SUPPORTED_LANGS = SENDY_IDS.keys()
 
 API_BASE_URL = 'http://weeklypedia.toolforge.org/fetch/'

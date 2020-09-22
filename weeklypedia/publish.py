@@ -6,7 +6,7 @@ from os.path import dirname
 from argparse import ArgumentParser
 from clastic.render import AshesRenderFactory
 
-from common import DEBUG, SUPPORTED_LANGS, SENDY_IDS
+from common import DEBUG, DEBUG_ID, SUPPORTED_LANGS, SENDY_IDS
 
 from web import (comma_int,
                  ISSUE_TEMPLATES_PATH)
@@ -17,9 +17,16 @@ from bake import (Issue,
                   render_index)
 
 
-def send_issue(lang, is_dev=False):
-    cur_issue = Issue(lang, include_dev=is_dev)
-    list_id = SENDY_IDS[lang]
+def send_issue(lang, debug=False, silent=True):
+    if debug:
+        list_id = DEBUG_ID
+        if not silent:
+            print '.. sending to debug list (%s)' % list_id
+    else:
+        list_id = SENDY_IDS[lang]
+        if not silent:
+            print '.. sending to %s list (%s)' % (lang, list_id)
+    cur_issue = Issue(lang, include_dev=debug)
     result = cur_issue.send(list_id)
     return result
 
@@ -63,8 +70,6 @@ if __name__ == '__main__':
             if not args.silent:
                 print '.. not sending'
         else:
-            if not args.silent:
-                print '.. sending latest for %s' % lang
-            send_issue(lang, debug)
+            send_issue(lang, debug=debug, silent=args.silent)
     else:
         print '!! language %s not supported' % args.lang
