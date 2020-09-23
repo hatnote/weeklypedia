@@ -1,7 +1,7 @@
 Weeklypedia
 ===========
 
-Generate a weekly email digest for edit and discussion activity on Wikipedia. Gathers Wikipedia data from [Wikimedia Toolforge ](https://toolforge.org/) and delivers emails with Mailchimp.
+Generate a weekly email digest for edit and discussion activity on Wikipedia. Gathers Wikipedia data from [Wikimedia Toolforge ](https://toolforge.org/) and delivers emails with Sendy.
 
 ## Localization 
 Interested in helping us translate the newsletter to a
