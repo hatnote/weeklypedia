@@ -1,6 +1,7 @@
 # -*- coding: utf-8 -*-
 
 import os
+import io
 import json
 from datetime import datetime, timedelta
 from os.path import dirname, join as pjoin
@@ -258,8 +259,7 @@ def render_and_save_archives(issue_ashes_env):
     for lang in SUPPORTED_LANGS:
         out_path = ARCHIVE_INDEX_PATH_TMPL.format(lang_shortcode=lang)
         mkdir_p(pjoin(ARCHIVE_BASE_PATH, lang))
-        out_file = open(out_path, 'w')
-        with out_file:
+        with io.open(out_path, 'w') as out_file:
             rendered = render_archive(issue_ashes_env, lang)
             out_file.write(rendered)
         ret.append((out_path, len(rendered)))

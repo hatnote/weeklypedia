@@ -1,0 +1,106 @@
+#------------------
+# Weeklypedia
+#    If you want to translate the Weeklypedia newsletter, start with a copy
+#    of this file and leave us a note at:
+#    https://github.com/hatnote/weeklypedia/issues
+#------------------------------------------------------------------------------
+
+#-----------
+# Introduction
+#------------------------------------------------------------------------------
+
+head_title: >-
+    the WEEKLYPEDIA ({full_lang_name}, nummer {issue_number})
+body_title: >-
+    <em>the</em> WEEKLYPEDIA
+description: >- 
+    Ei liste med dei mest redigerte Wikipedia-artiklane og -diskusjonane den siste veka.  
+delivery_description: Levert på e-post kvar fredag.
+home_link: Heim 
+archive_link: "{local.full_lang_name} utgåve arkiv"
+issue_label: Nummer {issue_number}, {local.date} 
+language_label: ({local.full_lang_name} Wikipedia) 
+intro: >-
+   Hei! Velkommen til vår veke-oppdatering om aktivitet på Wikipedia.
+#-----------
+# Article section
+#------------------------------------------------------------------------------
+
+articles_heading: Artiklar
+articles_summary: >-
+   Denne veka gjorde {total_users|ci} forfattarar  {edits|ci} endringar på
+    {titles|ci} ulike artiklar.
+articles_intro: Topp 20 artiklar denne veka.
+
+diff_count: "{edits|ci} endringar"
+diff_author_count: av {users} forfattarar
+
+#-----------
+# New articles section
+#------------------------------------------------------------------------------
+
+new_articles_heading: Nye artiklar
+# new_articles_summary: # TODO
+new_articles_intro: >-
+    Dei ti mest redigerte artiklane som blei oppretta den siste veka
+#-----------
+# Discussion section
+#------------------------------------------------------------------------------
+
+discussions_heading: Diskusjonar
+# discussions_summary: # TODO
+discussions_intro: Dei mest aktive diskusjonane
+
+#-----------
+# Stats section
+#------------------------------------------------------------------------------
+
+stats_heading: Statistikk
+stats_intro: Nokre tal frå den siste veka
+user_edit_counts: >- 
+    {stats.users|ci} registrerte brukarar
+    {stats.anon_ip_count|ci} uregistrerte brukarar gjorde {stats.edits|ci}
+    endringar på {stats.titles|ci} artiklar
+anon_edit_counts: >-
+    Uregistrerte brukarar gjorde {stats.anon_edits|ci} endringar på
+    {stats.anon_titles|ci} artiklar
+bot_edit_counts: >- 
+    {stats.bot_count|ci} roboter gjorde
+    {stats.bot_edits|ci} endringar på {stats.bot_titles|ci} artiklar
+
+#-----------
+# subscription invitation
+#------------------------------------------------------------------------------
+
+signup: Meld deg på!
+pitch: >-
+    If you want to stay up to date with the most active articles and
+    discussions, please sign up for future issues.
+
+email: "Email:"
+subscribe: Subscribe
+
+#-----------
+# Bottom section
+#------------------------------------------------------------------------------
+
+about_heading: Om
+about_text: >-
+    Dette prosjektet hentar ei liste over veka sine endringar ved hjelp av <a
+    href="http://tools.wmflabs.org/">Wikimedia Tool Labs</a> og
+    sender e-post med MailChimp. Kode og meir informasjon er <a
+    href="https://github.com/hatnote/weeklypedia">tilgjengeleg på
+    GitHub</a>. Laga av <a href="https://github.com/slaporte">Stephen
+    LaPorte</a> og <a href="https://github.com/mahmoud">Mahmoud
+    Hashemi</a>.
+blog_link: Lær meir på Hatnote-bloggen
+learn_more: >-
+    Lær meir om <a href="http://weekly.hatnote.com">Weeklypedia
+    Digest</a>!
+
+#-----------
+# Email footer
+#------------------------------------------------------------------------------
+
+sent_to: This email was sent to
+unsubscribe: unsubscribe from this list

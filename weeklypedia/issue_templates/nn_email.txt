@@ -1,0 +1,49 @@
+The WEEKLYPEDIA: Issue {issue_number}, {date} ({full_lang_name} Wikipedia Edition)
+
+{intro|s}
+
+=== Artiklar ===
+
+{#stats}Denne veka gjorde {total_users|ci} forfattarar  {edits|ci} endringar på
+ {titles|ci} ulike artiklar.{/stats} Topp 20 artiklar denne veka.:
+
+{#mainspace}
+{@idx_1}{.}{/idx_1}. {title_s} ‭({edits|ci} endringar av {users} forfattarar)‬
+	https://{short_lang_name|s}.wikipedia.org/wiki/{title|uc}
+{/mainspace}
+
+=== Nye artiklar ===
+
+Dei ti mest redigerte artiklane som blei oppretta den siste veka:
+
+{#new_articles}
+{@idx_1}{.}{/idx_1}. {title_s} ‭({edits|ci} endringar av {users} forfattarar)‬
+    https://{short_lang_name|s}.wikipedia.org/wiki/{title|uc}
+{/new_articles}
+
+=== Diskusjonar ===
+
+Dei mest aktive diskusjonane:
+
+{#talkspace}
+{@idx_1}{.}{/idx_1}. {title_s}
+	https://{short_lang_name|s}.wikipedia.org/wiki/Talk:{title|uc}
+{/talkspace}
+
+=== Statistikk ===
+
+Nokre tal frå den siste veka:
+
+* {stats.users|ci} registrerte brukarar {stats.anon_ip_count|ci} uregistrerte brukarar gjorde {stats.edits|ci} endringar på {stats.titles|ci} artiklar
+
+* Uregistrerte brukarar gjorde {stats.anon_edits|ci} endringar på {stats.anon_titles|ci} artiklar
+
+* {stats.bot_count|ci} roboter gjorde {stats.bot_edits|ci} endringar på {stats.bot_titles|ci} artiklar
+
+Learn more about the Weeklypedia Digest: http://weekly.hatnote.com/
+
+This email was sent to [Email]
+
+Unsubscribe: [unsubscribe]
+
+Hatnote · 131 E Empire Street · San Jose, CA 95112 · USA
