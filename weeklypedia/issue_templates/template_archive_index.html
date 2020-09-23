@@ -39,7 +39,7 @@
           <input type="hidden" name="subform" value="yes"/>
           <input class="sub-button" type="submit" name="submit" value="subscribe" id="submit"/>
         </form>
-
+        {?issues}
         <h2>{lang} Archives</h2>
         
         <ul class="buttons archive-list">
@@ -47,6 +47,7 @@
           <li><a href="{path}">{date}</a></li>
           {/issues}
         </ul>
+        {/issues}
       <div class="content">
         <h2>About</h2>
         <p>This project retrieves a list of the week's recent changes using <a href="http://tools.wmflabs.org/">Wikimedia Tool Labs</a>, and delivers emails using MailChimp. Code and more information <a href="https://github.com/hatnote/weeklypedia">available on GitHub</a>. Built by <a href="https://github.com/slaporte">Stephen LaPorte</a> and <a href="https://github.com/mahmoud">Mahmoud Hashemi</a>.</p>

@@ -242,7 +242,9 @@ def render_index(issue_ashes_env):
     # does not check if this date is in the past
     next_date = (latest_date + timedelta(days=7)).strftime(date_format)
     context = {'next_date': next_date,
-               'volume': get_next_issue_number(DEFAULT_LANGUAGE)}
+               'volume': get_next_issue_number(DEFAULT_LANGUAGE),
+               'supported_langs': [{'lang': l, 'full': LANG_MAP[l]}
+                                   for l in SUPPORTED_LANGS]}
     context.update(preview)
     rendered_index = issue_ashes_env.render('template_index.html', context)
     rendered_index = rendered_index.encode('utf-8')
