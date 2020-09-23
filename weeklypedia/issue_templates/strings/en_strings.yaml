@@ -1,0 +1,117 @@
+#------------------
+# Weeklypedia
+#    If you want to translate the Weeklypedia newsletter, start with a copy
+#    of this file and leave us a note at:
+#    https://github.com/hatnote/weeklypedia/issues
+#------------------------------------------------------------------------------
+
+#-----------
+# Introduction
+#------------------------------------------------------------------------------
+
+head_title: >-
+    the WEEKLYPEDIA ({full_lang_name}, Issue {issue_number})
+
+body_title: >-
+    <em>the</em> WEEKLYPEDIA
+
+description: >- 
+    A list of the most edited Wikipedia articles and
+    discussions from the last week.  
+
+delivery_description: Delivered every Friday by email.
+home_link: Home 
+archive_link: "{local.full_lang_name} edition archives"
+issue_label: Issue {issue_number}, {local.date} 
+language_label: ({local.full_lang_name} Wikipedia edition) 
+intro: >-
+    Hello there! Welcome to our weekly digest of Wikipedia activity.
+
+#-----------
+# Article section
+#------------------------------------------------------------------------------
+
+articles_heading: Articles
+articles_summary: >-
+    This week, {total_users|ci} authors made {edits|ci} changes to
+    {titles|ci} different articles.
+
+articles_intro: The top 20 articles for the week
+
+diff_count: "{edits|ci} changes"
+diff_author_count: by {users} authors
+
+#-----------
+# New articles section
+#------------------------------------------------------------------------------
+
+new_articles_heading: New Articles
+# new_articles_summary: # TODO
+new_articles_intro: >-
+    The ten most actively edited articles created within the last week
+
+#-----------
+# Discussion section
+#------------------------------------------------------------------------------
+
+discussions_heading: Discussions
+# discussions_summary: # TODO
+discussions_intro: The most active discussions
+
+#-----------
+# Stats section
+#------------------------------------------------------------------------------
+
+stats_heading: Stats
+stats_intro: A few numbers from last week
+user_edit_counts: >- 
+    {stats.users|ci} registered users and
+    {stats.anon_ip_count|ci} unregistered users made {stats.edits|ci}
+    edits to {stats.titles|ci} articles
+
+anon_edit_counts: >-
+    Unregistered users made {stats.anon_edits|ci} edits to
+    {stats.anon_titles|ci} articles
+
+
+bot_edit_counts: >- 
+    {stats.bot_count|ci} robots made
+    {stats.bot_edits|ci} edits to {stats.bot_titles|ci} articles
+
+#-----------
+# subscription invitation
+#------------------------------------------------------------------------------
+
+signup: Sign up
+pitch: >-
+    If you want to stay up to date with the most active articles and
+    discussions, please sign up for future issues.
+
+email: "Email:"
+subscribe: Subscribe
+
+#-----------
+# Bottom section
+#------------------------------------------------------------------------------
+
+about_heading: About
+about_text: >-
+    This project retrieves a list of the week's recent changes using <a
+    href="http://tools.wmflabs.org/">Wikimedia Tool Labs</a>, and
+    delivers emails using Sendy. Code and more information <a
+    href="https://github.com/hatnote/weeklypedia">available on
+    GitHub</a>. Built by <a href="https://github.com/slaporte">Stephen
+    LaPorte</a> and <a href="https://github.com/mahmoud">Mahmoud
+    Hashemi</a>.
+
+blog_link: Learn more on the Hatnote blog
+learn_more: >-
+    Learn more about the <a href="http://weekly.hatnote.com">Weeklypedia
+    Digest</a>!
+
+#-----------
+# Email footer
+#------------------------------------------------------------------------------
+
+sent_to: This email was sent to
+unsubscribe: unsubscribe from this list
