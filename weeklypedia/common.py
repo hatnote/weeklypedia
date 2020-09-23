@@ -3,6 +3,7 @@
 import os
 import json
 from os.path import dirname, join as pjoin
+from collections import OrderedDict
 
 DEBUG = False
 
@@ -35,34 +36,36 @@ LOCAL_LANG_MAP = {'en': u'English',
                   'te': u'తెలుగు',
                   'oc': 'Occitan',
                   'ru': 'Russian',
-                  'uk': 'Ukrainian'}
+                  'uk': 'Ukrainian',
+                  'cs': u'Česká'}
 
 SENDY_KEY = json.load(open(os.path.join(_CUR_PATH, 'secrets.json'))).get('sendy_key')
 
 DEBUG_ID = 'VN7NFOFUPp5WjrbMSH7Puw'
-SENDY_IDS = {'ca': '9sW1OtFlCbJlYgxSXuahHQ',
-             'zh': 'aSQ6TT0VKpw0tmzBPaRZDg',
-             'da': '0cs1zVQp3892EjjL0763350TeQ',
-             #'en': 'ccIjgMNDQjgxlFR8MrQS3g', # load testing
-             'en': 'rFf1E97OGw9qMfZh1F81KA',
-             'es': 'HTPao3LPmzm0UrCNxfBUgA',
-             'eo': 'H804892jOtJrNTukmVWOlrbA',
-             'et': 'db8mkJ2Tl6pnNUIIVfMFog',
-             'fr': 'ELz1OOSd3olC6LSCJmCqhw',
-             'de': 't0892Imxu8HTkzoPkrow11MQ',
-             'it': 'EkOruTQZ64fx7V5k9heZNw',
-             'kn': 'Dn9KffuyqLRKSY9XAwPCHQ',
-             'ko': '65Y8dYqreq2Frkav2WmJ9Q',
-             'lv': 'zgfaJH8Jskz7VxNai9zc763A',
-             'sv': 'bqpefw4ZBxMBHxrTz9dPKg',
-             'fa': 'mRGhgpBb4RnwDe25RtP8fA',
-             'el': 'Ts6mbUlmOCiD0mlWPL8T4A',
-             'oc': 'OrhmrHkNlTRR9KWNMAgDMQ',
-             'ru': 'IUDkAYoiJDQ7P3AQtLIAhQ',
-             'es': '5EzGTlwChgHME1TDa763nncA',
-             'te': 'rp4VkbQ1p2QXi560nIrF3w',
-             'ur': 'QiUlnjE3S9kPdvpzWQdK5Q',
-             'uk': 'gYfAtFPIVbJgVLkEfpO892Uw '}
+SENDY_IDS = OrderedDict([('en', 'rFf1E97OGw9qMfZh1F81KA'),
+                         ('ca', '9sW1OtFlCbJlYgxSXuahHQ'),
+                         ('zh', 'aSQ6TT0VKpw0tmzBPaRZDg'),
+                         ('cs', 'ZnzIC6KALxUnATGSCgSL9A'),
+                         ('da', '0cs1zVQp3892EjjL0763350TeQ'),
+                         #'en': 'ccIjgMNDQjgxlFR8MrQS3g', # load testing
+                         ('eo', 'H804892jOtJrNTukmVWOlrbA'),
+                         ('et', 'db8mkJ2Tl6pnNUIIVfMFog'),
+                         ('fr', 'ELz1OOSd3olC6LSCJmCqhw'),
+                         ('de', 't0892Imxu8HTkzoPkrow11MQ'),
+                         ('el', 'Ts6mbUlmOCiD0mlWPL8T4A'),
+                         ('it', 'EkOruTQZ64fx7V5k9heZNw'),
+                         ('kn', 'Dn9KffuyqLRKSY9XAwPCHQ'),
+                         ('ko', '65Y8dYqreq2Frkav2WmJ9Q'),
+                         ('lv', 'zgfaJH8Jskz7VxNai9zc763A'),
+                         ('oc', 'OrhmrHkNlTRR9KWNMAgDMQ'),
+                         ('fa', 'mRGhgpBb4RnwDe25RtP8fA'),
+                         ('ru', 'IUDkAYoiJDQ7P3AQtLIAhQ'),
+                         ('es', '5EzGTlwChgHME1TDa763nncA'),
+                         ('sv', 'bqpefw4ZBxMBHxrTz9dPKg'),
+                         ('te', 'rp4VkbQ1p2QXi560nIrF3w'),
+                         ('uk', 'gYfAtFPIVbJgVLkEfpO892Uw'),
+                         ('ur', 'QiUlnjE3S9kPdvpzWQdK5Q'),])
+                        
 
 SUPPORTED_LANGS = SENDY_IDS.keys()
 

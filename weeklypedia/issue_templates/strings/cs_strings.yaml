@@ -79,15 +79,26 @@ bot_edit_counts: >-
     {stats.bot_edits|ci} změn do {stats.bot_titles|ci} článků
 
 #-----------
+# subscription invitation
+#------------------------------------------------------------------------------
+
+signup: Začít odebírat
+pitch: >-
+    If you want to stay up to date with the most active articles and
+    discussions, please sign up for future issues.
+
+email: "Email:"
+subscribe: Subscribe
+
+#-----------
 # Bottom section
 #------------------------------------------------------------------------------
 
-signup_link: Začít odebírat
-about_heading: O Weeklypedii:
+about_heading: "O Weeklypedii:"
 about_text: >-
     Každý týden pro vás získáváme přehled nejdůležitějších změn pomocí <a
     href="http://tools.wmflabs.org/">Wikimedia Tool Labs</a>, a do vaší schránky
-    jej doručíme MailChimpem. Zdrojový kód a další informace <a
+    jej doručíme Sendy. Zdrojový kód a další informace <a
     href="https://github.com/hatnote/weeklypedia">na GitHubu</a>. Přivedeno na svět <a href="https://github.com/slaporte">Stephenem
     LaPortem</a> a <a href="https://github.com/mahmoud">Mahmoudem
     Hashemim</a>.    
@@ -96,3 +107,10 @@ blog_link: Více informací na Hatnote blogu
 learn_more: >-
     Více informací o <a href="http://weekly.hatnote.com">Weeklypedia
     Digest</a>!
+
+#-----------
+# Email footer
+#------------------------------------------------------------------------------
+
+sent_to: This email was sent to
+unsubscribe: unsubscribe from this list

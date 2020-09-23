@@ -1,0 +1,48 @@
+The WEEKLYPEDIA: Issue {issue_number}, {date} ({full_lang_name} Wikipedia Edition)
+
+{intro|s}
+
+=== Články ===
+
+{#stats}Tento týden přispělo {total_users|ci} uživatelů celkem {edits|ci} změn do  {titles|ci} různých článků{/stats} 20 nejaktivnějších článků tento týden:
+
+{#mainspace}
+{@idx_1}{.}{/idx_1}. {title_s} ‭({edits|ci} změn od {users} přispěvatelů)‬
+	https://{short_lang_name|s}.wikipedia.org/wiki/{title|uc}
+{/mainspace}
+
+=== Nové články ===
+
+Deset nejčastěji editovaných článků v uplynulém týdnu:
+
+{#new_articles}
+{@idx_1}{.}{/idx_1}. {title_s} ‭({edits|ci} změn od {users} přispěvatelů)‬
+    https://{short_lang_name|s}.wikipedia.org/wiki/{title|uc}
+{/new_articles}
+
+=== Diskuze ===
+
+Nejaktivnější diskuze:
+
+{#talkspace}
+{@idx_1}{.}{/idx_1}. {title_s}
+	https://{short_lang_name|s}.wikipedia.org/wiki/Talk:{title|uc}
+{/talkspace}
+
+=== Statistiky ===
+
+Několik čísel z uplynulého týdne:
+
+* {stats.users|ci} registrovaných a  {stats.anon_ip_count|ci} neregistrovaných uživatelů přispělo {stats.edits|ci} změnami do {stats.titles|ci} článků
+
+* Neregistrovaní uživatelé přispěli {stats.anon_edits|ci} změnami do  {stats.anon_titles|ci} článků
+
+* {stats.bot_count|ci} botů přidalo  {stats.bot_edits|ci} změn do {stats.bot_titles|ci} článků
+
+Learn more about the Weeklypedia Digest: http://weekly.hatnote.com/
+
+This email was sent to [Email]
+
+Unsubscribe: [unsubscribe]
+
+Hatnote · 131 E Empire Street · San Jose, CA 95112 · USA
