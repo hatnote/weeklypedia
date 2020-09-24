@@ -1,0 +1,120 @@
+#------------------
+# Weeklypedia
+#    If you want to translate the Weeklypedia newsletter, start with a copy
+#    of this file and leave us a note at:
+#    https://github.com/hatnote/weeklypedia/issues
+#------------------------------------------------------------------------------
+
+#-----------
+# Introduction
+#------------------------------------------------------------------------------
+
+head_title: >-
+    WEEKLYPEDIA ({full_lang_name}, {issue_number}. alea)
+
+body_title: >-
+    WEEKLYPEDIA
+
+description: >-
+    Azken astean Wikipedian gehien aldatu diren artikulu
+    eta eztabaiden zerrenda.
+
+
+delivery_description: Ostiraletan epostaz bidaltzen da.
+home_link: Hasiera
+archive_link: "{local.full_lang_name} edizioaren artxiboa"
+issue_label: {issue_number}. alea, {local.date}
+language_label: ({local.full_lang_name} Wikipedia edizioa)
+intro: >-
+    Kaixo! Ongi etorri Wikipediaren asteroko laburpenera.
+
+#-----------
+# Article section
+#------------------------------------------------------------------------------
+
+articles_heading: Artikuluak
+articles_summary: >-
+    Aste honetan, {total_users|ci} erabiltzailek {edits|ci} aldaketa
+    egin dituzte {titles|ci} artikulu ezberdinetan.
+
+articles_intro: Asteko 20 artikulu aldatuenak
+
+diff_count: "{edits|ci} aldaketa"
+diff_author_count: {users} egilek eginda
+
+#-----------
+# New articles section
+#------------------------------------------------------------------------------
+
+new_articles_heading: Artikulu berriak
+# new_articles_summary: # TODO
+new_articles_intro: >-
+    Azken astean sortu eta aktiboenak izan diren hamar artikuluak
+
+#-----------
+# Discussion section
+#------------------------------------------------------------------------------
+
+discussions_heading: Eztabaidak
+# discussions_summary: # TODO
+discussions_intro: Eztabaida aktiboenak
+
+#-----------
+# Stats section
+#------------------------------------------------------------------------------
+
+stats_heading: Estatistikak
+stats_intro: Aste honen zenbakietako batzuk
+user_edit_counts: >-
+    {stats.users|ci} erabiltzaile erregistratu eta
+    {stats.anon_ip_count|ci} erregistratu gabekok egin dituzte {stats.edits|ci}
+    edizio {stats.titles|ci} artikulutan
+
+anon_edit_counts: >-
+    Erregistratu gabeko erabiltzaileek {stats.anon_edits|ci} aldaketa
+    egin dituzte {stats.anon_titles|ci} artikulutan
+
+
+bot_edit_counts: >-
+    {stats.bot_count|ci} robotek
+    {stats.bot_edits|ci} aldaketa egin dituzte {stats.bot_titles|ci} artikulutan
+
+#-----------
+# subscription invitation
+#------------------------------------------------------------------------------
+
+signup: Harpidetu zaitez
+pitch: >-
+    Artikulu eguneratu eta eztabaida aktiboenak zein diren jakin nahi
+    baduzu, harpidetu zaitez.
+
+email: "Eposta:"
+subscribe: Harpidetu
+
+#-----------
+# Bottom section
+#------------------------------------------------------------------------------
+
+about_heading: Honi buruz
+about_text: >-
+    Proiektu honek, azken asteko aldaketak <a
+    href="http://tools.wmflabs.org/">Wikimedia Tool Labs</a> erabiliz
+    ekarri eta eposta mezuak Sendy erabiliz bidaltzen ditu. Kodea eta
+    informazio gehigarria <a
+    href="https://github.com/hatnote/weeklypedia">GitHuben duzue</a>.
+    <a href="https://github.com/slaporte">Stephen
+    LaPorte</a> eta <a href="https://github.com/mahmoud">Mahmoud
+    Hashemi</a>k egina.
+
+
+blog_link: Irakurri honi buruz gehiago Hatnote blogean
+learn_more: >-
+    Irakurri gehiago <a href="http://weekly.hatnote.com">Weeklypedia
+    Digest</a>i buruz!
+
+#-----------
+# Email footer
+#------------------------------------------------------------------------------
+
+sent_to: Mezu hau honi bidali zaio
+unsubscribe: harpidetza eten
