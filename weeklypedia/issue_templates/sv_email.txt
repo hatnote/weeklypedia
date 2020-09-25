@@ -7,7 +7,7 @@ The WEEKLYPEDIA: Issue {issue_number}, {date} ({full_lang_name} Wikipedia Editio
 {#stats}Denna vecka gjorde{total_users|ci} användare {edits|ci} ändringar i {titles|ci} olika artiklar.{/stats} Topp-20 artiklarna denna vecka:
 
 {#mainspace}
-{@idx_1}{.}{/idx_1}. {title_s} ‭({edits|ci} ändringar by {users} användare)‬
+{@idx_1}{.}{/idx_1}. {title_s} ‭({edits|ci} ändringar av {users} användare)‬
 	https://{short_lang_name|s}.wikipedia.org/wiki/{title|uc}
 {/mainspace}
 
@@ -16,7 +16,7 @@ The WEEKLYPEDIA: Issue {issue_number}, {date} ({full_lang_name} Wikipedia Editio
 De tio mest redigerade artklarna skapade senaste veckan:
 
 {#new_articles}
-{@idx_1}{.}{/idx_1}. {title_s} ‭({edits|ci} ändringar by {users} användare)‬
+{@idx_1}{.}{/idx_1}. {title_s} ‭({edits|ci} ändringar av {users} användare)‬
     https://{short_lang_name|s}.wikipedia.org/wiki/{title|uc}
 {/new_articles}
 

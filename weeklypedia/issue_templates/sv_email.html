@@ -27,14 +27,14 @@
                                                 <p style="margin: 0;padding: 0;font-family: Sans-Serif;font-size: 14px;line-height: 1.6;margin-bottom: 10px;font-weight: normal;">{#stats}Denna vecka gjorde{total_users|ci} användare {edits|ci} ändringar i {titles|ci} olika artiklar.{/stats} Topp-20 artiklarna denna vecka:</p>
                                                 <ol style="margin: 0;padding: 0;font-family: Sans-Serif;font-size: 14px;line-height: 1.6;margin-bottom: 10px;font-weight: normal;">
                                                         {#mainspace}
-                                                        <li style="margin: 0;padding: 0;font-family: Sans-Serif;font-size: 100%;line-height: 1.6;margin-left: 5px;list-style-position: inside;"><a href="https://{short_lang_name|s}.wikipedia.org/wiki/{title|uc}" target="_blank" style="margin: 0;padding: 0;font-family: Sans-Serif;font-size: 100%;line-height: 1.6;color: #348eda;">{title_s}</a> <span dir="ltr">(<a href="https://{short_lang_name|s}.wikipedia.org/w/index.php?title={title|uc}&diff={rev_ids.new}&oldid={rev_ids.old}" style="margin: 0;padding: 0;font-family: Sans-Serif;font-size: 100%;line-height: 1.6;color: #348eda;">{edits|ci} ändringar</a> by {users} användare)</span></li>
+                                                        <li style="margin: 0;padding: 0;font-family: Sans-Serif;font-size: 100%;line-height: 1.6;margin-left: 5px;list-style-position: inside;"><a href="https://{short_lang_name|s}.wikipedia.org/wiki/{title|uc}" target="_blank" style="margin: 0;padding: 0;font-family: Sans-Serif;font-size: 100%;line-height: 1.6;color: #348eda;">{title_s}</a> <span dir="ltr">(<a href="https://{short_lang_name|s}.wikipedia.org/w/index.php?title={title|uc}&diff={rev_ids.new}&oldid={rev_ids.old}" style="margin: 0;padding: 0;font-family: Sans-Serif;font-size: 100%;line-height: 1.6;color: #348eda;">{edits|ci} ändringar</a> av {users} användare)</span></li>
                                                         {/mainspace}
                                                 </ol>
                                                 <h2 style="margin: 40px 0 10px;padding: 0;font: 800 Sans-Serif;font-size: 28px;line-height: 1.2;text-transform: uppercase;margin-bottom: 15px;color: #000;font-weight: 200;">Nya artiklar</h2>
                                                 <p style="margin: 0;padding: 0;font-family: Sans-Serif;font-size: 14px;line-height: 1.6;margin-bottom: 10px;font-weight: normal;">De tio mest redigerade artklarna skapade senaste veckan:</p>
                                                 <ol style="margin: 0;padding: 0;font-family: Sans-Serif;font-size: 14px;line-height: 1.6;margin-bottom: 10px;font-weight: normal;">
                                                         {#new_articles}
-                                                        <li style="margin: 0;padding: 0;font-family: Sans-Serif;font-size: 100%;line-height: 1.6;margin-left: 5px;list-style-position: inside;"><a href="https://{short_lang_name|s}.wikipedia.org/wiki/{title|uc}" target="_blank" style="margin: 0;padding: 0;font-family: Sans-Serif;font-size: 100%;line-height: 1.6;color: #348eda;">{title_s}</a> <span dir="ltr">({edits|ci} ändringar by {users} användare)</span></li>
+                                                        <li style="margin: 0;padding: 0;font-family: Sans-Serif;font-size: 100%;line-height: 1.6;margin-left: 5px;list-style-position: inside;"><a href="https://{short_lang_name|s}.wikipedia.org/wiki/{title|uc}" target="_blank" style="margin: 0;padding: 0;font-family: Sans-Serif;font-size: 100%;line-height: 1.6;color: #348eda;">{title_s}</a> <span dir="ltr">({edits|ci} ändringar av {users} användare)</span></li>
                                                         {/new_articles}
                                                 </ol>
                                                 <h2 style="margin: 40px 0 10px;padding: 0;font: 800 Sans-Serif;font-size: 28px;line-height: 1.2;text-transform: uppercase;margin-bottom: 15px;color: #000;font-weight: 200;">Diskussioner</h2>
@@ -69,9 +69,9 @@
                     <table border="0" cellpadding="0" cellspacing="0">
                         <tbody><tr>
                             <td align="center" valign="top" style="color:#606060;font-family:Helvetica,Arial,sans-serif;font-size:11px;line-height:150%;padding-right:20px;padding-bottom:5px;padding-left:20px;text-align:center">
-                                This email was sent to [Email]
+                                Denna epost skickades till [Email]
                                 <br>
-                                <a href="{archive_link}" style="color:#404040!important" target="_blank">Prenumerera!</a>  · <a href="[unsubscribe]" style="color:#404040!important" target="_blank">unsubscribe from this list</a>
+                                <a href="{archive_link}" style="color:#404040!important" target="_blank">Prenumerera!</a>  · <a href="[unsubscribe]" style="color:#404040!important" target="_blank">avsluta prenumeration</a> · <a href="https://github.com/hatnote/weeklypedia#localization">Help Translate</a>
                                 <br>
                                 Hatnote · 558 N 3rd St. · San Jose, CA 95112 · USA
                                 <br>
