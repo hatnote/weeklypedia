@@ -20,10 +20,10 @@ description: >-
     na última semana.
     
 
-delivery_description: Delivered every Friday by email.
+delivery_description: Entregue toda sexta-feira via email.
 home_link: Home 
 archive_link: "{local.full_lang_name} edition archives"
-issue_label: Issue {issue_number}, {local.date} 
+issue_label: Edição {issue_number}, {local.date} 
 language_label: ({local.full_lang_name} Wikipedia edition) 
 intro: >-
     Oi! Bem-vindos ao nosso resumo semanal da atividade na Wikipedia.
@@ -32,21 +32,20 @@ intro: >-
 # Article section
 #------------------------------------------------------------------------------
 
-articles_heading: Articles
+articles_heading: Artigos
 articles_summary: >-
     Essa semana, {total_users|ci} autores fizeram {edits|ci} alterações em
-    {titles|ci} diferentes artigos.
+    artigos {titles|ci} diferentes.
 
-articles_intro: The top 20 articles for the week
+articles_intro: Os 20 artigos mais editados da semana
 
-diff_count: "{edits|ci} changes"
-diff_author_count: by {users} authors
-
+diff_count: "{edits|ci} edições"
+diff_author_count: por {users} autores
 #-----------
 # New articles section
 #------------------------------------------------------------------------------
 
-new_articles_heading: New Articles
+new_articles_heading: Novos artigos
 # new_articles_summary: # TODO
 new_articles_intro: >-
     Os dez mais ativamente editados artigos criados na últma semana.
@@ -56,16 +55,16 @@ new_articles_intro: >-
 # Discussion section
 #------------------------------------------------------------------------------
 
-discussions_heading: Discussions
+discussions_heading: Discussões
 # discussions_summary: # TODO
-discussions_intro: The most active discussions
+discussions_intro: As discussões mais ativas
 
 #-----------
 # Stats section
 #------------------------------------------------------------------------------
 
-stats_heading: Stats
-stats_intro: A few numbers from last week
+stats_heading: Estatísticas
+stats_intro: Alguns números da semana passada
 user_edit_counts: >- 
     {stats.users|ci} usuários registrados e
     {stats.anon_ip_count|ci} usuários não registrados fizeram {stats.edits|ci}
@@ -84,19 +83,19 @@ bot_edit_counts: >-
 # subscription invitation
 #------------------------------------------------------------------------------
 
-signup: Sign up
+signup: Assine
 pitch: >-
-    If you want to stay up to date with the most active articles and
-    discussions, please sign up for future issues.
+    Se você gostaria de se manter atualizado com os artigos e discussões mais ativos,
+    por favor, assine para receber as futuras edições.
 
 email: "Email:"
-subscribe: Subscribe
+subscribe: Assine
 
 #-----------
 # Bottom section
 #------------------------------------------------------------------------------
 
-about_heading: About
+about_heading: Sobre
 about_text: >-
     Este projeto recupera uma lista das modificações da semana usando a <a
     href="http://tools.wmflabs.org/">Wikimedia Tool Labs</a>, e 
@@ -106,7 +105,7 @@ about_text: >-
     LaPorte</a> e <a href="https://github.com/mahmoud">Mahmoud
     Hashemi</a>.
 
-blog_link: Learn more on the Hatnote blog
+blog_link: Saiba mais no blog Hatnote
 learn_more: >-
     Saiba mais sobre o <a href="http://weekly.hatnote.com">Weeklypedia
     Digest</a>!
@@ -115,5 +114,5 @@ learn_more: >-
 # Email footer
 #------------------------------------------------------------------------------
 
-sent_to: This email was sent to
-unsubscribe: unsubscribe from this list
+sent_to: Esse email foi enviado para
+unsubscribe: Cancelar inscrição.
