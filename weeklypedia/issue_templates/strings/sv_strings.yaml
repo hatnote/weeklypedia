@@ -23,7 +23,7 @@ articles_summary: Denna vecka gjorde{total_users|ci} användare {edits|ci} ändr
 articles_intro: Topp-20 artiklarna denna vecka
 
 diff_count: "{edits|ci} ändringar"
-diff_author_count: by {users} användare
+diff_author_count: av {users} användare
 
 new_articles_heading: Nya artiklar
 # new_articles_summary: # TODO
@@ -50,8 +50,8 @@ bot_edit_counts: >-
 
 signup: Prenumerera!
 pitch: >-
-    If you want to stay up to date with the most active articles and
-    discussions, please sign up for future issues.
+    Om du vill vara uppdaterad med de mest aktiva artiklarna och
+    diskussionerna, prenumerera på framtida utskick.
 
 email: "Email:"
 subscribe: Subscribe
@@ -62,7 +62,7 @@ subscribe: Subscribe
 
 about_heading: Om
 about_text: >-
-  Detta projekt hmtar en lista av veckans senaste ändringar genom <a href="http://tools.wmflabs.org/">Wikimedia Tool Labs</a>, och skickar epoat genom Sendy. Kod och mer information <a href="https://github.com/hatnote/weeklypedia">finns på GitHub</a>. Byggt av <a href="https://github.com/slaporte">Stephen LaPorte</a> och <a href="https://github.com/mahmoud">Mahmoud Hashemi</a>.
+  Detta projekt hämtar en lista av veckans senaste ändringar genom <a href="http://tools.wmflabs.org/">Wikimedia Tool Labs</a>, och skickar epoat genom Sendy. Kod och mer information <a href="https://github.com/hatnote/weeklypedia">finns på GitHub</a>. Byggt av <a href="https://github.com/slaporte">Stephen LaPorte</a> och <a href="https://github.com/mahmoud">Mahmoud Hashemi</a>.
 blog_link: Läs mer på bloggen Hatnote
 learn_more: Läs mer om <a href="http://weekly.hatnote.com">Weeklypedia Digest</a>!
 
@@ -70,5 +70,5 @@ learn_more: Läs mer om <a href="http://weekly.hatnote.com">Weeklypedia Digest</
 # Email footer
 #------------------------------------------------------------------------------
 
-sent_to: This email was sent to
-unsubscribe: unsubscribe from this list
+sent_to: Denna epost skickades till
+unsubscribe: avsluta prenumeration
