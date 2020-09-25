@@ -23,7 +23,7 @@ description: >-
 delivery_description: Ostiraletan epostaz bidaltzen da.
 home_link: Hasiera
 archive_link: "{local.full_lang_name} edizioaren artxiboa"
-issue_label: {issue_number}. alea, {local.date}
+issue_label: "{issue_number}. alea, {local.date}"
 language_label: ({local.full_lang_name} Wikipedia edizioa)
 intro: >-
     Kaixo! Ongi etorri Wikipediaren asteroko laburpenera.
@@ -40,7 +40,7 @@ articles_summary: >-
 articles_intro: Asteko 20 artikulu aldatuenak
 
 diff_count: "{edits|ci} aldaketa"
-diff_author_count: {users} egilek eginda
+diff_author_count: "{users} egilek eginda"
 
 #-----------
 # New articles section

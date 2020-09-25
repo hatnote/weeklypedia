@@ -40,12 +40,15 @@ LOCAL_LANG_MAP = {'en': u'English',
                   'cs': u'Česká',
                   'nn': u'Norwegian (Nynorsk)',
                   'no': u'Norwegian (Bokmål)',
-                  'pt': u'Portuguese'}
+                  'pt': u'Portuguese',
+                  'eu': 'Euskarazko',
+                  'tr': 'Türkçe'}
 
 SENDY_KEY = json.load(open(os.path.join(_CUR_PATH, 'secrets.json'))).get('sendy_key')
 
 DEBUG_ID = 'VN7NFOFUPp5WjrbMSH7Puw'
 SENDY_IDS = OrderedDict([('en', 'rFf1E97OGw9qMfZh1F81KA'),
+                         ('eu', '41DIYMms892CAy6kyEXYeO6w'),
                          ('ca', '9sW1OtFlCbJlYgxSXuahHQ'),
                          ('zh', 'aSQ6TT0VKpw0tmzBPaRZDg'),
                          ('cs', 'ZnzIC6KALxUnATGSCgSL9A'),
@@ -69,6 +72,7 @@ SENDY_IDS = OrderedDict([('en', 'rFf1E97OGw9qMfZh1F81KA'),
                          ('es', '5EzGTlwChgHME1TDa763nncA'),
                          ('sv', 'bqpefw4ZBxMBHxrTz9dPKg'),
                          ('te', 'rp4VkbQ1p2QXi560nIrF3w'),
+                         ('tr', 'CSXaCOL4iKuSPZ892x69TL892A'),
                          ('uk', 'gYfAtFPIVbJgVLkEfpO892Uw'),
                          ('ur', 'QiUlnjE3S9kPdvpzWQdK5Q'),])
                         

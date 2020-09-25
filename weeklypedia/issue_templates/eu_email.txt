@@ -1,0 +1,48 @@
+The WEEKLYPEDIA: Issue {issue_number}, {date} ({full_lang_name} Wikipedia Edition)
+
+{intro|s}
+
+=== Artikuluak ===
+
+{#stats}Aste honetan, {total_users|ci} erabiltzailek {edits|ci} aldaketa egin dituzte {titles|ci} artikulu ezberdinetan.{/stats} Asteko 20 artikulu aldatuenak:
+
+{#mainspace}
+{@idx_1}{.}{/idx_1}. {title_s} ‭({edits|ci} aldaketa {users} egilek eginda)‬
+	https://{short_lang_name|s}.wikipedia.org/wiki/{title|uc}
+{/mainspace}
+
+=== Artikulu berriak ===
+
+Azken astean sortu eta aktiboenak izan diren hamar artikuluak:
+
+{#new_articles}
+{@idx_1}{.}{/idx_1}. {title_s} ‭({edits|ci} aldaketa {users} egilek eginda)‬
+    https://{short_lang_name|s}.wikipedia.org/wiki/{title|uc}
+{/new_articles}
+
+=== Eztabaidak ===
+
+Eztabaida aktiboenak:
+
+{#talkspace}
+{@idx_1}{.}{/idx_1}. {title_s}
+	https://{short_lang_name|s}.wikipedia.org/wiki/Talk:{title|uc}
+{/talkspace}
+
+=== Estatistikak ===
+
+Aste honen zenbakietako batzuk:
+
+* {stats.users|ci} erabiltzaile erregistratu eta {stats.anon_ip_count|ci} erregistratu gabekok egin dituzte {stats.edits|ci} edizio {stats.titles|ci} artikulutan
+
+* Erregistratu gabeko erabiltzaileek {stats.anon_edits|ci} aldaketa egin dituzte {stats.anon_titles|ci} artikulutan
+
+* {stats.bot_count|ci} robotek {stats.bot_edits|ci} aldaketa egin dituzte {stats.bot_titles|ci} artikulutan
+
+Learn more about the Weeklypedia Digest: http://weekly.hatnote.com/
+
+This email was sent to [Email]
+
+Unsubscribe: [unsubscribe]
+
+Hatnote · 131 E Empire Street · San Jose, CA 95112 · USA
