@@ -78,10 +78,21 @@ bot_edit_counts: >-
     {stats.bot_edits|ci} wijzigingen aan in {stats.bot_titles|ci} artikelen
 
 #-----------
+# subscription invitation
+#------------------------------------------------------------------------------
+
+signup: Geef je op!
+pitch: >-
+    If you want to stay up to date with the most active articles and
+    discussions, please sign up for future issues.
+
+email: "Email:"
+subscribe: Subscribe
+
+#-----------
 # Bottom section
 #------------------------------------------------------------------------------
 
-signup_link: Geef je op!
 about_heading: Over
 about_text: >-
     Dit project haalt met <a href="http://tools.wmflabs.org/">Wikimedia Tool Labs</a> 
@@ -94,3 +105,10 @@ blog_link: Ontdek meer op het Hatnote blog
 learn_more: >-
     Ontdek meer over de <a href="http://weekly.hatnote.com">Weeklypedia
     samenvatting</a>!
+
+#-----------
+# Email footer
+#------------------------------------------------------------------------------
+
+sent_to: This email was sent to
+unsubscribe: unsubscribe from this list

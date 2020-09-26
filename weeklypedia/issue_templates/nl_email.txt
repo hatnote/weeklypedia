@@ -1,0 +1,48 @@
+The WEEKLYPEDIA: Issue {issue_number}, {date} ({full_lang_name} Wikipedia Edition)
+
+{intro|s}
+
+=== Artikelen ===
+
+{#stats}Deze week hebben {total_users|ci} auteurs {edits|ci} wijzigingen aangebracht in {titles|ci} verschillende artikelen.{/stats} De top 20 artikelen deze week:
+
+{#mainspace}
+{@idx_1}{.}{/idx_1}. {title_s} ‭({edits|ci} wijzigingen door {users} auteurs)‬
+	https://{short_lang_name|s}.wikipedia.org/wiki/{title|uc}
+{/mainspace}
+
+=== Nieuwe artikelen ===
+
+De tien meest bewerkte artikelen gemaakt in de afgelopen week.:
+
+{#new_articles}
+{@idx_1}{.}{/idx_1}. {title_s} ‭({edits|ci} wijzigingen door {users} auteurs)‬
+    https://{short_lang_name|s}.wikipedia.org/wiki/{title|uc}
+{/new_articles}
+
+=== Discussies ===
+
+De meest actieve discussies:
+
+{#talkspace}
+{@idx_1}{.}{/idx_1}. {title_s}
+	https://{short_lang_name|s}.wikipedia.org/wiki/Talk:{title|uc}
+{/talkspace}
+
+=== Statistieken ===
+
+Wat cijvers over afgelopen week:
+
+* {stats.users|ci} geregistreerde gebruikers en {stats.anon_ip_count|ci} niet geregistreerde gebruikers brachten {stats.edits|ci} wijzigingen aan in {stats.titles|ci} artikelen
+
+* Niet geregistreerde gebruikers brachten {stats.anon_edits|ci} wijzigingen aan in {stats.anon_titles|ci} artikelen
+
+* {stats.bot_count|ci} robots brachten {stats.bot_edits|ci} wijzigingen aan in {stats.bot_titles|ci} artikelen
+
+Learn more about the Weeklypedia Digest: http://weekly.hatnote.com/
+
+This email was sent to [Email]
+
+Unsubscribe: [unsubscribe]
+
+Hatnote · 131 E Empire Street · San Jose, CA 95112 · USA
