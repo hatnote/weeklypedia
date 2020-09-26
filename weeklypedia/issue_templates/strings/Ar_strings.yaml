@@ -1,0 +1,117 @@
+#------------------
+# Weeklypedia
+#    If you want to translate the Weeklypedia newsletter, start with a copy
+#    of this file and leave us a note at:
+#    https://github.com/hatnote/weeklypedia/issues
+#------------------------------------------------------------------------------
+
+#-----------
+# Introduction
+#------------------------------------------------------------------------------
+
+head_title: >-
+    the WEEKLYPEDIA ({full_lang_name}, العدد رقم {issue_number})
+
+body_title: >-
+    <em>the</em> WEEKLYPEDIA
+
+description: >- 
+    قائمة تضمّ أكثر المقالات التي حُررت والنقاشات التي أجريت على ويكيبيديا 
+    خلال الأسبوع الماضي
+
+delivery_description: تُرسل لك كل جمعة على بريدك الإلكتروني
+home_link: الرئيسية 
+archive_link: "{local.full_lang_name} أرشيف الأعداد السابقة"
+issue_label: العدد رقم {issue_number}, {local.date} 
+language_label: ({local.full_lang_name} ويكيبيديا العربية) 
+intro: >-
+    مرحبًا بكم في مختاراتنا الأسبوعية من أنشطة ويكيبيديا
+
+#-----------
+# Article section
+#------------------------------------------------------------------------------
+
+articles_heading: المقالات
+articles_summary: >-
+    خلال هذا الأسبوع, {total_users|ci} مُستخدمًا أو مستخدمة أجرت {edits|ci} تغييرًا على 
+    {titles|ci} مقال/مقالات.
+
+articles_intro: المقالات العشرون الأكثر تحريرًا لهذا الأسبوع
+
+diff_count: "{edits|ci} تغييرًا"
+diff_author_count: by {users} مُستخدمًا أو مستخدمة
+
+#-----------
+# New articles section
+#------------------------------------------------------------------------------
+
+new_articles_heading: المقالات الجديدة
+# new_articles_summary: # TODO
+new_articles_intro: >-
+    المقالات العشرة الأكثر تعديلًا والمُستحدثةالأسبوع الماضي
+
+#-----------
+# Discussion section
+#------------------------------------------------------------------------------
+
+discussions_heading: النقاشات
+# discussions_summary: # TODO
+discussions_intro: النقاشات الأكثر نشاطًا
+
+#-----------
+# Stats section
+#------------------------------------------------------------------------------
+
+stats_heading: الإحصاءات
+stats_intro: بعض أهم الأرقام عما حدث الأسبوع الماضي
+user_edit_counts: >- 
+    {stats.users|ci} مُستخدما أو مستخدمة مسجلة
+    {stats.anon_ip_count|ci} مُستخدما أو مستخدمة غير مسجلة أجروا {stats.edits|ci}
+   تعديلًا على {stats.titles|ci} مقال/مقالات
+
+anon_edit_counts: >-
+    مُستخدمًا أو مستخدمة مسجلةأجروا {stats.anon_edits|ci} تعديلًا على
+    {stats.anon_titles|ci} مقال/مقالات
+
+
+bot_edit_counts: >- 
+    {stats.bot_count|ci} بوت (غير بشري) أجرى
+    {stats.bot_edits|ci} تعديلًا على {stats.bot_titles|ci} مقال/مقالات
+
+#-----------
+# subscription invitation
+#------------------------------------------------------------------------------
+
+signup: اشترك في النشرة
+pitch: >-
+    إن أردت البقاء على اطلاع بأكثر المقالات تعديلًا وتحريرًا وأكثر النقاشات نشاطًا وتفاعلًا 
+على ويكيبيديا، من فضلك اشترك معنا لتحصل على الأعداد المُقبلة من النشرة  
+
+
+email: "بريدك الإلكتروني:"
+subscribe: اشترك الآن
+
+#-----------
+# Bottom section
+#------------------------------------------------------------------------------
+
+about_heading: عن النشرة
+about_text: >-
+    يستخرج هذا المشروع لائحة  أحدث التغييرات باستخدام <a
+    href="http://tools.wmflabs.org/">Wikimedia Tool Labs</a>, ويرسل الرسائل الإلكترونية باستخدام خدمة سَنْدي. لرؤية الكود البرمجي وللمزيد من المعلومات <a
+    href="https://github.com/hatnote/weeklypedia">available on
+    GitHub</a>. أُنشئ المشروع من قبل <a href="https://github.com/slaporte">Stephen
+    LaPorte</a> و <a href="https://github.com/mahmoud">Mahmoud
+    Hashemi</a>.
+
+blog_link: طالع المزيد على مدونة هاتنوت
+learn_more: >-
+   تعرّف أكثر على <a href="http://weekly.hatnote.com">Weeklypedia
+    Digest</a>!
+
+#-----------
+# Email footer
+#------------------------------------------------------------------------------
+
+sent_to: أُرسلت هذه الرسالة الإلكترونية إلى
+unsubscribe: ألغِ اشتراكك من النشرة
