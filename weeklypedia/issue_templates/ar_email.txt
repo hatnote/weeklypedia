@@ -1,0 +1,48 @@
+The WEEKLYPEDIA: Issue {issue_number}, {date} ({full_lang_name} Wikipedia Edition)
+
+{intro|s}
+
+=== المقالات ===
+
+{#stats}خلال هذا الأسبوع, {total_users|ci} مُستخدمًا أو مستخدمة أجرت {edits|ci} تغييرًا على  {titles|ci} مقال/مقالات.{/stats} المقالات العشرون الأكثر تحريرًا لهذا الأسبوع:
+
+{#mainspace}
+{@idx_1}{.}{/idx_1}. {title_s} ‭({edits|ci} تغييرًا by {users} مُستخدمًا أو مستخدمة)‬
+	https://{short_lang_name|s}.wikipedia.org/wiki/{title|uc}
+{/mainspace}
+
+=== المقالات الجديدة ===
+
+المقالات العشرة الأكثر تعديلًا والمُستحدثةالأسبوع الماضي:
+
+{#new_articles}
+{@idx_1}{.}{/idx_1}. {title_s} ‭({edits|ci} تغييرًا by {users} مُستخدمًا أو مستخدمة)‬
+    https://{short_lang_name|s}.wikipedia.org/wiki/{title|uc}
+{/new_articles}
+
+=== النقاشات ===
+
+النقاشات الأكثر نشاطًا:
+
+{#talkspace}
+{@idx_1}{.}{/idx_1}. {title_s}
+	https://{short_lang_name|s}.wikipedia.org/wiki/Talk:{title|uc}
+{/talkspace}
+
+=== الإحصاءات ===
+
+بعض أهم الأرقام عما حدث الأسبوع الماضي:
+
+* {stats.users|ci} مُستخدما أو مستخدمة مسجلة {stats.anon_ip_count|ci} مُستخدما أو مستخدمة غير مسجلة أجروا {stats.edits|ci} تعديلًا على {stats.titles|ci} مقال/مقالات
+
+* مُستخدمًا أو مستخدمة مسجلةأجروا {stats.anon_edits|ci} تعديلًا على {stats.anon_titles|ci} مقال/مقالات
+
+* {stats.bot_count|ci} بوت (غير بشري) أجرى {stats.bot_edits|ci} تعديلًا على {stats.bot_titles|ci} مقال/مقالات
+
+Learn more about the Weeklypedia Digest: http://weekly.hatnote.com/
+
+This email was sent to [Email]
+
+Unsubscribe: [unsubscribe]
+
+Hatnote · 131 E Empire Street · San Jose, CA 95112 · USA

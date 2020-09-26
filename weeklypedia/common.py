@@ -42,12 +42,14 @@ LOCAL_LANG_MAP = {'en': u'English',
                   'no': u'Norwegian (Bokmål)',
                   'pt': u'Portuguese',
                   'eu': 'Euskarazko',
-                  'tr': 'Türkçe'}
+                  'tr': 'Türkçe'
+                  'ar': 'العربية‎'}
 
 SENDY_KEY = json.load(open(os.path.join(_CUR_PATH, 'secrets.json'))).get('sendy_key')
 
 DEBUG_ID = 'VN7NFOFUPp5WjrbMSH7Puw'
 SENDY_IDS = OrderedDict([('en', 'rFf1E97OGw9qMfZh1F81KA'),
+                         ('ar', 'hCmAStibDafIDd892CVIIFIw'),
                          ('eu', '41DIYMms892CAy6kyEXYeO6w'),
                          ('ca', '9sW1OtFlCbJlYgxSXuahHQ'),
                          ('zh', 'aSQ6TT0VKpw0tmzBPaRZDg'),
