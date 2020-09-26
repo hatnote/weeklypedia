@@ -42,7 +42,7 @@ LOCAL_LANG_MAP = {'en': u'English',
                   'no': u'Norwegian (Bokmål)',
                   'pt': u'Portuguese',
                   'eu': 'Euskarazko',
-                  'tr': 'Türkçe'
+                  'tr': 'Türkçe',
                   'ar': 'العربية‎'}
 
 SENDY_KEY = json.load(open(os.path.join(_CUR_PATH, 'secrets.json'))).get('sendy_key')
