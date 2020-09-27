@@ -13,7 +13,7 @@ head_title: >-
     WEEKLYPEDIA ({full_lang_name}, vydání {issue_number})
 
 body_title: >-
-    WEEKLYPEDIA
+    <em>the</em> WEEKLYPEDIA
 
 description: >- 
     Přehled nejdůležitejších článků a diskuzí 
@@ -23,9 +23,9 @@ delivery_description: Každý pátek ve vaší emailové schránce
 home_link: Domů 
 archive_link: "Archív českých vydání"
 issue_label: Vydání {issue_number}, {local.date} 
-language_label: ({local.full_lang_name} edice Wikipedie) 
+language_label: ({local.full_lang_name} edice) 
 intro: >-
-    Dobrý den! Vítejte v našem týdením přehledu toho nejdůležitějšího na Wikipedii
+    Dobrý den! Vítejte v týdením přehledu nejdůležitějších změn na české Wikipedii
 
 #-----------
 # Article section
@@ -36,7 +36,7 @@ articles_summary: >-
     Tento týden přispělo {total_users|ci} uživatelů celkem {edits|ci} změn do 
     {titles|ci} různých článků
 
-articles_intro: 20 nejaktivnějších článků tento týden
+articles_intro: 20 nejaktivnějších původních článků tento týden
 
 diff_count: "{edits|ci} změn"
 diff_author_count: od {users} přispěvatelů
@@ -48,7 +48,7 @@ diff_author_count: od {users} přispěvatelů
 new_articles_heading: Nové články
 # new_articles_summary: # TODO
 new_articles_intro: >-
-    Deset nejčastěji editovaných článků v uplynulém týdnu
+    10 nejčastěji editovaných nových článků v uplynulém týdnu
 
 #-----------
 # Discussion section
@@ -112,5 +112,5 @@ learn_more: >-
 # Email footer
 #------------------------------------------------------------------------------
 
-sent_to: This email was sent to
-unsubscribe: unsubscribe from this list
+sent_to: Tento email byl zaslán na adresu 
+unsubscribe: Ukončit odběr 
