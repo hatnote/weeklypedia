@@ -14,7 +14,7 @@
 <body>
   <div class="container">
     <div class="header">
-      <h1><span>WEEKLYPEDIA</span></h1>
+      <h1><span><em>the</em> WEEKLYPEDIA</span></h1>
       <p>Přehled nejdůležitejších článků a diskuzí  na Wikipedii z uplynulého týdne </p>
       <p>Každý pátek ve vaší emailové schránce</p>
     </div>
@@ -29,7 +29,7 @@
       <div class="content">
         <p id="intro">{intro|s}</p>
         <h2 id="articles">Články</h2>
-        <p>{#stats}Tento týden přispělo {total_users|ci} uživatelů celkem {edits|ci} změn do  {titles|ci} různých článků{/stats} 20 nejaktivnějších článků tento týden:</p>
+        <p>{#stats}Tento týden přispělo {total_users|ci} uživatelů celkem {edits|ci} změn do  {titles|ci} různých článků{/stats} 20 nejaktivnějších původních článků tento týden:</p>
         <ol>
           {#mainspace}
           <li><a href="https://{short_lang_name}.wikipedia.org/wiki/{title}" target="_blank">{title_s}</a> <span dir="ltr">(<a href="https://{short_lang_name}.wikipedia.org/w/index.php?title={title}&diff={rev_ids.new}&oldid={rev_ids.old}">{edits|ci} změn</a> od {users} přispěvatelů)</span></li>
@@ -37,7 +37,7 @@
         </ol>
 
         <h2 id="new-articles">Nové články</h2>
-        <p>Deset nejčastěji editovaných článků v uplynulém týdnu</p>
+        <p>10 nejčastěji editovaných nových článků v uplynulém týdnu</p>
         <ol>
           {#new_articles}
           <li><a href="https://{short_lang_name}.wikipedia.org/wiki/{title}" target="_blank">{title_s}</a> <span dir="ltr">({edits|ci} změn od {users} přispěvatelů)</span></li>

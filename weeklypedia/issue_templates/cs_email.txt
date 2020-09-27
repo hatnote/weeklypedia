@@ -4,7 +4,7 @@ The WEEKLYPEDIA: Issue {issue_number}, {date} ({full_lang_name} Wikipedia Editio
 
 === Články ===
 
-{#stats}Tento týden přispělo {total_users|ci} uživatelů celkem {edits|ci} změn do  {titles|ci} různých článků{/stats} 20 nejaktivnějších článků tento týden:
+{#stats}Tento týden přispělo {total_users|ci} uživatelů celkem {edits|ci} změn do  {titles|ci} různých článků{/stats} 20 nejaktivnějších původních článků tento týden:
 
 {#mainspace}
 {@idx_1}{.}{/idx_1}. {title_s} ‭({edits|ci} změn od {users} přispěvatelů)‬
@@ -13,7 +13,7 @@ The WEEKLYPEDIA: Issue {issue_number}, {date} ({full_lang_name} Wikipedia Editio
 
 === Nové články ===
 
-Deset nejčastěji editovaných článků v uplynulém týdnu:
+10 nejčastěji editovaných nových článků v uplynulém týdnu:
 
 {#new_articles}
 {@idx_1}{.}{/idx_1}. {title_s} ‭({edits|ci} změn od {users} přispěvatelů)‬
