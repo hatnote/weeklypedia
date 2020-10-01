@@ -1,0 +1,48 @@
+The WEEKLYPEDIA: Issue {issue_number}, {date} ({full_lang_name} Wikipedia Edition)
+
+{intro|s}
+
+=== 記事 ===
+
+{#stats}今週、{total_users|ci}人の著者が{titles|ci}の異なる記事に{edits|ci}の変更を加えました。{/stats} 今週のトップ20の記事:
+
+{#mainspace}
+{@idx_1}{.}{/idx_1}. {title_s} ‭({edits|ci}つの変更 {users}人の著者による)‬
+	https://{short_lang_name|s}.wikipedia.org/wiki/{title|uc}
+{/mainspace}
+
+=== 新しい記事 ===
+
+先週作成された最も活発に編集された10の記事:
+
+{#new_articles}
+{@idx_1}{.}{/idx_1}. {title_s} ‭({edits|ci}つの変更 {users}人の著者による)‬
+    https://{short_lang_name|s}.wikipedia.org/wiki/{title|uc}
+{/new_articles}
+
+=== 話し合い ===
+
+最も活発な話し合い:
+
+{#talkspace}
+{@idx_1}{.}{/idx_1}. {title_s}
+	https://{short_lang_name|s}.wikipedia.org/wiki/Talk:{title|uc}
+{/talkspace}
+
+=== 統計 ===
+
+先週のいくつかの統計:
+
+* {stats.users|ci}人の登録ユーザーと{stats.anon_ip_count|ci}人の未登録ユーザーが、{stats.titles|ci}件の記事を{stats.edits|ci}回編集しました。
+
+* 未登録のユーザーが{stats.anon_titles|ci}件の記事を{stats.anon_edits|ci}回編集しました。
+
+* {stats.bot_count|ci}つのボットが{stats.bot_titles|ci}の記事を{stats.bot_edits|ci}回編集しました
+
+Learn more about the Weeklypedia Digest: http://weekly.hatnote.com/
+
+This email was sent to [Email]
+
+Unsubscribe: [unsubscribe]
+
+Hatnote · 131 E Empire Street · San Jose, CA 95112 · USA

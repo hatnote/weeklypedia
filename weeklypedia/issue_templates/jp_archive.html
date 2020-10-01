@@ -1,0 +1,93 @@
+
+<html>
+<head>
+  <meta name="description" content="A weekly email digest with the most active Wikipedia articles">
+  <meta name="keywords" content="Wikipedia,email,digest,top,weeklypedia,hatnote">
+  <meta charset="utf-8" />
+  <link href="https://fonts.googleapis.com/css?family=PT+Sans:400,700" rel="stylesheet" type="text/css">
+  <script src=".../../../js/jquery.min.js"></script>
+  <!-- email-exclude -->
+  <link href="../../../css/style.css" rel="stylesheet" media="all">
+  <!-- end-email-exclude -->
+  <title>the WEEKLYPEDIA ({full_lang_name}, 発行の番号 {issue_number})</title>
+</head>
+<body>
+  <div class="container">
+    <div class="header">
+      <h1><span><em>the</em> WEEKLYPEDIA</span></h1>
+      <p>先週から最も編集されたウィキペディアの記事とディスカッションのリストです。</p>
+      <p>毎週金曜日にメールで送信されます。</p>
+    </div>
+    <div class="announce">
+      <ul class="breadcrumb">
+        <li><a href="../../../index.html">Home</a></li>
+        <li><a href="../index.html">{local.full_lang_name} edition archives</a></li>
+        <li>発行の番号 {issue_number}, {local.date}</li>
+      </ul>
+    </div>
+    <div class="main">
+      <div class="content">
+        <p id="intro">{intro|s}</p>
+        <h2 id="articles">記事</h2>
+        <p>{#stats}今週、{total_users|ci}人の著者が{titles|ci}の異なる記事に{edits|ci}の変更を加えました。{/stats} 今週のトップ20の記事:</p>
+        <ol>
+          {#mainspace}
+          <li><a href="https://{short_lang_name}.wikipedia.org/wiki/{title}" target="_blank">{title_s}</a> <span dir="ltr">(<a href="https://{short_lang_name}.wikipedia.org/w/index.php?title={title}&diff={rev_ids.new}&oldid={rev_ids.old}">{edits|ci}つの変更</a> {users}人の著者による)</span></li>
+          {/mainspace}
+        </ol>
+
+        <h2 id="new-articles">新しい記事</h2>
+        <p>先週作成された最も活発に編集された10の記事</p>
+        <ol>
+          {#new_articles}
+          <li><a href="https://{short_lang_name}.wikipedia.org/wiki/{title}" target="_blank">{title_s}</a> <span dir="ltr">({edits|ci}つの変更 {users}人の著者による)</span></li>
+          {/new_articles}
+        </ol>
+
+        <h2 id="discussions">話し合い</h2>
+        <p>最も活発な話し合い:</p>
+        <ol>
+          {#talkspace}
+          <li><a href="https://{short_lang_name}.wikipedia.org/wiki/Talk:{title}" target="_blank">{title_s}</a></li>
+          {/talkspace}
+        </ol>
+
+        <h2 id="statistics">統計</h2>
+        <p>先週のいくつかの統計:</p>
+        <ul>
+          <li>{stats.users|ci}人の登録ユーザーと{stats.anon_ip_count|ci}人の未登録ユーザーが、{stats.titles|ci}件の記事を{stats.edits|ci}回編集しました。</li>
+          <li>未登録のユーザーが{stats.anon_titles|ci}件の記事を{stats.anon_edits|ci}回編集しました。</li>
+          <li>{stats.bot_count|ci}つのボットが{stats.bot_titles|ci}の記事を{stats.bot_edits|ci}回編集しました</li>
+        </ul>
+
+      <h2>登録</h2>
+      <p>最も活発な記事やディスカッションの最新情報を入手したい場合は、今後の発行に登録してください。</p>
+
+      <form action="https://mailer.hatnote.com/s/subscribe" method="POST" accept-charset="utf-8">
+        <label class="email-label" for="email">電子メールアドレス:</label>
+        <input class="email-input" type="email" name="email" id="email"/>
+        <div style="display:none;">
+          <label for="hp">HP</label><br/>
+          <input type="text" name="hp" id="hp"/></div>
+        <input type="hidden" name="list" value="{list_id}"/>
+        <input type="hidden" name="subform" value="yes"/>
+        <input class="sub-button" type="submit" name="submit" value="登録します" id="submit"/>
+      </form>
+
+      <div class="content">
+        <h2>Weeklypedia Digestについて</h2>
+        <p>このプロジェクトは、<a href="http://tools.wmflabs.org/">ウィキメディアツールラボ</a>を使用してその週の最近の変更のリストを取得し、Sendyを使用して電子メールを配信します。 コードと詳細については、<a href="https://github.com/hatnote/weeklypedia">GitHubをご覧ください</a>。 <a href="https://github.com/slaporte">Stephen LaPorte</a>と<a href="https://github.com/mahmoud">Mahmoud Hashemi</a>によって建てられました。</p>
+        <p><a href="http://blog.hatnote.com/">Hatnoteブログで詳細をご覧ください。</a>.</p>
+      </div>
+    </div>
+  </div>
+  <script>
+    (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+    (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+    m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+    })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+    ga('create', 'UA-40320359-1', 'hatnote.com');
+    ga('send', 'pageview');
+  </script>
+</body>
+</html>

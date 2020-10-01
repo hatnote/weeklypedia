@@ -10,101 +10,108 @@
 #------------------------------------------------------------------------------
 
 head_title: >-
-    the WEEKLYPEDIA ({full_lang_name}, 発行の番号 {issue_number})
+    the WEEKLYPEDIA ({full_lang_name}, Issue {issue_number})
 
 body_title: >-
     <em>the</em> WEEKLYPEDIA
 
 description: >- 
-    先週から最も編集されたウィキペディアの記事とディスカッションのリストです。
+    A list of the most edited Wikipedia articles and
+    discussions from the last week.  
 
-delivery_description: 毎週金曜日にメールで送信されます。
+delivery_description: Delivered every Friday by email.
 home_link: Home 
 archive_link: "{local.full_lang_name} edition archives"
-issue_label: 発行の番号 {issue_number}, {local.date} 
+issue_label: Issue {issue_number}, {local.date} 
 language_label: ({local.full_lang_name} Wikipedia edition) 
 intro: >-
-    こんにちは！ウィキペディアの活動の毎週のダイジェストへようこそ。
+    Hello there! Welcome to our weekly digest of Wikipedia activity.
 
 #-----------
 # Article section
 #------------------------------------------------------------------------------
 
-articles_heading: 記事
+articles_heading: Articles
 articles_summary: >-
-    今週、{total_users|ci}人の著者が{titles|ci}の異なる記事に{edits|ci}の変更を加えました。
+    This week, {total_users|ci} authors made {edits|ci} changes to
+    {titles|ci} different articles.
 
-articles_intro: 今週のトップ20の記事
+articles_intro: The top 20 articles for the week
 
-diff_count: "{edits|ci}つの変更"
-diff_author_count: {users}人の著者による
+diff_count: "{edits|ci} changes"
+diff_author_count: by {users} authors
 
 #-----------
 # New articles section
 #------------------------------------------------------------------------------
 
-new_articles_heading: 新しい記事
+new_articles_heading: New Articles
 # new_articles_summary: # TODO
 new_articles_intro: >-
-    先週作成された最も活発に編集された10の記事
+    The ten most actively edited articles created within the last week
 
 #-----------
 # Discussion section
 #------------------------------------------------------------------------------
 
-discussions_heading: 話し合い
+discussions_heading: Discussions
 # discussions_summary: # TODO
-discussions_intro: 最も活発な話し合い
+discussions_intro: The most active discussions
 
 #-----------
 # Stats section
 #------------------------------------------------------------------------------
 
-stats_heading: 統計
-stats_intro: 先週のいくつかの統計
+stats_heading: Stats
+stats_intro: A few numbers from last week
 user_edit_counts: >- 
-    {stats.users|ci}人の登録ユーザーと{stats.anon_ip_count|ci}人の未登録ユーザーが、{stats.titles|ci}件の記事を{stats.edits|ci}回編集しました。
+    {stats.users|ci} registered users and
+    {stats.anon_ip_count|ci} unregistered users made {stats.edits|ci}
+    edits to {stats.titles|ci} articles
 
 anon_edit_counts: >-
-    未登録のユーザーが{stats.anon_titles|ci}件の記事を{stats.anon_edits|ci}回編集しました。
+    Unregistered users made {stats.anon_edits|ci} edits to
+    {stats.anon_titles|ci} articles
 
 
 bot_edit_counts: >- 
-    {stats.bot_count|ci}つのボットが{stats.bot_titles|ci}の記事を{stats.bot_edits|ci}回編集しました
+    {stats.bot_count|ci} robots made
+    {stats.bot_edits|ci} edits to {stats.bot_titles|ci} articles
 
 #-----------
 # subscription invitation
 #------------------------------------------------------------------------------
 
-signup: 登録
+signup: Sign up
 pitch: >-
-    最も活発な記事やディスカッションの最新情報を入手したい場合は、今後の発行に登録してください。
+    If you want to stay up to date with the most active articles and
+    discussions, please sign up for future issues.
 
-email: "電子メールアドレス:"
-subscribe: 登録します
+email: "Email:"
+subscribe: Subscribe
 
 #-----------
 # Bottom section
 #------------------------------------------------------------------------------
 
-about_heading: Weeklypedia
-    Digestについて
+about_heading: About
 about_text: >-
-    このプロジェクトは、<a
-    href="http://tools.wmflabs.org/">ウィキメディアツールラボ</a>を使用してその週の最近の変更のリストを取得し、Sendyを使用して電子メールを配信します。
-    コードと詳細については、<a
-    href="https://github.com/hatnote/weeklypedia">GitHubをご覧ください</a>。
-    <a href="https://github.com/slaporte">Stephen
-    LaPorte</a>と<a href="https://github.com/mahmoud">Mahmoud
-    Hashemi</a>によって建てられました。
+    This project retrieves a list of the week's recent changes using <a
+    href="http://tools.wmflabs.org/">Wikimedia Tool Labs</a>, and
+    delivers emails using Sendy. Code and more information <a
+    href="https://github.com/hatnote/weeklypedia">available on
+    GitHub</a>. Built by <a href="https://github.com/slaporte">Stephen
+    LaPorte</a> and <a href="https://github.com/mahmoud">Mahmoud
+    Hashemi</a>.
 
-blog_link: Hatnoteブログで詳細をご覧ください。
+blog_link: Learn more on the Hatnote blog
 learn_more: >-
-    <a href="http://weekly.hatnote.com">ウィークリーペディアダイジェストの詳細をご覧ください</a>。
+    Learn more about the <a href="http://weekly.hatnote.com">Weeklypedia
+    Digest</a>!
 
 #-----------
 # Email footer
 #------------------------------------------------------------------------------
 
-sent_to: このメールは[INSERT NAME HERE]に送信されました
-unsubscribe: このメール登録を解除します
+sent_to: This email was sent to
+unsubscribe: unsubscribe from this list

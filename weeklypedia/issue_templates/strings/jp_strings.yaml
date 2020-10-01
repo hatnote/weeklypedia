@@ -1,0 +1,110 @@
+#------------------
+# Weeklypedia
+#    If you want to translate the Weeklypedia newsletter, start with a copy
+#    of this file and leave us a note at:
+#    https://github.com/hatnote/weeklypedia/issues
+#------------------------------------------------------------------------------
+
+#-----------
+# Introduction
+#------------------------------------------------------------------------------
+
+head_title: >-
+    the WEEKLYPEDIA ({full_lang_name}, 発行の番号 {issue_number})
+
+body_title: >-
+    <em>the</em> WEEKLYPEDIA
+
+description: >- 
+    先週から最も編集されたウィキペディアの記事とディスカッションのリストです。
+
+delivery_description: 毎週金曜日にメールで送信されます。
+home_link: Home 
+archive_link: "{local.full_lang_name} edition archives"
+issue_label: 発行の番号 {issue_number}, {local.date} 
+language_label: ({local.full_lang_name} Wikipedia edition) 
+intro: >-
+    こんにちは！ウィキペディアの活動の毎週のダイジェストへようこそ。
+
+#-----------
+# Article section
+#------------------------------------------------------------------------------
+
+articles_heading: 記事
+articles_summary: >-
+    今週、{total_users|ci}人の著者が{titles|ci}の異なる記事に{edits|ci}の変更を加えました。
+
+articles_intro: 今週のトップ20の記事
+
+diff_count: "{edits|ci}つの変更"
+diff_author_count: "{users}人の著者による"
+
+#-----------
+# New articles section
+#------------------------------------------------------------------------------
+
+new_articles_heading: 新しい記事
+# new_articles_summary: # TODO
+new_articles_intro: >-
+    先週作成された最も活発に編集された10の記事
+
+#-----------
+# Discussion section
+#------------------------------------------------------------------------------
+
+discussions_heading: 話し合い
+# discussions_summary: # TODO
+discussions_intro: 最も活発な話し合い
+
+#-----------
+# Stats section
+#------------------------------------------------------------------------------
+
+stats_heading: 統計
+stats_intro: 先週のいくつかの統計
+user_edit_counts: >- 
+    {stats.users|ci}人の登録ユーザーと{stats.anon_ip_count|ci}人の未登録ユーザーが、{stats.titles|ci}件の記事を{stats.edits|ci}回編集しました。
+
+anon_edit_counts: >-
+    未登録のユーザーが{stats.anon_titles|ci}件の記事を{stats.anon_edits|ci}回編集しました。
+
+
+bot_edit_counts: >- 
+    {stats.bot_count|ci}つのボットが{stats.bot_titles|ci}の記事を{stats.bot_edits|ci}回編集しました
+
+#-----------
+# subscription invitation
+#------------------------------------------------------------------------------
+
+signup: 登録
+pitch: >-
+    最も活発な記事やディスカッションの最新情報を入手したい場合は、今後の発行に登録してください。
+
+email: "電子メールアドレス:"
+subscribe: 登録します
+
+#-----------
+# Bottom section
+#------------------------------------------------------------------------------
+
+about_heading: Weeklypedia
+    Digestについて
+about_text: >-
+    このプロジェクトは、<a
+    href="http://tools.wmflabs.org/">ウィキメディアツールラボ</a>を使用してその週の最近の変更のリストを取得し、Sendyを使用して電子メールを配信します。
+    コードと詳細については、<a
+    href="https://github.com/hatnote/weeklypedia">GitHubをご覧ください</a>。
+    <a href="https://github.com/slaporte">Stephen
+    LaPorte</a>と<a href="https://github.com/mahmoud">Mahmoud
+    Hashemi</a>によって建てられました。
+
+blog_link: Hatnoteブログで詳細をご覧ください。
+learn_more: >-
+    <a href="http://weekly.hatnote.com">ウィークリーペディアダイジェストの詳細をご覧ください</a>。
+
+#-----------
+# Email footer
+#------------------------------------------------------------------------------
+
+sent_to: このメールは[INSERT NAME HERE]に送信されました
+unsubscribe: このメール登録を解除します
