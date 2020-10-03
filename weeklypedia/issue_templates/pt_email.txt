@@ -4,7 +4,7 @@ The WEEKLYPEDIA: Issue {issue_number}, {date} ({full_lang_name} Wikipedia Editio
 
 === Artigos ===
 
-{#stats}Essa semana, {total_users|ci} autores fizeram {edits|ci} alterações em artigos {titles|ci} diferentes.{/stats} Os 20 artigos mais editados da semana:
+{#stats}Essa semana, {total_users|ci} autores fizeram {edits|ci} alterações em {titles|ci} artigos diferentes.{/stats} Os 20 artigos mais editados da semana:
 
 {#mainspace}
 {@idx_1}{.}{/idx_1}. {title_s} ‭({edits|ci} edições por {users} autores)‬
@@ -13,7 +13,7 @@ The WEEKLYPEDIA: Issue {issue_number}, {date} ({full_lang_name} Wikipedia Editio
 
 === Novos artigos ===
 
-Os dez mais ativamente editados artigos criados na últma semana. The ten most actively edited articles created within the last week:
+Os dez artigos mais editados, criados na última semana.:
 
 {#new_articles}
 {@idx_1}{.}{/idx_1}. {title_s} ‭({edits|ci} edições por {users} autores)‬

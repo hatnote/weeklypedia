@@ -29,7 +29,7 @@
       <div class="content">
         <p id="intro">{intro|s}</p>
         <h2 id="articles">Artigos</h2>
-        <p>{#stats}Essa semana, {total_users|ci} autores fizeram {edits|ci} alterações em artigos {titles|ci} diferentes.{/stats} Os 20 artigos mais editados da semana:</p>
+        <p>{#stats}Essa semana, {total_users|ci} autores fizeram {edits|ci} alterações em {titles|ci} artigos diferentes.{/stats} Os 20 artigos mais editados da semana:</p>
         <ol>
           {#mainspace}
           <li><a href="https://{short_lang_name}.wikipedia.org/wiki/{title}" target="_blank">{title_s}</a> <span dir="ltr">(<a href="https://{short_lang_name}.wikipedia.org/w/index.php?title={title}&diff={rev_ids.new}&oldid={rev_ids.old}">{edits|ci} edições</a> por {users} autores)</span></li>
@@ -37,7 +37,7 @@
         </ol>
 
         <h2 id="new-articles">Novos artigos</h2>
-        <p>Os dez mais ativamente editados artigos criados na últma semana. The ten most actively edited articles created within the last week</p>
+        <p>Os dez artigos mais editados, criados na última semana.</p>
         <ol>
           {#new_articles}
           <li><a href="https://{short_lang_name}.wikipedia.org/wiki/{title}" target="_blank">{title_s}</a> <span dir="ltr">({edits|ci} edições por {users} autores)</span></li>
