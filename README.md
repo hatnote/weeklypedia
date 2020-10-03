@@ -9,6 +9,8 @@ new language? Thank you! You can make a copy of [this
 file](https://github.com/hatnote/weeklypedia/blob/master/weeklypedia/issue_templates/strings/en_strings.yaml),
 add your translations, and then send us a copy in a new pull request.
 
+Please join the [Weeklypedia Translators mailing list](https://mailer.hatnote.com/s/subscription?f=o763SNZ5jKaKhiBHxly1TEdmj7pB892Zx2QCbIMxdfEvTDILdTAj2W3P515x763hTL2RGo71aREWjU763eKfqGAoOtwDXQ) if you want updates when we make changes to the templates, add new languages, or have other Weeklypedia news.
+
 ## Copying
 Copyright (c) 2013-2016, Stephen LaPorte and Mahmoud Hashemi
 All rights reserved.
