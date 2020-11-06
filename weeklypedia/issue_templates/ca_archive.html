@@ -1,21 +1,21 @@
 
 <html>
 <head>
-  <meta name="description" content="A weekly email digest with the most active Wikipedia articles">
-  <meta name="keywords" content="Wikipedia,email,digest,top,weeklypedia,hatnote">
+  <meta name="description" content="Un resum de correu electrònic setmanal amb els articles més actius de la Viquipèdia">
+  <meta name="keywords" content="Viquipedia,Wikipedia,email,digest,top,weeklypedia,hatnote">
   <meta charset="utf-8" />
   <link href="https://fonts.googleapis.com/css?family=PT+Sans:400,700" rel="stylesheet" type="text/css">
   <script src=".../../../js/jquery.min.js"></script>
   <!-- email-exclude -->
   <link href="../../../css/style.css" rel="stylesheet" media="all">
   <!-- end-email-exclude -->
-  <title>the WEEKLYPEDIA ({full_lang_name}, número {issue_number})</title>
+  <title>La WEEKLYPEDIA ({full_lang_name}, número {issue_number})</title>
 </head>
 <body>
   <div class="container">
     <div class="header">
       <h1><span><em>the</ em> WEEKLYPEDIA</span></h1>
-      <p>Una llista dels articles més modificats de la Wikipèdia i discussions de la darrera setmana.</p>
+      <p>Una llista dels articles més modificats i de les discussions més actives a la Viquipèdia.</p>
       <p>Lliurat cada divendres per correu electrònic.</p>
     </div>
     <div class="announce">
@@ -37,10 +37,10 @@
         </ol>
 
         <h2 id="new-articles">Nous articles</h2>
-        <p>Els deu articles modificats més activament creats durant la darrera setmana</p>
+        <p>Els deu articles més actualitzats i que han estat creats durant la darrera setmana:</p>
         <ol>
           {#new_articles}
-          <li><a href="https://{short_lang_name}.wikipedia.org/wiki/{title}" target="_blank">{title_s}</a> <span dir="ltr">({edits|ci} canvis per {users} autors)</span></li>
+          <li><a href="https://{short_lang_name}.wikipedia.org/wiki/{title}" target="_blank">{title_s}</a> <span dir="ltr">({edits|ci} canvis per {users} participants)</span></li>
           {/new_articles}
         </ol>
 
@@ -55,13 +55,13 @@
         <h2 id="statistics">Estatístiques</h2>
         <p>Alguns números de la setmana passada:</p>
         <ul>
-          <li>{stats.users|ci} membres registrats i {stats.anon_ip_count|ci} els membres no registrats han fet {stats.edits|ci} canvis a {stats.titles|ci} articles</li>
-          <li>Els membres no registrats han fet edicions {stats.anon_edits|ci} {stats.anon_titles|ci} articles</li>
-          <li>{stats.bot_count|ci} que els robots han fet {stats.bot_edits|ci} canvis a {stats.bot_titles|ci} articles</li>
+          <li>{stats.users|ci} membres registrats i {stats.anon_ip_count|ci} membres no registrats han fet {stats.edits|ci} canvis a {stats.titles|ci} articles</li>
+          <li>Els membres no registrats han fet {stats.anon_edits|ci} edicions a {stats.anon_titles|ci} articles</li>
+          <li>{stats.bot_count|ci} robots han fet {stats.bot_edits|ci} canvis a {stats.bot_titles|ci} articles</li>
         </ul>
 
-      <h2>Registra't</h2>
-      <p>If you want to stay up to date with the most active articles and discussions, please sign up for future issues.</p>
+      <h2>Registreu-vos</h2>
+      <p>Si voleu estar al dia dels articles i debats més actius, inscriviu-vos per a futurs números.</p>
 
       <form action="https://mailer.hatnote.com/s/subscribe" method="POST" accept-charset="utf-8">
         <label class="email-label" for="email">Correu electrònic:</label>
@@ -71,7 +71,7 @@
           <input type="text" name="hp" id="hp"/></div>
         <input type="hidden" name="list" value="{list_id}"/>
         <input type="hidden" name="subform" value="yes"/>
-        <input class="sub-button" type="submit" name="submit" value="Subscribe" id="submit"/>
+        <input class="sub-button" type="submit" name="submit" value="Subcriure's" id="submit"/>
       </form>
 
       <div class="content">
