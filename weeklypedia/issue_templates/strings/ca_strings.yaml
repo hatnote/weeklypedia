@@ -1,6 +1,6 @@
 # ------------------
 # Weeklypedia
-# Si voleu traduir el bolletí Weeklypedia, comenceu amb una còpia
+# Si voleu traduir el butlletí Weeklypedia, comenceu amb una còpia
 # d'aquest fitxer i deixeu-nos una nota a:
 # https://github.com/hatnote/weeklypedia/issues
 # ------------------------------------------------------------------------------
@@ -10,10 +10,10 @@
 # ------------------------------------------------------------------------------
 
 head_title: >-
-   the WEEKLYPEDIA ({full_lang_name}, número {issue_number})
+   La WEEKLYPEDIA ({full_lang_name}, número {issue_number})
 
 body_title: >-
-    <em>the</ em> WEEKLYPEDIA
+    <em>La</ em> WEEKLYPEDIA
 
 description: >-
     Una llista amb els articles i les discussions més actives
