@@ -16,16 +16,16 @@ body_title: >-
     <em>the</ em> WEEKLYPEDIA
 
 description: >-
-    Una llista dels articles més modificats de la Wikipèdia i
-    discussions de la darrera setmana.
+    Una llista amb els articles i les discussions més actives
+    de la Viquipèdia durant la darrera setmana.
 
 delivery_description: Lliurat cada divendres per correu electrònic.
 home_link: Pàgina inicial
 archive_link: "{local.full_lang_name} arxius d'edició"
 issue_label: Número {issue_number}, {local.date}
-language_label: ({local.full_lang_name} edició de la Wikipèdia)
+language_label: (Edició en {local.full_lang_name} de la Viquipèdia)
 intro: >-
-    Ei! Benvinguts al nostre resum setmanal de l'activitat de la Wikipèdia.
+    Ei! Us donem la benvinguda al nostre resum setmanal de l'activitat a la Viquipèdia.
 
 # -----------
 # Article de la secció
@@ -34,10 +34,10 @@ intro: >-
 articles_heading: Articles
 
 articles_summary: >-
-    Aquesta setmana, {total_users|ci} autors han fet {edits|ci} canvis a
-    {titles|ci} diferents articles.
+    Aquesta setmana, un total de {total_users|ci} autors han fet {edits|ci} canvis en
+    {titles|ci} articles.
 
-articles_intro: els 20 millors articles de la setmana
+articles_intro: Aquests són els 20 millors articles de la setmana
 
 diff_count: "{edits|ci} canvis"
 diff_author_count: per {users} autors
@@ -49,7 +49,7 @@ diff_author_count: per {users} autors
 new_articles_heading: Nous articles
 # new_articles_summary: # TOT
 new_articles_intro: >-
-    Els deu articles modificats més activament creats durant la darrera setmana
+    Els deu articles més actualitzats i que han estat creats durant la darrera setmana
 
 # -----------
 # Secció de discussió
@@ -67,27 +67,27 @@ stats_heading: Estatístiques
 stats_intro: Alguns números de la setmana passada
 user_edit_counts: >-
     {stats.users|ci} membres registrats i
-    {stats.anon_ip_count|ci} els membres no registrats han fet {stats.edits|ci}
+    {stats.anon_ip_count|ci} membres no registrats han fet {stats.edits|ci}
     canvis a {stats.titles|ci} articles
 
 anon_edit_counts: >-
-    Els membres no registrats han fet edicions {stats.anon_edits|ci}
-    {stats.anon_titles|ci} articles
+    Els membres no registrats han fet {stats.anon_edits|ci} edicions
+    a {stats.anon_titles|ci} articles
 bot_edit_counts: >-
-    {stats.bot_count|ci} que els robots han fet
+    {stats.bot_count|ci} robots han fet
     {stats.bot_edits|ci} canvis a {stats.bot_titles|ci} articles
 
 #-----------
 # subscription invitation
 #------------------------------------------------------------------------------
 
-signup: Registra't
+signup: Registreu-vos
 pitch: >-
-    If you want to stay up to date with the most active articles and
-    discussions, please sign up for future issues.
+    Si voleu estar al dia dels articles i debats més actius,
+    inscriviu-vos per rebre els futurs números.
 
 email: "Correu electrònic:"
-subscribe: Subscribe
+subscribe: Subscriviu-vos
 
 # -----------
 # Secció inferior
@@ -105,11 +105,11 @@ about_text: >-
 
 blog_link: Més informació al blog Hatnote
 learn_more: >-
-    Més informació sobre el bolletí <a href="http://weekly.hatnote.com">Weeklypedia</a>
+    Més informació sobre el butlletí <a href="http://weekly.hatnote.com">Weeklypedia</a>
 
 #-----------
 # Email footer
 #------------------------------------------------------------------------------
 
-sent_to: This email was sent to
-unsubscribe: cancel·lar la subscripció
+sent_to: Aquest missatge s'ha enviat a
+unsubscribe: Cancel·lar la subscripció
