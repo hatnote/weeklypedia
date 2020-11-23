@@ -1,10 +1,10 @@
-The WEEKLYPEDIA: Issue {issue_number}, {date} ({full_lang_name} Wikipedia Edition)
+The WEEKLYPEDIA: Número {issue_number}, {date} (Edició en {full_lang_name} de la Viquipèdia)
 
 {intro|s}
 
 === Articles ===
 
-{#stats}Aquesta setmana, {total_users|ci} autors han fet {edits|ci} canvis a {titles|ci} diferents articles.{/stats} els 20 millors articles de la setmana:
+{#stats}Aquesta setmana, un total de {total_users|ci} participants han fet {edits|ci} canvis en {titles|ci} articles.{/stats} Aquests són els 20 millors articles de la setmana:
 
 {#mainspace}
 {@idx_1}{.}{/idx_1}. {title_s} ‭({edits|ci} canvis per {users} autors)‬
@@ -13,7 +13,7 @@ The WEEKLYPEDIA: Issue {issue_number}, {date} ({full_lang_name} Wikipedia Editio
 
 === Nous articles ===
 
-Els deu articles modificats més activament creats durant la darrera setmana:
+Els deu articles més actualitzats i que han estat creats durant la darrera setmana:
 
 {#new_articles}
 {@idx_1}{.}{/idx_1}. {title_s} ‭({edits|ci} canvis per {users} autors)‬
@@ -33,16 +33,16 @@ Les discussions més actives:
 
 Alguns números de la setmana passada:
 
-* {stats.users|ci} membres registrats i {stats.anon_ip_count|ci} els membres no registrats han fet {stats.edits|ci} canvis a {stats.titles|ci} articles
+* {stats.users|ci} membres registrats i {stats.anon_ip_count|ci} membres no registrats han fet {stats.edits|ci} canvis a {stats.titles|ci} articles
 
-* Els membres no registrats han fet edicions {stats.anon_edits|ci} {stats.anon_titles|ci} articles
+* Els membres no registrats han fet {stats.anon_edits|ci} edicions a {stats.anon_titles|ci} articles
 
-* {stats.bot_count|ci} que els robots han fet {stats.bot_edits|ci} canvis a {stats.bot_titles|ci} articles
+* {stats.bot_count|ci} robots han fet {stats.bot_edits|ci} canvis a {stats.bot_titles|ci} articles
 
-Learn more about the Weeklypedia Digest: http://weekly.hatnote.com/
+Més informació sobre el butlletí: http://weekly.hatnote.com/
 
-This email was sent to [Email]
+Aquest missatge s'ha enviat a [Email]
 
-Unsubscribe: [unsubscribe]
+Cancel·lar la subscripció: [unsubscribe]
 
 Hatnote · 131 E Empire Street · San Jose, CA 95112 · USA
