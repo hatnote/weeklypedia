@@ -8,7 +8,7 @@ idna==2.10
 mailchimp==2.0.7
 python-dateutil==2.4.2
 pytz==2014.7
-PyYAML==3.11
+PyYAML==5.4
 readline==6.2.4.1
 requests==2.24.0
 sendypy==4.0.9
