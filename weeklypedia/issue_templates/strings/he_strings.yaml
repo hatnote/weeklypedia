@@ -1,0 +1,116 @@
+#------------------
+# Weeklypedia
+#    If you want to translate the Weeklypedia newsletter, start with a copy
+#    of this file and leave us a note at:
+#    https://github.com/hatnote/weeklypedia/issues
+#------------------------------------------------------------------------------
+
+#-----------
+# Introduction
+#------------------------------------------------------------------------------
+
+head_title: >-
+    וויקיפדיה השבוע ({full_lang_name}, גליון מספר {issue_number})
+
+body_title: >-
+    וויקיפדיה <em>השבוע</em>
+
+description: >- 
+    רשימה של ערכי וויקיפדיה עם הכי הרבה עריכות ודיונים מהשבוע האחרון
+
+delivery_description: נשלח אליכם כל יום שישי במייל
+delivery_description: 
+home_link: דף הבית
+archive_link: "ארכיון גליונות {local.full_lang_name}"
+issue_label: גליון {issue_number}, {local.date} 
+language_label: (גרסאת וויקיפדיה {local.full_lang_name}) 
+intro: >-
+    שלום! ברוכים הבאים לגליון השבועי של פעילות בוויקיפדיה
+
+#-----------
+# Article section
+#------------------------------------------------------------------------------
+
+articles_heading: ערכים
+articles_summary: >-
+    השבוע, {total_users|ci} עורכים ביצעו {edits|ci} עריכות ל{titles|ci} ערכים שונים.
+
+articles_intro: עשרים הערכים הבולטים של השבוע
+
+diff_count: "{edits|ci} עריכות"
+diff_author_count: ע״י {users} עורכים
+
+#-----------
+# New articles section
+#------------------------------------------------------------------------------
+
+new_articles_heading: ערכים חדשים
+# new_articles_summary: # TODO
+new_articles_intro: >-
+    עשרת הערכים הכי נערכים אשר נוצרו בשבוע האחרון
+
+#-----------
+# Discussion section
+#------------------------------------------------------------------------------
+
+discussions_heading: דיונים
+# discussions_summary: # TODO
+discussions_intro: הדיונים הכי פעילים
+
+#-----------
+# Stats section
+#------------------------------------------------------------------------------
+
+stats_heading: נתונים
+stats_intro: מספר נתונים מהשבוע האחרון
+user_edit_counts: >- 
+    {stats.users|ci} משתמשים רשומים
+    ו{stats.anon_ip_count|ci} משתמשים לא רשומים ביצעו {stats.edits|ci}
+    עריכות ל-{stats.titles|ci} ערכים
+
+anon_edit_counts: >-
+    משתמשים לא רשומים ביצעו {stats.anon_edits|ci} עריכות
+    ל{stats.anon_titles|ci} ערכים
+
+
+bot_edit_counts: >- 
+    {stats.bot_count|ci} בוטים ביצעו
+    {stats.bot_edits|ci} עריכות ל-{stats.bot_titles|ci} ערכים
+
+#-----------
+# subscription invitation
+#------------------------------------------------------------------------------
+
+signup: הרשמה
+pitch: >-
+    אם אתם רוצים להשאר מעודכנים עם הערכים והדיונים הכי פעילים,
+    בבקשה תרשמו לגליונות הבאים
+
+email: "Email:"
+subscribe: הרשמה
+
+#-----------
+# Bottom section
+#------------------------------------------------------------------------------
+
+about_heading: אודות
+about_text: >-
+    פרויקט זה שולף את העדכונים של השבוע בעזרת
+    <a href="http://tools.wmflabs.org/">Wikimedia Tool Labs</a>, וגם
+    שולח מיילים בעזרת Sendy. קוד ועוד מידע <a
+    href="https://github.com/hatnote/weeklypedia">ניתן למצוא בGitHub
+    </a>. נבנה על ידי <a href="https://github.com/slaporte">Stephen
+    LaPorte</a> ו-<a href="https://github.com/mahmoud">Mahmoud
+    Hashemi</a>.
+
+blog_link: ניתן ללמוד עוד בבלוג של Hatnote
+learn_more: >-
+    ניתן לקרוא עוד ב<a href="http://weekly.hatnote.com">Weeklypedia
+    Digest</a>!
+
+#-----------
+# Email footer
+#------------------------------------------------------------------------------
+
+sent_to: המייל הזה נשלח אל
+unsubscribe: הסר מרשימה זאת
