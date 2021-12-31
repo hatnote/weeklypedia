@@ -1,0 +1,48 @@
+The WEEKLYPEDIA: Issue {issue_number}, {date} ({full_lang_name} Wikipedia Edition)
+
+{intro|s}
+
+=== ערכים ===
+
+{#stats}השבוע, {total_users|ci} עורכים ביצעו {edits|ci} עריכות ל{titles|ci} ערכים שונים.{/stats} עשרים הערכים הבולטים של השבוע:
+
+{#mainspace}
+{@idx_1}{.}{/idx_1}. {title_s} ‭({edits|ci} עריכות ע״י {users} עורכים)‬
+	https://{short_lang_name|s}.wikipedia.org/wiki/{title|uc}
+{/mainspace}
+
+=== ערכים חדשים ===
+
+עשרת הערכים הכי נערכים אשר נוצרו בשבוע האחרון:
+
+{#new_articles}
+{@idx_1}{.}{/idx_1}. {title_s} ‭({edits|ci} עריכות ע״י {users} עורכים)‬
+    https://{short_lang_name|s}.wikipedia.org/wiki/{title|uc}
+{/new_articles}
+
+=== דיונים ===
+
+הדיונים הכי פעילים:
+
+{#talkspace}
+{@idx_1}{.}{/idx_1}. {title_s}
+	https://{short_lang_name|s}.wikipedia.org/wiki/Talk:{title|uc}
+{/talkspace}
+
+=== נתונים ===
+
+מספר נתונים מהשבוע האחרון:
+
+* {stats.users|ci} משתמשים רשומים ו{stats.anon_ip_count|ci} משתמשים לא רשומים ביצעו {stats.edits|ci} עריכות ל-{stats.titles|ci} ערכים
+
+* משתמשים לא רשומים ביצעו {stats.anon_edits|ci} עריכות ל{stats.anon_titles|ci} ערכים
+
+* {stats.bot_count|ci} בוטים ביצעו {stats.bot_edits|ci} עריכות ל-{stats.bot_titles|ci} ערכים
+
+Learn more about the Weeklypedia Digest: http://weekly.hatnote.com/
+
+This email was sent to [Email]
+
+Unsubscribe: [unsubscribe]
+
+Hatnote · 131 E Empire Street · San Jose, CA 95112 · USA

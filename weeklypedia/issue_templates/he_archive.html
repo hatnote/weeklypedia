@@ -1,0 +1,93 @@
+
+<html>
+<head>
+  <meta name="description" content="A weekly email digest with the most active Wikipedia articles">
+  <meta name="keywords" content="Wikipedia,email,digest,top,weeklypedia,hatnote">
+  <meta charset="utf-8" />
+  <link href="https://fonts.googleapis.com/css?family=PT+Sans:400,700" rel="stylesheet" type="text/css">
+  <script src=".../../../js/jquery.min.js"></script>
+  <!-- email-exclude -->
+  <link href="../../../css/style.css" rel="stylesheet" media="all">
+  <!-- end-email-exclude -->
+  <title>וויקיפדיה השבוע ({full_lang_name}, גליון מספר {issue_number})</title>
+</head>
+<body dir="rtl">
+  <div class="container">
+    <div class="header">
+      <h1><span>וויקיפדיה <em>השבוע</em></span></h1>
+      <p>רשימה של ערכי וויקיפדיה עם הכי הרבה עריכות ודיונים מהשבוע האחרון</p>
+      <p></p>
+    </div>
+    <div class="announce">
+      <ul class="breadcrumb">
+        <li><a href="../../../index.html">דף הבית</a></li>
+        <li><a href="../index.html">ארכיון גליונות {local.full_lang_name}</a></li>
+        <li>גליון {issue_number}, {local.date}</li>
+      </ul>
+    </div>
+    <div class="main">
+      <div class="content">
+        <p id="intro">{intro|s}</p>
+        <h2 id="articles">ערכים</h2>
+        <p>{#stats}השבוע, {total_users|ci} עורכים ביצעו {edits|ci} עריכות ל{titles|ci} ערכים שונים.{/stats} עשרים הערכים הבולטים של השבוע:</p>
+        <ol>
+          {#mainspace}
+          <li><a href="https://{short_lang_name}.wikipedia.org/wiki/{title}" target="_blank">{title_s}</a> <span dir="ltr">(<a href="https://{short_lang_name}.wikipedia.org/w/index.php?title={title}&diff={rev_ids.new}&oldid={rev_ids.old}">{edits|ci} עריכות</a> ע״י {users} עורכים)</span></li>
+          {/mainspace}
+        </ol>
+
+        <h2 id="new-articles">ערכים חדשים</h2>
+        <p>עשרת הערכים הכי נערכים אשר נוצרו בשבוע האחרון</p>
+        <ol>
+          {#new_articles}
+          <li><a href="https://{short_lang_name}.wikipedia.org/wiki/{title}" target="_blank">{title_s}</a> <span dir="ltr">({edits|ci} עריכות ע״י {users} עורכים)</span></li>
+          {/new_articles}
+        </ol>
+
+        <h2 id="discussions">דיונים</h2>
+        <p>הדיונים הכי פעילים:</p>
+        <ol>
+          {#talkspace}
+          <li><a href="https://{short_lang_name}.wikipedia.org/wiki/Talk:{title}" target="_blank">{title_s}</a></li>
+          {/talkspace}
+        </ol>
+
+        <h2 id="statistics">נתונים</h2>
+        <p>מספר נתונים מהשבוע האחרון:</p>
+        <ul>
+          <li>{stats.users|ci} משתמשים רשומים ו{stats.anon_ip_count|ci} משתמשים לא רשומים ביצעו {stats.edits|ci} עריכות ל-{stats.titles|ci} ערכים</li>
+          <li>משתמשים לא רשומים ביצעו {stats.anon_edits|ci} עריכות ל{stats.anon_titles|ci} ערכים</li>
+          <li>{stats.bot_count|ci} בוטים ביצעו {stats.bot_edits|ci} עריכות ל-{stats.bot_titles|ci} ערכים</li>
+        </ul>
+
+      <h2>הרשמה</h2>
+      <p>אם אתם רוצים להשאר מעודכנים עם הערכים והדיונים הכי פעילים, בבקשה תרשמו לגליונות הבאים</p>
+
+      <form action="https://mailer.hatnote.com/s/subscribe" method="POST" accept-charset="utf-8">
+        <label class="email-label" for="email">Email:</label>
+        <input class="email-input" type="email" name="email" id="email"/>
+        <div style="display:none;">
+          <label for="hp">HP</label><br/>
+          <input type="text" name="hp" id="hp"/></div>
+        <input type="hidden" name="list" value="{list_id}"/>
+        <input type="hidden" name="subform" value="yes"/>
+        <input class="sub-button" type="submit" name="submit" value="הרשמה" id="submit"/>
+      </form>
+
+      <div class="content">
+        <h2>אודות</h2>
+        <p>פרויקט זה שולף את העדכונים של השבוע בעזרת <a href="http://tools.wmflabs.org/">Wikimedia Tool Labs</a>, וגם שולח מיילים בעזרת Sendy. קוד ועוד מידע <a href="https://github.com/hatnote/weeklypedia">ניתן למצוא בGitHub </a>. נבנה על ידי <a href="https://github.com/slaporte">Stephen LaPorte</a> ו-<a href="https://github.com/mahmoud">Mahmoud Hashemi</a>.</p>
+        <p><a href="http://blog.hatnote.com/">ניתן ללמוד עוד בבלוג של Hatnote</a>.</p>
+      </div>
+    </div>
+  </div>
+  <script>
+    (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+    (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+    m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+    })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+    ga('create', 'UA-40320359-1', 'hatnote.com');
+    ga('send', 'pageview');
+  </script>
+</body>
+</html>
