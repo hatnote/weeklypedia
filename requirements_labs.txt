@@ -8,4 +8,4 @@ glom==22.1.0
 PyMySQL==0.10.1
 secure-cookie==0.1.0
 -e git+https://github.com/slaporte/wapiti.git@e7dc0a7b68305da59e8c46787e5fda6a791c0d1b#egg=wapiti
-Werkzeug==1.0.1
+Werkzeug==0.15.3
