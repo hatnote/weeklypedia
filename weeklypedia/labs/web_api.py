@@ -24,7 +24,7 @@ def create_app():
               ('/v2/fetch/<lang>', fetch_rc, render_basic),
               ('/meta', MetaApplication()),
               ('/_dump_environ', lambda request: request.environ, render_basic)]
-    return Application(routes)
+    return Application(routes, debug=True)
 
 
 wsgi_app = create_app()

@@ -1,5 +1,11 @@
--e git+https://github.com/mahmoud/clastic.git#egg=clastic 
--e git+https://github.com/slaporte/wapiti.git#egg=wapiti
-
-oursql==0.9.3.1
+ashes==19.2.0
+attrs==21.4.0
+boltons==21.0.0
+-e git+https://github.com/mahmoud/clastic.git@2a2612bc5a2f71e894bebbdbf962fdff988130f0#egg=clastic
+face==20.1.1
 flup==1.0.2
+glom==22.1.0
+PyMySQL==0.10.1
+secure-cookie==0.1.0
+-e git+https://github.com/slaporte/wapiti.git@e7dc0a7b68305da59e8c46787e5fda6a791c0d1b#egg=wapiti
+Werkzeug==1.0.1
