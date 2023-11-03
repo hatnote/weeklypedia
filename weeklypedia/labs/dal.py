@@ -3,7 +3,7 @@
 import os
 import time
 from datetime import datetime, timedelta
-import oursql
+import pymysql, pymysql.cursors
 
 from wapiti import WapitiClient
 
@@ -44,13 +44,13 @@ class RecentChangesSummarizer(object):
                    COUNT(*) AS edits,
                    COUNT(DISTINCT rc_actor) AS users
             FROM recentchanges
-            WHERE rc_namespace = :namespace
+            WHERE rc_namespace = %(namespace)s  
             AND rc_type = 0
-            AND rc_timestamp > :start_date
+            AND rc_timestamp > %(start_date)s
             GROUP BY page_id
             ORDER BY edits
             DESC
-            LIMIT :limit'''
+            LIMIT %(limit)s'''
 
     _ranked_activity_new_pages_query = '''
             SELECT rc_cur_id AS page_id,
@@ -58,18 +58,18 @@ class RecentChangesSummarizer(object):
                    COUNT(*) AS edits,
                    COUNT(DISTINCT rc_actor) AS users
             FROM recentchanges
-            WHERE rc_namespace = :namespace
+            WHERE rc_namespace = %(namespace)s
             AND rc_type = 0
-            AND rc_timestamp > :start_date
+            AND rc_timestamp > %(start_date)s
             AND rc_cur_id IN (SELECT rc_cur_id
                               FROM recentchanges
-                              WHERE rc_timestamp > :start_date
-                              AND rc_namespace=:namespace
-                              AND rc_new=:is_new)
+                              WHERE rc_timestamp > %(start_date)s
+                              AND rc_namespace=%(namespace)s
+                              AND rc_new=%(is_new)s)
             GROUP BY page_id
             ORDER BY edits
             DESC
-            LIMIT :limit'''
+            LIMIT %(limit)s'''
 
     _bounding_revids_query = '''
            SELECT rc_cur_id as page_id,
@@ -81,19 +81,19 @@ class RecentChangesSummarizer(object):
                         rc_this_oldid,
                         rc_last_oldid
                  FROM recentchanges
-                 WHERE rc_namespace = :namespace
-                   AND rc_cur_id = :page_id
+                 WHERE rc_namespace = %(namespace)s
+                   AND rc_cur_id = %(page_id)s
                    AND rc_type = 0
-                   AND rc_timestamp > :start_date) PageRevs;'''
+                   AND rc_timestamp > %(start_date)s) PageRevs;'''
 
     _activity_query = '''
            SELECT COUNT(*) AS edits,
                   COUNT(DISTINCT rc_actor) AS users,
                   COUNT(DISTINCT rc_cur_id) AS titles
            FROM recentchanges
-           WHERE rc_namespace = :namespace
+           WHERE rc_namespace = %(namespace)s
            AND rc_type = 0
-           AND rc_timestamp > :start_date;'''
+           AND rc_timestamp > %(start_date)s;'''
 
     _anon_activity_query = '''
         SELECT COUNT(*) AS anon_edits,
@@ -101,9 +101,9 @@ class RecentChangesSummarizer(object):
            COUNT(DISTINCT rc_cur_id) AS anon_titles
                FROM recentchanges
                LEFT JOIN actor on rc_actor=actor_id
-               WHERE rc_namespace = :namespace
+               WHERE rc_namespace = %(namespace)s
                AND rc_type = 0
-               AND rc_timestamp > :start_date
+               AND rc_timestamp > %(start_date)s
                AND actor.actor_user IS NULL;'''
 
     _bot_activity_query = '''
@@ -111,9 +111,9 @@ class RecentChangesSummarizer(object):
                   COUNT(DISTINCT rc_actor) AS bot_count,
                   COUNT(DISTINCT rc_cur_id) AS bot_titles
            FROM recentchanges
-           WHERE rc_namespace = :namespace
+           WHERE rc_namespace = %(namespace)s
            AND rc_type = 0
-           AND rc_timestamp > :start_date
+           AND rc_timestamp > %(start_date)s
            AND rc_bot=1;'''
 
 
@@ -121,20 +121,20 @@ class RecentChangesSummarizer(object):
         self.lang = lang
         self.db_title = lang + 'wiki_p'
         self.db_host = lang + 'wiki.labsdb'
-        self.connection = oursql.connect(db=self.db_title,
-                                         host=self.db_host,
-                                         read_default_file=DB_CONFIG_PATH,
-                                         charset=None)
+        self.connection = pymysql.connect(db=self.db_title,
+                                          host=self.db_host,
+                                          read_default_file=DB_CONFIG_PATH,
+                                          charset=None)
 
     def _get_cursor(self):
-        return self.connection.cursor(oursql.DictCursor)
+        return self.connection.cursor(pymysql.cursors.DictCursor)  # oursql.DictCursor)
 
     def _select(self, query, params=None):
         if params is None:
             params = []
-        elif isinstance(params, dict):
-            old_query, old_params = query, params
-            query, params = translate_named_param_query(query, params)
+        #elif isinstance(params, dict):
+        #    old_query, old_params = query, params
+        #    query, params = translate_named_param_query(query, params)
         cursor = self._get_cursor()
         cursor.execute(query, params)
         return cursor.fetchall()
