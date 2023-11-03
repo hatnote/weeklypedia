@@ -17,24 +17,28 @@ from bake import (Issue,
                   render_index)
 
 
-def send_issue(lang, debug=False, silent=True):
+def send_issue(lang, custom_issue=None, debug=False, silent=True, nosend=True):
     if debug:
         list_id = DEBUG_ID
         if not silent:
             print '.. sending to debug list (%s)' % list_id
     else:
         list_id = SENDY_IDS[lang]
+    cur_issue = Issue(lang, custom_issue=custom_issue, include_dev=debug)
+    if not nosend:
         if not silent:
             print '.. sending to %s list (%s)' % (lang, list_id)
-    cur_issue = Issue(lang, include_dev=debug)
-    result = cur_issue.send(list_id)
-    return result
+        return cur_issue.send(list_id)
+    if not silent:
+        print '.. not sending "{subject}" to list id {list_id}'.format(list_id=list_id, subject=cur_issue.subject)
+    return
 
 
 def get_argparser():
     desc = 'Bake and send Weeklypedia issues. (Please fetch first)'
     prs = ArgumentParser(description=desc)
     prs.add_argument('--lang', default=None)
+    prs.add_argument('--issue', default=None)
     prs.add_argument('--bake_all', default=False, action='store_true')
     prs.add_argument('--nosend', default=False, action='store_true')
     prs.add_argument('--only_archives', default=False, action='store_true')
@@ -65,11 +69,8 @@ if __name__ == '__main__':
         lang = args.lang
         if not args.silent:
             print '.. rendering latest for %s' % lang
-        bake_latest_issue(issue_ashes_env, lang=lang, include_dev=debug)
-        if args.nosend:
-            if not args.silent:
-                print '.. not sending'
-        else:
-            send_issue(lang, debug=debug, silent=args.silent)
+        if not args.issue:
+            bake_latest_issue(issue_ashes_env, lang=lang, include_dev=debug)
+        send_issue(lang, custom_issue=args.issue, debug=debug, silent=args.silent, nosend=args.nosend)
     else:
         print '!! language %s not supported' % args.lang
