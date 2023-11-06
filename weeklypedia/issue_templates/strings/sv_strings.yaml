@@ -17,6 +17,8 @@ home_link: Hem
 archive_link: "{local.full_lang_name} utgåvans arkiv"
 issue_label: Nummer {issue_number}, {local.date}
 language_label: ({local.full_lang_name} Wikipedia utgåvan)
+intro: >-
+    Hej! Välkommen till veckans sammanfattning av Wikipedias aktiviteter.
 
 articles_heading: Artiklar
 articles_summary: Denna vecka gjorde{total_users|ci} användare {edits|ci} ändringar i {titles|ci} olika artiklar.
@@ -27,7 +29,7 @@ diff_author_count: av {users} användare
 
 new_articles_heading: Nya artiklar
 # new_articles_summary: # TODO
-new_articles_intro: De tio mest redigerade artklarna skapade senaste veckan
+new_articles_intro: De tio mest redigerade artiklarna skapade senaste veckan
 
 # diff count and author count handled in article section
 
@@ -39,7 +41,7 @@ stats_heading: Statistik
 stats_intro: Några siffror från senaste veckan
 
 user_edit_counts: >-
-  {stats.users|ci} registerade användare och {stats.anon_ip_count|ci} oregisterade användare gjorde {stats.edits|ci} redigeringar i {stats.titles|ci} artiklar
+  {stats.users|ci} registrerade användare och {stats.anon_ip_count|ci} oregistrerade användare gjorde {stats.edits|ci} redigeringar i {stats.titles|ci} artiklar
 anon_edit_counts: Oregistrerade användare gjorde {stats.anon_edits|ci} redigeringar i {stats.anon_titles|ci} artiklar
 bot_edit_counts: >-
   {stats.bot_count|ci} robotar gjorde {stats.bot_edits|ci} redigeringar i {stats.bot_titles|ci} artiklar
@@ -53,8 +55,8 @@ pitch: >-
     Om du vill vara uppdaterad med de mest aktiva artiklarna och
     diskussionerna, prenumerera på framtida utskick.
 
-email: "Email:"
-subscribe: Subscribe
+email: "E-post:"
+subscribe: Prenumerera
 
 #-----------
 # Bottom section
@@ -62,7 +64,7 @@ subscribe: Subscribe
 
 about_heading: Om
 about_text: >-
-  Detta projekt hämtar en lista av veckans senaste ändringar genom <a href="http://tools.wmflabs.org/">Wikimedia Tool Labs</a>, och skickar epoat genom Sendy. Kod och mer information <a href="https://github.com/hatnote/weeklypedia">finns på GitHub</a>. Byggt av <a href="https://github.com/slaporte">Stephen LaPorte</a> och <a href="https://github.com/mahmoud">Mahmoud Hashemi</a>.
+  Detta projekt hämtar en lista av veckans senaste ändringar genom <a href="http://tools.wmflabs.org/">Wikimedia Tool Labs</a>, och skickar e-post genom Sendy. Kod och mer information <a href="https://github.com/hatnote/weeklypedia">finns på GitHub</a>. Byggt av <a href="https://github.com/slaporte">Stephen LaPorte</a> och <a href="https://github.com/mahmoud">Mahmoud Hashemi</a>.
 blog_link: Läs mer på bloggen Hatnote
 learn_more: Läs mer om <a href="http://weekly.hatnote.com">Weeklypedia Digest</a>!
 
@@ -70,5 +72,5 @@ learn_more: Läs mer om <a href="http://weekly.hatnote.com">Weeklypedia Digest</
 # Email footer
 #------------------------------------------------------------------------------
 
-sent_to: Denna epost skickades till
-unsubscribe: avsluta prenumeration
+sent_to: Denna e-post skickades till
+unsubscribe: Avsluta prenumeration

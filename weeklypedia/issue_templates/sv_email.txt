@@ -33,16 +33,16 @@ De mest aktiva diskussionerna:
 
 Några siffror från senaste veckan:
 
-* {stats.users|ci} registerade användare och {stats.anon_ip_count|ci} oregisterade användare gjorde {stats.edits|ci} redigeringar i {stats.titles|ci} artiklar
+* {stats.users|ci} registrerade användare och {stats.anon_ip_count|ci} oregistrerade användare gjorde {stats.edits|ci} redigeringar i {stats.titles|ci} artiklar
 
 * Oregistrerade användare gjorde {stats.anon_edits|ci} redigeringar i {stats.anon_titles|ci} artiklar
 
 * {stats.bot_count|ci} robotar gjorde {stats.bot_edits|ci} redigeringar i {stats.bot_titles|ci} artiklar
 
-Learn more about the Weeklypedia Digest: http://weekly.hatnote.com/
+Läs mer om Weeklypedia Digest: http://weekly.hatnote.com/
 
-This email was sent to [Email]
+Denna epost skickades till [Email]
 
-Unsubscribe: [unsubscribe]
+Avsluta prenumeration: [unsubscribe]
 
 Hatnote · 131 E Empire Street · San Jose, CA 95112 · USA
