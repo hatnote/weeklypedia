@@ -48,7 +48,7 @@ class Issue(object):
         self.lang = lang
         self.full_lang_name = LANG_MAP[lang]
         past_issue_paths = get_past_issue_paths(lang, include_dev=include_dev)
-        if custom_issue:
+        if custom_issue and custom_issue != '-1':
             issue_path = [path for path in past_issue_paths
                           if custom_issue in path][0]
             # what if there is a _dev issue?

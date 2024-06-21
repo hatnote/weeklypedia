@@ -11,7 +11,7 @@ SENDY_URL = 'https://mailer.hatnote.com/s/'
 
 DEFAULT_LANGUAGE = 'en'
 DEFAULT_INTRO = 'Hello there! Welcome to our weekly digest of Wikipedia activity.'
-SUBJECT_TMPL = 'Weeklypedia {lang_name} #{issue_number}'
+SUBJECT_TMPL = u'Weeklypedia {lang_name} #{issue_number}'
 
 _CUR_PATH = dirname(os.path.abspath(__file__))
 
