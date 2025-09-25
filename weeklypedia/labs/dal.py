@@ -32,8 +32,8 @@ TODO: something with protections?  (if we ever do this, remember to use rc_actor
 NOTES:
 
 User counts generally don't include anonymous editors, but DO include
-bot editors, due to the `COUNT(DISTINCT rc_user)`. `rc_user` is user
-id, which is always 0 for unregistered users.
+bot editors, due to the `COUNT(DISTINCT rc_actor)`. Anonymous users are
+identified through the actor table where actor.actor_user IS NULL.
 
 All counts are for the main namespace unless otherwise specified.
 """
@@ -61,13 +61,13 @@ class RecentChangesSummarizer(object):
                    COUNT(DISTINCT rc_actor) AS users
             FROM recentchanges
             WHERE rc_namespace = %(namespace)s
-            AND rc_source = 'mw.edit'
+            AND rc_source IN ('mw.edit', 'mw.new')
             AND rc_timestamp > %(start_date)s
             AND rc_cur_id IN (SELECT rc_cur_id
                               FROM recentchanges
                               WHERE rc_timestamp > %(start_date)s
                               AND rc_namespace=%(namespace)s
-                              AND rc_new=%(is_new)s)
+                              AND rc_source = 'mw.new')
             GROUP BY page_id
             ORDER BY edits
             DESC
@@ -203,8 +203,7 @@ class RecentChangesSummarizer(object):
         start_date_str = start_date.strftime(DATE_FORMAT)
         params = {'namespace': namespace,
                   'start_date': start_date_str,
-                  'limit': limit,
-                  'is_new': True}  # is_new hmmm
+                  'limit': limit}
 
         results = self._select(self._ranked_activity_new_pages_query, params)
         # TODO: can eliminate the rev_ids part by getting newest
