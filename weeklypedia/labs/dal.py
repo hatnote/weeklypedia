@@ -17,11 +17,13 @@ DATE_FORMAT = '%Y%m%d%H%M%S'
 """
 TODO: something with protections?  (if we ever do this, remember to use rc_actor/actor, not rc_user, etc.)
    here's a query:
-    select rc_cur_id, rc_title, rc_user_text, rc_params
-    from recentchanges where
+    select rc_cur_id, rc_title, actor.actor_name, rc_params
+    from recentchanges
+    LEFT JOIN actor on rc_actor=actor_id
+    where
     rc_timestamp > 20140210215640
     and rc_namespace=0
-    and rc_type=3
+    and rc_source='mw.log'
     and rc_log_type='protect'
     and rc_log_action='protect'
     and rc_cur_id > 0
@@ -45,7 +47,7 @@ class RecentChangesSummarizer(object):
                    COUNT(DISTINCT rc_actor) AS users
             FROM recentchanges
             WHERE rc_namespace = %(namespace)s  
-            AND rc_type = 0
+            AND rc_source = 'mw.edit'
             AND rc_timestamp > %(start_date)s
             GROUP BY page_id
             ORDER BY edits
@@ -59,7 +61,7 @@ class RecentChangesSummarizer(object):
                    COUNT(DISTINCT rc_actor) AS users
             FROM recentchanges
             WHERE rc_namespace = %(namespace)s
-            AND rc_type = 0
+            AND rc_source = 'mw.edit'
             AND rc_timestamp > %(start_date)s
             AND rc_cur_id IN (SELECT rc_cur_id
                               FROM recentchanges
@@ -83,7 +85,7 @@ class RecentChangesSummarizer(object):
                  FROM recentchanges
                  WHERE rc_namespace = %(namespace)s
                    AND rc_cur_id = %(page_id)s
-                   AND rc_type = 0
+                   AND rc_source = 'mw.edit'
                    AND rc_timestamp > %(start_date)s) PageRevs;'''
 
     _activity_query = '''
@@ -92,7 +94,7 @@ class RecentChangesSummarizer(object):
                   COUNT(DISTINCT rc_cur_id) AS titles
            FROM recentchanges
            WHERE rc_namespace = %(namespace)s
-           AND rc_type = 0
+           AND rc_source = 'mw.edit'
            AND rc_timestamp > %(start_date)s;'''
 
     _anon_activity_query = '''
@@ -102,7 +104,7 @@ class RecentChangesSummarizer(object):
                FROM recentchanges
                LEFT JOIN actor on rc_actor=actor_id
                WHERE rc_namespace = %(namespace)s
-               AND rc_type = 0
+               AND rc_source = 'mw.edit'
                AND rc_timestamp > %(start_date)s
                AND actor.actor_user IS NULL;'''
 
@@ -112,7 +114,7 @@ class RecentChangesSummarizer(object):
                   COUNT(DISTINCT rc_cur_id) AS bot_titles
            FROM recentchanges
            WHERE rc_namespace = %(namespace)s
-           AND rc_type = 0
+           AND rc_source = 'mw.edit'
            AND rc_timestamp > %(start_date)s
            AND rc_bot=1;'''
 
