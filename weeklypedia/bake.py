@@ -18,7 +18,7 @@ from fetch import get_latest_data_path
 from common import (DEFAULT_LANGUAGE,
                     DEFAULT_INTRO,
                     DEBUG,
-                    CUSTOM_INTRO_PATH,
+                    CUSTOM_INTRO_PATH_TMPL,
                     LANG_MAP,
                     LOCAL_LANG_MAP,
                     SUBJECT_TMPL,
@@ -117,7 +117,8 @@ def prep_latest_issue(lang=DEFAULT_LANGUAGE,
                       include_dev=DEBUG):
     if intro is None:
         try:
-            intro = open(CUSTOM_INTRO_PATH).read()
+            custom_intro_path = CUSTOM_INTRO_PATH_TMPL.format(lang=lang)
+            intro = open(custom_intro_path).read()
             intro = intro.decode('utf-8').strip()
         except:
             print 'got exception reading custom intro, skipping'
